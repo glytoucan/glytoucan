@@ -1,0 +1,10 @@
+name: Glytoucan Developer Site
+description: Site for the development of Glytoucan and Glycan-related datastores
+url: http://localhost:4000
+permalink: :categories/:title
+exclude: [deprecated]
+safe: true
+pygments: true
+markdown: redcarpet
+redcarpet:
+ extensions: ['tables', 'smart', 'with_toc_data', 'superscript']
