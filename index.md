@@ -1,6 +1,6 @@
 ---
 title: Glytoucan Code
-layout: directory
+layout: top
 ---
 <h2><a class="anchor" href="#user-manual" aria-hidden="true"></a>User Manual</h2>
 
