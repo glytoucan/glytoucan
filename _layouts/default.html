@@ -2,16 +2,11 @@
 <html>
 {% include header.html %}
 <body>
-    <section class="page-header">
 	{% include menu.html %}
-	</section>
-	<div role="main">
-			<div class="content">
-			    <section class="main-content">
-	              {{ content }}
-	            </section>
-	        </div>
-    </div>
+    <h1>{{ page.title }}</h1>
+    <section class="main-content">
+            {{ content }}
+          </section>
 </body>
 {% include footer.html %}
 </html>
