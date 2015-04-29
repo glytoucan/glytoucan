@@ -1,17 +1,19 @@
 <!DOCTYPE html>
 <html>
-
 	{% include header.html %}
-
   <body>
+<section class="page-header">
+	{% include top.html %}
+</section>
 
-	{% include menu.html %}
 	</header>
 
 	<div role="main">
 		<article>
 			<div class="content">
+			    <section class="main-content">
 	              {{ content }}
+	            </section>
 	        </div>
         </article>
     </div>
