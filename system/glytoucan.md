@@ -2,6 +2,10 @@
 title: Glytoucan Front End Framework
 layout: default
 ---
+
+## architecture
+
+The 
   * cakephp
   * bitbucket
 5. rings

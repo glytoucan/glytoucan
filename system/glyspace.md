@@ -75,17 +75,22 @@ Please note that the majority of functions can also return in JSON format by add
 Glyspace was written completely in java utilizing the [spring framework](http://www.springframework.org) and [postgresql](http://www.postgresql.org/).
 The [project source code information, test cases, and dependencies](http://code.glycoinfo.org/glyspace) are generated continuously and are pushed onto the [glycoinfo website](http://www.glycoinfo.org).
 
-### glyspace dependencies
+  * [project information](http://code.glycoinfo.org/glyspace)
+  * recent [changelog](http://code.glycoinfo.org/glyspace/changelog.html)
+  * [test results](http://code.glycoinfo.org/glyspace/surefire-report.html)
+  * [source code](https://github.com/glycoinfo/glyspace)
 
-The majority of dependencies used by glyspace were developed in the [EuroCarb](http://www.ebi.ac.uk/eurocarb) project.  The source code and other materials can be found on the [newly transferred github](https://github.com/glycoinfo/eurocarbdb).  Here are some links to the libraries that were added to the glycoinfo continuous integration process:
+### dependencies
+
+A majority of dependencies used by glyspace were developed in the [EuroCarb](http://www.ebi.ac.uk/eurocarb) project.  The source code and other materials can be found on the [newly transferred github](https://github.com/glycoinfo/eurocarbdb).  Here are some links to the libraries that were added to the glycoinfo continuous integration process:
 
 1. Molecular Framework
-  * All information regarding this project is [generated continuously](http://code.glycoinfo.org/MolecularFramework).
+  * [project information](http://code.glycoinfo.org/MolecularFramework) (generated continuously)
   * recent [changelog](http://code.glycoinfo.org/MolecularFramework/changelog.html)
   * [test results](http://code.glycoinfo.org/MolecularFramework/surefire-report.html)
   * [source code](https://bitbucket.org/glycosw/eurocarbmolecularframework)
-2. ResourceDB
-  * Also [generated continuously](http://code.glycoinfo.org/ResourcesDB).
+2. ResourcesDB
+  * [project information](http://code.glycoinfo.org/ResourcesDB)
   * recent [changelog](http://code.glycoinfo.org/ResourcesDB/changelog.html)
   * [test results](http://code.glycoinfo.org/ResourcesDB/surefire-report.html)
   * [source code](https://github.com/glycoinfo/ResourcesDB)

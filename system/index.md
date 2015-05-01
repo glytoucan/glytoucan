@@ -17,6 +17,6 @@ All data stored by glytoucan is transferred into RDF format stored in a Virtuoso
 
 The glytoucan front-end is written utilizing a combination of the cakephp framework for the front and static pages, and [togostanza](http://www.togostanza.org/) to access the RDF data.  The details behind how this is accomplished is available in the [glytoucan architecture](glytoucan) page.
 
-## Infrastructure
+## infrastructure
 
 All of the above could not be completed in an efficient manner without the tools used to manage the multiple environments and requirements demanded for each environment.  The [infrastructure](infrastructure) page delves into how this was managed, and the development methods used behind each tool.
