@@ -4,7 +4,7 @@ url: http://localhost:4000
 permalink: :categories/:title
 exclude: [deprecated]
 safe: true
-pygments: true
+highlighter: pygments
 markdown: redcarpet
 redcarpet:
  extensions: ['tables', 'smart', 'with_toc_data', 'superscript']
