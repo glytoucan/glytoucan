@@ -3,7 +3,7 @@ title: Glytoucan Code
 layout: top
 ---
 <h2><a class="anchor" href="#intro" aria-hidden="true"></a>Gly-What-Can?</h2>
-GlyTouCan is the international glycan repository, if you would like to know more please refer to the [introduction and background](about).
+GlyTouCan is the [international glycan repository](http://glytoucan.org), if you would like to know more please refer to the [introduction and background](about).
 
 <h2><a class="anchor" href="#manual" aria-hidden="true"></a>User Manual</h2>
 
