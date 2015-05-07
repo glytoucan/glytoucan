@@ -3,7 +3,11 @@ title: Glytoucan Front End Framework
 layout: default
 ---
 
-## architecture
+## how complex is a front end
+
+At first glance, the glytoucan.org web page does not appear to be a major endeavor.  However as can be seen in the system diagram
+![Glytoucan System Architecture diagram](/images/glytoucan-system-architecture.svg)
+
 
 The 
   * cakephp
