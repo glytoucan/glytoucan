@@ -2,12 +2,12 @@
 title: Glytoucan Code
 layout: top
 ---
-<h2><a class="anchor" href="#intro" aria-hidden="true"></a>Gly-What-Can?</h2>
-GlyTouCan is the [international glycan repository](http://glytoucan.org), if you would like to know more please refer to the [introduction and background](about).
+<h2><a class="anchor" href="#intro" aria-hidden="true"></a>What is a glytoucan?</h2>
+GlyTouCan is the [international glycan repository](http://glytoucan.org), please refer to the [introduction and background](about) for more information.
 
 <h2><a class="anchor" href="#manual" aria-hidden="true"></a>User Manual</h2>
 
-Helpful pages describing in detail all of the functionality provided by [glytoucan.org](http://www.glytoucan.org) is [now available](manual).
+Helpful pages describing in detail all of the functionality provided by [glytoucan.org](http://www.glytoucan.org) is [available in the manual](manual).
 
 <h2><a class="anchor" href="#rdf-ontology" aria-hidden="true"></a>RDF Ontology</h2>
 

@@ -63,7 +63,7 @@ Please note that the majority of functions can also return in JSON format by add
 "affiliation":"The Glycan Registry",
 "roles":[{"roleId":2,"roleName":"ADMIN"}],
 "dateRegistered":null,
-"lastLoggedIn":"2015-01-15T11:02:58Z"},searching
+"lastLoggedIn":"2015-01-15T11:02:58Z"},
 "mass":910.3277800379999,
 "motifs":[],
 "compositions":[],
