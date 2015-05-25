@@ -1,6 +1,6 @@
 name: Glytoucan Developer Site
 description: Site for the development of Glytoucan and Glycan-related datastores
-url: http://nobu.glytoucan.org/
+url: http://code.glytoucan.org/
 permalink: :categories/:title
 exclude: [deprecated]
 safe: true
