@@ -7,7 +7,7 @@ safe: true
 highlighter: pygments
 markdown: redcarpet
 paginate: 2
-paginate_path: "/news/page:num/"
+paginate_path: "/blog/page:num/"
 redcarpet:
  extensions: ['tables', 'smart', 'with_toc_data', 'superscript']
 #gems: [jekyll-paginate]
