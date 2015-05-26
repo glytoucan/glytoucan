@@ -67,6 +67,12 @@ The search functionality displays the wealth of information that was gathered fr
       <h3>Substructures</h3>
     </a>
   </li>
+  <li>
+    <a href="../manual/search-id">
+      <img src="../images/manual/search-id.png">
+      <h3>By ID</h3>
+    </a>
+  </li>
 </ul>
 
 Browse

@@ -8,6 +8,7 @@ reviewers:
 layout: paging
 categories: [browsing, motif]
 next: browse-glycan
+previous: search-id
 ---
 
 View All Motifs
