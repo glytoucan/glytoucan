@@ -1,5 +1,5 @@
 ---
-title: Glytoucan RDF 
+title: Glytoucan RDF & Ontology
 layout: top 
 ---
 
