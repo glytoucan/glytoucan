@@ -1,6 +1,6 @@
 ---
 title: Glytoucan RDF 
-layout: default
+layout: top 
 ---
 
 RDF data model
