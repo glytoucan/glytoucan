@@ -3,45 +3,53 @@ title: FAQ
 layout: default
 ---
 
-1. What is GlyTouCan?
-　 Please see “Top page”.
+Using this tool
+---------------
 
-2. What is the meaing of GlyTouCan?
-GlyTouCan is the international glycan structure repository. 
-Thus, it is named by a combination of “Glycan” and “Tou（糖）”, which means sugar in Japanese. 
+**Q.** What is GlyTouCan?<br>
+**A.** Please see [Top page](http://www.glytoucan.org/).<br><br>
+
+**Q.** What is the meaing of GlyTouCan?<br>
+**A.** GlyTouCan is the international glycan structure repository. 
+Thus, it is named by a combination of “Glycan” and “Tou（糖）”, which means sugar in Japanese.<br> 
 The word “Can” of GlyTouCan also means a can in both English and Japanese, to indicate that it is a container where glycans are accumulated. Therefore, a can is used in logo to indicate that it is a repository with accumulated glycan data.
-In addition, a toucan is used as a character since the word “Toucan” is  used in GlyTouCan.
-Moreover, a toucan is sitting on a branch of glycan. 
+In addition, a toucan is used as a character since the word “Toucan” is  used in GlyTouCan.<br>
+Moreover, a toucan is sitting on a branch of glycan.<br><br>
 
-3.  What can we do at the GlyTouCan home page?
-    Pleaes see “Top page”.
-4. Who can use the services linked from the GlyTouCan home page?
-Anyone who has access to the Internet can use the services linked from the GlyTouCan home page. However, registration is required to use some services.
-5. How much does it cost to use the services linked from the GlyTouCan home page?
-    All of the services linked from the GlyTouCan home page are publicly available and free of  
-    charge.
+**Q.** What can we do at the GlyTouCan home page?<br>
+**A.** Pleaes see [Top page](http://www.glytoucan.org/).<br><br>
 
-6. When I use GlyTouCan, will my privacy such as access information be protected?
-GlyTouCan automatically receives certain information such as  IP address, pages viewed etc., from the user’s browser, by the user and user environment, and records onto GlyTouCan’s server. This information is used  to detect system attacks by large amounts of access in the early stage and to improve services.
-Moreover, GlyTouCan might provide collected access information and analysis results to a third party after statistical proccessing of information. GlyTouCan will not include information that identifies an individual in the access information and analysis results.
+**Q.** Who can use the services linked from the GlyTouCan home page?<br>
+**A.** Anyone who has access to the Internet can use the services linked from the GlyTouCan home page. However, registration is required to use some services.<br><br>
 
-7. How can I collaborate with the “GlyTouCan”?
-   Please inquire from the “Contact Us” link and let us know how we may collaborate.
+**Q.** How much does it cost to use the services linked from the GlyTouCan home page?
+<br>
+**A.** All of the services linked from the GlyTouCan home page are publicly available and free of charge.<br><br>
+
+**Q.** When I use GlyTouCan, will my privacy such as access information be protected?<br>
+**A.** GlyTouCan automatically receives certain information such as  IP address, pages viewed etc., from the user’s browser, by the user and user environment, and records onto GlyTouCan’s server. This information is used  to detect system attacks by large amounts of access in the early stage and to improve services.<br>
+Moreover, GlyTouCan might provide collected access information and analysis results to a third party after statistical proccessing of information.<br>
+GlyTouCan will not include information that identifies an individual in the access information and analysis results.<br><br>
+
+**Q.** How can I collaborate with the “GlyTouCan”?<br>
+**A.** Please inquire from [Contact Us]( mailto:support@glytoucan.org) and let us know how we may collaborate.<br><br>
  
-8. Can I link to one or several services available from the GlyTouCan home page?
-    Yes, links can be used in your web site and does not require any permission.
-    Please read the Site Policies of the GlyTouCan home page and Creative  
-Commons licenses for for terms and conditions of use. 
-    When you post links of GlyTouCan, please attribute links to the GlyTouCan URL as a link source by noting “GlyTouCan”. In addition, please inform us of any link(s) from “Contact Us”. 
-　
-9. Can I use data and graphics from the GlyTouCan?
-Yes, data and graphics can be used in your web site and does not require any permission. However,  redistribution of some of the resources in part or may be restricted.
-Please read and follow the Site Policies of the GlyTouCan home page and Creative  
-Commons licenses. 
-    When you reprint and/or quote data and graphics from the GlyTouCan, please attribute it to “GlyTouCan”. In addition, please inform us of link(s) to your work using “Contact Us”.
+**Q.** Can I link to one or several services available from the GlyTouCan home page?<br>
+**A.** Yes, links can be used in your web site and does not require any permission.<br>
+Please read the Site Policies of the GlyTouCan home page and Creative  
+Commons licenses for for terms and conditions of use.<br> 
+When you post links of GlyTouCan, please attribute links to the GlyTouCan URL as a link source by noting “GlyTouCan”.<br>
+In addition, please inform us of any link(s) from [Contact Us]( mailto:support@glytoucan.org).<br><br>
 
-10.  Where should I contact for inquiries for services of the GlyTouCan?
-       Please contact us via ”Contact Us”.
+**Q.** Can I use data and graphics from the GlyTouCan?<br>
+**A.** Yes, data and graphics can be used in your web site and does not require any permission. However,  redistribution of some of the resources in part or may be restricted.<br>
+Please read and follow the [Site Policies](http://code.glytoucan.org/manual/sitePolicy) of the GlyTouCan home page and [Creative  
+Commons licenses](https://creativecommons.org/licenses/by/4.0/).<br> 
+When you reprint and/or quote data and graphics from the GlyTouCan, please attribute it to “GlyTouCan”.<br>
+In addition, please inform us of link(s) to your work [Contact Us]( mailto:support@glytoucan.org).
 
-11. Do you have a tutorial on how to use this site?
-      Please see “User Guide”.
+**Q.** Where should I contact for inquiries for services of the GlyTouCan?<br>
+**A.** Please contact us via [Contact Us]( mailto:support@glytoucan.org).<br><br>
+
+**Q.** Do you have a tutorial on how to use this site?<br>
+**A.** Please see [User Guide](http://code.glytoucan.org/manual/).<br><br>
