@@ -11,7 +11,7 @@ Helpful pages describing in detail all of the functionality provided by [glytouc
 
 <h2><a class="anchor" href="#rdf-ontology" aria-hidden="true"></a>RDF Ontology</h2>
 
-A vast spectrum of contributed data from multiple glycoinformatic resources are combined along with [new semantics](rdf-ontology) specific for the repository.  A full description of the data and ontologies available in the [Semantic Web endpoint](http://ts.glytoucan.org) are also provided.
+A vast spectrum of contributed data from multiple glycoinformatic resources are combined along with [new semantics](rdf-ontology) specific for the repository.  A full description of the data and ontologies available in the [Semantic Web endpoint](http://ts.glytoucan.org/sparql) are also provided.
 
 <h2><a class="anchor" href="#system-architecture" aria-hidden="true"></a>System Architecture</h2>
 
