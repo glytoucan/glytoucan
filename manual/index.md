@@ -75,10 +75,10 @@ The search functionality displays the wealth of information that was gathered fr
   </li>
 </ul>
 
-Browse
+View
 ---------------
 
-The browse all functionality provides a quick way to view all of a specific data type.  All data in the glycan repository can be viewed from these interfaces. 
+The View All functionality provides a quick way to browse all of a specific data type.  All data in the glycan repository can be analyzed from these interfaces. 
 
 <ul class="lesson-images">
   <li>
