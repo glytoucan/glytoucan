@@ -44,13 +44,13 @@
 			<tr><td>glytoucan:contributor</td><td>glycan:resource_entry</td><td>foaf:person</td></tr>
 			<tr><td>glytoucan:has_derivatization_type</td><td>glycan:derivatized_mass</td><td>glytoucan:derivatization_type</td></tr>
 			<tr><td>glytoucan:has_derivatized_mass</td><td>glycan:saccharide</td><td>glytoucan:derivatized_mass</td></tr>
-			<tr><td>glytoucan:has_substructure</td><td>glycan:saccharide</td><td>glycan:saccharide</td></tr>
-			<tr><td>glytoucan:has_superstructure</td><td>glycan:saccharide</td><td>glycan:saccharide</td></tr>
-			<tr><td>glytoucan:has_subsume</td><td>glycan:saccharide</td><td>glycan:saccharide</td></tr>
-			<tr><td>glytoucan:is_carbohydrate_residue</td><td></td><td></td></tr>
-			<tr><td>glytoucan:is_glycosequence_of</td><td>glycan:sequence</td><td>glycan:saccharide</td></tr>
-			<tr><td>glytoucan:is_linkage_isomer</td><td>glycan:saccharide</td><td>glycan:saccharide</td></tr>
-			<tr><td>glytoucan:is_subsumed_by</td><td>glycan:saccharide</td><td>glycan:saccharide</td></tr>
+			<!-- <tr><td>glytoucan:has_substructure</td><td>glycan:saccharide</td><td>glycan:saccharide</td></tr> -->
+			<!-- <tr><td>glytoucan:has_superstructure</td><td>glycan:saccharide</td><td>glycan:saccharide</td></tr> -->
+			<!-- <tr><td>glytoucan:has_subsume</td><td>glycan:saccharide</td><td>glycan:saccharide</td></tr> -->
+			<!-- <tr><td>glytoucan:is_carbohydrate_residue</td><td></td><td></td></tr> -->
+			<!-- <tr><td>glytoucan:is_glycosequence_of</td><td>glycan:sequence</td><td>glycan:saccharide</td></tr> -->
+			<!-- <tr><td>glytoucan:is_linkage_isomer</td><td>glycan:saccharide</td><td>glycan:saccharide</td></tr> -->
+			<!-- <tr><td>glytoucan:is_subsumed_by</td><td>glycan:saccharide</td><td>glycan:saccharide</td></tr> -->
 		</table>
 
 		<h4 id="datatype-properties">Datatype Properties</h4>
@@ -58,7 +58,7 @@
 			<tr><th>Property</th><th>Domain</th><th>Range</th></tr>
 			<tr><td>glytoucan:date_registered</td><td></td><td>xsd:dateTimeStamp</td></tr>
 			<tr><td>glytoucan:has_mass</td><td>glytoucan:derivatized_mass</td><td>xsd:double</td></tr>
-			<tr><td>glytoucan:has_primary_id</td><td>glycan:saccharide</td><td>rdfs:Literal</td></tr>
+			<tr><td>glytoucan:has_primary_id</td><td>glycan:saccharide</td><td>xsd:string</td></tr>
 		</table>
 		<hr />
 
@@ -112,11 +112,11 @@
 			<div class="well">
 			<p>None:</p>
 			<p>http://www.glytoucan.org/glyco/owl/glytoucan#derivatization_type_none</p>
-			<p>Peracethylated:</p>
+<!-- 			<p>Peracethylated:</p>
 			<p>http://www.glytoucan.org/glyco/owl/glytoucan#derivatization_type_peracethylated</p>
 			<p>Permethylated:</p>
 			<p>http://www.glytoucan.org/glyco/owl/glytoucan#derivatization_type_permethylated</p>
-			</div>
+ -->			</div>
 
 		<h4 id="uri-glycosequence">Glycosquence</h4>
 			<h5 id="uri-glycoct">GlycoCT</h5>
@@ -125,7 +125,9 @@
 			<p>URI pattern : http://rdf.glycoinfo.org/glycan/{ Accession Number }/glycoct</p>
 			<p>ex：http://rdf.glycoinfo.org/glycan/G00021MO/glycoct</p>
 			</div>
-			<h5 id="uri-wurcs">WURCS</h5>
+
+			<!-- WURCS -->
+<!-- 			<h5 id="uri-wurcs">WURCS</h5>
 			<p><a href="#wurcs">Example triple</a></p>
 			<div class="well">
 			<p>URI pattern : http://rdf.glycoinfo.org/glycan/{ Accession Number }/wurcs</p>
@@ -134,7 +136,7 @@
 			<p>URI pattern : http://rdf.glycoinfo.org/glycan/wurcs/{encoded wurcs code}</p>
 			<p>ex : http://rdf.glycoinfo.org/glycan/wurcs/WURCS%3d2.0%2f1%2c0%2f%5bo2h%5d></p>
 			</div>
-
+ -->
 		<h4 id="uri-component">Component</h4>
 		<p><a href="#component">Example triple</a></p>
 			<div class="well">
@@ -145,7 +147,7 @@
 			</ul>
 			</div>
 
-		<h4 id="uri-monosaccharide">Monosaccharide (Monosaccharide DB RDF service)</h4>
+		<h4 id="uri-monosaccharide">Monosaccharide (Monosaccharide DB RDF web service)</h4>
 		<p><a href="#monosaccharide">Example triple</a></p>
 			<div class="well">
 			<p>URL pattern : http://www.monosaccharidedb.org/rdf/monosaccharide.action?name={monosaccharide name}</p>
@@ -176,8 +178,8 @@
 		<h4 id="uri-contributor">Contributor</h4>
 		<p><a href="#contributor">Example triple</a></p>
 			<div class="well">
-			<p>URI pattern : http://rdf.glytoucan.org/contributor/userId/{User ID}</p>
-			<p>ex：http://rdf.glytoucan.org/contributor/userId/105</p>
+			<p>URI pattern : http://rdf.glycoinfo.org/glytoucan/contributor/userId/{User ID}</p>
+			<p>ex：http://rdf.glycoinfo.org/glytoucan/contributor/userId/105</p>
 			</div>
 
 		<h4 id="uri-motif">Motif (Saccharide)</h4>
@@ -238,7 +240,8 @@
 		"RES 1b:b-dglc-HEX-1:5 2s:n-acetyl 3b:a-lgal-HEX-1:5|6:d 4b:b-dgal-HEX-1:5 5b:a-dgro-dgal-NON-2:6|1:a|2:keto|3:d 6s:n-acetyl LIN 1:1d(2+1)2n 2:1o(3+1)3d 3:1o(4+1)4d 4:4o(3+2)5d 5:5d(5+1)6n"^^xsd:string .
 		</pre>
 
-		<h5 id="wurcs">WURCS</h5>
+<!-- WURCS -->
+<!-- 		<h5 id="wurcs">WURCS</h5>
 		<p><a href="#uri-wurcs">URI pattern</a></p>
 		<pre>
 @PREFIX glycan: &lt;http://purl.jp/bio/12/glyco/glycan#&gt; .
@@ -257,7 +260,7 @@
 	owl:sameAs
 		&lt;http://rdf.glycoinfo.org/glycan/wurcs/WURCS%3D2.0%2F4%2C3%2F%5B12122h%2B1%3Ab%7C1%2C5%7C2*NCC%2F3%3DO%5D%5B11221m%2B1%3Aa%7C1%2C5%5D%5B12112h%2B1%3Ab%7C1%2C5%5D%5Ba2d21122h%2B2%3Aa%7C2%2C6%7C5*NCC%2F3%3DO%5D1%2B3%2C2%2B1%7C1%2B4%2C3%2B1%7C3%2B3%2C4%2B2&gt;
 		</pre>
-
+ -->
 		<h4 id="mass">Mass</h4>
 		<p>Derivatized Mass: <a href="#uri-derivatized-mass">URI pattern</a></p>
 		<p>Derivatization type: <a href="#uri-derivatization-type">URI pattern</a></p>	
@@ -369,7 +372,7 @@
 		<pre>
 @PREFIX foaf:  &lt;http://xmlns.com/foaf/0.1/&gt; .
 
-&lt;http://rdf.glytoucan/contributor/userId/1&gt;
+&lt;http://rdf.glycoinfo.org/glytoucan/contributor/userId/1&gt;
         a          foaf:Person ;
         foaf:name  "Administrator" .
 		</pre>
@@ -385,13 +388,13 @@
 
 &lt;http://rdf.glycoinfo.org/glycan/G00054MO&gt;
 	a	glycan:glycan_motif ;
-	foaf:name	"Sialyl Lewis X" .
+	rdfs:label	"Sialyl Lewis X"@en .
 	</pre>
 	<pre>
-// short vartion 
+// Abbreviated 
 &lt;http://rdf.glycoinfo.org/glycan/G00054MO&gt;
 	a	glycan:saccharide, glycan:glycan_motif ;
-	foaf:name	"Sialyl Lewis X" .
+	rdfs:label	"Sialyl Lewis X"@en .
 	glycan:has_motif	&lt;http://rdf.glycoinfo.org/glycan/G00054MO&gt; .
 		</pre>
 	</section>
@@ -425,7 +428,7 @@
 						<li><a href="#uri-glycosequence">Glycosequence</a>
 							<ul>
 								<li><a href="#uri-glycoct">GlycoCT</a></li>
-								<li><a href="#uri-wurcs">WURCS</a></li>
+								<!-- <li><a href="#uri-wurcs">WURCS</a></li> -->
 							</ul>
 						</li>
 						<li><a href="#uri-component">Component</a></li>
@@ -452,7 +455,7 @@
 						<li><a href="#sequence">Sequence</a>
 							<ul>
 								<li><a href="#glycoct">GlycoCT</a></li>
-								<li><a href="#wurcs">WURCS</a></li>
+								<!-- <li><a href="#wurcs">WURCS</a></li> -->
 							</ul>
 						</li>
 						<li><a href="#mass">Mass</a></li>
