@@ -16,11 +16,8 @@ Text Interface
   Another method to register structures is via the text interface.  If the glycan structure sequence string is known, and the format is one of the following:
    
   * GlycoCT
-  * IUPAC
-  * KCF
-  * GLYDE2
-  * GlycoCT(XML)
   * LinearCode
+  * KCF
   
 the sequence can be typed or pasted into the text area input screen.  Multiple sequences can be input with a carriage return between each sequence.
 
