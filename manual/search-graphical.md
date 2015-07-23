@@ -25,8 +25,8 @@ It is possible to create or extend from existing structures within this interfac
 ![Glytoucan Graphical Interface](/images/manual/search-graphical.png)
 _Note: User registration is not required to query for a structure._
 
-Once the structure is complete, a sequence is generated from the input and used to search the database for a valid id.  If the sequence is found in, the structure format and any related data will be displayed.
+Once the structure is complete, a sequence is generated from the input and used to search the database for a valid id.  If the sequence is found, the structure format and any related super structures will be displayed.
 
 ![Glytoucan Graphical Interface Results](/images/manual/search-result.png)
 
-_Result page of the search.  Any linked data found will also be displayed._
+_Result page of the search.  Other glycans containing the input structure will also be displayed._
