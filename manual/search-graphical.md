@@ -14,7 +14,7 @@ previous: registration-result
 Graphical Interface
 ------------
 
-To search for a specific glycan, it is possible to build the structure through a graphical interface as shown in the figure.  The tool used is based on the work done for GlycanBuilder with Vaadin as described in
+To search registered glycans with a specific structural fragment, it is possible to build through a graphical interface as shown in the figure.  The tool used is based on the work done for GlycanBuilder with Vaadin as described in
 
 <cite>
  Damerell D, Ceroni A, Maass K, Ranzinger R, Dell A, Haslam SM. The GlycanBuilder and GlycoWorkbench glycoinformatics tools: updates and new developments. Biol Chem. 2012;393:1357–1362. [PubMed](http://www.ncbi.nlm.nih.gov/pubmed/23109548).
