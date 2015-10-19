@@ -15,7 +15,7 @@ Possibly the first noticable difference is a new login and registration process.
 
 ### Publication online!
 
-It is official, our article is now available via [Pubmed](http://www.ncbi.nlm.nih.gov/pubmed/26476458).  Here is the doi:10.1093/nar/gkv1041.  My favorite section is the [Supplementary Data](http://nar.oxfordjournals.org/content/suppl/2015/10/15/gkv1041.DC1) *mmm juicy data*  It explains how the sparql endpoint should be used and how much better it is compared to standard REST-based web services.
+It is official, our article is now available via [Pubmed](http://www.ncbi.nlm.nih.gov/pubmed/26476458).  Here is the doi:10.1093/nar/gkv1041.  My favorite section is the [Supplementary Data](http://nar.oxfordjournals.org/content/suppl/2015/10/15/gkv1041.DC1) (*mmm juicy data*)  It explains how the sparql endpoint should be used and how much better it is compared to standard REST-based web services.
 
 ### other fixes:
 
