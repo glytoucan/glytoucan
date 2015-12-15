@@ -21,4 +21,4 @@ Once found, the results will be shown on the next screen:
 
 ![Glytoucan Graphical Interface Results](/images/manual/glycan-entry-G00028MO.png)
 
-_Result page of searching for "G99973YH".  Any linked data found will also be displayed._
+_Result page of searching for "G00028MO".  Any linked data found will also be displayed._
