@@ -1,5 +1,5 @@
 ---
-title: The Glycan Repository Structure Image Architecture
+title: Glycan Structure Image Architecture
 layout: default
 ---
 
