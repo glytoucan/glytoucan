@@ -45,6 +45,8 @@ PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
   glycan:has_image <http://rdf.glycoinfo.org/glycan/glycan/G00054MO/glycanbuilder/image/png/cfg> .
 
 PREFIX foaf: <http://xmlns.com/foaf/0.1/> 
+PREFIX dc: <http://purl.org/dc/elements/1.1/> 
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
 <http://rdf.glycoinfo.org/glycan/G00054MO/glycanbuilder/png/cfg> a glycan:image ;
  dc:title "GlyTouCan registered structure ID: G00054MO" ;
  dc:creator "GlycanBuilder v1.0" ;
@@ -86,6 +88,21 @@ org.glytoucan.ws.controller.GlycanController.getGlycanImage(String, String, Stri
 It currently retrieves the glycoct and executes the GlycanBuilder generation process to create them.
 
 Instead the hex-encoded data can be retrieved directly using sparql.  This can then be converted into a binary image and displayed.
+
+```
+PREFIX foaf: <http://xmlns.com/foaf/0.1/> 
+PREFIX dc: <http://purl.org/dc/elements/1.1/> 
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
+SELECT ?data
+WHERE {
+  ?glycan glycan:has_primary_key "G00054MO" .
+  ?glycan glycan:has_image ?glycanImage .
+  ?glycanImage foaf:thumbnail ?data .
+  ?glycanImage glycan:has_symbol_format	glycan:symbol_format_cfg ;
+  ?glycanImage dc:format "image/png"^^xsd:string ;
+}
+
+```
 
 ## Conclusion
 
