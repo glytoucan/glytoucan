@@ -28,6 +28,6 @@ Once entered, each structure will be checked for redundancy and if not previousl
 
 ![Glytoucan Graphical Interface](/images/manual/registration-result.png)
 
-The sequences input will be converted into GlycoCT and displayed on this screen.  The results on this screen can be downloaded into spreadsheet format for review.
+The sequences input will be converted into WURCS and displayed on this screen.  The results on this screen can be downloaded into spreadsheet format for review.
 
 Please note the checkbox to the left of each structure result.  As there can be multiple structures registered on this page, a checkbox is provided to choose the sequence that is to be submitted.  For those that are checked, a new Accession number will be generated and stored into the repository.
