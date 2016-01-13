@@ -53,3 +53,12 @@ In addition, please inform us of link(s) to your work [Contact Us]( mailto:suppo
 
 **Q.** Do you have a tutorial on how to use this site?<br>
 **A.** Please see [User Guide](http://code.glytoucan.org/manual/).<br><br>
+
+**Q.** What is the "reducing end" column that appears on the motif list and search pages?
+**A.** For motifs, this is used to determine if the root monosaccharide must be the same root for the motif-patterned structures.
+
+**Q.** What would happen if I don't have linkage position information?
+**A.** The position would be considered ambigous.  It would be registered as ambiguous and when searching, the similar structures with any linkage position will be queried.
+
+**Q.** How are aglycons supported?
+**A.** Currently aglycons and glycoconjugates are not supported.  However we do plan to support them in the near future.
