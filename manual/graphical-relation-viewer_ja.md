@@ -4,10 +4,9 @@ authors:
 - Keiko Tokunaga
 date: 2015-12-17
 reviewers:
--
+- Nobuyuki Aoki
 layout: paging
 categories: [relation, graphical]
-next: registration-text?
 ---
 
 糖鎖構造間の関係性を可視化したツール
