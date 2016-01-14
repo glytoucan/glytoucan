@@ -1,0 +1,5 @@
+_site/*
+.project
+.settings
+.jekyll-metadata
+**/*.swp
