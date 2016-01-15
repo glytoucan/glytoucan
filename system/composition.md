@@ -16,7 +16,7 @@ GlyTouCanに糖鎖構造を登録する時のコンポーネント分解フロ�
 
 * 新規登録
   * シーケンスの分解WFW(converter)から取得＊
-      * 現時点、[WurcsRDF](https://bitbucket.org/glycosw/wurcsrdf)を利用して担当データ（MS）を生成します。＊
+      * 現時点、[WurcsRDF](https://bitbucket.org/glycosw/wurcsrdf)を利用して単糖データ（MS）を生成します。＊
   * 単糖別
       * [単糖のタイプをSPARQL](https://github.org/glytoucan/batch)で取得し分解
       * monosaccharideタイプ別のReadableNameを取得
