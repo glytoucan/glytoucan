@@ -92,3 +92,5 @@ WURCSのResidue文字列でRDFを取得：
 ### 新しい[GlycoRDF](https://github.com/glycoinfo/GlycoRDF)の変更点
 
 [最初の設計書](/system/composition_aglycon)
+
+[n-core glycan composition]のサンプル
