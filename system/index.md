@@ -1,22 +1,33 @@
 ---
-title: Glytoucan System Architecture
+title: GlyTouCan System Architecture
 layout: default
 ---
-![Glytoucan System Architecture diagram](/images/glytoucan-system-architecture.svg)
-The glycan repository (below: glytoucan) consists of three major components.  Each component is a different method of accessing the information in the repository.  GlySpace is the backend server with the database storing the initially registered glycan and user information.  This server provides a RESTful web service interface allowing to access, insert and update the information stored in the database.  Third party applications (API Programmers) can freely use the web services directly to access the data content and to modify or extend it.  glytoucan.org is the web front-end server providing web pages cleanly formatted to display the information in the repository.  The site allows users(glycoscientists) to visual inspect, create, or modify the data in the repository using a web browser.  The front-end server uses the web services provided by the backend servers to extract or modify information in the database and does not store data itself.  The other backend server is the Linked Data datastore, which is the main method of data storage.  In comparison to the database no user data is stored and glycan-related information is provided as RDF.  This will make the data freely accessible for the semantic web community, enabling the use of SPARQL queries to retrieve information.  Linked Data batch processes and loaders were also created that converted and enriched the RDF data from glyspace and other external databases.  How each component was designed, the technologies used, and source code will be provided in detail below.
+## Target Audience
 
-## glyspace
+This is a detailed description of the various parts of the GlyTouCan repository.  It is meant to be a resource to understand how the system is maintained and to analyze where there can be made improvements.
 
-glyspace is a java-based REST interface server storing data in a postgresql database backend.  A description of how to access and use the interface is [available](glyspace).  This system was written by the [glyspace team](http://glyspace.org)  
+![Glytoucan System Architecture diagram](/images/system/glytoucan2-system-architecture.svg)
+## Repository of Subsystems
 
-## Linked Data
+The GlyTouCan glycan repository is actually a combination of various subsystems.  Each subsystem undertakes a specific role in managing the information stored in the repository; this information will ultimately be stored in a triplestore.  How each component was designed, the technologies used, and source code will be provided in detail below.
 
-All data stored by glytoucan is transferred into RDF format in a quadstore server.  Please refer to the [Linked Data architecture](quadstore) for details on how the data is transferred and enriched.
+### Linked Data RDF Triplestore
 
-## glytoucan
+All data stored in the repository is added as Linked-data into a triplestore.  Through the triplestore web-interface, all glycan-related information is provided publically as RDF.  This will make the data freely accessible for the semantic web community, enabling the use of SPARQL queries to retrieve information.  Linked Data batch processes and loaders were also created that converted and enriched the RDF data from various sources such as currently available public databases.  Please refer to the [Linked Data architecture](quadstore) for details on how the data is transferred and enriched.
 
-The glytoucan front-end is written utilizing a combination of the cakephp framework for interfacing with the glyspace REST interface, and [togostanza](http://www.togostanza.org/) to access the RDF data.  The details behind how this is accomplished is available in the [glytoucan architecture](glytoucan) page.
+### API Server and Java Client
 
-## infrastructure
+The [api server](http://api.glytoucan.org) interacts directly with the triplestore and is used as a form of a gateway to the data.  It provides a RESTful web service interface allowing to access, insert and update the information stored in RDF (triplestore data).  Third party applications (API Programmers) can freely use the web services directly to access the data content and to modify or extend it.  For Java programmers there is a [java client](http://github.com/glytoucan/client) which can be used to interact with the API server without having to deal with the complexities of the REST protocol.
+
+* [API Server Documentation](https://github.com/glytoucan/api)
+* [Java Client Documentation](https://github.com/glytoucan/client)
+
+### Web Server and Internationalization
+
+The GlyTouCan java icon is the front-end server providing web pages cleanly formatted to display the information in the repository.  The site allows users(glycoscientists) to visual inspect, create, or modify the data in the repository using a web browser.  The front-end server uses the web services provided by the backend servers to extract or modify information in the database and does not store data itself.  It utilizes the [java client](http://github.com/glytoucan/client) to implement this cleanly.  
+
+It is primarily written in Java using the Spring Framework as controller and [togostanza](http://www.togostanza.org/) as dynamic view of the RDF data.  The details behind how this is accomplished is available in the [glytoucan architecture](glytoucan) page.
+
+## Infrastructure
 
 All of the above could not be completed in an efficient manner without the tools used to manage the multiple environments and requirements demanded for each environment.  The [infrastructure](infrastructure) page delves into how this was managed, and the development methods used behind each tool.
