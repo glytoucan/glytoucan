@@ -93,4 +93,4 @@ WURCSのResidue文字列でRDFを取得：
 
 [最初の設計書](/system/composition_aglycon)
 
-[n-core glycan composition]のサンプル
+[n-core glycan composition](composition_sample)のサンプル
