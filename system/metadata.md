@@ -10,20 +10,20 @@ layout: default
 
 ## Related Data
 ### Motif
-* [SPARQL Query](../sparqlForMetadata/)
+* [SPARQL Query](/system/sparqlForMetadata/)
 
 ### Monosaccharide composition
-* [SPARQL Query](../sparqlForMetadata/)
+* [SPARQL Query](/system/sparqlForMetadata/)
 
 ## Linked DB
 ### BCSDB
-* [SPARQL Query](../sparqlForMetadata/linkeddb-bcsdb.md)
+* [SPARQL Query](/system/sparqlForMetadata/linkeddb-bcsdb.md)
 
 ### GlycomeDB
-* [SPARQL Query](../sparqlForMetadata/linkeddb-glycomedb.md)
+* [SPARQL Query](/system/sparqlForMetadata/linkeddb-glycomedb.md)
 
 ### GlycoEpitope
-* [SPARQL Query](../sparqlForMetadata/)
+* [SPARQL Query](/system/sparqlForMetadata/)
 
 ### UniCarb-DB
-[SPARQL Query](../sparqlForMetadata/)
+[SPARQL Query](/system/sparqlForMetadata/)
