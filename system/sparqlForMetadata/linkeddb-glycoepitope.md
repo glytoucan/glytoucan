@@ -37,6 +37,9 @@ PREFIX uniprot: <http://www.uniprot.org/core/>
 
 
 ### SPARQL Query  
+Output  
+epitope url = ?ep  
+
 ```
 SELECT DISTINCT ?ep
 FROM <http://rdf.glytoucan.org>
@@ -87,7 +90,7 @@ WHERE{
 
 
 ### Glycoprotein & Glycolipid
-Output
+Output  
 glycoprotein = ?gp\_name   
 glycolipid = ?gl\_name   
 
@@ -111,10 +114,12 @@ WHERE{
 }
 ```
 
+
 ### Cell Line & Tissue and Cellular Distribution
-Output
+Output  
 cell line = ?cell\_name   
 Tissue and Cellular distribution = ?tissue\_name  
+
 ```
 SELECT distinct ?cell\_name ?tissue\_name
 FROM <http://rdf.glycoinfo.org/glycoepitope>
@@ -133,10 +138,12 @@ WHERE{
 }
 ```
 
+
 ### PubMed URL and PubMed ID
-Output
+Output  
 pubmed url = ?pubmed   
 pubmed id = ?pubmed\_id  
+
 ```
 SELECT distinct ?pubmed ?pubmed\_id
 FROM <http://rdf.glycoinfo.org/glycoepitope>
@@ -150,11 +157,13 @@ WHERE{
 }
 ```
 
+
 ### Antibody ID & Antibody Name
-Output
+Output  
 antibody id = ?anti\_id   
 antibody url = ?antibody   
 antibody name = ?anti\_name  
+
 ```
 SELECT distinct ?antibody ?anti\_id ?anti\_name
 FROM <http://rdf.glycoinfo.org/glycoepitope>
