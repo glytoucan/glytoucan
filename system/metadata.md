@@ -7,6 +7,7 @@ layout: default
 
 ## Overview
 * [SPARQL Query](sparqlForMetadata/overview.md)
+
     PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
     PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
 
