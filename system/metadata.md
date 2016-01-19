@@ -17,7 +17,7 @@ layout: default
 
 ## Linked DB
 ### BCSDB
-[SPARQL Query](sparqlForMetadata/overview.md)
+[SPARQL Query](sparqlForMetadata/linkeddb-bcsdb.md)
 
 ### GlycomeDB
 [SPARQL Query](sparqlForMetadata/overview.md)
