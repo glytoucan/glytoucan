@@ -26,4 +26,4 @@ layout: default
 * [SPARQL Query](sparqlForMetadata/)
 
 ### UniCarb-DB
-[SPARQL Query](sparqlForMetadata/overview.md)
+[SPARQL Query](sparqlForMetadata/)
