@@ -9,7 +9,7 @@ layout: default
 
 ### Output
 epitope url = ?ep  
-epitope id = ?ep_id  
+epitope id = ?ep\_id  
 epitope name = ?ep_name   
 glycoprotein = ?gp_name   
 glycolipid = ?gl_name   
