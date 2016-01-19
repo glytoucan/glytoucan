@@ -2,10 +2,10 @@
 title: SPARQL Query for Overview
 layout: default
 ---
-Input :
+Input
 ?glycan glytoucan:has_primary_id "Input Accession number" 
 
-Output :
+Output
 WURCSのラベル
 GlycoCT
 Massのラベル
