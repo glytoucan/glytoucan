@@ -6,15 +6,14 @@ layout: default
 # SPARQL Query
 
 ## Overview
-* [SPARQL Query](overview.md)
-* [SPARQL Query](/system/sparqlForMetadata/overview.md)
+* [SPARQL Query](/system/sparqlForMetadata/overview)
 
 ## Related Data
 ### Motif
-* [SPARQL Query](/system/sparqlForMetadata/)
+* [SPARQL Query](/system/sparqlForMetadata/related-data-motif)
 
 ### Monosaccharide composition
-* [SPARQL Query](/system/sparqlForMetadata/)
+* [SPARQL Query](/system/sparqlForMetadata/related-data-monosaccharide)
 
 ## Linked DB
 ### BCSDB
@@ -24,7 +23,7 @@ layout: default
 * [SPARQL Query](/system/sparqlForMetadata/linkeddb-glycomedb.md)
 
 ### GlycoEpitope
-* [SPARQL Query](/system/sparqlForMetadata/)
+* [SPARQL Query](/system/sparqlForMetadata/linkeddb-glycoepitope)
 
 ### UniCarb-DB
-[SPARQL Query](/system/sparqlForMetadata/)
+* [SPARQL Query](/system/sparqlForMetadata/linkeddb-unicarb-db)
