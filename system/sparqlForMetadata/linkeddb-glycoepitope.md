@@ -8,8 +8,8 @@ VALUES ?AccessionNumber {"Input Accession number"}
 
 
 ### Output
-epitope id = ?ep_id  
 epitope url = ?ep  
+epitope id = ?ep_id  
 epitope name = ?ep_name   
 glycoprotein = ?gp_name   
 glycolipid = ?gl_name   
@@ -52,6 +52,9 @@ WHERE {
 ```
 
 ### Epiltope id & Epitope name
+_Output_
+epitope id = ?ep_id  
+epitope name = ?ep_name   
 ```
 SELECT distinct ?ep_id ?ep_name 
 FROM <http://rdf.glycoinfo.org/glycoepitope>
@@ -97,7 +100,7 @@ WHERE{
 }
 ```
 
-# Cell Line & Tissue and Cellular Distribution
+### Cell Line & Tissue and Cellular Distribution
 ```
 SELECT distinct ?cell_name ?tissue_name
 FROM <http://rdf.glycoinfo.org/glycoepitope>
@@ -116,7 +119,7 @@ WHERE{
 }
 ```
 
-# PubMed URL and PubMed ID
+### PubMed URL and PubMed ID
 ```
 SELECT distinct ?pubmed ?pubmed_id
 FROM <http://rdf.glycoinfo.org/glycoepitope>
