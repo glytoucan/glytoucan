@@ -2,11 +2,11 @@
 title: Glycan entry Metadata (by SPARQL Query)  
 layout: default
 ---
-![Glytoucan Motif List](/images/manual/browse-motif.png)
 
 # SPARQL Query
 
 ## Overview
+[SPARQL Query](./sparqlForMetadata/overview.md)
 
 ## Motif
 
