@@ -4,7 +4,7 @@ layout: default
 ---
 
 ### Input
-VALUES ?AccessionNumber {"Input Accession number"}
+`VALUES ?AccessionNumber {"Input Accession number"}`
 
 
 ### Output
@@ -52,7 +52,7 @@ WHERE {
 ```
 
 ### Epiltope id & Epitope name
-_Output_
+**Output**
 epitope id = ?ep_id  
 epitope name = ?ep_name   
 ```
