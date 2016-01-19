@@ -2,10 +2,10 @@
 title: SPARQL Query for Overview
 layout: default
 ---
-Input
+### Input
 ?glycan glytoucan:has_primary_id "Input Accession number" 
 
-Output
+### Output
 WURCSのラベル
 GlycoCT
 Massのラベル
@@ -15,14 +15,14 @@ Massのラベル
     PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
     PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
 
-      SELECT DISTINCT ?WURCS_label ?GlycoCT ?Mass_label ?Contributor ?ContributionTime
-      FROM <http://rdf.glytoucan.org>
-      FROM <http://rdf.glytoucan.org/core>
-      FROM NAMED <http://rdf.glytoucan.org/mass>
-      FROM <http://rdf.glytoucan.org/sequence/wurcs>
-      FROM <http://rdf.glytoucan.org/sequence/glycoct>
-      FROM <http://rdf.glytoucan.org/users>
-      WHERE {
+    SELECT DISTINCT ?WURCS_label ?GlycoCT ?Mass_label ?Contributor ?ContributionTime
+    FROM <http://rdf.glytoucan.org>
+    FROM <http://rdf.glytoucan.org/core>
+    FROM NAMED <http://rdf.glytoucan.org/mass>
+    FROM <http://rdf.glytoucan.org/sequence/wurcs>
+    FROM <http://rdf.glytoucan.org/sequence/glycoct>
+    FROM <http://rdf.glytoucan.org/users>
+    WHERE {
         # repository RDF
         # Accession Number
         ?glycan a glycan:saccharide.
@@ -57,4 +57,4 @@ Massのラベル
              glytoucan:contributor ?c .
         ?c foaf:name ?Contributor .
         }
-      } LIMIT 1
+    } LIMIT 1
