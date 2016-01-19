@@ -34,6 +34,7 @@ PREFIX glycoprot: <http://www.glycoprot.jp/>
 PREFIX uniprot: <http://www.uniprot.org/core/>
 ```
 
+### SPARQL Query  
 ```
 SELECT DISTINCT ?ep
 FROM <http://rdf.glytoucan.org>
@@ -50,9 +51,8 @@ WHERE {
 
 ```
 
-
+### Epiltope id & Epitope name
 ```
-# epiltope id & epitope name
 SELECT distinct ?ep_id ?ep_name 
 FROM <http://rdf.glycoinfo.org/glycoepitope>
 WHERE{
@@ -64,9 +64,8 @@ WHERE{
 }
 ```
 
-
+### GlycoEpitope Sequence
 ```
-# glycoepitope sequence
 SELECT DISTINCT (str(?seq) AS ?sequence)
 FROM <http://rdf.glycoinfo.org/glycoepitope>
 WHERE{
@@ -77,9 +76,8 @@ WHERE{
 }
 ```
 
-
+### Glycoprotein & Glycolipid
 ```
-# glycoprotein & glycolipid
 SELECT distinct ?gp_name ?gl_name
 FROM <http://rdf.glycoinfo.org/glycoepitope>
 WHERE{
@@ -99,9 +97,8 @@ WHERE{
 }
 ```
 
-
+# Cell Line & Tissue and Cellular Distribution
 ```
-# cell line & tissue and cellular distribution
 SELECT distinct ?cell_name ?tissue_name
 FROM <http://rdf.glycoinfo.org/glycoepitope>
 WHERE{
@@ -119,9 +116,8 @@ WHERE{
 }
 ```
 
-
+# PubMed URL and PubMed ID
 ```
-# pubmed url and pubmed id
 SELECT distinct ?pubmed ?pubmed_id
 FROM <http://rdf.glycoinfo.org/glycoepitope>
 WHERE{
@@ -134,9 +130,8 @@ WHERE{
 }
 ```
 
-
+### Antibody ID & Antibody Name
 ```
-# antibody id & antibody name
 SELECT distinct ?nati_id ?anti_name
 FROM <http://rdf.glycoinfo.org/glycoepitope>
 WHERE{
