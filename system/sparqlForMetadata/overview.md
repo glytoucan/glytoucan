@@ -6,12 +6,13 @@ layout: default
 ?glycan glytoucan:has_primary_id "Input Accession number" 
 
 ### Output
-WURCSのラベル
-GlycoCT
-Massのラベル
-投稿者名
-投稿日
+WURCSのラベル  
+GlycoCT  
+Massのラベル  
+投稿者名  
+投稿日  
 
+```
     PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
     PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
 
@@ -58,3 +59,4 @@ Massのラベル
     ?c foaf:name ?Contributor .
         }
     } LIMIT 1
+```
