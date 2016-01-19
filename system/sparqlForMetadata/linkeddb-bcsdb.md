@@ -6,13 +6,13 @@ layout: default
 VALUES ?AccessionNumber {"Input Accession number"}
 
 ### Output
-Accession number = ?AccessionNumber
-Scientific name of Taxon = ?name
-Host name = ?hostName
-Disease name = ?dise
-PubMed ID = ?pmid
-BCSDB URL = ?url
-BCSDB ID = ?id
+Accession number = ?AccessionNumber  
+Scientific name of Taxon = ?name  
+Host name = ?hostName  
+Disease name = ?dise  
+PubMed ID = ?pmid  
+BCSDB URL = ?url  
+BCSDB ID = ?id  
 
 ```
     PREFIX dcterms: <http://purl.org/dc/terms/>
