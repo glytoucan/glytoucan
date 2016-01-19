@@ -5,15 +5,15 @@ layout: default
 
 # SPARQL Query
 
-## Overview
+## Overview part
 [SPARQL Query](sparqlForMetadata/overview.md)
 
-## Motif
+## Related Data part
+### Motif
 
-## Monosaccharide composition
+### Monosaccharide composition
 
-## Linked DB
-
+## Linked DB part
 ### BCSDB
 
 ### GlycomeDB
