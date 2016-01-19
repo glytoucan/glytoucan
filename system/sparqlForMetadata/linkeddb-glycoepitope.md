@@ -51,7 +51,7 @@ WHERE {
 
 ```
 
-### Epiltope id & Epitope name
+### Epiltope id & Epitope name  
 Output  
 epitope id = ?ep_id  
 epitope name = ?ep_name   
