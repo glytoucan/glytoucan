@@ -6,7 +6,7 @@ layout: default
 # SPARQL Query
 
 ## Overview
-* [SPARQL Query](overview.md)
+* [SPARQL Query](/system/overview.md)
 * [SPARQL Query](/system/sparqlForMetadata/overview.md)
 
 ## Related Data
