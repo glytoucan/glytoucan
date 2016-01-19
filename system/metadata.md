@@ -6,7 +6,7 @@ layout: default
 # SPARQL Query
 
 ## Overview
-* [SPARQL Query](../sparqlForMetadata/overview.md)
+* [SPARQL Query](/system/sparqlForMetadata/overview.md)
 
 ## Related Data
 ### Motif
