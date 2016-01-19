@@ -17,10 +17,10 @@ layout: default
 
 ## Linked DB
 ### BCSDB
-* [SPARQL Query](/system/sparqlForMetadata/linkeddb-bcsdb.md)
+* [SPARQL Query](/system/sparqlForMetadata/linkeddb-bcsdb)
 
 ### GlycomeDB
-* [SPARQL Query](/system/sparqlForMetadata/linkeddb-glycomedb.md)
+* [SPARQL Query](/system/sparqlForMetadata/linkeddb-glycomedb)
 
 ### GlycoEpitope
 * [SPARQL Query](/system/sparqlForMetadata/linkeddb-glycoepitope)
