@@ -55,6 +55,7 @@ WHERE {
 Output  
 epitope id = ?ep_id  
 epitope name = ?ep_name  
+
 ```
 SELECT distinct ?ep_id ?ep_name 
 FROM <http://rdf.glycoinfo.org/glycoepitope>
