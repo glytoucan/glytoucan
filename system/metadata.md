@@ -27,3 +27,6 @@ layout: default
 
 ### UniCarb-DB
 * [SPARQL Query](/system/sparqlForMetadata/linkeddb-unicarb-db)
+
+### UniCarbKB
+* [SPARQL Query](/system/sparqlForMetadata/linkeddb-unicarbkb)
