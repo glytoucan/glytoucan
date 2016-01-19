@@ -76,6 +76,8 @@ WHERE{
 
 
 ### GlycoEpitope Sequence
+Output  
+GlycoEpitope Sequence = ?sequence  
 
 ```
 SELECT DISTINCT (str(?seq) AS ?sequence)
