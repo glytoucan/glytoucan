@@ -20,7 +20,7 @@ layout: default
 * [SPARQL Query](sparqlForMetadata/linkeddb-bcsdb.md)
 
 ### GlycomeDB
-* [SPARQL Query](sparqlForMetadata/)
+* [SPARQL Query](sparqlForMetadata/linkeddb-glycomedb.md)
 
 ### GlycoEpitope
 * [SPARQL Query](sparqlForMetadata/)
