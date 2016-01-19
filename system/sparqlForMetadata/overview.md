@@ -12,10 +12,10 @@ Massのラベル
 投稿者名
 投稿日
 
- 	  PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
+    PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
     PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
 
-    SELECT DISTINCT ?WURCS_label ?GlycoCT ?Mass_label ?Contributor ?ContributionTime
+      SELECT DISTINCT ?WURCS_label ?GlycoCT ?Mass_label ?Contributor ?ContributionTime
       FROM <http://rdf.glytoucan.org>
       FROM <http://rdf.glytoucan.org/core>
       FROM NAMED <http://rdf.glytoucan.org/mass>
