@@ -8,6 +8,8 @@ layout: default
 ## Overview
 * [SPARQL Query](sparqlForMetadata/overview.md)
 
+```
+#!SPARQL
     PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
     PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
 
@@ -54,6 +56,8 @@ layout: default
     ?c foaf:name ?Contributor .
         }
     } LIMIT 1
+```
+
 ## Related Data
 ### Motif
 * [SPARQL Query](sparqlForMetadata/)
