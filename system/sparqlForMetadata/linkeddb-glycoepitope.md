@@ -34,6 +34,7 @@ PREFIX glycoprot: <http://www.glycoprot.jp/>
 PREFIX uniprot: <http://www.uniprot.org/core/>
 ```
 
+```
 SELECT DISTINCT ?ep
 FROM <http://rdf.glytoucan.org>
 FROM <http://rdf.glytoucan.org/core>
@@ -47,7 +48,10 @@ WHERE {
 	?glytoucan glycan:has_epitope ?ep .
 }
 
+```
 
+
+```
 # epiltope id & epitope name
 SELECT distinct ?ep_id ?ep_name 
 FROM <http://rdf.glycoinfo.org/glycoepitope>
@@ -58,8 +62,10 @@ WHERE{
 	# epitope name
 	?ep rdfs:label ?ep_name .
 }
+```
 
 
+```
 # glycoepitope sequence
 SELECT DISTINCT (str(?seq) AS ?sequence)
 FROM <http://rdf.glycoinfo.org/glycoepitope>
@@ -69,8 +75,10 @@ WHERE{
 	?gseq glycan:in_carbohydrate_format glycan:carbohydrate_format_glycoepitope .
 	?gseq glycan:has_sequence ?seq .
 }
+```
 
 
+```
 # glycoprotein & glycolipid
 SELECT distinct ?gp_name ?gl_name
 FROM <http://rdf.glycoinfo.org/glycoepitope>
@@ -89,7 +97,10 @@ WHERE{
     ?gl rdfs:label ?gl_name .
 	}
 }
+```
 
+
+```
 # cell line & tissue and cellular distribution
 SELECT distinct ?cell_name ?tissue_name
 FROM <http://rdf.glycoinfo.org/glycoepitope>
@@ -106,7 +117,10 @@ WHERE{
 	?tissue rdfs:label ?tissue_name .
 	}
 }
+```
 
+
+```
 # pubmed url and pubmed id
 SELECT distinct ?pubmed ?pubmed_id
 FROM <http://rdf.glycoinfo.org/glycoepitope>
@@ -118,8 +132,10 @@ WHERE{
 	?pubmed dcterms:identifier ?pubmed_id .
 	}
 }
+```
 
 
+```
 # antibody id & antibody name
 SELECT distinct ?nati_id ?anti_name
 FROM <http://rdf.glycoinfo.org/glycoepitope>
@@ -136,3 +152,4 @@ WHERE{
 	?antibody rdfs:label ?anti_name .
 	}
 }
+```
