@@ -6,10 +6,11 @@ layout: default
 # SPARQL Query
 
 ## Overview
-* [SPARQL Query](/system/sparqlForMetadata/overview)
 ![overview](/images/manual/glycan-entry-G00051MO-Overview.png)
+* [SPARQL Query](/system/sparqlForMetadata/overview)
 
 ## Related Data
+![related data](/images/manual/glycan-entry-G00051MO-RelatedData.png)
 ### Motif
 * [SPARQL Query](/system/sparqlForMetadata/related-data-motif)
 
@@ -17,6 +18,7 @@ layout: default
 * [SPARQL Query](/system/sparqlForMetadata/related-data-monosaccharide)
 
 ## Linked DB
+![linked db](/images/manual/glycan-entry-G00051MO-LinkdDB.png)
 ### BCSDB
 * [SPARQL Query](/system/sparqlForMetadata/linkeddb-bcsdb)
 
