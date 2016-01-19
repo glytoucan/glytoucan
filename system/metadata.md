@@ -7,6 +7,7 @@ layout: default
 
 ## Overview
 * [SPARQL Query](/system/sparqlForMetadata/overview)
+![overview](/images/manual/glycan-entry-G00051MO-Overview.png)
 
 ## Related Data
 ### Motif
