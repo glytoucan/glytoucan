@@ -3,16 +3,16 @@ title: SPARQL Query for Overview
 layout: default
 ---
 ### Input
-Sample Accession number : G00051MO
+Sample Accession number : G00051MO  
 `?glycan glytoucan:has_primary_id "Input Accession number"` 
 
 
 ### Output
-WURCSのラベル  
-GlycoCT  
-Massのラベル  
-投稿者名  
-投稿日  
+WURCS : ?WURCS_label  
+GlycoCT : ?GlycoCT  
+Mass : ?Mass_label  
+Contributor : ?Contributor  
+Contribution time : ?contributionTime  
 
 ```
     PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
