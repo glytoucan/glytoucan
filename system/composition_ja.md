@@ -95,6 +95,10 @@ SPARQL:
 
 [Sample](http://beta.ts.glytoucan.org/sparql?default-graph-uri=&query=PREFIX+wurcs%3A+%3Chttp%3A%2F%2Fwww.glycoinfo.org%2Fglyco%2Fowl%2Fwurcs%23%3E%0D%0ASELECT+distinct+%3Fmono%0D%0A++++++++++++++++FROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fwurcs%2Fms%3E%0D%0A++++++++++++++++WHERE%7B%0D%0A%3Fmono+a+wurcs%3AMonosaccharide+.%0D%0A%7D%0D%0Alimit+100&format=text%2Fhtml&timeout=0&debug=on)
 
+### Monosaccharide alias name
+新しいGRAPHに、MsDBかWC-WFWから取得したalias nameをいれます。  
+GRAPH `<http://rdf.glytoucan.org/ms/aliasname>`
+
 
 #### MonosaccharideDBから取得場合：
 
