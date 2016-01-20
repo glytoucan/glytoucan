@@ -13,12 +13,12 @@ Sample Accession number : G00051MO
 | Variable | Data|
 |---------|------|
 | ?ComponentName | Monosaccharide alias name by MsDB |
-| ?cardinality | Cardinality of Monosaccharide  |
+| ?Cardinality | Cardinality of Monosaccharide  |
 
 
 ```
 ## Monosaccharide
-SELECT DISTINCT ?ComponentName ?cardinality
+SELECT DISTINCT ?ComponentName ?Cardinality
 FROM <http://rdf.glytoucan.org>
 FROM <http://rdf.glytoucan.org/core>
 FROM <http://rdf.glytoucan.org/ms/carbbank>
@@ -28,7 +28,7 @@ WHERE{
 	?glycan glytoucan:has_primary_id "G00051MO" .
 	OPTIONAL{
 		?glycan glycan:has_component ?comp .
-		?comp glycan:has_cardinality ?cardinality .
+		?comp glycan:has_cardinality ?Cardinality .
 		?comp glycan:has_monosaccharide ?mono .
 		?mono glycan:has_alias ?msdb .
 		?msdb glycan:has_alias_name ?ComponentName .
