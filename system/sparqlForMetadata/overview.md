@@ -8,11 +8,13 @@ Sample Accession number : G00051MO
 
 
 ### Output
-?WURCS = WURCS  
-?GlycoCT = GlycoCT  
-?Mass = Mass  
-?Contributor = Contributor  
-?ContributionTime = Contribution time  
+Variable | Data
+---------|------
+?WURCS | WURCS 
+?GlycoCT | GlycoCT
+?Mass | Mass
+?Contributor | Contributor
+?ContributionTime | Contribution time
 
 ```
     PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
