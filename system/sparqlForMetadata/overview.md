@@ -2,6 +2,10 @@
 title: SPARQL Query for Overview
 layout: default
 ---
+このSPARQLクエリは、GlyTouCanの糖鎖構造エントリーページにあるOverviewの情報を取得するクエリです。  
+WURCS, GlycoCTのデータ、Massの値、糖鎖構造の投稿者とその投稿時間が取得できます。  
+下記のクエリには、Accession numberと糖鎖構造のイメージの取得を指定していません。
+
 ### Input
 Sample Accession number : G00051MO  
 `?glycan glytoucan:has_primary_id "Input Accession number"` 
