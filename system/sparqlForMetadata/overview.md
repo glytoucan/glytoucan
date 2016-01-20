@@ -8,9 +8,9 @@ Sample Accession number : G00051MO
 
 
 ### Output
-WURCS : ?WURCS_label  
+WURCS : ?WURCS  
 GlycoCT : ?GlycoCT  
-Mass : ?Mass_label  
+Mass : ?Mass  
 Contributor : ?Contributor  
 Contribution time : ?contributionTime  
 
