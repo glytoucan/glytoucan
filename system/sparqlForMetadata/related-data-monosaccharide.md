@@ -6,12 +6,12 @@ layout: default
 Monosaccharide alias nameとは、単糖名のことです。
 alias nameという呼び方をするのは、CarbBank, IUPAC, GlycoCT, Glycosciences.de, BCSDB, MonosaccharideDB, CFGといったNotation schemaが存在するからです。
 主にこのNotation schemaはMonosaccharideDB(MsDB)のRDFで使われています。  
-http://www.monosaccharidedb.org/rdf/monosaccharide.action?name=b-dglc-HEX-1%3A5%7C%7C%282d%3A1%29n-acetyl%7C%283o%3A1%29sulfate
+[MsDB RDF](http://www.monosaccharidedb.org/rdf/monosaccharide.action?name=b-dglc-HEX-1%3A5%7C%7C%282d%3A1%29n-acetyl%7C%283o%3A1%29sulfate)
 
 
 ### Input
 Sample Accession number : G00051MO  
-`?glycan glytoucan:has_primary_id "Input Accession number"` 
+`?glycan glytoucan:has_primary_id "Input Accession number"`
 
 
 ### Output
@@ -38,5 +38,5 @@ WHERE{
 		?mono glycan:has_alias ?msdb .
 		?msdb glycan:has_alias_name ?ComponentName .
 	}
-} 
+}
 ```
