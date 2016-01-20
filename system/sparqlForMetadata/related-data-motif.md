@@ -2,6 +2,8 @@
 title: SPARQL Query for Motif in Related data
 layout: default
 ---
+このSPARQL Queryは、GlyTouCanの糖鎖構造のエントリー画面にあるRelated dataにあるMotifの情報を取得するクエリです。
+
 ### Input
 Sample Accession number : G00051MO  
 `?glycan glytoucan:has_primary_id "Input Accession number"` 
