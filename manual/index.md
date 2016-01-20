@@ -5,10 +5,26 @@ layout: default
 
 This page will be updated with documentation on new functionality as it is added.  If there is something missing, please [let us know](/team)!
 
+User Preferences
+-----------------------------------------
+The user preferences page is a usable by all users of the repository.  It can be used to configure display settings for all aspects of GlyTouCan.
+
+<ul class="lesson-images">
+  <li>
+    <a href="../manual/preferences">
+      <img src="../images/manual/preferences.png">
+      <h3>Preferences</h3>
+    </a>
+  </li>
+</ul>
+
 Registration
 -----------------------------------------
 
-Registration is the main functionality of glytoucan.  Below are the currently available methods of adding glycan sequences, as well as what happens behind the scenes when they are registered.  Other methods of registration are currently being investigated, [your input](mailto: support@glytoucan.org) would be a great help!
+In order to register structures into GlyTouCan, it is necessary to sign up with the site using Google Authentication.  GlyTouCan will request from google your email address, first and last name.  Only the first name will be displayed when a new structure is registered.
+
+
+Registration is the main functionality of GlyTouCan.  Below are the currently available methods of adding glycan sequences, as well as what happens behind the scenes when they are registered.  Other methods of registration are currently being investigated, [your input](mailto: support@glytoucan.org) would be a great help!
 
 <ul class="lesson-images">
   <li>
