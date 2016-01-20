@@ -2,23 +2,29 @@
 title: SPARQL Query for Overview
 layout: default
 ---
+このSPARQLクエリは、GlyTouCanの糖鎖構造エントリーページにあるOverviewの情報を取得するクエリです。  
+WURCS, GlycoCTのデータ、Massの値、糖鎖構造の投稿者とその投稿時間が取得できます。  
+下記のクエリには、Accession numberと糖鎖構造のイメージの取得を指定していません。
+
 ### Input
 Sample Accession number : G00051MO  
 `?glycan glytoucan:has_primary_id "Input Accession number"` 
 
 
 ### Output
-WURCS : ?WURCS_label  
-GlycoCT : ?GlycoCT  
-Mass : ?Mass_label  
-Contributor : ?Contributor  
-Contribution time : ?contributionTime  
+| Variable | Data|
+|---------|------|
+| ?WURCS | WURCS |
+| ?GlycoCT | GlycoCT |
+| ?Mass | Mass |
+| ?Contributor | Contributor |
+| ?ContributionTime | Contribution time |
 
 ```
     PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
     PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
 
-    SELECT DISTINCT ?WURCS_label ?GlycoCT ?Mass_label ?Contributor ?ContributionTime
+    SELECT DISTINCT (STR(?WURCS_label) AS ?WURCS) (STR(?GlycoCT) AS ?GlycoCT) (STR(?Mass_label) AS ?Mass) (STR(?cName) AS ?Contributor) (STR(?cTime) AS ?ContributionTime)
     FROM <http://rdf.glytoucan.org>
     FROM <http://rdf.glytoucan.org/core>
     FROM NAMED <http://rdf.glytoucan.org/mass>
@@ -29,7 +35,7 @@ Contribution time : ?contributionTime
     # repository RDF
     # Accession Number
     ?glycan a glycan:saccharide.
-    ?glycan glytoucan:has_primary_id "Input Accession number" .
+    ?glycan glytoucan:has_primary_id "G00051MO" .
 
     # Sequence
     # WURCS
@@ -56,9 +62,10 @@ Contribution time : ?contributionTime
     OPTIONAL{
     ?glycan glycan:has_resource_entry ?res .
     ?res a glycan:resource_entry ;
-    glytoucan:date_registered ?ContributionTime ;
+    glytoucan:date_registered ?cTime ;
     glytoucan:contributor ?c .
-    ?c foaf:name ?Contributor .
+    ?c foaf:name ?cName .
         }
     } LIMIT 1
+
 ```
