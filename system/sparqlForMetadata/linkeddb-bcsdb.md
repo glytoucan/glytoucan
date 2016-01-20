@@ -1,10 +1,13 @@
 ---
-title: SPARQL Query for Overview
+title: SPARQL Query for BCSDB in Linked DB
 layout: default
 ---
+GlyTouCanの糖鎖構造のエントリー画面にあるLinked DBのBCSDBで表示されている項目を下のSPARQLクエリで取得できます。
+BCSDB RDFから取得できるデータは、Taxonの名称、その感染する宿主名、感染によって引き起こされる疾患名、この情報の大本の由来であるPubMedのID、そして、BCSDB IDとBCSDBのエントリーURLです。
+
 ### Input
-Sample Accession Number G0051MO  
-VALUES ?AccessionNumber {"Input Accession number"}
+Sample Accession Number : G0051MO  
+`VALUES ?AccessionNumber {"Input Accession number"}`
 
 ### Output
 | Variable | Data|
