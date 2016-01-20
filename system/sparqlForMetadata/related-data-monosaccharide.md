@@ -1,5 +1,5 @@
 ---
-title: SPARQL Query for Motif in Related data
+title: SPARQL Query for Monosaccharide in Related data
 layout: default
 ---
 このSPARQL Queryは、GlyTouCanの糖鎖構造のエントリー画面にあるRelated dataにあるMonosaccharideの情報を取得するクエリです。
