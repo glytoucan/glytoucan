@@ -18,7 +18,7 @@ Contribution time : ?contributionTime
     PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
     PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
 
-    SELECT DISTINCT ?WURCS_label ?GlycoCT ?Mass_label ?Contributor ?ContributionTime
+    SELECT DISTINCT (STR(?WURCS_label) AS ?WURCS) (STR(?GlycoCT) AS ?GlycoCT) (STR(?Mass_label) AS ?Mass) (STR(?cName) AS ?Contributor) (STR(?cTime) AS ?ContributionTime)
     FROM <http://rdf.glytoucan.org>
     FROM <http://rdf.glytoucan.org/core>
     FROM NAMED <http://rdf.glytoucan.org/mass>
@@ -29,7 +29,7 @@ Contribution time : ?contributionTime
     # repository RDF
     # Accession Number
     ?glycan a glycan:saccharide.
-    ?glycan glytoucan:has_primary_id "Input Accession number" .
+    ?glycan glytoucan:has_primary_id "G00051MO" .
 
     # Sequence
     # WURCS
@@ -56,9 +56,10 @@ Contribution time : ?contributionTime
     OPTIONAL{
     ?glycan glycan:has_resource_entry ?res .
     ?res a glycan:resource_entry ;
-    glytoucan:date_registered ?ContributionTime ;
+    glytoucan:date_registered ?cTime ;
     glytoucan:contributor ?c .
-    ?c foaf:name ?Contributor .
+    ?c foaf:name ?cName .
         }
     } LIMIT 1
+
 ```
