@@ -15,7 +15,7 @@
      ========================================================================== */
 
   /*
-   * Sets box sizing to the border of the box. 
+   * Sets box sizing to the border of the box.
    */
   * { -moz-box-sizing: border-box; -webkit-box-sizing: border-box; box-sizing: border-box; }
 
@@ -295,10 +295,11 @@ table tfoot {
 
   body {
       border-top: 1px solid rgba(0,0,0,0.1);
-      font-family: 'Lato', Verdana, sans-serif;
+/*      font-family: 'Lato', Verdana, sans-serif;*/
+      font-family: sans-serif;
       color: #555;
       padding: 2em;
-       
+
   }
 
 
@@ -416,7 +417,7 @@ table tfoot {
   header[role="banner"] h1 a {
     color: #555;
   }
-  
+
   article:not(:first-child):before {
       content: " â€” Â·Â·Â· â€”";
       display:block;
@@ -500,7 +501,7 @@ table tfoot {
   .all-posts {
     font-size:0.8em;
   }
-  
+
   .additional ul {
     list-style:none;
     padding-left:0;
@@ -628,7 +629,7 @@ table tfoot {
     margin: 0;
     padding: 0;
   }
-  
+
   section.category {
     overflow:hidden;
     zoom:1;
@@ -873,5 +874,5 @@ table tfoot {
   @page { margin: 0.5cm; }
   p, h2, h3 { orphans: 3; widows: 3; }
   h2, h3 { page-break-after: avoid; }
-  
+
 }
