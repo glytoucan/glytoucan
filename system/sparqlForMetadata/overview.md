@@ -3,7 +3,9 @@ title: SPARQL Query for Overview
 layout: default
 ---
 ### Input
-?glycan glytoucan:has_primary_id "Input Accession number" 
+Sample Accession number : G00051MO
+`?glycan glytoucan:has_primary_id "Input Accession number"` 
+
 
 ### Output
 WURCSのラベル  
