@@ -3,6 +3,11 @@ title: SPARQL Query for Motif in Related data
 layout: default
 ---
 このSPARQL Queryは、GlyTouCanの糖鎖構造のエントリー画面にあるRelated dataにあるMonosaccharideの情報を取得するクエリです。  
+Monosaccharide alias nameとは、単糖名のことです。  
+alias nameという呼び方をするのは、CarbBank, IUPAC, GlycoCT, Glycosciences.de, BCSDB, MonosaccharideDB, CFGといったNotation schemaが存在するからです。  
+主にこのNotation schemaはMonosaccharideDB(MsDB)のRDFで使われています。  
+http://www.monosaccharidedb.org/rdf/monosaccharide.action?name=b-dglc-HEX-1%3A5%7C%7C%282d%3A1%29n-acetyl%7C%283o%3A1%29sulfate
+
 
 ### Input
 Sample Accession number : G00051MO  
