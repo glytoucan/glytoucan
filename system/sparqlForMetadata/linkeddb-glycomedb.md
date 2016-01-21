@@ -33,7 +33,7 @@ VALUES ?AccessionNumber { "G00051MO" }
   PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
   PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
 
-  #GlycomeDB ID
+  # GlycomeDB
   SELECT DISTINCT ?gurl ?gid
   FROM <http://rdf.glytoucan.org>
   FROM <http://rdf.glytoucan.org/core>
@@ -43,6 +43,7 @@ VALUES ?AccessionNumber { "G00051MO" }
     VALUES ?AccessionNumber { "G00051MO" }
     ?glytoucan glytoucan:has_primary_id ?AccessionNumber.
 
+    # GlycomeDB
     GRAPH <http://rdf.glycoinfo.org/mapping/glytoucan/glycome-db>{
 	    ?glytoucan skos:exactMatch ?gdb .
 	    ?gdb glycan:has_resource_entry ?gurl .
@@ -78,7 +79,6 @@ VALUES ?AccessionNumber { "G00051MO" }
       ?gdb glycan:has_resource_entry ?gurl .
       ?gurl dcterms:identifier ?gid .
     }
-
     # Carbbank(CCSD)
     GRAPH <http://rdf.glycoinfo.org/glycome-db>{
       ?gdb glycan:has_resource_entry ?res_ccsd .
@@ -147,11 +147,13 @@ VALUES ?AccessionNumber { "G00051MO" }
   WHERE{
     VALUES ?AccessionNumber { "G10818SM" }
     ?glytoucan glytoucan:has_primary_id ?AccessionNumber.
+
     GRAPH <http://rdf.glycoinfo.org/mapping/glytoucan/glycome-db>{
       ?glytoucan skos:exactMatch ?gdb .
       ?gdb glycan:has_resource_entry ?gurl .
       ?gurl dcterms:identifier ?gid .
     }
+    # GlycO (link to xml page, no web page)
     GRAPH <http://rdf.glycoinfo.org/glycome-db>{
       ?gdb glycan:has_resource_entry ?res_glycO .
       ?res_glycO glycan:in_glycan_database glycan:database_glyco .
@@ -264,6 +266,7 @@ VALUES ?AccessionNumber { "G00051MO" }
       ?gdb glycan:has_resource_entry ?gurl .
       ?gurl dcterms:identifier ?gid .
     }
+    # JCGGDB
     GRAPH <http://rdf.glycoinfo.org/glycome-db>{
       ?gdb glycan:has_resource_entry ?res_jcggdb .
       ?res_jcggdb glycan:in_glycan_database glycan:database_jcggdb .
@@ -272,83 +275,87 @@ VALUES ?AccessionNumber { "G00051MO" }
   }
 ```
 
-### Output
-KEGG ID
-KEGG URL
+### Output KEGG
+| Variable | Data|
+|---------|------|
+| ?res_kegg | KEGG URL |
+| ?keggId | KEGG ID|
+
 
 ```
-    PREFIX dcterms: <http://purl.org/dc/terms/>
-    PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-    PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
-    PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
+  PREFIX dcterms: <http://purl.org/dc/terms/>
+  PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+  PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
+  PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
 
-    SELECT DISTINCT ?AccessionNumber
+  # KEGG
+  SELECT DISTINCT ?res_kegg (STR(?kegg_id) AS ?keggId)
+  FROM <http://rdf.glytoucan.org>
+  FROM <http://rdf.glytoucan.org/core>
+  FROM NAMED <http://rdf.glycoinfo.org/mapping/glytoucan/glycome-db>
+  FROM NAMED <http://rdf.glycoinfo.org/glycome-db>
+  WHERE{
+    VALUES ?AccessionNumber { "G00051MO" }
+    ?glytoucan glytoucan:has_primary_id ?AccessionNumber.
+
+    GRAPH <http://rdf.glycoinfo.org/mapping/glytoucan/glycome-db>{
+      ?glytoucan skos:exactMatch ?gdb .
+      ?gdb glycan:has_resource_entry ?gurl .
+      ?gurl dcterms:identifier ?gid .
+    }
     # KEGG
-    ?res_kegg ?kegg_id
-    FROM <http://rdf.glytoucan.org>
-    FROM <http://rdf.glytoucan.org/core>
-    FROM NAMED <http://rdf.glycoinfo.org/mapping/glytoucan/glycome-db>
-    FROM NAMED <http://rdf.glycoinfo.org/glycome-db>
-    WHERE{
-	    VALUES ?AccessionNumber { "G00051MO" }
-	    ?glytoucan glytoucan:has_primary_id ?AccessionNumber.
-
-	    GRAPH <http://rdf.glycoinfo.org/mapping/glytoucan/glycome-db>{
-		    ?glytoucan skos:exactMatch ?gdb .
-		    ?gdb glycan:has_resource_entry ?gurl .
-		    ?gurl dcterms:identifier ?gid .
-	    }
-    	# KEGG
-    	OPTIONAL{
-    	GRAPH <http://rdf.glycoinfo.org/glycome-db>{
-    		?gdb glycan:has_resource_entry ?res_kegg .
-    		?res_kegg glycan:in_glycan_database glycan:database_kegg .
-    		?res_kegg dcterms:identifier ?kegg_id.
-    	}}
-	}
-
+    GRAPH <http://rdf.glycoinfo.org/glycome-db>{
+      ?gdb glycan:has_resource_entry ?res_kegg .
+      ?res_kegg glycan:in_glycan_database glycan:database_kegg .
+      ?res_kegg dcterms:identifier ?kegg_id.
+    }
+  }
 ```
 
 
-### Output
-PDB ID  
-PDB URL  
+### Output : PDB
+| Variable | Data|
+|---------|------|
+| ?res_pdb | PDB URL |
+| ?pdbId | PDB ID |
+
 
 ```
-    PREFIX dcterms: <http://purl.org/dc/terms/>
-    PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
-    PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
-    PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
+  PREFIX dcterms: <http://purl.org/dc/terms/>
+  PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
+  PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
+  PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
 
-    SELECT DISTINCT ?AccessionNumber
+  # PDB
+  SELECT DISTINCT ?res_pdb (STR(?pdb_id) AS ?pdbId)
+  FROM <http://rdf.glytoucan.org>
+  FROM <http://rdf.glytoucan.org/core>
+  FROM NAMED <http://rdf.glycoinfo.org/mapping/glytoucan/glycome-db>
+  FROM NAMED <http://rdf.glycoinfo.org/glycome-db>
+  WHERE{
+    VALUES ?AccessionNumber { "G00051MO" }
+    ?glytoucan glytoucan:has_primary_id ?AccessionNumber.
+
+    GRAPH <http://rdf.glycoinfo.org/mapping/glytoucan/glycome-db>{
+      ?glytoucan skos:exactMatch ?gdb .
+      ?gdb glycan:has_resource_entry ?gurl .
+      ?gurl dcterms:identifier ?gid .
+    }
     # PDB
-    ?res_pdb ?pdb_id
-    FROM <http://rdf.glytoucan.org>
-    FROM <http://rdf.glytoucan.org/core>
-    FROM NAMED <http://rdf.glycoinfo.org/mapping/glytoucan/glycome-db>
-    FROM NAMED <http://rdf.glycoinfo.org/glycome-db>
-    WHERE{
-	    VALUES ?AccessionNumber { "G00051MO" }
-	    ?glytoucan glytoucan:has_primary_id ?AccessionNumber.
-
-	    GRAPH <http://rdf.glycoinfo.org/mapping/glytoucan/glycome-db>{
-		    ?glytoucan skos:exactMatch ?gdb .
-		    ?gdb glycan:has_resource_entry ?gurl .
-		    ?gurl dcterms:identifier ?gid .
-	    }
-    	# PDB
-    	OPTIONAL{
-    	GRAPH <http://rdf.glycoinfo.org/glycome-db>{
-    		?gdb glycan:has_resource_entry ?res_pdb .
-    		?res_pdb glycan:in_glycan_database glycan:database_pdb .
-    		?res_pdb dcterms:identifier ?pdb_id.
-    	}}
-	}
-
+    GRAPH <http://rdf.glycoinfo.org/glycome-db>{
+      ?gdb glycan:has_resource_entry ?res_pdb .
+      ?res_pdb glycan:in_glycan_database glycan:database_pdb .
+      ?res_pdb dcterms:identifier ?pdb_id.
+    }
+  }
 ```
 
 
 # merge query
+
+* ９のDBのエントリーを一つのSPARQLクエリで取得します。
+* 動作が重い場合がほとんどです。
+
 ```
     PREFIX dcterms: <http://purl.org/dc/terms/>
     PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
