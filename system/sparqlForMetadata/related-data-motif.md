@@ -6,7 +6,7 @@ layout: default
 
 ### Input
 Sample Accession number : G00051MO  
-`?glycan glytoucan:has_primary_id "Input Accession number"` 
+`?glycan glytoucan:has_primary_id "Input Accession number"`
 
 
 ### Output
@@ -29,14 +29,13 @@ WHERE{
 	# Accession Number
 	?glycan a glycan:saccharide.
 	?glycan glytoucan:has_primary_id "G00051MO" .
-	
+
 	## Motif
-	OPTIONAL{
-		?glycan glycan:has_motif ?motif .
-		?motif a glycan:glycan_motif ;
-		rdfs:label ?motifLabel .
-		BIND((str(?motifLabel) AS ?MotifName))
-		?motif glytoucan:has_primary_id ?moAccNum .
-	}
-} 
+	?glycan glycan:has_motif ?motif .
+	?motif a glycan:glycan_motif ;
+	rdfs:label ?motifLabel .
+	BIND((str(?motifLabel) AS ?MotifName))
+	?motif glytoucan:has_primary_id ?moAccNum .
+
+}
 ```

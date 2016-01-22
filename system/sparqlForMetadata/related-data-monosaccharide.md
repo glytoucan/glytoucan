@@ -31,12 +31,11 @@ WHERE{
 	# Accession Number
 	?glycan a glycan:saccharide.
 	?glycan glytoucan:has_primary_id "G00051MO" .
-	OPTIONAL{
-		?glycan glycan:has_component ?comp .
-		?comp glycan:has_cardinality ?Cardinality .
-		?comp glycan:has_monosaccharide ?mono .
-		?mono glycan:has_alias ?msdb .
-		?msdb glycan:has_alias_name ?ComponentName .
-	}
+	?glycan glycan:has_component ?comp .
+	?comp glycan:has_cardinality ?Cardinality .
+	?comp glycan:has_monosaccharide ?mono .
+	?mono glycan:has_alias ?msdb .
+	?msdb glycan:has_alias_name ?ComponentName .
+
 }
 ```
