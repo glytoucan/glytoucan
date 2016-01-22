@@ -4,182 +4,359 @@ layout: default
 ---
 
 ### Input
-`VALUES ?AccessionNumber {"Input Accession number"}`
+Sample Accession number : G00051MO  
+`VALUES ?AccessionNumber {"G00051MO"}`
 
 
-### Output
-epitope url = ?ep  
-epitope id = ?ep\_id  
-epitope name = ?ep\_name   
-glycoprotein = ?gp\_name   
-glycolipid = ?gl\_name   
-cell line = ?cell\_name   
-Tissue and Cellular distribution = ?tissue\_name  
-pubmed url = ?pubmed   
-pubmed id = ?pubmed\_id  
-antibody id = ?anti\_id   
-antibody url = ?antibody   
-antibody name = ?anti\_name  
+### Output : GlycoEpitope URL  
+出力されるデータは、GlycoEpitopeのURLになります。
+URLには、GlycoEpitopeのIDが入っています。  
+`Sample URL : http://www.glycoepitope.jp/epitopes/EP0011`
 
+| Variable | Data|
+|----------|-----|
+| ?ep_url | GlycoEpitope URL |
 
-### PREFIX  
 ```
 DEFINE sql:select-option "order"
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX bibo: <http://purl.org/ontology/bibo/>
-PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
 PREFIX glycodb: <http://purl.jp/bio/12/database/>
 PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
 PREFIX glycoepitope: <http://www.glycoepitope.ac.jp/epitopes/glycoepitope.owl#>
 PREFIX glycoprot: <http://www.glycoprot.jp/>
 PREFIX uniprot: <http://www.uniprot.org/core/>
-```
 
-
-### SPARQL Query  
-Output  
-epitope url = ?ep  
-
-```
-SELECT DISTINCT ?ep
+SELECT DISTINCT ?ep_url
 FROM <http://rdf.glytoucan.org>
 FROM <http://rdf.glytoucan.org/core>
 FROM <http://rdf.glycoinfo.org/mapping/accnum/ep>
 FROM <http://rdf.glycoinfo.org/glycoepitope>
 WHERE {
 	# Glytoucan
-	VALUES ?AccessionNumber {"Input Accession number"}
-	?glytoucan glytoucan:has\_primary\_id ?AccessionNumber.
-	# epitope id
-	?glytoucan glycan:has\_epitope ?ep .
+	VALUES ?AccessionNumber {"G00051MO"}
+	?glytoucan glytoucan:has_primary_id ?AccessionNumber.
+
+	# GlycoEpitope URL
+	?glytoucan glycan:has_epitope ?ep_url .
 }
-
 ```
 
 
-### Epiltope id & Epitope name  
-Output  
-epitope id = ?ep\_id  
-epitope name = ?ep\_name  
+### Output : GlycoEpitope ID & Epitope Name  
+GlycoEpitope IDは、GlycoEpitopeで利用されているEpitopeのIDです。  
+Epitope Nameは、GlycoEpitope IDと一対一です。
+
+| Variable | Data|
+|----------|-----|
+| ?ep_id | GlycoEpitope ID |
+| ?ep_name | Epitope Name |
 
 ```
-SELECT distinct ?ep\_id ?ep\_name 
+DEFINE sql:select-option "order"
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
+PREFIX glycodb: <http://purl.jp/bio/12/database/>
+PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
+PREFIX glycoepitope: <http://www.glycoepitope.ac.jp/epitopes/glycoepitope.owl#>
+PREFIX glycoprot: <http://www.glycoprot.jp/>
+PREFIX uniprot: <http://www.uniprot.org/core/>
+
+SELECT DISTINCT ?ep_id ?ep_name
+FROM <http://rdf.glytoucan.org>
+FROM <http://rdf.glytoucan.org/core>
+FROM <http://rdf.glycoinfo.org/mapping/accnum/ep>
 FROM <http://rdf.glycoinfo.org/glycoepitope>
-WHERE{
-	# epitope id
-	?glytoucan glycan:has\_epitope ?ep .
-	?ep dcterms:identifier ?ep\_id .
-	# epitope name
-	?ep rdfs:label ?ep\_name .
+WHERE {
+	# Glytoucan
+	VALUES ?AccessionNumber {"G00051MO"}
+	?glytoucan glytoucan:has_primary_id ?AccessionNumber.
+
+	# GlycoEpitope URL
+	?glytoucan glycan:has_epitope ?ep_url .
+
+	# GlycoEpitope ID
+	?ep_url dcterms:identifier ?ep_id .
+
+	# Epitope Name
+	?ep rdfs:label ?ep_name .
 }
 ```
 
 
-### GlycoEpitope Sequence
-Output  
-GlycoEpitope Sequence = ?sequence  
+### Output : GlycoEpitope Sequence
+GlycoEpitope Sequenceは、GlycoEpitopeの独自の表記フォーマットを利用しています。  
+
+| Variable | Data|
+|----------|-----|
+| ?sequence | GlycoEpitope Sequence |
 
 ```
+DEFINE sql:select-option "order"
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
+PREFIX glycodb: <http://purl.jp/bio/12/database/>
+PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
+PREFIX glycoepitope: <http://www.glycoepitope.ac.jp/epitopes/glycoepitope.owl#>
+PREFIX glycoprot: <http://www.glycoprot.jp/>
+PREFIX uniprot: <http://www.uniprot.org/core/>
+
 SELECT DISTINCT (str(?seq) AS ?sequence)
+FROM <http://rdf.glytoucan.org>
+FROM <http://rdf.glytoucan.org/core>
+FROM <http://rdf.glycoinfo.org/mapping/accnum/ep>
 FROM <http://rdf.glycoinfo.org/glycoepitope>
-WHERE{
-	# glycoepitope sequence
-	?ep glycan:has\_glycosequence ?gseq .
-	?gseq glycan:in\_carbohydrate\_format glycan:carbohydrate\_format\_glycoepitope .
-	?gseq glycan:has\_sequence ?seq .
+WHERE {
+	# Glytoucan
+	VALUES ?AccessionNumber {"G00051MO"}
+	?glytoucan glytoucan:has_primary_id ?AccessionNumber.
+
+	# GlycoEpitope URL
+	?glytoucan glycan:has_epitope ?ep_url .
+
+	# GlycoEpitope Sequence
+	?ep_url glycan:has_glycosequence ?gseq .
+	?gseq glycan:in_carbohydrate_format glycan:carbohydrate_format_glycoepitope .
+	?gseq glycan:has_sequence ?seq .
 }
 ```
 
 
-### Glycoprotein & Glycolipid
-Output  
-glycoprotein = ?gp\_name   
-glycolipid = ?gl\_name   
+### Output : Glycoprotein
+GlycoEpitopeに関係するGlycoproteinです。
+
+| Variable | Data|
+|----------|-----|
+| ?gp_name | Glycoprotein |
 
 ```
-SELECT distinct ?gp\_name ?gl\_name
+DEFINE sql:select-option "order"
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
+PREFIX glycodb: <http://purl.jp/bio/12/database/>
+PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
+PREFIX glycoepitope: <http://www.glycoepitope.ac.jp/epitopes/glycoepitope.owl#>
+PREFIX glycoprot: <http://www.glycoprot.jp/>
+PREFIX uniprot: <http://www.uniprot.org/core/>
+
+SELECT DISTINCT ?gp_name
+FROM <http://rdf.glytoucan.org>
+FROM <http://rdf.glytoucan.org/core>
+FROM <http://rdf.glycoinfo.org/mapping/accnum/ep>
 FROM <http://rdf.glycoinfo.org/glycoepitope>
-WHERE{
+WHERE {
+	# Glytoucan
+	VALUES ?AccessionNumber {"G00051MO"}
+	?glytoucan glytoucan:has_primary_id ?AccessionNumber.
+
+	# GlycoEpitope URL
+	?glytoucan glycan:has_epitope ?ep_url .
+
 	# glycoprotein
-	OPTIONAL{
-	?ep dcterms:isPartOf ?gp .
+	?ep_url dcterms:isPartOf ?gp .
 	?gp a glycan:glycoprotein .
-	?gp rdfs:label ?gp\_name .
-	}
+	?gp rdfs:label ?gp_name .
+}
+```
+
+
+### Output : Glycolipid
+GlycoEpitopeに関係するGlycolipidです。
+
+| Variable | Data|
+|----------|-----|
+| ?gl_name | Glycolipid |
+
+```
+DEFINE sql:select-option "order"
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
+PREFIX glycodb: <http://purl.jp/bio/12/database/>
+PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
+PREFIX glycoepitope: <http://www.glycoepitope.ac.jp/epitopes/glycoepitope.owl#>
+PREFIX glycoprot: <http://www.glycoprot.jp/>
+PREFIX uniprot: <http://www.uniprot.org/core/>
+
+SELECT DISTINCT ?gl_name
+FROM <http://rdf.glytoucan.org>
+FROM <http://rdf.glytoucan.org/core>
+FROM <http://rdf.glycoinfo.org/mapping/accnum/ep>
+FROM <http://rdf.glycoinfo.org/glycoepitope>
+WHERE {
+	# Glytoucan
+	VALUES ?AccessionNumber {"G00051MO"}
+	?glytoucan glytoucan:has_primary_id ?AccessionNumber.
+
+	# GlycoEpitope URL
+	?glytoucan glycan:has_epitope ?ep_url .
 
 	# glycolipid
-	OPTIONAL{ 
-	?ep dcterms:isPartOf ?gl .
+	?ep_url dcterms:isPartOf ?gl .
 	?gl a glycan:glycolipid .
-    ?gl rdfs:label ?gl\_name .
-	}
+  ?gl rdfs:label ?gl_name .
+}
+```
+
+### Output : Cell Line
+GlycoEpitopeに関係のある細胞株です。
+
+| Variable | Data|
+|----------|-----|
+| ?cell_name | Cell line |
+
+```
+DEFINE sql:select-option "order"
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
+PREFIX glycodb: <http://purl.jp/bio/12/database/>
+PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
+PREFIX glycoepitope: <http://www.glycoepitope.ac.jp/epitopes/glycoepitope.owl#>
+PREFIX glycoprot: <http://www.glycoprot.jp/>
+PREFIX uniprot: <http://www.uniprot.org/core/>
+
+SELECT DISTINCT ?cell_name
+FROM <http://rdf.glytoucan.org>
+FROM <http://rdf.glytoucan.org/core>
+FROM <http://rdf.glycoinfo.org/mapping/accnum/ep>
+FROM <http://rdf.glycoinfo.org/glycoepitope>
+WHERE{
+	# Glytoucan
+	VALUES ?AccessionNumber {"G00051MO"}
+	?glytoucan glytoucan:has_primary_id ?AccessionNumber.
+
+	# GlycoEpitope URL
+	?glytoucan glycan:has_epitope ?ep_url .
+
+	# cell line
+	?ep_url glycoepitope:found_in ?cell_line .
+	?cell_line rdfs:label ?cell_name .
 }
 ```
 
 
-### Cell Line & Tissue and Cellular Distribution
-Output  
-cell line = ?cell\_name   
-Tissue and Cellular distribution = ?tissue\_name  
+### Output : Tissue and Cellular Distribution
+GlycoEpitopeに関係のある組織と細胞分布です。
+
+| Variable | Data|
+|----------|-----|
+| ?tissue_name | Tissue and Cellular distribution |
 
 ```
-SELECT distinct ?cell\_name ?tissue\_name
+DEFINE sql:select-option "order"
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
+PREFIX glycodb: <http://purl.jp/bio/12/database/>
+PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
+PREFIX glycoepitope: <http://www.glycoepitope.ac.jp/epitopes/glycoepitope.owl#>
+PREFIX glycoprot: <http://www.glycoprot.jp/>
+PREFIX uniprot: <http://www.uniprot.org/core/>
+
+SELECT DISTINCT ?tissue_name
+FROM <http://rdf.glytoucan.org>
+FROM <http://rdf.glytoucan.org/core>
+FROM <http://rdf.glycoinfo.org/mapping/accnum/ep>
 FROM <http://rdf.glycoinfo.org/glycoepitope>
 WHERE{
-	# cell line
-	OPTIONAL{
-	?ep glycoepitope:found\_in ?cell\_line .
-	?cell\_line rdfs:label ?cell\_name .
-	}
+	# Glytoucan
+	VALUES ?AccessionNumber {"G00051MO"}
+	?glytoucan glytoucan:has_primary_id ?AccessionNumber.
 
-	# Tissue and Cellular distribution 
-	OPTIONAL{
-	?ep glycoepitope:tissue ?tissue .
-	?tissue rdfs:label ?tissue\_name .
-	}
+	# GlycoEpitope URL
+	?glytoucan glycan:has_epitope ?ep_url .
+
+	# Tissue and Cellular distribution
+	?ep_url glycoepitope:tissue ?tissue .
+	?tissue rdfs:label ?tissue_name .
 }
 ```
 
 
 ### PubMed URL and PubMed ID
-Output  
-pubmed url = ?pubmed   
-pubmed id = ?pubmed\_id  
+Epitope情報のソースであるPubMed URLとIDです。
+
+| Variable | Data|
+|----------|-----|
+| ?pubmed | PuMed URL |
+| ?pubmed_id | PubMed ID |
 
 ```
-SELECT distinct ?pubmed ?pubmed\_id
+DEFINE sql:select-option "order"
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
+PREFIX glycodb: <http://purl.jp/bio/12/database/>
+PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
+PREFIX glycoepitope: <http://www.glycoepitope.ac.jp/epitopes/glycoepitope.owl#>
+PREFIX glycoprot: <http://www.glycoprot.jp/>
+PREFIX uniprot: <http://www.uniprot.org/core/>
+
+SELECT DISTINCT ?pubmed ?pubmed_id
+FROM <http://rdf.glytoucan.org>
+FROM <http://rdf.glytoucan.org/core>
+FROM <http://rdf.glycoinfo.org/mapping/accnum/ep>
 FROM <http://rdf.glycoinfo.org/glycoepitope>
 WHERE{
-	# pubmed
-	OPTIONAL{
-	?ep dcterms:isReferencedBy ?citation .
+	# Glytoucan
+	VALUES ?AccessionNumber {"G00051MO"}
+	?glytoucan glytoucan:has_primary_id ?AccessionNumber.
+
+	# GlycoEpitope URL
+	?glytoucan glycan:has_epitope ?ep_url .
+
+	# PubMed URL and ID
+	?ep_url dcterms:isReferencedBy ?citation .
 	?citation rdfs:seeAlso ?pubmed .
-	?pubmed dcterms:identifier ?pubmed\_id .
-	}
+	?pubmed dcterms:identifier ?pubmed_id .
 }
 ```
 
 
-### Antibody ID & Antibody Name
-Output  
-antibody id = ?anti\_id   
-antibody url = ?antibody   
-antibody name = ?anti\_name  
+### Output : Antibody ID & Antibody Name
+Epitopeに関係のある抗体名とIDです。
+
+| Variable | Data|
+|----------|-----|
+| ?antibody | Antibody URL |
+| ?anti_id | Antibody ID |
+| ?anti_name | Antibody Name |
 
 ```
-SELECT distinct ?antibody ?anti\_id ?anti\_name
+DEFINE sql:select-option "order"
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
+PREFIX glycodb: <http://purl.jp/bio/12/database/>
+PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
+PREFIX glycoepitope: <http://www.glycoepitope.ac.jp/epitopes/glycoepitope.owl#>
+PREFIX glycoprot: <http://www.glycoprot.jp/>
+PREFIX uniprot: <http://www.uniprot.org/core/>
+
+SELECT DISTINCT ?antibody ?anti_id ?anti_name
+FROM <http://rdf.glytoucan.org>
+FROM <http://rdf.glytoucan.org/core>
+FROM <http://rdf.glycoinfo.org/mapping/accnum/ep>
 FROM <http://rdf.glycoinfo.org/glycoepitope>
 WHERE{
-	OPTIONAL{
-	# antibody id
-	?ep glycoepitope:has\_antibody ?antibody .
-	?antibody dcterms:identifier ?anti\_id .
-	}
+	# Glytoucan
+	VALUES ?AccessionNumber {"G00051MO"}
+	?glytoucan glytoucan:has_primary_id ?AccessionNumber.
 
-	OPTIONAL{
+	# GlycoEpitope URL
+	?glytoucan glycan:has_epitope ?ep_url .
+
+	# antibody id
+	?ep_url glycoepitope:has_antibody ?antibody .
+	?antibody dcterms:identifier ?anti_id .
+
 	# antibody name
-	?ep glycoepitope:has\_antibody ?antibody .
-	?antibody rdfs:label ?anti\_name .
-	}
+	?ep_url glycoepitope:has_antibody ?antibody .
+	?antibody rdfs:label ?anti_name .
 }
 ```
