@@ -19,7 +19,7 @@ GlycomeDB RDFには、複数のパブリックデータベースのリンクが�
 
 ### Input
 Sample Accession number : G00051MO  
-VALUES ?AccessionNumber { "G00051MO" }  
+`VALUES ?AccessionNumber { "G00051MO" } ` 
 
 ### Output : GlycomeDB
 | Variable | Data|
