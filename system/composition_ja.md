@@ -17,8 +17,8 @@ layout: default
       * [Cardinality](#Cardinality)の計算
       * monosaccharideタイプ別のReadableNameを取得
           * 取得する方法
-              * [wurcs2msDB](http://www.monosaccharidedb.org/remote_access.action#conversion)
-              * [土屋くんのIUPAC](https://bitbucket.org/glycosw/glycanformatconverter)
+            * [wurcs2msDB](http://www.monosaccharidedb.org/remote_access.action#conversion)
+            * [土屋くんのIUPAC](https://bitbucket.org/glycosw/glycanformatconverter)
           * monosaccharide_aliasにインサート、Componentにリンク
       * 残機を登録?
       * 還元末端を指定?
@@ -92,7 +92,7 @@ layout: default
 
 [Sample](http://beta.ts.glytoucan.org/sparql?default-graph-uri=&query=PREFIX+wurcs%3A+%3Chttp%3A%2F%2Fwww.glycoinfo.org%2Fglyco%2Fowl%2Fwurcs%23%3E%0D%0ASELECT+distinct+%3Fmono%0D%0A++++++++++++++++FROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fwurcs%2Fms%3E%0D%0A++++++++++++++++WHERE%7B%0D%0A%3Fmono+a+wurcs%3AMonosaccharide+.%0D%0A%7D%0D%0Alimit+100&format=text%2Fhtml&timeout=0&debug=on)
 
-### 単糖のWURCSを登録します。
+### 単糖を登録
 
     String id = glycanProcedure.register("monosaccharide WURCS string");
 

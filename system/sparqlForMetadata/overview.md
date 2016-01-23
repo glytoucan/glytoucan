@@ -8,7 +8,7 @@ WURCS, GlycoCTのデータ、Massの値、糖鎖構造の投稿者とその投�
 
 ### Input
 Sample Accession number : G00051MO  
-`?glycan glytoucan:has_primary_id "Input Accession number"` 
+`?glycan glytoucan:has_primary_id "Input Accession number"`
 
 
 ### Output
@@ -69,3 +69,5 @@ Sample Accession number : G00051MO
     } LIMIT 1
 
 ```
+
+[Sample Data](http://beta.ts.glytoucan.org/sparql?default-graph-uri=&query=+PREFIX+glycan%3A+%3Chttp%3A%2F%2Fpurl.jp%2Fbio%2F12%2Fglyco%2Fglycan%23%3E%0D%0A++++PREFIX+glytoucan%3A+%3Chttp%3A%2F%2Fwww.glytoucan.org%2Fglyco%2Fowl%2Fglytoucan%23%3E%0D%0A%0D%0A++++SELECT+DISTINCT+%28STR%28%3FWURCS_label%29+AS+%3FWURCS%29+%28STR%28%3FGlycoCT%29+AS+%3FGlycoCT%29+%28STR%28%3FMass_label%29+AS+%3FMass%29+%28STR%28%3FcName%29+AS+%3FContributor%29+%28STR%28%3FcTime%29+AS+%3FContributionTime%29%0D%0A++++FROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%3E%0D%0A++++FROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fcore%3E%0D%0A++++FROM+NAMED+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fmass%3E%0D%0A++++FROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fsequence%2Fwurcs%3E%0D%0A++++FROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fsequence%2Fglycoct%3E%0D%0A++++FROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fusers%3E%0D%0A++++WHERE+%7B%0D%0A++++%23+repository+RDF%0D%0A++++%23+Accession+Number%0D%0A++++%3Fglycan+a+glycan%3Asaccharide.%0D%0A++++%3Fglycan+glytoucan%3Ahas_primary_id+%22G00051MO%22+.%0D%0A%0D%0A++++%23+Sequence%0D%0A++++%23+WURCS%0D%0A++++OPTIONAL%7B%0D%0A++++%3Fglycan+glycan%3Ahas_glycosequence+%3FwcsSeq+.%0D%0A++++%3FwcsSeq+rdfs%3Alabel+%3FWURCS_label+.%0D%0A++++%3FwcsSeq+glycan%3Ain_carbohydrate_format+glycan%3Acarbohydrate_format_wurcs+.%0D%0A++++%7D%0D%0A++++%23+GlycoCT%0D%0A++++OPTIONAL%7B%0D%0A++++%3Fglycan+glycan%3Ahas_glycosequence+%3FgctSeq+.%0D%0A++++%3FgctSeq+glycan%3Ahas_sequence+%3FGlycoCT+.%0D%0A++++%3FgctSeq+glycan%3Ain_carbohydrate_format+glycan%3Acarbohydrate_format_glycoct+.%0D%0A++++%7D%0D%0A%0D%0A++++%23+Mass%0D%0A++++OPTIONAL%7B%0D%0A++++GRAPH+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fmass%3E%7B%0D%0A++++%3Fglycan+glytoucan%3Ahas_derivatized_mass+%3Fdmass+.%0D%0A++++%3Fdmass+rdfs%3Alabel+%3FMass_label+.%0D%0A++++%7D%7D%0D%0A%0D%0A++++%23+Contributor%0D%0A++++OPTIONAL%7B%0D%0A++++%3Fglycan+glycan%3Ahas_resource_entry+%3Fres+.%0D%0A++++%3Fres+a+glycan%3Aresource_entry+%3B%0D%0A++++glytoucan%3Adate_registered+%3FcTime+%3B%0D%0A++++glytoucan%3Acontributor+%3Fc+.%0D%0A++++%3Fc+foaf%3Aname+%3FcName+.%0D%0A++++++++%7D%0D%0A++++%7D+LIMIT+1&format=text%2Fhtml&timeout=0&debug=on)
