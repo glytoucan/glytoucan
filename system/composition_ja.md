@@ -47,7 +47,9 @@ layout: default
 
 ### WURCS MSが生成する単糖のRDF
 
-[WURCS-MS-RDF](https://bitbucket.org/glycosw/wurcsrdf)のライブラリーにある、WURCSシーケンスら単糖データのRDFを生成する
+[WURCS-MS-RDF](https://bitbucket.org/glycosw/wurcsrdf)のライブラリーにある、WURCSシーケンスら単糖データのRDFを生成する単糖データ
+
+[設計中](https://bitbucket.org/glycosw/wurcsrdf/issues/1)
 
     <wurcs:Monosaccharide> #monosaccharide residue
     	a          wurcs:Monosaccharide
@@ -60,27 +62,46 @@ layout: default
 
 ### 現時点とバッチ
 
-    現時点、すでに登録されてい糖鎖構造が存在していますので。新しいデータを追加するには、[バッチプロセス](http://code.glytoucan.org/batch/)を実行する必要があります。
+現時点、すでに登録されてい糖鎖構造が存在していますので。新しいデータを追加するには、[バッチプロセス](http://code.glytoucan.org/batch/)を実行する必要があります。
 
-    WURCS MSのライブラリーが更新されたら実行する必要があります。
+WURCS MSのライブラリーが更新されたら実行する必要があります。
 
-    新しくインサートするコンポーネントと登録する単糖も同じように既存の糖鎖の改めて更新する必要があります。
+新しくインサートするコンポーネントと登録する単糖も同じように既存の糖鎖の改めて更新する必要があります。
 
-    []バッチとSPARQLBeanの設計書](/system/batch)
+[バッチとSPARQLBeanの設計書](http://code.glytoucan.org/batch)
 
 ### ComponentGenerator
 
-単糖データを利用して単糖を登録するしコンポーネントを作成します。
+単糖データを利用して単糖と関連しているコンポーネントのRDFを作成します。
 
-SPARQL:
+単糖を取得するSPARQL[設計中](https://bitbucket.org/glycosw/wurcsrdf/issues/1)
+:
 
     SELECT ?monosaccharide
     WHERE
 	?monosaccharide a          wurcs:Monosaccharide
     	?monosaccharide noc:is_type	2
     	?monosaccharide noc:is_modified	false
+      ?monosaccharide noc:wurcs_sequence	?sequence
 
 [Sample](http://beta.ts.glytoucan.org/sparql?default-graph-uri=&query=PREFIX+wurcs%3A+%3Chttp%3A%2F%2Fwww.glycoinfo.org%2Fglyco%2Fowl%2Fwurcs%23%3E%0D%0ASELECT+distinct+%3Fmono%0D%0A++++++++++++++++FROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fwurcs%2Fms%3E%0D%0A++++++++++++++++WHERE%7B%0D%0A%3Fmono+a+wurcs%3AMonosaccharide+.%0D%0A%7D%0D%0Alimit+100&format=text%2Fhtml&timeout=0&debug=on)
+
+###単糖のWURCSを登録します。
+
+　　　String id = glycanProcedure.register("monosaccharide WURCS string");
+
+###Componentを作成
+
+    INSERT
+    { GRAPH <http://rdf.glycoinfo.org/component> {
+      <SaccharideURI> glycan:has_component <ComponentURI> .
+      <ComponentURI> a  .
+      }
+    }
+
+&lt;SaccharideURI>と&lt;SaccharideURI>はもとの糖鎖のAccession番号から生成できます。
+
+
 
 ### Monosaccharide alias name
 新しいGRAPHに、MsDBかWC-WFWから取得したalias nameをいれます。  
