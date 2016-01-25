@@ -3,7 +3,7 @@ title: 糖鎖の分解
 layout: default
 ---
 
-糖鎖を登録する時、構造を分析して関連しているデータをRDF化しています。GlyTouCanに糖鎖構造を登録する時のコンポーネント（単糖、残機、リンケージ）分解プロセスを説明します。
+糖鎖を登録する時、構造を分析して関連しているデータをRDF化しています。GlyTouCanに糖鎖構造を登録する時のコンポーネント（単糖、残基、リンケージ）分解プロセスを説明します。
 
 ### [プロセスの概要]
 
@@ -21,7 +21,7 @@ layout: default
               * monosaccharideDB http://www.monosaccharidedb.org/remote_access.action#conversion
               * glycanformatconverter https://bitbucket.org/glycosw/glycanformatconverter
           * monosaccharide_aliasにインサート、Componentにリンク
-      * 残機を登録?
+      * 残基を登録?
       * 還元末端を指定?
       * [Top Page](http://glytoucan.org)の単糖数を更新?
 
