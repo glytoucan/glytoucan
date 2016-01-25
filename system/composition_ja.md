@@ -18,8 +18,8 @@ layout: default
           * どのタイプに絞る？
       * [monosaccharideタイプ別のReadableNameを取得](#ReadableName)
           * 取得する方法
-              * [wurcs2msDB](http://www.monosaccharidedb.org/remote_access.action#conversion)
-              * [土屋くんのIUPAC](https://bitbucket.org/glycosw/glycanformatconverter)
+              * monosaccharideDB - [wurcs2msDB](http://www.monosaccharidedb.org/remote_access.action#conversion)
+              * glycanformatconverter - [土屋くんのIUPAC](https://bitbucket.org/glycosw/glycanformatconverter)
           * monosaccharide_aliasにインサート、Componentにリンク
       * 残機を登録?
       * 還元末端を指定?
