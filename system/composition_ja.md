@@ -5,20 +5,21 @@ layout: default
 
 糖鎖を登録する時、構造を分析して関連しているデータをRDF化しています。GlyTouCanに糖鎖構造を登録する時のコンポーネント（単糖、残機、リンケージ）分解プロセスを説明します。
 
-### プロセスの概要
+### [プロセスの概要]
 
-* 糖鎖を登録
+* 糖鎖を登録時、WURCSシーケンスに変換します。
   * シーケンスの分解[WurcsRDFのMSライブラリー](https://bitbucket.org/glycosw/wurcsrdf)を利用して単糖データ（MS）を生成します。＊
   * 糖鎖に含まれている単糖をループして[ComponentGenerator](#ComponentGenerator)を実行します：
-      * 単糖のWURCSを取得・生成
-      * 単糖を登録糖鎖として登録
-      * Monosaccharide情報をｗurcsのMS（新しいオントロジー？）と連携します。
+      * [単糖のWURCSを取得・生成](#MonosaccharideWurcs)
+      * [単糖を登録糖鎖として登録](#RegisteringMonosaccharides)
+      * [Monosaccharide情報をｗurcsのMS（新しいオントロジー？）と連携します。](#LinkingToWurcsRdf)
           * 登録した単糖のAccession番号をComponentを通してWurcsMSRDFのユニークRESに連携します。
       * [Cardinality](#Cardinality)の計算
-      * monosaccharideタイプ別のReadableNameを取得
+          * どのタイプに絞る？
+      * [monosaccharideタイプ別のReadableNameを取得](#ReadableName)
           * 取得する方法
-            * [wurcs2msDB](http://www.monosaccharidedb.org/remote_access.action#conversion)
-            * [土屋くんのIUPAC](https://bitbucket.org/glycosw/glycanformatconverter)
+              * [wurcs2msDB](http://www.monosaccharidedb.org/remote_access.action#conversion)
+              * [土屋くんのIUPAC](https://bitbucket.org/glycosw/glycanformatconverter)
           * monosaccharide_aliasにインサート、Componentにリンク
       * 残機を登録?
       * 還元末端を指定?
