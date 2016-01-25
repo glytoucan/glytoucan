@@ -11,7 +11,7 @@ layout: default
   * シーケンスの分解[WurcsRDFのMSライブラリー](https://bitbucket.org/glycosw/wurcsrdf)を利用して単糖データ（MS）を生成します。＊
   * 糖鎖に含まれている単糖をループして[ComponentGenerator](#ComponentGenerator)を実行します：
       * [単糖のWURCSを取得・生成](#MonosaccharideWurcs)
-      * [単糖を登録糖鎖として登録](#RegisteringMonosaccharides)
+      * [単糖を糖鎖として登録](#RegisteringMonosaccharides)
       * [Monosaccharide情報をｗurcsのMS（新しいオントロジー？）と連携します。](#LinkingToWurcsRdf)
           * 登録した単糖のAccession番号をComponentを通してWurcsMSRDFのユニークRESに連携します。
       * [Cardinality](#Cardinality)の計算
