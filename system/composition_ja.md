@@ -121,7 +121,7 @@ layout: default
 
 [Sample](http://beta.ts.glytoucan.org/sparql?default-graph-uri=&query=PREFIX+wurcs%3A+%3Chttp%3A%2F%2Fwww.glycoinfo.org%2Fglyco%2Fowl%2Fwurcs%23%3E%0D%0ASELECT+distinct+%3Fmono%0D%0A++++++++++++++++FROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fwurcs%2Fms%3E%0D%0A++++++++++++++++WHERE%7B%0D%0A%3Fmono+a+wurcs%3AMonosaccharide+.%0D%0A%7D%0D%0Alimit+100&format=text%2Fhtml&timeout=0&debug=on)
 
-### 単糖を登録
+### 各単糖を登録
 
 単糖情報から、単糖のWURCSを取得して、GlycoRDF:Monosaccharideとして登録します。（Saccharideのサブクラス）
 
@@ -130,7 +130,6 @@ layout: default
     String id = glycanProcedure.register("monosaccharide WURCS string");
 
 Accession＃から、上記`glycan:Monosaccharide`と連携します。
-
 
 ### <a name="Cardinality"></a>Cardinalityの計算
 
