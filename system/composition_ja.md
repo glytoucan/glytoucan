@@ -38,6 +38,16 @@ layout: default
     <ComponentURI>
     	a	glycan:component
     	glycan:has_cardinality	integer
+
+    	glycan:has_monosaccharide	<glycan:Monosaccharide>
+
+    <glycan:Monosaccharide>
+      a glycan:Monosaccharide
+      glycan:has_component	<MonosaccharideComponentURI>
+
+    <MonosaccharideComponentURI>
+    	a	glycan:component
+    	glycan:has_cardinality	1
     	glycan:has_monosaccharide	<wurcs:Monosaccharide>
 
     <wurcs:Monosaccharide>
@@ -49,6 +59,14 @@ layout: default
       wurcs:has_anomeric_position	1 ;
       wurcs:has_anomeric_symbol "x"^^<http://www.w3.org/2001/XMLSchema#string> ;
       wurcs:has_ring <http://rdf.glycoinfo.org/glycan/wurcs/2.0/MOD/1-5> .
+    	is_type1 true/false
+    	glycan:has_alias	<Monosaccharide alias>
+
+    <Monosaccharide alias>
+    	a	glycan:monosaccharide_alias
+    	glycan:has_monosaccharide_notation_scheme glycan:monosaccharide_notation_scheme_carbbank
+    	glycan:has_alias_name "monosaccharide alias name"
+    "# "monosaccharide alias name" => Gal-ol"
 
     <Monosaccharide aliasURI> a	glycan:monosaccharide_alias
       glycan:is_monosaccharide <wurcs:Monosaccharide> ;
@@ -59,10 +77,20 @@ layout: default
 
 [WURCS-MS-RDF](https://bitbucket.org/glycosw/wurcsrdf)のライブラリーにある、WURCSシーケンスら単糖データの[新しいRDF](https://bitbucket.org/glycosw/wurcsrdf/issues/1)を生成
 
-    <wurcs:Monosaccharide> #monosaccharide residue
-    	a          wurcs:Monosaccharide
-    	noc:is_type	2
-    	noc:is_modified	false
+```
+<wurcs:Monosaccharide>
+  a wurcs:Monosaccharide ;
+  wurcs:has_basetype <http://rdf.glycoinfo.org/glycan/wurcs/2.0/Basetype/u2122h_2%2ANCC%2F3%3DO> ;
+  wurcs:has_MOD	<http://rdf.glycoinfo.org/glycan/wurcs/2.0/MOD/1-5>
+  wurcs:has_MOD ; <http://rdf.glycoinfo.org/glycan/wurcs/2.0/MOD/2%2ANCC%2F3%3DO>
+  wurcs:has_SC ; <http://rdf.glycoinfo.org/glycan/wurcs/2.0/SkeletonCode/a2122h>
+  wurcs:has_anomeric_position	1 ;
+  wurcs:has_anomeric_symbol "x"^^<http://www.w3.org/2001/XMLSchema#string> ;
+  wurcs:has_ring <http://rdf.glycoinfo.org/glycan/wurcs/2.0/MOD/1-5> .
+  is_type1 true/false
+  glycan:has_alias	<Monosaccharide alias>
+```
+
 
 `<wurcs:Monosaccharide>` URIのサンプル
 
@@ -93,9 +121,15 @@ layout: default
 
 [Sample](http://beta.ts.glytoucan.org/sparql?default-graph-uri=&query=PREFIX+wurcs%3A+%3Chttp%3A%2F%2Fwww.glycoinfo.org%2Fglyco%2Fowl%2Fwurcs%23%3E%0D%0ASELECT+distinct+%3Fmono%0D%0A++++++++++++++++FROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fwurcs%2Fms%3E%0D%0A++++++++++++++++WHERE%7B%0D%0A%3Fmono+a+wurcs%3AMonosaccharide+.%0D%0A%7D%0D%0Alimit+100&format=text%2Fhtml&timeout=0&debug=on)
 
-### 単糖を登録
+### 各単糖を登録
+
+単糖情報から、単糖のWURCSを取得して、GlycoRDF:Monosaccharideとして登録します。（Saccharideのサブクラス）
+
+`a Monosaccharide`をつけて、登録処理おわりましたら、Accession＃を取得できます。
 
     String id = glycanProcedure.register("monosaccharide WURCS string");
+
+Accession＃から、上記`glycan:Monosaccharide`と連携します。
 
 ### <a name="Cardinality"></a>Cardinalityの計算
 
