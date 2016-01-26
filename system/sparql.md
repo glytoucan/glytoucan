@@ -47,6 +47,12 @@ layout: default
 * エントリーページの糖鎖構造に対して、UniCarbKB内の糖鎖構造が一致する場合、関連するUniCarbKB情報を取得するクエリ。
 * 本番環境では、未対応
 
+### PubChem
+* [SPARQL Query](/system/sparqlForMetadata/linkeddb-pubchem)
+* エントリーページの糖鎖構造に対して、PubChem内の糖鎖構造が一致する場合、関連するPubChem情報を取得するクエリ。
+* テスト番環境では、対応しています。
+* 本番環境では、未対応
+
 
 ![linked db](/images/manual/glycan-entry-G00051MO-LinkdDB.png)
 
