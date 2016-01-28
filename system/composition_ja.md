@@ -50,6 +50,7 @@ layout: default
     	glycan:has_cardinality	1
     	glycan:has_monosaccharide	<wurcs:Monosaccharide>
 
+
     <wurcs:Monosaccharide>
       a wurcs:Monosaccharide ;
       wurcs:has_basetype <http://rdf.glycoinfo.org/glycan/wurcs/2.0/Basetype/u2122h_2%2ANCC%2F3%3DO> ;
