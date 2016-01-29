@@ -7,7 +7,7 @@ layout: default
 
 ###　処理フロー
 
-[UML]（https://docs.google.com/drawings/d/1v-16pyyEfKjUKKhSV1cda53AbRoQd0AVF0BW17k6TC8/edit）
+[UML Diagram](https://docs.google.com/drawings/d/1v-16pyyEfKjUKKhSV1cda53AbRoQd0AVF0BW17k6TC8/edit)
 
 * 糖鎖を登録時、WURCSシーケンスに変換します。
   * シーケンスの分解[WurcsRDFのMSライブラリー](https://bitbucket.org/glycosw/wurcsrdf)を利用して単糖データ（MS）を生成します。＊
