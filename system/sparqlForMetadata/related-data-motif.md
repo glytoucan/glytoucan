@@ -15,6 +15,8 @@ Sample Accession number : G00051MO
 | ?MotifName | Motif name |
 | ?moAccNum | Accession number of the Motif |
 
+[SPARQL endpoint](http://test.ts.glytoucan.org/sparql)
+
 ```
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX glycan:  <http://purl.jp/bio/12/glyco/glycan#>
@@ -42,4 +44,3 @@ WHERE{
 
 }
 ```
-[Data](http://beta.ts.glytoucan.org/sparql?default-graph-uri=&query=PREFIX+foaf%3A+%3Chttp%3A%2F%2Fxmlns.com%2Ffoaf%2F0.1%2F%3E%0D%0APREFIX+glycan%3A++%3Chttp%3A%2F%2Fpurl.jp%2Fbio%2F12%2Fglyco%2Fglycan%23%3E%0D%0APREFIX+glytoucan%3A++%3Chttp%3A%2F%2Fwww.glytoucan.org%2Fglyco%2Fowl%2Fglytoucan%23%3E%0D%0A%0D%0ASELECT+DISTINCT+%3FMotifName+%28STR%28%3Flabel%29+AS+%3Fproperty%29+%3FmoAccNum%0D%0AFROM+%3Chttp%3A%2F%2Fpurl.jp%2Fbio%2F12%2Fglyco%2Fglycan%23%3E%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%3E%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fcore%3E%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fmotif%3E%0D%0AWHERE{%0D%0A++++%23+Accession+Number%0D%0A++++%3Fglycan+a+glycan%3Asaccharide.%0D%0A++++%3Fglycan+glytoucan%3Ahas_primary_id+%22G00051MO%22+.%0D%0A%0D%0A++++%23%23+Motif%0D%0A++++%3Fglycan+%3Frelation+%3Fmotif+.%0D%0A++++%3Fglycan+glycan%3Ahas_motif+%3Fmotif+.%0D%0A++++%3Fmotif+a+glycan%3Aglycan_motif+%3B%0D%0A++++rdfs%3Alabel+%3FmotifLabel+.%0D%0A++++BIND%28%28str%28%3FmotifLabel%29+AS+%3FMotifName%29%29%0D%0A++++%3Fmotif+glytoucan%3Ahas_primary_id+%3FmoAccNum+.%0D%0A%0D%0A++++glycan%3Ahas_motif+rdfs%3Alabel+%3Flabel+.%0D%0A%0D%0A}%0D%0A%0D%0A%0D%0A&format=text%2Fhtml&timeout=0&debug=on)
