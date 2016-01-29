@@ -5,7 +5,7 @@ layout: default
 
 糖鎖を登録する時、構造を分析して関連しているデータをRDF化しています。GlyTouCanに糖鎖構造を登録する時のコンポーネント（単糖、残基、リンケージ）分解プロセスを説明します。
 
-### [プロセスの概要]
+### [プロセスの概要][UML]（https://docs.google.com/drawings/d/1v-16pyyEfKjUKKhSV1cda53AbRoQd0AVF0BW17k6TC8/edit）
 
 * 糖鎖を登録時、WURCSシーケンスに変換します。
   * シーケンスの分解[WurcsRDFのMSライブラリー](https://bitbucket.org/glycosw/wurcsrdf)を利用して単糖データ（MS）を生成します。＊
