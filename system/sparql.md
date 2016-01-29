@@ -57,7 +57,7 @@ layout: default
 ![linked db](/images/manual/glycan-entry-G00051MO-LinkdDB.png)
 
 
-## Glycan Structure form WURCS RDF SEQ
+## Glycan Structure from WURCS RDF SEQ
 WURCS RDF SEQを利用して、一つのエントリーページにある糖鎖構造の情報を取得する。
 * GRES = AccessionNumberが入ったMonosaccharide Residue URI
 * SEQ0.3には、GRESのクラスはタイプ付けされてはいない。
