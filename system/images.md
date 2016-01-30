@@ -3,9 +3,9 @@ title: Glycan Structure Image Architecture
 layout: default
 ---
 
-Viewing the images of Glycan Structures are a critical aspect of Glycan research.  Generally, images are used to describe the structure, in most cases using specified formats such as CFG, IUPAC, or Oxford.
+Viewing the images of Glycan Structures are a critical aspect of Glycan research.  In general, images are the simplest method  used to describe and convey the structure.  The most common formats used are CFG, IUPAC, or Oxford.
 
-As the Glycan repository for nearly any glycan structure, it is important for the system to be able to handle displaying of glycan structures quickly and in a variety of formats.  How the system was developed is described in detail in this document.
+As the Glycan repository for nearly any glycan structure, it is important for the system to be able to handle displaying of glycan structures quickly and in a variety of formats.  How the repository manages images will be described in detail in this document.
 
 ## Base Case
 
@@ -13,15 +13,20 @@ The base case is where the repository is completely blank.  In this case there i
 
 ## Overview
 
-For all new registrations, the image will be generated based upon the base sequence format used.  As of this writing, the wurcs image generation method is still under construction so the glycoct library (GlycanBuilder) will be used.  Thus for all new registrations, not only is conversion to wurcs for validation necessary, the glycoct generation is also needed to create the multiple image formats[GlycoCTpolicy].  It should be noted that the framework described here should allow for the changing of this policy, thus how the image is generated should also be a property of the image metadata.
+For all new registrations, the base sequence format stored is WURCS.  As of this writing, the WURCS image generation method is still under construction so the glycoCT-based image generation in GlycanBuilder will be used primarily.  The registration process already generates KCF, glycoCT, Linearcode, and the base format WURCS, so this should not be a problem.  It should be noted that the framework described here should allow for the changing of this policy, thus how the image is generated should also be a property of the image metadata.
 
 The GlycanBuilder library can be used to generate these images.  Each image will be generated into a hex-encoded binary, and details about the image will be stored into the RDF.
 
-As there are already 40k structures in the repository.  A batch process will have to reuse the registration procedure to generate the image data for existing data.
+In the case where of volume registrations, a batch upload process should also be considered.  This process will reuse the registration procedure to generate the image data for existing data.
 
 The image binary web service will be altered so that when a specific image of an ID is requested, the RDF is checked for the binary and that data will be retrieved.  The web service will handle the parameters to find the specific format requested.
 
 If it is not found, then a not found image will be displayed.
+
+## Batch Processes
+
+
+
 
 ## Registration
 
@@ -44,8 +49,8 @@ PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
 <http://rdf.glycoinfo.org/glycan/G00054MO> a glycan:saccharide ;
   glycan:has_image <http://rdf.glycoinfo.org/glycan/glycan/G00054MO/glycanbuilder/image/png/cfg> .
 
-PREFIX foaf: <http://xmlns.com/foaf/0.1/> 
-PREFIX dc: <http://purl.org/dc/elements/1.1/> 
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
 PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
 <http://rdf.glycoinfo.org/glycan/G00054MO/glycanbuilder/png/cfg> a glycan:image ;
  dc:title "GlyTouCan registered structure ID: G00054MO" ;
@@ -90,8 +95,8 @@ It currently retrieves the glycoct and executes the GlycanBuilder generation pro
 Instead the hex-encoded data can be retrieved directly using sparql.  This can then be converted into a binary image and displayed.
 
 ```
-PREFIX foaf: <http://xmlns.com/foaf/0.1/> 
-PREFIX dc: <http://purl.org/dc/elements/1.1/> 
+PREFIX foaf: <http://xmlns.com/foaf/0.1/>
+PREFIX dc: <http://purl.org/dc/elements/1.1/>
 PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
 SELECT ?data
 WHERE {
