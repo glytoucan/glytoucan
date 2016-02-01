@@ -39,6 +39,7 @@ The ImageRdf class is used to extract the information required for these ontolog
 Here is an example of a structure ID G00054MO being registered.  Note the dc:creator and URI used specifies the program used to generate the image.
 
 GlycoRDF:
+
 ```
 PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
 <http://rdf.glycoinfo.org/glycan/G00054MO> a glycan:saccharide ;
@@ -50,6 +51,7 @@ PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
 ```
 
 dc:
+
 ```
 PREFIX dc: <http://purl.org/dc/elements/1.1/>
 PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
@@ -64,11 +66,13 @@ dc:format	"image/png"^^xsd:string ;
 ```
 
 foaf:
+
 ```
 PREFIX foaf: <http://xmlns.com/foaf/0.1/>
 PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
 <http://rdf.glycoinfo.org/glycan/G00054MO> a glycan:saccharide ;
 foaf:thumbnail "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALoAAABSCAIAAABse1lJAAACX0lEQVR42u3boW7CUBSA4ZtJgiBZsiAQCAQSgUAieIhJRAWiEoEhQZCAQCAQ8AgkCCQCh1mCQCCQPAIC0WSI7WQ1JNtYYVvPKfn/9AGay8ftvdzi3ogi5xgCggvBheBCcCG4EFwYAoILwYXgQnAhuBBcGAKCC8GF4EJwIbgQXBgCggvBheBCcCG4EFwYAoILwYXgQnBJfKfTiXuLlYv7i1QGZbVaFQqF3W5n0MpmsymVSlpi/pvL6+8up2Ll0T16zsvlctbEiJJisTgYDO51dkkYl9DKxE1e3EvP9ayJWSwWwuWOH0ZJ4nJuJbysiWm1Wp1O5z6Xusni8tmKQTH1er3f78NFmct3VqyJ8TxvPB7DRZPLZSumxMjU4vs+XNS4RLFiR4wsdcvlMlx0uES3YkTM8XhMp9NBEMAlbi7XWjEiplqtzudzuMTK5TYrFsQMh0PZH8Hlay7/1IN7aLv2DVbC69k9O71SqRSHALHOLrPZ7Mk9Td30BisyJ2WzWZmftL7ilUpluVzCJda1y21i1K1I3W630WjAJe6d0bViLFiRZNmUz+fhovC7S3QxRqyEZTKZ/X4PF4VfdaOIMWVFqtVqcttw0TkzuizGmhWp2WyqnDXC5QcxBq1Ivu+rvMkAl0tibFp5+3iTYTQawUX5bbpzMWatBEEgO6P1eg0X/Xd1QzFt17ZpRZLHkNa5NP8E+FqM7FRtWjkcDuJ4u93eG5dEJ58K9wYXggvBheBCcCG4EMGF4EJwIbgQXAguRHAhuBBcCC4EF4ILEVwILgQXggvBheBCBBeCC8GF4ELJ7h28Fpg2gJRZSwAAAABJRU5ErkJggg==" .
+
 ```
 
 schema.org:
@@ -94,6 +98,7 @@ schema.org:
 In the case of volume registrations, a batch upload process should also be considered.  This process will reuse the registration procedure to generate the image RDF for a large volume of structures.
 
 Batch process class name:
+
 ```
 org.glycoinfo.rdf.batch.image
 ```
