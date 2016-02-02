@@ -17,6 +17,7 @@ layout: default
 
 #### <a name="#RegisteringMonosaccharides"></a>単糖の登録
 
+
 単糖（WURCS-MS-RDFに入っている）をGlyTouCanに登録
 
 1. 単糖はglycan:saccharideのサブクラス、glycan:monosaccharideをタイプ付けする
@@ -87,7 +88,7 @@ layout: default
 
 ### WURCS MSが生成する単糖のRDF
 
-[WURCS-MS-RDF](https://bitbucket.org/glycosw/wurcsrdf)のライブラリーにある、WURCSシーケンスら単糖データの[新しいRDF](https://bitbucket.org/glycosw/wurcsrdf/issues/1)を生成
+[WURCS-MS-RDF](https://bitbucket.org/glycosw/wurcsrdf)のライブラリーにある、WURCSシーケンスら単糖データの[新しいRDF](https://bitbucket.org/glycosw/wurcsrdf/issues/1)を生成。
 
 ```
 <wurcs:Monosaccharide>
