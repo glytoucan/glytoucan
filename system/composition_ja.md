@@ -20,6 +20,7 @@ layout: default
 #### <a name="#RegisteringMonosaccharides"></a>単糖の登録
 
 単糖（WURCS-MS-RDFに入っている）をGlyTouCanに登録
+
 1. 単糖はglycan:saccharideのサブクラス、glycan:monosaccharideタイプを付けする
 1. [monosaccharideタイプ別のReadableNameを取得](#ReadableName)
    1. 取得する方法
