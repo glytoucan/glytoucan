@@ -1,45 +1,43 @@
 ---
-title: 糖鎖の分解
+title: 糖鎖のコンポジション
 layout: default
 ---
 
-糖鎖を登録する時、構造を分析して関連しているデータをRDF化しています。GlyTouCanに糖鎖構造を登録する時のコンポーネント（単糖、残基、リンケージ）分解プロセスを説明します。
+糖鎖を登録する際、構造を分析して関連しているデータをRDF化しています。糖鎖構造コンポーネント（単糖、残基、リンケージ）のRDF形式を説明します。
 
 ### <a name="#ProcessFlow"></a>処理フロー
 
 [UML Diagram](https://docs.google.com/drawings/d/1v-16pyyEfKjUKKhSV1cda53AbRoQd0AVF0BW17k6TC8/edit)
 
-1. 糖鎖を登録時、WURCSシーケンスに変換します。
-1. [シーケンスの分解](#breakdown):[WurcsRDFのMSライブラリー](https://bitbucket.org/glycosw/wurcsrdf)が単糖と構造データのRDF生成します。
-1. 単糖かどうか？　←　単糖の判定はどうやるか？
+1. 糖鎖が登録されると、まずWURCSシーケンスに変換します。
+1. Accession numberが付く（単糖、糖鎖どちらも）
+1. [WurcsRDFのMSライブラリー](https://bitbucket.org/glycosw/wurcsrdf)が単糖と構造データのRDF生成します。
+1. 単糖かどうかを判定します。
   2. WURCSの文字列に対して前方一致で判定（”WURCS=2.0/1,1,0/”）
-1. 単糖であれば[単糖の登録](#RegisteringMonosaccharides)糖鎖であればに[糖鎖の登録](#RegisteringSaccharide)移動
+1. 単糖であれば[単糖の登録](#RegisteringMonosaccharides)、糖鎖であればに[糖鎖の登録](#RegisteringSaccharide)に移動
+  1. この場合、単糖であれば、Componentを作成していません。（Cardinalityは１）
 
 #### <a name="#RegisteringMonosaccharides"></a>単糖の登録
 
-
 単糖（WURCS-MS-RDFに入っている）をGlyTouCanに登録
-
-1. 単糖はglycan:saccharideのサブクラス、glycan:monosaccharideをタイプ付けする
-1. Accession numberが付く
+1. 単糖はglycan:saccharideのサブクラス、glycan:monosaccharideタイプを付けする
 1. [monosaccharideタイプ別のReadableNameを取得](#ReadableName)
    1. 取得する方法
       * monosaccharideDB http://www.monosaccharidedb.org/remote_access.action#conversion
       * glycanformatconverter https://bitbucket.org/glycosw/glycanformatconverter
-  1. monosaccharide_aliasにインサート、Monosaccharideにリンク
+  1. monosaccharide_aliasにインサート、glycan:monosaccharideにリンク
 
-#### <a name="#RegisteringSaccharide"></a>糖鎖の登録
+#### <a name="#RegisteringSaccharides"></a>糖鎖の登録
 
 1.  糖鎖に含まれている[単糖](#residues)をループして[ResidueGenerator](#ResidueGenerator)(残基?)を実行します：
   1. [単糖のWURCSを取得・生成](#MonosaccharideWurcs)
   1. [単糖を糖鎖として登録](#RegisteringMonosaccharides) (最初の[処理フロー](#ProcessFlow)に戻る)
       1. 登録した単糖のAccession numberを取得
+  1. Componentの作成
       1. 糖鎖に登録された単糖のAcc#をひも付ける
   1. [Cardinality](#Cardinality)の計算
-      1. Componentの作成
       1. どのタイプに絞る？
   1. [Top Page](http://glytoucan.org)の[単糖数](#TopNumbers)
-  1. 登録した[Monosaccharide情報をｗurcsのMS（新しいオントロジー？）と連携します。](#LinkingToWurcsRdf)
 
 ### 関係しているRDF
 ```
@@ -56,8 +54,8 @@ layout: default
     	a	glycan:Component
     	glycan:has_cardinality	integer
 
-      # 今までのMonosaccharideSparqlを再利用、WurcsRDFとの区別を明確に
-    	glycan:has_monosaccharide	<glycan:Monosaccharide>
+      # 今までのMonosaccharideSparqlを再利用
+    	glycan:has_monosaccharide	<glycan:monosaccharide>
 
     <wurcs:Monosaccharide>
       a wurcs:Monosaccharide ;
@@ -76,8 +74,7 @@ layout: default
     	a	glycan:monosaccharide_alias
       glycan:is_monosaccharide <glycan:Monosaccharide> ;
     	glycan:has_monosaccharide_notation_scheme glycan:monosaccharide_notation_scheme_carbbank
-    	glycan:has_alias_name "monosaccharide alias name"
-    "# "monosaccharide alias name" => Gal-ol"
+    	glycan:has_alias_name "Gal-ol"
 
     <glycan:MonosaccharideAlias>
       a glycan:monosaccharide_alias
@@ -104,23 +101,21 @@ layout: default
 
 ```
 
-WURCSを生成するクラス・関数？
-
 `<wurcs:Monosaccharide>` URIのサンプル
 
     <http://rdf.glycoinfo.org/glycan/wurcs/2.0/Monosaccharide/Aad211d2h-2a_2-6_5%2ANCC%2F3%3DO>
 
-### 既存データとバッチ
+### バッチ更新
 
-すでに登録されてい糖鎖構造が存在します、新しいデータを追加するには、[バッチプロセス](http://code.glytoucan.org/batch/new/2015)を実行して更新できます。
+大量の構造データ（アップロード、[GlyTouCanクライアント](http://github.com/glytoucan/client)）の場合、[バッチプロセス](http://code.glytoucan.org/batch)を実行して更新できます。
 
-新しくインサートするコンポーネントと登録する単糖も同様に既存の糖鎖を更新できます。
+コンポーネントと単糖は同様に更新されます。
 
-[バッチとSPARQLBeanの設計書](http://code.glytoucan.org/batch/new/2016)
+[詳細は開発者用のドキュメント](http://nexus.glycoinfo.org/content/sites/project/glytoucan/batch/apidocs/index.html)に記載されています。
 
 ### <a name="ResidueGenerator"></a>ResidueGenerator
 
-単糖データを利用して単糖と関連しているコンポーネントのRDFを作成します。
+単糖と関連しているコンポーネントのRDFを作成します。
 
 単糖を取得するSPARQL[設計中](https://bitbucket.org/glycosw/wurcsrdf/issues/1)
 :
@@ -128,14 +123,30 @@ WURCSを生成するクラス・関数？
     SELECT ?monosaccharide
     WHERE {
 	    ?monosaccharide a wurcs:Monosaccharide
-    	?monosaccharide noc:is_type	2
-    	?monosaccharide noc:is_modified	false
+#    	?monosaccharide noc:is_type	2
+#    	?monosaccharide noc:is_modified	false
       ?monosaccharide noc:wurcs_sequence	?sequence
     }
 
 [Sample](http://beta.ts.glytoucan.org/sparql?default-graph-uri=&query=PREFIX+wurcs%3A+%3Chttp%3A%2F%2Fwww.glycoinfo.org%2Fglyco%2Fowl%2Fwurcs%23%3E%0D%0ASELECT+distinct+%3Fmono%0D%0A++++++++++++++++FROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fwurcs%2Fms%3E%0D%0A++++++++++++++++WHERE%7B%0D%0A%3Fmono+a+wurcs%3AMonosaccharide+.%0D%0A%7D%0D%0Alimit+100&format=text%2Fhtml&timeout=0&debug=on)
 
-### 各単糖を登録
+#### 各単糖を登録
+
+上記のwurcs:MonosaccharideのURIから、残機データを生成：
+
+    http://rdf.glycoinfo.org/glycan/wurcs/2.0/Monosaccharide/Aad211d2h-2a_2-6_5%2ANCC%2F3%3DO
+
+の
+
+    http://rdf.glycoinfo.org/glycan/wurcs/2.0/Monosaccharide/
+
+部分をカット
+
+    Aad211d2h-2a_2-6_5%2ANCC%2F3%3DO
+
+WURCSをs生成
+
+    WURCS=2.0/1,1,0/Aad211d2h
 
 単糖情報から、単糖のWURCSを取得して、GlycoRDF:Monosaccharideとして登録します。（Saccharideのサブクラス）
 
