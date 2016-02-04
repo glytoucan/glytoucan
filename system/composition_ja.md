@@ -20,6 +20,7 @@ layout: default
 #### <a name="#RegisteringMonosaccharides"></a>単糖の登録
 
 単糖（WURCS-MS-RDFに入っている）をGlyTouCanに登録
+
 1. 単糖はglycan:saccharideのサブクラス、glycan:monosaccharideタイプを付けする
 1. [monosaccharideタイプ別のReadableNameを取得](#ReadableName)
    1. 取得する方法
@@ -109,7 +110,7 @@ layout: default
 
 大量の構造データ（アップロード、[GlyTouCanクライアント](http://github.com/glytoucan/client)）の場合、[バッチプロセス](http://code.glytoucan.org/batch)を実行して更新できます。
 
-コンポーネントと単糖は同様に更新されます。
+コンポーネントと単糖は上記と同様、更新されます。
 
 [詳細は開発者用のドキュメント](http://nexus.glycoinfo.org/content/sites/project/glytoucan/batch/apidocs/index.html)に記載されています。
 
@@ -120,6 +121,7 @@ layout: default
 単糖を取得するSPARQL[設計中](https://bitbucket.org/glycosw/wurcsrdf/issues/1)
 :
 
+```
     SELECT ?monosaccharide
     WHERE {
 	    ?monosaccharide a wurcs:Monosaccharide
@@ -127,6 +129,7 @@ layout: default
 #    	?monosaccharide noc:is_modified	false
       ?monosaccharide noc:wurcs_sequence	?sequence
     }
+```
 
 [Sample](http://beta.ts.glytoucan.org/sparql?default-graph-uri=&query=PREFIX+wurcs%3A+%3Chttp%3A%2F%2Fwww.glycoinfo.org%2Fglyco%2Fowl%2Fwurcs%23%3E%0D%0ASELECT+distinct+%3Fmono%0D%0A++++++++++++++++FROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fwurcs%2Fms%3E%0D%0A++++++++++++++++WHERE%7B%0D%0A%3Fmono+a+wurcs%3AMonosaccharide+.%0D%0A%7D%0D%0Alimit+100&format=text%2Fhtml&timeout=0&debug=on)
 
