@@ -8,7 +8,7 @@ layout: default
 The formal and colloquial names of glycans are an important aspect of glycobiological research.  Commonly used names are used to communicate chemical residues, monosaccharides, and structural patterns found in glycan structures.  These names can differ between languages, organizations, and research groups for the same structure or pattern.
 As of this writing, there does not exist a de-facto standard for naming glycans.  Even within the cheminfo organizations, there only exist proposals of standards.
 
-As a glycan repository, it is important for the system to be able to associate names and naming conventions to specific structures or structural patterns.  
+As a glycan repository, it is important for the system to be able to associate names and naming conventions to specific structures or structural patterns.  This will allow for easier queries and recognizable associations for users and contributors.
 
 This document describes a system architecture designed to be flexible enough to handle contributions of names used by different organizations, as well as an attempt associate the formalizing standards that are or will be used by glycan and other biochemical researchers.
 
@@ -18,31 +18,51 @@ To simplify the wording used for the scope of this document, please note the fol
 
 #### What is a Glycan
 
-A glycan is any structure that can be registered into the Glycan Repository.  The smallest unit structure in this case would be a monosaccharide.  This would thus not include glycan fragments nor aglycon information.
+A glycan is any structure that can be registered into the Glycan Repository.  This is described as any structure that is unique ["at any level of detail or uncertainty"](http://glycob.oxfordjournals.org/content/23/12/1422.long){:target="_blank"}.  This would not include glycan fragments nor aglycon information.
 
 #### What is a Structure
 
- A "structure" is used for any structural sequence clearly definable by the GlycoInformatic Textual Formats GlycoCT or WURCS.
+A "structure" is used for any structural sequence clearly definable by the glycan sequence textual format WURCS.
 
 #### What is a Glycan Motif
 
 A Glycan motif is a pattern identified within glycan structures that have been associated with a specific function and thus given a name.  It is important to note that motifs need to be defined as any location of an entire glycan structure, or only connected at the root or reducing end of the tree.
 
-#### Detailed Scenarios
+### Detailed Scenarios
 
-Before describing a technical system workflow and data schema to support the naming of glycans, different scenarios will be described to explain the complexity of the problem.  
+Before describing a technical system workflow and data schema to support the naming of glycans, different scenarios will be described to explain the complexity of the problem.  The parts of the architecture that resolve each issue will be explained for each scenario.  
 
 #### Monosaccharides
 
-As described in the overview, the base case scenario for the glycan repository would be the registration of a monosaccharide.  [MonosaccharideDB](http://www.monosaccharidedb.org){:target="_blank"} explains this best on the [notation  page](http://www.monosaccharidedb.org/notation.action){:target="_blank"}.  MonosaccharideDB not only incorporates a primary and trivial name schema, it also defines the source of the name or the type with the 
+The base case scenario for the glycan repository would be the registration of a monosaccharide.  [MonosaccharideDB](http://www.monosaccharidedb.org){:target="_blank"} explains this best on the [notation  page](http://www.monosaccharidedb.org/notation.action){:target="_blank"}.  MonosaccharideDB not only incorporates a primary and trivial name schema, it also defines the source of the name or the type with the ```glycan:has_monosaccharide_notation_scheme``` predicate. 
 
-For all new registrations, the base sequence format stored is WURCS.  As of this writing, the WURCS image generation method is still under construction so the glycoCT-based image generation in GlycanBuilder will be used primarily.  The registration process already generates KCF, glycoCT, Linearcode, and the base format WURCS, so this should not be a problem.  It should be noted that the framework should be flexible enough to replace the image generation method.  Thus how the image is generated should also be a property of the image RDF.
+glycan:has_monosaccharide_notation_scheme
+              "glycan:monosaccharide_notation_scheme_glycoct"^^<http://www.w3.org/2001/XMLSchema#string> ;
+              
+                glycan:has_monosaccharide_notation_scheme
+              "glycan:monosaccharide_notation_scheme_glycosciences_de"^^<http://www.w3.org/2001/XMLSchema#string> ;
+              
+                    glycan:has_monosaccharide_notation_scheme
+              "glycan:monosaccharide_notation_scheme_carbbank"^^<http://www.w3.org/2001/XMLSchema#string> ;
+              
+                    glycan:has_monosaccharide_notation_scheme
+              "glycan:monosaccharide_notation_scheme_glycosciences_de"^^<http://www.w3.org/2001/XMLSchema#string> ;
+              
+      glycan:has_monosaccharide_notation_scheme
+              "glycan:monosaccharide_notation_scheme_monosaccharidedb"^^<http://www.w3.org/2001/XMLSchema#string> ;
+
+[CFG notation](http://www.functionalglycomics.org/static/consortium/Nomenclature.shtml)
+[PGA Nomenclature](http://glycomics.scripps.edu/coreD/PGAnomenclature.pdf)
+[Polysaccharide Nomenclature](http://pac.iupac.org/publications/pac/pdf/1982/pdf/5408x1523.pdf)
+[Oligosaccharide chains](http://www.jbc.org/content/257/7/3347.full.pdf)
 
 ## Base Case
 
 The base case is where the repository is completely blank.  In this case there is no structure nor image information.  So the entire process should start by the registration of a new structure.
 
 ## Registration
+
+[RDF Datasets](https://www.w3.org/TR/rdf-sparql-query/#rdfDataset)
 
 Before registration, the generation of the image is required before submitting the structure.  This is a critical aspect of the registration process, as it confirms the structure to be registered.  This is currently created by hex-encoding the image and then displayed on the browser.
 
