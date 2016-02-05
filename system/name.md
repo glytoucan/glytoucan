@@ -34,7 +34,7 @@ Before describing a technical system workflow and data schema to support the nam
 
 #### Monosaccharides
 
-As described in the overview, the base case scenario for the glycan repository would be the registration of a monosaccharide.  [MonosaccharideDB](http://www.monosaccharidedb.org) explains this best in it's [article](http://www.monosaccharidedb.org/notation.action) 
+As described in the overview, the base case scenario for the glycan repository would be the registration of a monosaccharide.  [MonosaccharideDB](http://www.monosaccharidedb.org){:target="_blank"} explains this best on the [notation  page](http://www.monosaccharidedb.org/notation.action){:target="_blank"}.  MonosaccharideDB not only incorporates a primary and trivial name schema, it also defines the source of the name or the type with the 
 
 For all new registrations, the base sequence format stored is WURCS.  As of this writing, the WURCS image generation method is still under construction so the glycoCT-based image generation in GlycanBuilder will be used primarily.  The registration process already generates KCF, glycoCT, Linearcode, and the base format WURCS, so this should not be a problem.  It should be noted that the framework should be flexible enough to replace the image generation method.  Thus how the image is generated should also be a property of the image RDF.
 
