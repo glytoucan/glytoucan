@@ -4,7 +4,7 @@ url: http://code.glytoucan.org
 exclude: [deprecated]
 safe: true
 highlighter: pygments
-markdown: redcarpet
+markdown: kramdown
 paginate: 2
 paginate_path: "/blog/page:num/"
 permalink: pretty
