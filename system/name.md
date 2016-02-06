@@ -54,6 +54,8 @@ glycan:has_monosaccharide_notation_scheme
 [CFG notation](http://www.functionalglycomics.org/static/consortium/Nomenclature.shtml)
 [PGA Nomenclature](http://glycomics.scripps.edu/coreD/PGAnomenclature.pdf)
 [Polysaccharide Nomenclature](http://pac.iupac.org/publications/pac/pdf/1982/pdf/5408x1523.pdf)
+
+Sulfates:
 [Oligosaccharide chains](http://www.jbc.org/content/257/7/3347.full.pdf)
 
 ## Base Case
