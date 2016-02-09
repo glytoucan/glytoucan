@@ -1,199 +1,143 @@
 ---
-title: Glycan Name Architecture
+title: Glycan Naming Architecture
 layout: default
 ---
 
 ## Overview
 
-The formal and colloquial names of glycans are an important aspect of glycobiological research.  Commonly used names are used to communicate chemical residues, monosaccharides, and structural patterns found in glycan structures.  These names can differ between languages, organizations, and research groups for the same structure or pattern.
-As of this writing, there does not exist a de-facto standard for naming glycans.  Even within the cheminfo organizations, there only exist proposals of standards.
+The formal and colloquial names of glycans are an essential aspect of glycobiological research.  Commonly used names are used to communicate specific saccharides and structural patterns found in glycans.  These names can differ between languages, organizations, and research groups for the same structure or pattern.  The various names of glycan structures can be considered larger and more generalized in scope in comparison to the notation schemes proposed in various literature[^1]. 
 
-As a glycan repository, it is important for the system to be able to associate names and naming conventions to specific structures or structural patterns.  This will allow for easier queries and recognizable associations for users and contributors.
+As a glycan repository, it is important for the system to be able to associate names and notations to specific structures or structural patterns.  This will allow for easier queries and recognizable associations for users and contributors.
 
-This document describes a system architecture designed to be flexible enough to handle contributions of names used by different organizations, as well as an attempt associate the formalizing standards that are or will be used by glycan and other biochemical researchers.
+This document describes a system architecture designed to be flexible enough to handle contributions of names from different organizations, as well as associate defined notations that are or will be used by glycan and other biochemical researchers.
 
 ### Vocabulary
 
 To simplify the wording used for the scope of this document, please note the following definitions.
 
-#### What is a Glycan
+| Name | Definition
+| Glycan | A glycan is any structure that can be registered into the Glycan Repository.  This is described as any structure that is unique ["at any level of detail or uncertainty"](http://glycob.oxfordjournals.org/content/23/12/1422.long){:target="_blank"}.  This would not include glycan fragments nor aglycon information.
+| Structure | A "structure" is used for any structural sequence clearly definable by any major glycan sequence format such as GlycoCT or WURCS.
+| Glycan Motif | A Glycan motif is a pattern identified within glycan structures that have been associated with a specific function and thus given a name.  It is important to note that motifs need to be defined as either any location of an entire glycan structure, or to be specific to a reducing end.  This is very different from a typical saccharide.
+| Glycan Name | A name is any name given to a glycan.  We will distinguish here the difference between a Glycan Name and a Motif Name.  A Motif Name is not associated to a distinct structure, rather a set of structures that match a pattern.
+| Trivial Name | A trivial name is an abbreviation given to specific saccharide structures.  MonosaccharideDB [explains](http://www.monosaccharidedb.org/notation.action?topic=trivialname){:target="_blank"} how they can be ambiguous in nature as not enough detail is given to be able to define the structure from the name.
+| Contributor| The person or organization responsible for maintaining a trivial naming convention.
+| Glycan Alias | This will be considered the same as a Trivial Name.
+| Notation | A notation is a textual system used to represent glycan structures.  The definition of the system must be in a referencable, published work.  For example, the GlycoCT and WURCS sequence structures are considered notations, as well as the Abbreviated Terminology of Oligosaccharide Chains[^2] as an early model.
+| GlycoSequence | The term glycosequence is used to define a notation that is supported by GlyTouCan, which is simply the notations fully supported in the [GlyConvert](http://bitbucket/glycosw/glyconvert){:target="_blank"} project.
 
-A glycan is any structure that can be registered into the Glycan Repository.  This is described as any structure that is unique ["at any level of detail or uncertainty"](http://glycob.oxfordjournals.org/content/23/12/1422.long){:target="_blank"}.  This would not include glycan fragments nor aglycon information.
+As of this writing, the glycosequences supported include the following formats:
 
-#### What is a Structure
+1. GlycoCT
+1. WURCS
+1. KCF
+1. Linearcode
 
-A "structure" is used for any structural sequence clearly definable by the glycan sequence textual format WURCS.
+Please note that glycosequences are considered special and are handled in a completely different manner as they are considered critical to the system to operate.  It is important for conversions to be handled in a subproject in order to modularize and reuse the conversion logic.  The project also ensures the supported notation can represent the multitude of unique structures possible.
 
-#### What is a Glycan Motif
+### Changes to GlycoRDF schema
 
-A Glycan motif is a pattern identified within glycan structures that have been associated with a specific function and thus given a name.  It is important to note that motifs need to be defined as any location of an entire glycan structure, or only connected at the root or reducing end of the tree.
+In order to support the naming of a glycan, a slight change was needed in the GlycoRDF Ontology.
 
-### Detailed Scenarios
+Before:
 
-Before describing a technical system workflow and data schema to support the naming of glycans, different scenarios will be described to explain the complexity of the problem.  The parts of the architecture that resolve each issue will be explained for each scenario.  
+    <glycan:saccharide> a saccharide;
 
-#### Monosaccharides
+    <glycan:monosaccharide> a monosaccharide;
+      rdfs:subClassOf glycan:saccharide;
+      glycan:has_alias <glycan:monosaccharide_alias>
 
-The base case scenario for the glycan repository would be the registration of a monosaccharide.  [MonosaccharideDB](http://www.monosaccharidedb.org){:target="_blank"} explains this best on the [notation  page](http://www.monosaccharidedb.org/notation.action){:target="_blank"}.  MonosaccharideDB not only incorporates a primary and trivial name schema, it also defines the source of the name or the type with the ```glycan:has_monosaccharide_notation_scheme``` predicate. 
+    <glycan:monosaccharide_alias> a glycan:monosaccharide_alias
+      glycan:has_alias_name xsd:string
 
-glycan:has_monosaccharide_notation_scheme
-              "glycan:monosaccharide_notation_scheme_glycoct"^^<http://www.w3.org/2001/XMLSchema#string> ;
-              
-                glycan:has_monosaccharide_notation_scheme
-              "glycan:monosaccharide_notation_scheme_glycosciences_de"^^<http://www.w3.org/2001/XMLSchema#string> ;
-              
-                    glycan:has_monosaccharide_notation_scheme
-              "glycan:monosaccharide_notation_scheme_carbbank"^^<http://www.w3.org/2001/XMLSchema#string> ;
-              
-                    glycan:has_monosaccharide_notation_scheme
-              "glycan:monosaccharide_notation_scheme_glycosciences_de"^^<http://www.w3.org/2001/XMLSchema#string> ;
-              
-      glycan:has_monosaccharide_notation_scheme
-              "glycan:monosaccharide_notation_scheme_monosaccharidedb"^^<http://www.w3.org/2001/XMLSchema#string> ;
+As can be seen, trivial names were placed inside a `monosaccharide_alias` class.
 
-[CFG notation](http://www.functionalglycomics.org/static/consortium/Nomenclature.shtml)
-[PGA Nomenclature](http://glycomics.scripps.edu/coreD/PGAnomenclature.pdf)
-[Polysaccharide Nomenclature](http://pac.iupac.org/publications/pac/pdf/1982/pdf/5408x1523.pdf)
+We would also like to handle the naming of motifs, which were stored in this manner:
 
-Sulfates:
-[Oligosaccharide chains](http://www.jbc.org/content/257/7/3347.full.pdf)
+    <glycan:motif> a glycan:motif;
 
-## Base Case
+    <glycan:glycan_motif> a glycan:glycan_motif;
+      rdfs:subClassOf glycan:motif;
+      glycan:has_glycosequence <glycan:glycosequence>
+      rdfs:label  "Lewis C"@en
 
-The base case is where the repository is completely blank.  In this case there is no structure nor image information.  So the entire process should start by the registration of a new structure.
+As there was no naming convention in the ontology at the time, we had used an `rdfs:label` as a temporary solution.
 
-## Registration
+In order to support naming, and by following convention, a `Saccharide_alias` class is defined as a superclass of `Monosaccharide_alias`. 
 
-[RDF Datasets](https://www.w3.org/TR/rdf-sparql-query/#rdfDataset)
+    <glycan:Saccharide> a Saccharide;
+      glycan:has_alias <glycan:Saccharide_alias>
 
-Before registration, the generation of the image is required before submitting the structure.  This is a critical aspect of the registration process, as it confirms the structure to be registered.  This is currently created by hex-encoding the image and then displayed on the browser.
+    <glycan:Saccharide_alias> a glycan:Saccharide_alias
+      glycan:has_alias_name xsd:String
 
-The hex-encoding of the image is generated by the GlycanBuilder Library.  After confirmation, the user can submit the structure, which will then be given an accession number.
+    <glycan:Monosaccharide_alias> a glycan:Monosaccharide_alias
+      rdfs:subClassOf glycan:Saccharide_alias;
 
-Once registered, the GlycanBuilder library is used to generate an image file in png and svg formats.  All of the glycoinformatic formats possible should be created, using CFG, IUPAC, Oxford, or any combination.
+The `glycan:has_alias_name` is then passed on implicitly by inheritance to the `Monosaccharide_alias` class.
 
-The newly registered structure will also store the related data for the image in RDF.
+The same can then be done for Glycan_Motif.
 
-The glycoRDF, FOAF, schema and DC owl will be used.
+    <glycan:Glycan_motif> a glycan:Glycan_motif;
+      rdfs:subClassOf glycan:Motif;
+      glycan:has_alias <glycan:Glycan_motif_alias>
 
-glycoRDF details can be found [here](http://code.glytoucan.org/rdf-ontology/rdf-doc.html#image).
+    <glycan:Glycan_motif_alias> a glycan:Glycan_motif_alias;
+      glycan:has_alias_name xsd:String
 
-RDF for image data is covered in detail [here](http://www.kanzaki.com/docs/sw/image-rdf.html).
+Since GlyTouCan does not deal with Glyconjugates there is no need to define anything in the `glycan:Motif` level at this time.  The `rdfs:label` will have to be converted into this alias.  Also, the `glycan:Motif` is independent of the `glycan:Saccharide`, so there is no relationships between them.
 
-However there is also image data that is recognized by search engines in the [schema.org ontology](http://schema.org/ImageObject).
+#### Contributions
 
-The ImageRdf class is used to extract the information required for these ontologies.
+Within the schema above, there is no clear location to define the contributor information of the trivial name.  This is important for the repository in order to reference which person or organization utilizes the naming method.  For monosaccharides, there does exist `has_monosaccharide_notation_scheme` predicate, however this is very similar to a `glycan:carbohydrate_format`.  Another issue is that contributor information does not have a _logical_ connection to the scientific glycan information being stored in GlycoRDF.  It is rather particular to the glycan repository.
 
-Here is an example of a structure ID G00054MO being registered.  Note the dc:creator and URI used specifies the program used to generate the image.
+Thus [RDF Datasets](https://www.w3.org/TR/rdf11-concepts/#section-dataset) are a convenient place for this kind of information, and also fits very well with how the data is organized.  A policy of _all data from a Contributor A is placed in Dataset A_ can be defined.  This actually allows for simplicity from a data management perspective, as it will be possible to execute contributor-specific all-encompassing data management methods such as _replace all information from Contributor A with New Dataset A'_, or queries such as _What are all of the N-glycan names contributed by Contributor A?_ is simply a reusable N-glycan query on Dataset A instead of all data within the repository.
+To explain this in a more concrete manner, this is how an insertion of a glycan name contributed by monosaccharidedb would be in SPARQL:
 
-GlycoRDF:
+    PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
+    INSERT DATA { 
+      GRAPH <http://rdf.glytoucan.org/contributor/monosaccharidedb> { 
+        <glycan:Saccharide> glycan:has_alias <glycan:Saccharide_alias> .
+        <glycan:Saccharide_alias> a glycan:Saccharide_alias .
+        <glycan:Saccharide_alias> glycan:has_alias_name xsd:String .
+      }
+    }
 
-```
-PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
-<http://rdf.glycoinfo.org/glycan/G00054MO> a glycan:saccharide ;
-  glycan:has_image <http://rdf.glycoinfo.org/glycan/glycan/G00054MO/glycanbuilder/image/png/cfg> .
+The `monosaccharidedb` section of the graph name should be a unique name for the contributor, possibly held within `Glycan_database` or `Monosaccharide_notation_scheme` classes.
 
-PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
-<http://rdf.glycoinfo.org/glycan/G00054MO/glycanbuilder/png/cfg> a glycan:image ;
- glycan:has_symbol_format	glycan:symbol_format_cfg ;
-```
+Another example of retrieving all saccharide trivial names contributed by monosaccharidedb: 
 
-dc:
+    PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
+    SELECT *
+    FROM <http://rdf.glytoucan.org/contributor/monosaccharidedb> { 
+    WHERE {
+        <glycan:Saccharide_alias> a glycan:Saccharide_alias .
+        <glycan:Saccharide_alias> glycan:has_alias_name xsd:String .
+      }
+    }
 
-```
-PREFIX dc: <http://purl.org/dc/elements/1.1/>
-PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
+Note the similarity with retrieving all trivial names:
 
-<http://rdf.glycoinfo.org/glycan/G00054MO/glycanbuilder/png/cfg> a glycan:image ;
-dc:title "GlyTouCan registered structure ID: G00054MO" ;
-dc:creator "GlycanBuilder v1.0" ;
-dc:date "1996" ;
-dc:description "GlyTouCan registered structure ID: G00054MO." ;
-dc:format	"image/png"^^xsd:string ;
+    PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
+    SELECT *
+    WHERE {
+        <glycan:Saccharide_alias> a glycan:Saccharide_alias .
+        <glycan:Saccharide_alias> glycan:has_alias_name xsd:String .
+    }
 
-```
+This shows how using datasets simplifies system maintenance and development. 
 
-foaf:
-
-```
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
-<http://rdf.glycoinfo.org/glycan/G00054MO> a glycan:saccharide ;
-foaf:thumbnail "data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAALoAAABSCAIAAABse1lJAAACX0lEQVR42u3boW7CUBSA4ZtJgiBZsiAQCAQSgUAieIhJRAWiEoEhQZCAQCAQ8AgkCCQCh1mCQCCQPAIC0WSI7WQ1JNtYYVvPKfn/9AGay8ftvdzi3ogi5xgCggvBheBCcCG4EFwYAoILwYXgQnAhuBBcGAKCC8GF4EJwIbgQXBgCggvBheBCcCG4EFwYAoILwYXgQnBJfKfTiXuLlYv7i1QGZbVaFQqF3W5n0MpmsymVSlpi/pvL6+8up2Ll0T16zsvlctbEiJJisTgYDO51dkkYl9DKxE1e3EvP9ayJWSwWwuWOH0ZJ4nJuJbysiWm1Wp1O5z6Xusni8tmKQTH1er3f78NFmct3VqyJ8TxvPB7DRZPLZSumxMjU4vs+XNS4RLFiR4wsdcvlMlx0uES3YkTM8XhMp9NBEMAlbi7XWjEiplqtzudzuMTK5TYrFsQMh0PZH8Hlay7/1IN7aLv2DVbC69k9O71SqRSHALHOLrPZ7Mk9Td30BisyJ2WzWZmftL7ilUpluVzCJda1y21i1K1I3W630WjAJe6d0bViLFiRZNmUz+fhovC7S3QxRqyEZTKZ/X4PF4VfdaOIMWVFqtVqcttw0TkzuizGmhWp2WyqnDXC5QcxBq1Ivu+rvMkAl0tibFp5+3iTYTQawUX5bbpzMWatBEEgO6P1eg0X/Xd1QzFt17ZpRZLHkNa5NP8E+FqM7FRtWjkcDuJ4u93eG5dEJ58K9wYXggvBheBCcCG4EMGF4EJwIbgQXAguRHAhuBBcCC4EF4ILEVwILgQXggvBheBCBBeCC8GF4ELJ7h28Fpg2gJRZSwAAAABJRU5ErkJggg==" .
-
-```
-
-schema.org:
-
-```
-
-<div vocab="http://schema.org/" typeof="ImageObject">
-  <h2 property="name">Beach in Mexico</h2>
-  <span rel="contentURL"><img src="mexico-beach.jpg" /></span>
-
-  By <span property="author">Jane Doe</span>
-  Photographed in
-    <span property="contentLocation">Puerto Vallarta, Mexico</span>
-  Date uploaded:
-    <span property="publishDate" content="2008-01-25">Jan 25, 2008</span>
-
-  <span property="description">I took this picture while on vacation last year.</span>
-</div>
-```
-
-## Batch Processes
-
-In the case of volume registrations, a batch upload process should also be considered.  This process will reuse the registration procedure to generate the image RDF for a large volume of structures.
-
-Batch process class name:
-
-```
-org.glycoinfo.rdf.batch.image
-```
-
-## Web Service
-
-The image binary web service will be altered so that when a specific image of an ID is requested, the RDF is checked for the binary and that data will be retrieved.  The web service will handle the parameters to find the specific format requested.
-
-If it is not found, then a not found image will be displayed.
-
-
-## Retrieval
-
-Once the above image data is stored, it is possible to retrieve the image using sparql.
-
-The current image web service allows for the following to display a binary image:
-
-```
-https://glytoucan.org/glycans/G00029MO/image?format=png&notation=cfg&style=extended
-```
-This is implemented in the following class:
-
-```
-org.glytoucan.ws.controller.GlycanController.getGlycanImage(String, String, String, String)
-```
-
-It currently retrieves the glycoct and executes the GlycanBuilder generation process to create them.
-
-Instead the hex-encoded data can be retrieved directly using sparql.  This can then be converted into a binary image and displayed.
-
-```
-PREFIX foaf: <http://xmlns.com/foaf/0.1/>
-PREFIX dc: <http://purl.org/dc/elements/1.1/>
-PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
-SELECT ?data
-WHERE {
-  ?glycan glycan:has_primary_key "G00054MO" .
-  ?glycan glycan:has_image ?glycanImage .
-  ?glycanImage foaf:thumbnail ?data .
-  ?glycanImage glycan:has_symbol_format	glycan:symbol_format_cfg ;
-  ?glycanImage dc:format "image/png"^^xsd:string ;
-}
-
-```
 
 ## Conclusion
 
-By storing the hex-encoded data directly into the RDF, the image-generation dependency and point of failure is removed.  It is also possible to alter the registration process to completely regenerate all images using a different generation program.
+This explains how GlyTouCan handles naming from an overall architectural perspective, as well as the reasoning behind the changes proposed for the GlycoRDF ontology.
 
-Once the wurcs image generation program is ready, it can be quickly integrated into this system to have a robust method of displaying structure images.
+How the repository will be importing this data from various sources, as well as methods to contribute data will be explained in a [technical article](/system/name_technical).
+
+### References:
+
+[^1]: [Polysaccharide Nomenclature](http://pac.iupac.org/publications/pac/pdf/1982/pdf/5408x1523.pdf)
+[^2]: [Abbreviated Terminology of Oligosaccharide Chain](http://www.jbc.org/content/257/7/3347.full.pdf)
+
+1. [CFG notation](http://www.functionalglycomics.org/static/consortium/Nomenclature.shtml)
+1. [PGA Nomenclature](http://glycomics.scripps.edu/coreD/PGAnomenclature.pdf)
