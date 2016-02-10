@@ -87,7 +87,7 @@ The same can then be done for Glycan_Motif.
 
 Since GlyTouCan does not deal with Glyconjugates there is no need to define anything in the `glycan:Motif` level at this time.  The `rdfs:label` will have to be converted into this alias.  Also, the `glycan:Motif` is independent of the `glycan:Saccharide`, so there is no relationships between them.
 
-#### Contributions
+### Contributions
 
 Within the schema above, there is no clear location to define the contributor information of the trivial name.  This is important for the repository in order to reference which person or organization utilizes the naming method.  For monosaccharides, there does exist `has_monosaccharide_notation_scheme` predicate, however this is very similar to a `glycan:carbohydrate_format`.  Another issue is that contributor information does not have a _logical_ connection to the scientific glycan information being stored in GlycoRDF.  It is rather particular to the glycan repository.
 
