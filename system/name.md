@@ -143,4 +143,4 @@ How the repository will be importing this data from various sources, as well as 
 2. [PGA Nomenclature](http://glycomics.scripps.edu/coreD/PGAnomenclature.pdf)
 3. [GlycoCT](http://www.ncbi.nlm.nih.gov/pubmed/18436199)
 4. [WURCS](http://www.ncbi.nlm.nih.gov/pubmed/?term=WURCS+carbohydrate)
-5. [Linear Code] (http://web.media.mit.edu/~yanival/Alt02.pdf)
+5. [LinearCode] (http://web.media.mit.edu/~yanival/Alt02.pdf)
