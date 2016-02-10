@@ -138,7 +138,7 @@ How the repository will be importing this data from various sources, as well as 
 
 [^1]: [Polysaccharide Nomenclature](http://pac.iupac.org/publications/pac/pdf/1982/pdf/5408x1523.pdf)
 [^2]: [GlycoCT](http://www.ncbi.nlm.nih.gov/pubmed/18436199)
-[^3]: [WURCS](http://www.ncbi.nlm.nih.gov/pubmed/?term=WURCS+carbohydrate)
+[^3]: [WURCS](http://www.ncbi.nlm.nih.gov/pubmed/24897372)
 [^4]: [Abbreviated Terminology of Oligosaccharide Chain](http://www.jbc.org/content/257/7/3347.full.pdf)
 [^5]: [KCF](http://rings.t.soka.ac.jp/help/kcf.html)
 [^6]: [LinearCode](http://web.media.mit.edu/~yanival/Alt02.pdf)
