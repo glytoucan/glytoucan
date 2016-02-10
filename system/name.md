@@ -140,8 +140,8 @@ How the repository will be importing this data from various sources, as well as 
 [^2]: [GlycoCT](http://www.ncbi.nlm.nih.gov/pubmed/18436199)
 [^3]: [WURCS](http://www.ncbi.nlm.nih.gov/pubmed/?term=WURCS+carbohydrate)
 [^4]: [Abbreviated Terminology of Oligosaccharide Chain](http://www.jbc.org/content/257/7/3347.full.pdf)
-[^5]: [KCF] (http://rings.t.soka.ac.jp/help/kcf.html)
-[^6]: [LinearCode] (http://web.media.mit.edu/~yanival/Alt02.pdf)
+[^5]: [KCF](http://rings.t.soka.ac.jp/help/kcf.html)
+[^6]: [LinearCode](http://web.media.mit.edu/~yanival/Alt02.pdf)
 
 1. [CFG notation](http://www.functionalglycomics.org/static/consortium/Nomenclature.shtml)
 2. [PGA Nomenclature](http://glycomics.scripps.edu/coreD/PGAnomenclature.pdf)
