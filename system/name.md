@@ -17,21 +17,21 @@ To simplify the wording used for the scope of this document, please note the fol
 
 | Name | Definition
 | Glycan | A glycan is any structure that can be registered into the Glycan Repository.  This is described as any structure that is unique ["at any level of detail or uncertainty"](http://glycob.oxfordjournals.org/content/23/12/1422.long){:target="_blank"}.  This would not include glycan fragments nor aglycon information.
-| Structure | A "structure" is used for any structural sequence clearly definable by any major glycan sequence format such as GlycoCT or WURCS.
+| Structure | A "structure" is used for any structural sequence clearly definable by any major glycan sequence format such as GlycoCT[^2] or WURCS[^3].
 | Glycan Motif | A Glycan motif is a pattern identified within glycan structures that have been associated with a specific function and thus given a name.  It is important to note that motifs need to be defined as either any location of an entire glycan structure, or to be specific to a reducing end.  This is very different from a typical saccharide.
 | Glycan Name | A name is any name given to a glycan.  We will distinguish here the difference between a Glycan Name and a Motif Name.  A Motif Name is not associated to a distinct structure, rather a set of structures that match a pattern.
 | Trivial Name | A trivial name is an abbreviation given to specific saccharide structures.  MonosaccharideDB [explains](http://www.monosaccharidedb.org/notation.action?topic=trivialname){:target="_blank"} how they can be ambiguous in nature as not enough detail is given to be able to define the structure from the name.
 | Contributor| The person or organization responsible for maintaining a trivial naming convention.
 | Glycan Alias | This will be considered the same as a Trivial Name.
-| Notation | A notation is a textual system used to represent glycan structures.  The definition of the system must be in a referencable, published work.  For example, the GlycoCT and WURCS sequence structures are considered notations, as well as the Abbreviated Terminology of Oligosaccharide Chains[^2] as an early model.
+| Notation | A notation is a textual system used to represent glycan structures.  The definition of the system must be in a referencable, published work.  For example, the GlycoCT and WURCS sequence structures are considered notations, as well as the Abbreviated Terminology of Oligosaccharide Chains[^4] as an early model.
 | GlycoSequence | The term glycosequence is used to define a notation that is supported by GlyTouCan, which is simply the notations fully supported in the [GlyConvert](http://bitbucket/glycosw/glyconvert){:target="_blank"} project.
 
 As of this writing, the glycosequences supported include the following formats:
 
-1. GlycoCT
-1. WURCS
-1. KCF
-1. Linearcode
+1. GlycoCT[^2]
+1. WURCS[^3]
+1. KCF[^5]
+1. Linearcode[^6]
 
 Please note that glycosequences are considered special and are handled in a completely different manner as they are considered critical to the system to operate.  It is important for conversions to be handled in a subproject in order to modularize and reuse the conversion logic.  The project also ensures the supported notation can represent the multitude of unique structures possible.
 
@@ -137,10 +137,11 @@ How the repository will be importing this data from various sources, as well as 
 ### References:
 
 [^1]: [Polysaccharide Nomenclature](http://pac.iupac.org/publications/pac/pdf/1982/pdf/5408x1523.pdf)
-[^2]: [Abbreviated Terminology of Oligosaccharide Chain](http://www.jbc.org/content/257/7/3347.full.pdf)
+[^2]: [GlycoCT](http://www.ncbi.nlm.nih.gov/pubmed/18436199)
+[^3]: [WURCS](http://www.ncbi.nlm.nih.gov/pubmed/?term=WURCS+carbohydrate)
+[^4]: [Abbreviated Terminology of Oligosaccharide Chain](http://www.jbc.org/content/257/7/3347.full.pdf)
+[^5]: [KCF] (http://rings.t.soka.ac.jp/help/kcf.html)
+[^6]: [LinearCode] (http://web.media.mit.edu/~yanival/Alt02.pdf)
 
 1. [CFG notation](http://www.functionalglycomics.org/static/consortium/Nomenclature.shtml)
 2. [PGA Nomenclature](http://glycomics.scripps.edu/coreD/PGAnomenclature.pdf)
-3. [GlycoCT](http://www.ncbi.nlm.nih.gov/pubmed/18436199)
-4. [WURCS](http://www.ncbi.nlm.nih.gov/pubmed/?term=WURCS+carbohydrate)
-5. [LinearCode] (http://web.media.mit.edu/~yanival/Alt02.pdf)
