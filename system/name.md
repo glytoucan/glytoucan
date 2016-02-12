@@ -92,14 +92,15 @@ Since GlyTouCan does not deal with Glyconjugates there is no need to define anyt
 Within the schema above, there is no clear location to define the contributor information of the trivial name.  This is important for the repository in order to reference which person or organization utilizes the naming method.  For monosaccharides, there does exist `has_monosaccharide_notation_scheme` predicate, however this is very similar to a `glycan:carbohydrate_format`.  Another issue is that contributor information does not have a _logical_ connection to the scientific glycan information being stored in GlycoRDF.  It is rather particular to the glycan repository.
 
 Thus [RDF Datasets](https://www.w3.org/TR/rdf11-concepts/#section-dataset) are a convenient place for this kind of information, and also fits very well with how the data is organized.  A policy of _all data from a Contributor A is placed in Dataset A_ can be defined.  This actually allows for simplicity from a data management perspective, as it will be possible to execute contributor-specific all-encompassing data management methods such as _replace all information from Contributor A with New Dataset A'_, or queries such as _What are all of the N-glycan names contributed by Contributor A?_ is simply a reusable N-glycan query on Dataset A instead of all data within the repository.
-To explain this in a more concrete manner, this is how an insertion of a glycan name contributed by monosaccharidedb would be in SPARQL:
+To explain this in a more concrete manner, this is how an insertion of a glycan name contributed by monosaccharidedb for the bcsdb [notation scheme](http://www.monosaccharidedb.org/notation.action?topic=schemes) would be in SPARQL:
 
     PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
     INSERT DATA { 
       GRAPH <http://rdf.glytoucan.org/contributor/monosaccharidedb> { 
         <glycan:Saccharide> glycan:has_alias <glycan:Saccharide_alias> .
         <glycan:Saccharide_alias> a glycan:Saccharide_alias .
-        <glycan:Saccharide_alias> glycan:has_alias_name xsd:String .
+        <glycan:Saccharide_alias> glycan:has_alias_name .
+        <glycan:Saccharide_alias> glycan:has_monosaccharide_notation_scheme glycan:monosaccharide_notation_scheme_bcsdb;
       }
     }
 
@@ -145,3 +146,7 @@ How the repository will be importing this data from various sources, as well as 
 
 1. [CFG notation](http://www.functionalglycomics.org/static/consortium/Nomenclature.shtml)
 2. [PGA Nomenclature](http://glycomics.scripps.edu/coreD/PGAnomenclature.pdf)
+
+
+
+> Written with [StackEdit](https://stackedit.io/).
