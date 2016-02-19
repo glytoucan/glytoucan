@@ -41,14 +41,14 @@ In order to support the naming of a glycan, a slight change was needed in the Gl
 
 Before:
 
-    <glycan:saccharide> a saccharide;
+    <glycan:saccharide> a glycan:saccharide;
 
-    <glycan:monosaccharide> a monosaccharide;
+    <glycan:monosaccharide> a glycan:monosaccharide;
       rdfs:subClassOf glycan:saccharide;
       glycan:has_alias <glycan:monosaccharide_alias>
 
     <glycan:monosaccharide_alias> a glycan:monosaccharide_alias
-      glycan:has_alias_name xsd:string
+      glycan:has_alias_name "alias name"^^xsd:string
 
 As can be seen, trivial names were placed inside a `monosaccharide_alias` class.
 
