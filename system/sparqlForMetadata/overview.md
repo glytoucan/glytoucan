@@ -12,6 +12,7 @@ Sample Accession number : G00051MO
 
 
 ### Output
+
 | Variable | Data|
 |---------|------|
 | ?WURCS | WURCS |
