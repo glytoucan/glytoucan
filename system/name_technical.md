@@ -64,11 +64,9 @@ layout: default
       a       glycan:monosaccharide_alias <span class="hljs-comment">;</span>
       glycan:has_alias_name
               <span class="hljs-string">"aD3,7dgalNonp5N-ulosonic"</span> <span class="hljs-comment">;</span>
-      glycan:has_monosaccharide_notation_scheme <span class="hljs-string">"glycan:monosaccharide_notation_scheme_bcsdb"</span>^^&lt;http://www<span class="hljs-preprocessor">.w</span>3<span class="hljs-preprocessor">.org</span>/<span class="hljs-number">2001</span>/XMLSchema<span class="hljs-preprocessor">#string&gt; ;</span></code></pre>
+      glycan:has_monosaccharide_notation_scheme <span class="hljs-string">glycan:monosaccharide_notation_scheme_bcsdb</span>^^&lt;http://www<span class="hljs-preprocessor">.w</span>3<span class="hljs-preprocessor">.org</span>/<span class="hljs-number">2001</span>/XMLSchema<span class="hljs-preprocessor">#string&gt; ;</span></code></pre>
 
 <p>This data will be converted as contributor data using the trivial name contributor submission webservice:</p>
-
-
 
 <pre class="prettyprint"><code class=" hljs vhdl">Admin <span class="hljs-keyword">access</span>
 MonoDB partner
@@ -87,7 +85,7 @@ bcsdb
         &lt;http://rdf<span class="hljs-preprocessor">.glytoucan</span><span class="hljs-preprocessor">.org</span>/contributor/trivialname?scheme=BCSDB&amp;name=aD3,<span class="hljs-number">7</span>dgalNonp5N-ulosonic&gt;
           a       glycan:monosaccharide_alias <span class="hljs-comment">;</span>
           glycan:has_alias_name <span class="hljs-string">"aD3,7dgalNonp5N-ulosonic"</span> <span class="hljs-comment">;</span>
-          glycan:has_monosaccharide_notation_scheme <span class="hljs-string">"glycan:monosaccharide_notation_scheme_bcsdb"</span>^^&lt;http://www<span class="hljs-preprocessor">.w</span>3<span class="hljs-preprocessor">.org</span>/<span class="hljs-number">2001</span>/XMLSchema<span class="hljs-preprocessor">#string&gt; .</span>
+          glycan:has_monosaccharide_notation_scheme <span class="hljs-string">glycan:monosaccharide_notation_scheme_bcsdb</span>^^&lt;http://www<span class="hljs-preprocessor">.w</span>3<span class="hljs-preprocessor">.org</span>/<span class="hljs-number">2001</span>/XMLSchema<span class="hljs-preprocessor">#string&gt; .</span>
       }
     }</code></pre>
 
