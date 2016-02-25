@@ -4,7 +4,8 @@ layout: default
 ---
 
 
-[TOC]
+* auto-gen TOC:
+{:toc}
 
 ## Overview ##
 
