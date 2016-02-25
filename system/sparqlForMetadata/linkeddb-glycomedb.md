@@ -22,6 +22,7 @@ Sample Accession number : G00051MO
 `VALUES ?AccessionNumber { "G00051MO" } ` 
 
 ### Output : GlycomeDB
+
 | Variable | Data|
 |---------|------|
 | ?gurl | GlycomeDB URL |
@@ -53,6 +54,7 @@ Sample Accession number : G00051MO
 ```
 
 ### Output : CarbBank
+
 | Variable | Data|
 |---------|------|
 | ?res_ccsd | Carbbank(CCSD) URL |
@@ -89,6 +91,7 @@ Sample Accession number : G00051MO
 ```
 
 ### Output : CFG
+
 | Variable | Data|
 |---------|------|
 | ?res_cfg | CFG URL |
@@ -125,6 +128,7 @@ Sample Accession number : G00051MO
 ```
 
 ### Output : GlycO
+
 | Variable | Data|
 |---------|------|
 | ?res_glycO | GlycO (link to xml page) URL |
@@ -163,6 +167,7 @@ Sample Accession number : G00051MO
 ```
 
 ### Output : Glycobase lille
+
 | Variable | Data|
 |---------|------|
 | ?res_base | Glycobase lille URL |
@@ -202,6 +207,7 @@ Sample Accession number : G00051MO
 
 
 ### Output : Glycosciences.de
+
 | Variable | Data|
 |---------|------|
 | ?res_gde | Glycosciences.de URL |
@@ -238,6 +244,7 @@ Sample Accession number : G00051MO
 ```
 
 ### Output : JCGGDB
+
 | Variable | Data|
 |---------|------|
 | ?res_jcggdb | JCGGDB URL |
@@ -276,6 +283,7 @@ Sample Accession number : G00051MO
 ```
 
 ### Output KEGG
+
 | Variable | Data|
 |---------|------|
 | ?res_kegg | KEGG URL |
@@ -314,6 +322,7 @@ Sample Accession number : G00051MO
 
 
 ### Output : PDB
+
 | Variable | Data|
 |---------|------|
 | ?res_pdb | PDB URL |

@@ -10,9 +10,11 @@ Sample Accession number : G00048MO
 `VALUES ?AccessionNumber { "G00048MO" } `
 
 ### Output  
+
 | Variable | Data|
 |----------|-----|
 | ?endpoint | UniCarbKB SPARQL Endpoint |
+
 * ここでは、UniCarbKBのSPARQLエンドポイントを取得し、二つ目のSPARQLクエリにエンドポイントのURIを渡します。
 
 ```

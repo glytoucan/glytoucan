@@ -11,6 +11,7 @@ Sample Accession number : G00051MO
 `VALUES ?AccessionNumber { "G00051MO" } `
 
 ### Output
+
 | Variable | Data|
 |----------|-----|
 | ?cid | PubChem CID |
