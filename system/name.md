@@ -41,53 +41,53 @@ In order to support the naming of a glycan, a slight change was needed in the Gl
 
 Before:
 
-    <glycan:saccharide> a saccharide;
+    <glycan:saccharide> a glycan:saccharide .
 
-    <glycan:monosaccharide> a monosaccharide;
-      rdfs:subClassOf glycan:saccharide;
-      glycan:has_alias <glycan:monosaccharide_alias>
+    <glycan:monosaccharide> a glycan:monosaccharide ;
+      rdfs:subClassOf glycan:saccharide ;
+      glycan:has_alias <glycan:monosaccharide_alias> .
 
-    <glycan:monosaccharide_alias> a glycan:monosaccharide_alias
-      glycan:has_alias_name xsd:string
+    <glycan:monosaccharide_alias> a glycan:monosaccharide_alias ;
+      glycan:has_alias_name "alias name"^^xsd:string .
 
 As can be seen, trivial names were placed inside a `monosaccharide_alias` class.
 
 We would also like to handle the naming of motifs, which were stored in this manner:
 
-    <glycan:motif> a glycan:motif;
+    <glycan:motif> a glycan:motif .
 
-    <glycan:glycan_motif> a glycan:glycan_motif;
-      rdfs:subClassOf glycan:motif;
-      glycan:has_glycosequence <glycan:glycosequence>
-      rdfs:label  "Lewis C"@en
+    <glycan:glycan_motif> a glycan:glycan_motif ;
+      rdfs:subClassOf glycan:motif ;
+      glycan:has_glycosequence <glycan:glycosequence> ;
+      rdfs:label  "Lewis C"@en .
 
 As there was no naming convention in the ontology at the time, we had used an `rdfs:label` as a temporary solution.
 
 In order to support naming, and by following convention, a `Saccharide_alias` class is defined as a superclass of `Monosaccharide_alias`. 
 
-    <glycan:Saccharide> a Saccharide;
-      glycan:has_alias <glycan:Saccharide_alias>
+    <glycan:Saccharide> a glycan:Saccharide ;
+      glycan:has_alias <glycan:Saccharide_alias> .
 
-    <glycan:Saccharide_alias> a glycan:Saccharide_alias
-      glycan:has_alias_name xsd:String
+    <glycan:Saccharide_alias> a glycan:Saccharide_alias ;
+      glycan:has_alias_name "alias name"^^xsd:string .
 
-    <glycan:Monosaccharide_alias> a glycan:Monosaccharide_alias
-      rdfs:subClassOf glycan:Saccharide_alias;
+    <glycan:Monosaccharide_alias> a glycan:Monosaccharide_alias ;
+      rdfs:subClassOf glycan:Saccharide_alias .
 
 The `glycan:has_alias_name` is then passed on implicitly by inheritance to the `Monosaccharide_alias` class.
 
-The same can then be done for Glycan_Motif.
+The same can then be done for Glycan_motif.
 
-    <glycan:Glycan_motif> a glycan:Glycan_motif;
-      rdfs:subClassOf glycan:Motif;
-      glycan:has_alias <glycan:Glycan_motif_alias>
+    <glycan:Glycan_motif> a glycan:Glycan_motif ;
+      rdfs:subClassOf glycan:Motif ;
+      glycan:has_alias <glycan:Glycan_motif_alias> .
 
-    <glycan:Glycan_motif_alias> a glycan:Glycan_motif_alias;
-      glycan:has_alias_name xsd:String
+    <glycan:Glycan_motif_alias> a glycan:Glycan_motif_alias ;
+      glycan:has_alias_name "alias name"^^xsd:string .
 
 Since GlyTouCan does not deal with Glyconjugates there is no need to define anything in the `glycan:Motif` level at this time.  The `rdfs:label` will have to be converted into this alias.  Also, the `glycan:Motif` is independent of the `glycan:Saccharide`, so there is no relationships between them.
 
-#### Contributions
+### Contributions
 
 Within the schema above, there is no clear location to define the contributor information of the trivial name.  This is important for the repository in order to reference which person or organization utilizes the naming method.  For monosaccharides, there does exist `has_monosaccharide_notation_scheme` predicate, however this is very similar to a `glycan:carbohydrate_format`.  Another issue is that contributor information does not have a _logical_ connection to the scientific glycan information being stored in GlycoRDF.  It is rather particular to the glycan repository.
 
@@ -99,8 +99,8 @@ To explain this in a more concrete manner, this is how an insertion of a glycan 
       GRAPH <http://rdf.glytoucan.org/contributor/monosaccharidedb> { 
         <glycan:Saccharide> glycan:has_alias <glycan:Saccharide_alias> .
         <glycan:Saccharide_alias> a glycan:Saccharide_alias .
-        <glycan:Saccharide_alias> glycan:has_alias_name .
-        <glycan:Saccharide_alias> glycan:has_monosaccharide_notation_scheme glycan:monosaccharide_notation_scheme_bcsdb;
+        <glycan:Saccharide_alias> glycan:has_monosaccharide_notation_scheme glycan:monosaccharide_notation_scheme_bcsdb .
+        <glycan:Saccharide_alias> glycan:has_alias_name "alias name"^^xsd:string .
       }
     }
 
@@ -113,17 +113,18 @@ Another example of retrieving all saccharide trivial names contributed by monosa
     FROM <http://rdf.glytoucan.org/contributor/monosaccharidedb> { 
     WHERE {
         <glycan:Saccharide_alias> a glycan:Saccharide_alias .
-        <glycan:Saccharide_alias> glycan:has_alias_name xsd:String .
+        <glycan:Saccharide_alias> glycan:has_alias_name "alinas name"^^xsd:string .
       }
     }
 
 Note the similarity with retrieving all trivial names:
+(Does not describe "FROM")
 
     PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
     SELECT *
     WHERE {
         <glycan:Saccharide_alias> a glycan:Saccharide_alias .
-        <glycan:Saccharide_alias> glycan:has_alias_name xsd:String .
+        <glycan:Saccharide_alias> glycan:has_alias_name "alinas name"^^xsd:string .
     }
 
 This shows how using datasets simplifies system maintenance and development. 

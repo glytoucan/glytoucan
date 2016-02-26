@@ -10,6 +10,7 @@ Sample Accession Number : G0051MO
 `VALUES ?AccessionNumber {"Input Accession number"}`
 
 ### Output
+
 | Variable | Data|
 |---------|------|
 | ?TaxonName | Scientific name of a Taxon |

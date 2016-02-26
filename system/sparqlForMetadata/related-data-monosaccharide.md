@@ -15,6 +15,7 @@ Sample Accession number : G00051MO
 
 
 ### Output
+
 | Variable | Data|
 |---------|------|
 | ?ComponentName | Monosaccharide alias name by MsDB |

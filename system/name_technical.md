@@ -1,77 +1,102 @@
 ---
-title: Glycan Trivial Name Process
+title: Glycan Naming Architecture
 layout: default
 ---
 
-[TOC]
+<p><div class="toc">
+<ul>
+<li><ul>
+<li><a href="#overview">Overview</a><ul>
+<li><a href="#monosaccharides">Monosaccharides</a><ul>
+<li><a href="#sequential-flow">Sequential flow</a></li>
+<li><a href="#remote-access">Remote Access</a></li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</div>
+</p>
 
-## Overview ##
 
-This document will cover the trivial name processing when registering a new glycan.
 
-### Monosaccharides
+<h2 id="overview">Overview</h2>
 
-As of this writing, the monosaccharideDB[^msDB] database is the main resource for trivial names of monosaccharides.  The [composition](/system/composition_ja) paper explains in more detail the system flow of how this works when broken down from a larger glycan.
+<p>This document will cover the trivial name processing when registering a new glycan.  It is very similar to a technical tutorial explaining how the glytoucan client can be used to not only retrieve data from GlyTouCan but also from other known public databases such as monosaccharideDB.</p>
 
-#### Sequential flow
-The following is a sequence flow diagram explaining the roles and communication made within this process.  To simplify this will be for a singular monosaccharide.
-```sequence
-User->GlyTouCan: register glycan X
-GlyTouCan->GlyTouCan: various processing for a glycan
-GlyTouCan->monosaccharideDB: request names of RDF for monosaccharides in glycan X
-monosaccharideDB-->GlyTouCan:process request and return RDF with trivial names
-GlyTouCan->GlyTouCan: various post-processing for a glycan
-GlyTouCan->RDF Datastore: register glycan information including contributor data
-RDF Datastore->GlyTouCan: 
-GlyTouCan->User: display new accession number
-User->GlyTouCan: request glycan entry page of glycan X
-GlyTouCan->RDF Datastore: retrieve RDFs including data from monosaccharideDB contribution
-RDF Datastore->GlyTouCan: 
-GlyTouCan->User: display trivial names
-```
 
-#### Remote Access
-[Remote access](http://www.monosaccharidedb.org/remote_access.action) to monosaccharideDB[^msDB] is a web service providing conversion routines via http protocol.
 
-Here is an example of a remote access request using the WURCS residue code:
+<h3 id="monosaccharides">Monosaccharides</h3>
 
-```
-http://www.monosaccharidedb.org/rdf/monosaccharide.action?name=Aad211d2h-2a_2-6_5%2ANCC%2F3%3DO
-```
+<p>As of this writing, the monosaccharideDB<a href="#fn:msdb" id="fnref:msdb" title="See footnote" class="footnote">1</a> database is the main resource for trivial names of monosaccharides.  The <a href="/system/composition_ja">composition</a> paper explains in more detail the system flow of how this works when broken down from a larger glycan.</p>
 
-[link](http://www.monosaccharidedb.org/rdf/monosaccharide.action?name=Aad211d2h-2a_2-6_5%2ANCC%2F3%3DO)
 
-Example result, with unused parts such as `glycan:has_external_substituent` removed
-```
-<http://www.monosaccharidedb.org/rdf/monosaccharide_alias.action?scheme=BCSDB&name=aD3,7dgalNonp5N-ulosonic&substName=Ac&substPos=5&substLink=o>
-      a       glycan:monosaccharide_alias ;
+
+<h4 id="sequential-flow">Sequential flow</h4>
+
+<p>The following is a sequence flow diagram explaining the roles and communication made within this process.  To simplify this will be for a singular monosaccharide.</p>
+
+
+
+<div class="sequence-diagram"><svg height="568" version="1.1" width="880.1171875" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="overflow: hidden; position: relative; left: -0.5px; top: 0.828125px;"><desc style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);">Created with Raphaël 2.1.2</desc><defs style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><path stroke-linecap="round" d="M5,0 0,2.5 5,5z" id="raphael-marker-block" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><marker id="raphael-marker-endblock55-obj466" markerHeight="5" markerWidth="5" orient="auto" refX="2.5" refY="2.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 2.5 2.5) scale(1,1)" stroke-width="1.0000" fill="#000" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock55-obj471" markerHeight="5" markerWidth="5" orient="auto" refX="2.5" refY="2.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 2.5 2.5) scale(1,1)" stroke-width="1.0000" fill="#000" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock55-obj474" markerHeight="5" markerWidth="5" orient="auto" refX="2.5" refY="2.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 2.5 2.5) scale(1,1)" stroke-width="1.0000" fill="#000" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock55-obj477" markerHeight="5" markerWidth="5" orient="auto" refX="2.5" refY="2.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 2.5 2.5) scale(1,1)" stroke-width="1.0000" fill="#000" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock55-obj482" markerHeight="5" markerWidth="5" orient="auto" refX="2.5" refY="2.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 2.5 2.5) scale(1,1)" stroke-width="1.0000" fill="#000" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock55-obj485" markerHeight="5" markerWidth="5" orient="auto" refX="2.5" refY="2.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 2.5 2.5) scale(1,1)" stroke-width="1.0000" fill="#000" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock55-obj488" markerHeight="5" markerWidth="5" orient="auto" refX="2.5" refY="2.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 2.5 2.5) scale(1,1)" stroke-width="1.0000" fill="#000" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock55-obj491" markerHeight="5" markerWidth="5" orient="auto" refX="2.5" refY="2.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 2.5 2.5) scale(1,1)" stroke-width="1.0000" fill="#000" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock55-obj494" markerHeight="5" markerWidth="5" orient="auto" refX="2.5" refY="2.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 2.5 2.5) scale(1,1)" stroke-width="1.0000" fill="#000" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock55-obj497" markerHeight="5" markerWidth="5" orient="auto" refX="2.5" refY="2.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 2.5 2.5) scale(1,1)" stroke-width="1.0000" fill="#000" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock55-obj500" markerHeight="5" markerWidth="5" orient="auto" refX="2.5" refY="2.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 2.5 2.5) scale(1,1)" stroke-width="1.0000" fill="#000" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker><marker id="raphael-marker-endblock55-obj503" markerHeight="5" markerWidth="5" orient="auto" refX="2.5" refY="2.5" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"><use xmlns:xlink="http://www.w3.org/1999/xlink" xlink:href="#raphael-marker-block" transform="rotate(180 2.5 2.5) scale(1,1)" stroke-width="1.0000" fill="#000" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></use></marker></defs><rect x="10" y="20" width="48.59375" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="19.984375" y="30" width="28.59375" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="34.296875" y="39.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">User</tspan></text><rect x="10" y="509" width="48.59375" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="19.984375" y="519" width="28.59375" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="34.296875" y="528.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">User</tspan></text><path fill="none" stroke="#000000" d="M34.296875,59L34.296875,509" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="242.2578125" y="20" width="88.859375" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="252.25" y="30" width="68.859375" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="286.6875" y="39.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">GlyTouCan</tspan></text><rect x="242.2578125" y="509" width="88.859375" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="252.25" y="519" width="68.859375" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="286.6875" y="528.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">GlyTouCan</tspan></text><path fill="none" stroke="#000000" d="M286.6875,59L286.6875,509" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="576.8828125" y="20" width="143.078125" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="586.875" y="30" width="123.078125" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="648.421875" y="39.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">monosaccharideDB</tspan></text><rect x="576.8828125" y="509" width="143.078125" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="586.875" y="519" width="123.078125" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="648.421875" y="528.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">monosaccharideDB</tspan></text><path fill="none" stroke="#000000" d="M648.421875,59L648.421875,509" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="739.9609375" y="20" width="110.15625" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="749.953125" y="30" width="90.15625" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="795.0390625" y="39.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">RDF Datastore</tspan></text><rect x="739.9609375" y="509" width="110.15625" height="39" rx="0" ry="0" fill="none" stroke="#000000" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><rect x="749.953125" y="519" width="90.15625" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="795.0390625" y="528.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">RDF Datastore</tspan></text><path fill="none" stroke="#000000" d="M795.0390625,59L795.0390625,509" stroke-width="2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="109.09375" y="74.5" width="102.765625" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="160.4921875" y="84" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">register glycan X</tspan></text><path fill="none" stroke="#000000" d="M34.296875,98C34.296875,98,246.24333320581354,98,281.6884806352526,98" stroke-width="2" marker-end="url(#raphael-marker-endblock55-obj466)" stroke-dasharray="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="311.671875" y="118" width="192.75" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="408.0625" y="127.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">various processing for a glycan</tspan></text><path fill="none" stroke="#000000" d="M286.6875,113L306.6875,113" stroke-width="2" stroke-dasharray="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="none" stroke="#000000" d="M306.6875,113L306.6875,147" stroke-width="2" stroke-dasharray="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="none" stroke="#000000" d="M306.6875,147C306.6875,147,297.6066131591797,147,291.6827533841133,147" stroke-width="2" stroke-dasharray="0" marker-end="url(#raphael-marker-endblock55-obj471)" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="296.671875" y="152.5" width="341.734375" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="467.5546875" y="162" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">request names of RDF for monosaccharides in glycan X</tspan></text><path fill="none" stroke="#000000" d="M286.6875,176C286.6875,176,599.8341590529308,176,643.4116970559021,176" stroke-width="2" marker-end="url(#raphael-marker-endblock55-obj474)" stroke-dasharray="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="311.390625" y="191.5" width="312.3125" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="467.5546875" y="201" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">process request and return RDF with trivial names</tspan></text><path fill="none" stroke="#000000" d="M648.421875,215C648.421875,215,335.2752159470692,215,291.6976779440979,215" stroke-width="2" marker-end="url(#raphael-marker-endblock55-obj477)" stroke-dasharray="6,2" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="311.671875" y="235" width="225.21875" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="424.296875" y="244.5" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">various post-processing for a glycan</tspan></text><path fill="none" stroke="#000000" d="M286.6875,230L306.6875,230" stroke-width="2" stroke-dasharray="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="none" stroke="#000000" d="M306.6875,230L306.6875,264" stroke-width="2" stroke-dasharray="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><path fill="none" stroke="#000000" d="M306.6875,264C306.6875,264,297.6066131591797,264,291.6827533841133,264" stroke-width="2" stroke-dasharray="0" marker-end="url(#raphael-marker-endblock55-obj482)" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="371.71875" y="269.5" width="338.265625" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="540.86328125" y="279" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">register glycan information including contributor data</tspan></text><path fill="none" stroke="#000000" d="M286.6875,293C286.6875,293,737.3871732583793,293,790.0384900684708,293" stroke-width="2" marker-end="url(#raphael-marker-endblock55-obj485)" stroke-dasharray="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="0" y="0" width="0" height="0" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="540.86328125" y="318" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="318"></tspan></text><path fill="none" stroke="#000000" d="M795.0390625,313C795.0390625,313,344.33938924162067,313,291.68807243152924,313" stroke-width="2" marker-end="url(#raphael-marker-endblock55-obj488)" stroke-dasharray="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="64.578125" y="328.5" width="191.796875" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="160.4921875" y="338" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">display new accession number</tspan></text><path fill="none" stroke="#000000" d="M286.6875,352C286.6875,352,74.74104179418646,352,39.295894364747426,352" stroke-width="2" marker-end="url(#raphael-marker-endblock55-obj491)" stroke-dasharray="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="44.28125" y="367.5" width="232.390625" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="160.4921875" y="377" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">request glycan entry page of glycan X</tspan></text><path fill="none" stroke="#000000" d="M34.296875,391C34.296875,391,246.24333320581354,391,281.6884806352526,391" stroke-width="2" marker-end="url(#raphael-marker-endblock55-obj494)" stroke-dasharray="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="332.09375" y="406.5" width="417.515625" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="540.86328125" y="416" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">retrieve RDFs including data from monosaccharideDB contribution</tspan></text><path fill="none" stroke="#000000" d="M286.6875,430C286.6875,430,737.3871732583793,430,790.0384900684708,430" stroke-width="2" marker-end="url(#raphael-marker-endblock55-obj497)" stroke-dasharray="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="0" y="0" width="0" height="0" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="540.86328125" y="455" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="455"></tspan></text><path fill="none" stroke="#000000" d="M795.0390625,450C795.0390625,450,344.33938924162067,450,291.68807243152924,450" stroke-width="2" marker-end="url(#raphael-marker-endblock55-obj500)" stroke-dasharray="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path><rect x="95.78125" y="465.5" width="129.390625" height="19" rx="0" ry="0" fill="#ffffff" stroke="none" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></rect><text x="160.4921875" y="475" text-anchor="middle" font-family="Andale Mono, monospace" font-size="16px" stroke="none" fill="#000000" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0); text-anchor: middle; font-family: 'Andale Mono', monospace; font-size: 16px;"><tspan style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);" dy="5.5">display trivial names</tspan></text><path fill="none" stroke="#000000" d="M286.6875,489C286.6875,489,74.74104179418646,489,39.295894364747426,489" stroke-width="2" marker-end="url(#raphael-marker-endblock55-obj503)" stroke-dasharray="0" style="-webkit-tap-highlight-color: rgba(0, 0, 0, 0);"></path></svg></div>
+
+
+
+<h4 id="remote-access">Remote Access</h4>
+
+<p><a href="http://www.monosaccharidedb.org/remote_access.action">Remote access</a> to monosaccharideDB<a href="#fn:msdb" id="fnref:msdb" title="See footnote" class="footnote">2</a> is a web service providing conversion routines via http protocol.</p>
+
+<p>Here is an example of a remote access request using the WURCS residue code:</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs avrasm"><span class="hljs-label">http:</span>//www<span class="hljs-preprocessor">.monosaccharidedb</span><span class="hljs-preprocessor">.org</span>/rdf/monosaccharide<span class="hljs-preprocessor">.action</span>?name=Aad211d2h-<span class="hljs-number">2</span>a_2-<span class="hljs-number">6</span>_5%<span class="hljs-number">2</span>ANCC%<span class="hljs-number">2</span>F3%<span class="hljs-number">3</span>DO</code></pre>
+
+<p><a href="http://www.monosaccharidedb.org/rdf/monosaccharide.action?name=Aad211d2h-2a_2-6_5%2ANCC%2F3%3DO">link</a></p>
+
+<p>Example result, with unused parts such as <code>glycan:has_external_substituent</code> removed</p>
+
+
+
+<pre class="prettyprint"><code class=" hljs avrasm">&lt;http://www<span class="hljs-preprocessor">.monosaccharidedb</span><span class="hljs-preprocessor">.org</span>/rdf/monosaccharide_alias<span class="hljs-preprocessor">.action</span>?scheme=BCSDB&amp;name=aD3,<span class="hljs-number">7</span>dgalNonp5N-ulosonic&amp;substName=Ac&amp;substPos=<span class="hljs-number">5</span>&amp;substLink=o&gt;
+      a       glycan:monosaccharide_alias <span class="hljs-comment">;</span>
       glycan:has_alias_name
-	      "aD3,7dgalNonp5N-ulosonic" ;
-      glycan:has_monosaccharide_notation_scheme "glycan:monosaccharide_notation_scheme_bcsdb"^^<http://www.w3.org/2001/XMLSchema#string> ;
-```
+              <span class="hljs-string">"aD3,7dgalNonp5N-ulosonic"</span> <span class="hljs-comment">;</span>
+      glycan:has_monosaccharide_notation_scheme glycan:monosaccharide_notation_scheme_bcsdb <span class="hljs-comment">;</span></code></pre>
 
-This data will be converted as contributor data using the trivial name contributor submission webservice:
-```
+<p>This data will be converted as contributor data using the trivial name contributor submission webservice:</p>
 
-```
+<pre class="prettyprint"><code class=" hljs vhdl">Admin <span class="hljs-keyword">access</span>
+MonoDB partner
+aD3,<span class="hljs-number">7</span>dgalNonp5N-ulosonic
+bcsdb
 
-```sparql
-    PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
+</code></pre>
+
+<p>Which essentially executes the following SPARQL:</p>
+
+
+
+<pre class="prettyprint"><code class="language-sparql hljs avrasm">    PREFIX glycan: &lt;http://purl<span class="hljs-preprocessor">.jp</span>/bio/<span class="hljs-number">12</span>/glyco/glycan<span class="hljs-preprocessor">#&gt;</span>
     INSERT DATA { 
-      GRAPH <http://rdf.glytoucan.org/contributor/monosaccharidedb> { 
-	<glycan:Monosaccharide> glycan:has_alias <http://www.monosaccharidedb.org/rdf/monosaccharide_alias.action?scheme=BCSDB&name=aD3,7dgalNonp5N-ulosonic&substName=Ac&substPos=5&substLink=o>;
-	a glycan:Monosaccharide_alias;
-	glycan:has_alias_name "aD3,7dgalNonp5N-ulosonic" .
-      glycan:has_monosaccharide_notation_scheme "glycan:monosaccharide_notation_scheme_bcsdb"^^<http://www.w3.org/2001/XMLSchema#string>       }
-    }
-```
+      GRAPH &lt;http://rdf<span class="hljs-preprocessor">.glytoucan</span><span class="hljs-preprocessor">.org</span>/contributor/monosaccharidedb&gt; { 
+        &lt;http://rdf<span class="hljs-preprocessor">.glytoucan</span><span class="hljs-preprocessor">.org</span>/contributor/trivialname?scheme=BCSDB&amp;name=aD3,<span class="hljs-number">7</span>dgalNonp5N-ulosonic&gt;
+          a       glycan:monosaccharide_alias <span class="hljs-comment">;</span>
+          glycan:has_alias_name <span class="hljs-string">"aD3,7dgalNonp5N-ulosonic"</span> <span class="hljs-comment">;</span>
+          glycan:has_monosaccharide_notation_scheme glycan:monosaccharide_notation_scheme_bcsdb .
+      }
+    }</code></pre>
 
+<p>As this is a GlyTouCan specific entry, the URI is different from what monosaccharide DB utilizes.</p>
 
-It will then be retrievable using the [trivial name architecture](/system/name).
+<pre class="prettyprint"><code class=" hljs avrasm"><span class="hljs-label">http:</span>//rdf<span class="hljs-preprocessor">.glytoucan</span><span class="hljs-preprocessor">.org</span>/contributor/trivialname?scheme=BCSDB&amp;name=aD3,<span class="hljs-number">7</span>dgalNonp5N-ulosonic</code></pre>
 
-[^msDB]: [monosaccharideDB](http://monosaccharidedb.morg)
+<p>It will then be retrievable using the <a href="/system/name">trivial name architecture</a>.</p>
 
+<blockquote>
+  <p>Written with <a href="https://stackedit.io/">StackEdit</a>.</p>
+</blockquote>
 
-
-
-> Written with [StackEdit](https://stackedit.io/).
+<div class="footnotes"><hr><ol><li id="fn:msdb"><a href="http://monosaccharidedb.morg">monosaccharideDB</a> <a href="#fnref:msdb" title="Return to article" class="reversefootnote">↩</a></li><li id="fn:msdb"><a href="http://monosaccharidedb.morg">monosaccharideDB</a> <a href="#fnref:msdb" title="Return to article" class="reversefootnote">↩</a></li></ol></div>
