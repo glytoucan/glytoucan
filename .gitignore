@@ -3,3 +3,5 @@ _site/*
 .settings
 .jekyll-metadata
 **/*.swp
+**/*/desktop.ini
+desktop.ini
