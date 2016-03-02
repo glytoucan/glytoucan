@@ -12,24 +12,22 @@ Domain rule
 |-------------------|---------------|
 | rdf.glytoucan.org | rdf.glycoinfo.org |
 
-* http://rdf.glycoinfo.org/[database-name]
+* __http://rdf.glycoinfo.org/[database-name]__
 	* 例：http://rdf.glycoinfo.org/glycome-db
 
-* http://rdf.[domainname]/[機能・テーマ]/[対象]
+* __http://rdf.[domainname]/[機能・テーマ]/[対象]__
 	* 例：http://rdf.glytoucan.org/linked-db/bcsdb
 
 
 
 
-機能・テーマ: 
+__機能・テーマ:__ 
 
 * /linked-db : 外部のDB（RDFとしてファイルがあるもの）とGlyTouCanとが関係がある(mappingしたトリプル)
 	* /bcsdb  
 		* ver1.0では、GlyTouCan → GlycomeDB → BCSDBとう順番でJoinするSPARQLクエリを利用している。
 		* GlyTouCanとBCSDBとのIDマッピングデータセットとする
-
 	* /glycome-db
-
 	* /glycoepitope
 
 
@@ -74,6 +72,7 @@ BCSDB RDFでは、glycan:saccharideのインスタンスとowl:sameAsで記述�
   a glyco:glycoside ;
   owl:sameAs <http://csdb.glycoscience.ru/bacterial/core/search_id.php?mode=record&id_list=6922> 
 ```
+
 
 
 
