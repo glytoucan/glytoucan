@@ -122,5 +122,30 @@ BCSDB RDFでは、glycan:saccharideのインスタンスとowl:sameAsで記述�
 
 
 
+#### /linked-db/glycoepitope
+
+##### GRAPH Name: `http://rdf.glytoucan.org/linked-db/glycoepitope`
+
+##### Sample triple
+
+```
+<http://rdf.glycoinfo.org/glycan/G00054MO>
+    a   glycan:Saccharide ;
+    glycan:has_resource_entry   <http://rdf.glycoinfo.org/glycoepitope/EP0012> .
+
+<http://rdf.glycoinfo.org/glycoepitope/EP0012> .
+    a   glycan:Resource_entry ;
+    glycan:in_glycan_database   glycan:Database_glycoepitope ;
+    dcterms:identifier "EP0012" ;
+    rdfs:seeAlso    <http://www.glycoepitope.jp/epitopes/EP0012> .
+```
+
+##### Note
+
+```
+<http://www.glycoepitope.jp/epitopes/EP0012>
+このURIは、GlycoEpitope RDFで使われている。
+glycan:Glycan_epitopeのタイプ付けがされている
+```
 
 
