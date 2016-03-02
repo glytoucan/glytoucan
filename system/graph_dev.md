@@ -58,7 +58,9 @@ Domain rule
   dcterms:identifier "6922" ;
   rdfs:seeAlso  <http://csdb.glycoscience.ru/bacterial/core/search_id.php?mode=record&id_list=6922> .
 ```
+
 ##### Note
+
 ```
 <http://csdb.glycoscience.ru/bacterial/core/search_id.php?mode=record&id_list=6922>
 このURIは、BCSDB RDFで使われている。
@@ -93,12 +95,15 @@ BCSDB RDFでは、glycan:saccharideのインスタンスとowl:sameAsで記述�
     dcterms:identifier "129" ;
     rdfs:seeAlso    <http://www.glycome-db.org/database/showStructure.action?glycomeId=129> .
 ```
+
 ##### Note
+
 ```
 <http://www.glycome-db.org/database/showStructure.action?glycomeId=129>
 このURIは、GlycomeDB RDFで使われていない。
 そもそも、GlycomeDB RDFでは、GlycomeDB自体のURLが無い
 ```
+
 * どうやってglycomedb rdfにresource entryをもたせるか？
 	* 新しいGRAPHを用意する
 	* `http://rdf.glytoucan.org/linked-db/glycome-db/resource_entry`
@@ -106,6 +111,7 @@ BCSDB RDFでは、glycan:saccharideのインスタンスとowl:sameAsで記述�
 		* glycomedb rdfをベースにして、constructで作ったresource entryのトリプル
 
 ##### 例 GRAPH `http://rdf.glytoucan.org/linked-db/glycome-db/resource_entry`
+
 ```
 <http://rdf.glycome-db.org/glycan/129> 
     a   glycan:saccharide ;
