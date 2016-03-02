@@ -35,11 +35,11 @@ __機能・テーマ:__
 
 
 
-#### [仕様] /linked-db GRAPH   
+### [仕様] /linked-db GRAPH   
 
 
 
-#### /linked-db/bcsdb
+### /linked-db/bcsdb
 
 ##### GRAPH Name: `http://rdf.glytoucan.org/linked-db/bcsdb`
 
@@ -57,15 +57,20 @@ __機能・テーマ:__
   rdfs:seeAlso  <http://csdb.glycoscience.ru/bacterial/core/search_id.php?mode=record&id_list=6922> .
 ```
 
+
 ##### Note
 
 ```
 <http://csdb.glycoscience.ru/bacterial/core/search_id.php?mode=record&id_list=6922>
 このURIは、BCSDB RDFで使われている。
 glycan:resource_entryのタイプ付けがされている
+```
 
 
+BCSDB RDFのどことリンクするか？  
 BCSDB RDFでは、glycan:saccharideのインスタンスとowl:sameAsで記述されている
+
+```
 <http://csdb.glycoscience.ru/integration/make_rdf.php?db=database&mode=structure&id_list=747>
   a glyco:saccharide ;
   a glyco:glycoconjugate ;
@@ -77,7 +82,7 @@ BCSDB RDFでは、glycan:saccharideのインスタンスとowl:sameAsで記述�
 
 
 
-#### /linked-db/glycome-db
+### /linked-db/glycome-db
 
 ##### GRAPH Name: `http://rdf.glytoucan.org/linked-db/glycome-db`
 
@@ -94,6 +99,7 @@ BCSDB RDFでは、glycan:saccharideのインスタンスとowl:sameAsで記述�
     dcterms:identifier "129" ;
     rdfs:seeAlso    <http://www.glycome-db.org/database/showStructure.action?glycomeId=129> .
 ```
+
 
 ##### Note
 
@@ -115,13 +121,22 @@ BCSDB RDFでは、glycan:saccharideのインスタンスとowl:sameAsで記述�
 <http://rdf.glycome-db.org/glycan/129> 
     a   glycan:saccharide ;
     glycan:has_resource_entry   <http://www.glycome-db.org/database/showStructure.action?glycomeId=129> .
+<http://www.glycome-db.org/database/showStructure.action?glycomeId=129> 
+    a   glycan:resource_entry .
+```
+
+
+GlycomeDB RDFのどことリンクするか？
+
+```
+<http://rdf.glycome-db.org/glycan/129> 
+    a   glycan:saccharide ;
 ```
 
 
 
 
-
-#### /linked-db/glycoepitope
+### /linked-db/glycoepitope
 
 ##### GRAPH Name: `http://rdf.glytoucan.org/linked-db/glycoepitope`
 
@@ -139,12 +154,21 @@ BCSDB RDFでは、glycan:saccharideのインスタンスとowl:sameAsで記述�
     rdfs:seeAlso    <http://www.glycoepitope.jp/epitopes/EP0012> .
 ```
 
+
 ##### Note
 
 ```
 <http://www.glycoepitope.jp/epitopes/EP0012>
 このURIは、GlycoEpitope RDFで使われている。
 glycan:Glycan_epitopeのタイプ付けがされている
+```
+
+GlycoEpitope RDFのどことリンクするか？
+
+```
+<http://www.glycoepitope.jp/epitopes/EP0012>
+    a   glycan:Glycan_epitope ;
+    dcterms:identifier "EP0012" .
 ```
 
 
