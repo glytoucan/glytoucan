@@ -15,7 +15,7 @@ Full details regarding the background of this repository is available in the [Me
 
 ### User Preferences
 
-####A [Preferences](http://code.glytoucan.org/manual/preferences/){:target="_blank"} screen to configure languages or image formats
+#### A [Preferences](http://code.glytoucan.org/manual/preferences/){:target="_blank"} screen to configure languages or image formats
 
 ### Search
 
