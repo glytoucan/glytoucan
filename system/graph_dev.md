@@ -1,9 +1,9 @@
 ---
-title: GRAPH Development
+title: Development of GRAPH
 layout: default
 ---
 
-# [仕様] GRAPH ルール  
+# [仕様] GRAPH Rule
 
 
 Domain rule  
