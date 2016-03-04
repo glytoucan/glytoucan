@@ -13,33 +13,7 @@ Full details regarding the background of this repository is available in the [Me
 
 ## List of Services
 
-### User Preferences
-
-#### A [Preferences](http://code.glytoucan.org/manual/preferences/){:target="_blank"} screen to configure languages or image formats
-
-### Search
-
-#### [Search using a graphical interface](/manual/search-graphical){:target="_blank"}
-
-#### [Search using a glycan text sequence](/manual/search-text){:target="_blank"}
-
-### Listings
-
-#### [Motif listing](http://code.glytoucan.org/manual/browse-motif/){:target="_blank"} displays all of the motifs registered into the repository
-
-#### [View All](http://code.glytoucan.org/manual/browse-glycan/){:target="_blank"} displays all glycans currently registered
-
-#### [Monosaccharide listing](https://github.com/glytoucan/glytoucan.github.io/issues/13){:target="_blank"} displays all registered and extracted monosaccharides
-
-### Registering
-
-In order to register structures it is required to sign-up via google.
-
-#### [Register using a graphical interface](http://code.glytoucan.org/manual/registration-graphical/){:target="_blank"}
-
-#### [Register using a text interface](http://code.glytoucan.org/manual/registration-text/){:target="_blank"}
-
-#### [Register using a file upload](http://code.glytoucan.org/manual/registration-upload/){:target="_blank"}
+The [manual](/manual) best describes the services available through the website.  Also, the [api](/system/api) is the best resource to see the backend services provided.
 
 ### Partnership Program
 

@@ -1,12 +1,7 @@
-----------
-
-
 ---
 title: GlyTouCan API List
 layout: default
 ---
-
-
 * auto-gen TOC:
 {:toc}
 
