@@ -13,6 +13,7 @@ ResultSetMaxRows = 100万(テスト環境&本番環境)
 本番環境では、CONSTRCTで全て取れなかった  
 
 GRAPHの削除
+
 ```
 log_enable(2,1);
 sparql clear graph <graph name>;
@@ -56,10 +57,10 @@ including following classes
 **To**`http://rdf.glytoucan.org/core`  
 
 * glycan:componentは今後利用しない  
-* Accession numberは、has_primary_idを利用しない予定だが、</core>に今のところ必要
-* glycan:has_imageは、</image>に含まれる
-* glycan:has_motifは、</motif>に含まれる
-* glycan:has_glycosequenceは、</sequence/glycoct>と</motif>に含まれる
+* Accession numberは、has_primary_idを利用しない予定だが、`</core>`に今のところ必要
+* glycan:has_imageは、`</image>`に含まれる
+* glycan:has_motifは、`</motif>`に含まれる
+* glycan:has_glycosequenceは、`</sequence/glycoct>`と`</motif>`に含まれる
 
 
 | Instance URI | Proerty   | Class |  Instance URI Literal | Literal | Individual |
@@ -74,6 +75,7 @@ including following classes
 
 
 ### INSERT query
+
 ```
 log_enable(2,1);
 sparql
@@ -98,6 +100,26 @@ WHERE {
 };
 checkpoint;
 commit WORK;
+```
+
+
+### confirm query
+```
+# Saccharide 
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
+PREFIX glytoucan:  <http://www.glytoucan.org/glyco/owl/glytoucan#>
+
+SELECT ?ResourceEntry
+#SELECT count(?ResourceEntry)
+#SELECT count(?Saccharide)
+#FROM <http://rdf.glytoucan.org>
+FROM <http://rdf.glytoucan.org/core>
+WHERE {
+    # Saccharide
+    #?Saccharide a glycan:saccharide .
+    #?Saccharide glycan:has_resource_entry ?ResourceEntry .
+}
+limit 200
 ```
 
 
@@ -158,6 +180,34 @@ commit WORK;
 ```
 
 
+### Confirm query
+
+```
+# Resource entry 
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
+PREFIX glytoucan:  <http://www.glytoucan.org/glyco/owl/glytoucan#>
+PREFIX dcterms: <http://purl.org/dc/terms/>
+
+SELECT *
+#SELECT COUNT(?AccessionNumber)
+#SELECT COUNT(?DB)
+#SELECT COUNT(?Date)
+#SELECT COUNT(?Contributor)
+#SELECT COUNT(?ResourceEntry)
+#FROM <http://rdf.glytoucan.org>
+FROM <http://rdf.glytoucan.org/core>
+WHERE {
+    # New Resource entry
+    #?ResourceEntry a glycan:resource_entry .
+    #?ResourceEntry glytoucan:contributor ?Contributor .
+    #?ResourceEntry glytoucan:date_registered ?Date .
+    #?ResourceEntry glycan:in_glycan_database ?DB .
+    #?ResourceEntry dcterms:identifier ?AccessionNumber .
+    #?ResourceEntry rdfs:seeAlso ?Entry .
+}
+limit 200
+```
+
 
 
 
@@ -197,6 +247,29 @@ WHERE {
 };
 checkpoint;
 commit WORK;
+```
+
+
+### Confirm query
+
+```
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
+
+SELECT *
+#SELECT COUNT(?label)
+#SELECT COUNT(?Format)
+#SELECT COUNT(?Sequence)
+#SELECT COUNT(?GSequence)
+#FROM <http://rdf.glytoucan.org>
+FROM <http://rdf.glytoucan.org/sequence/glycoct> 
+WHERE {
+    # Glycosequence
+    ?Saccharide glycan:has_glycosequence ?GSequence .
+    ?GSequence glycan:has_sequence ?Sequence .
+    ?GSequence glycan:in_carbohydrate_format ?Format .
+    ?GSequence rdfs:label ?label .
+}
+limit 100
 ```
 
 
@@ -240,6 +313,30 @@ WHERE {
     ?Image dc:format ?Format .
     ?Image glycan:has_symbol_format ?Symbol .
 }
+```
+
+
+### Confirm query
+
+```
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
+PREFIX glytoucan:  <http://www.glytoucan.org/glyco/owl/glytoucan#>
+
+SELECT *
+#SELECT COUNT(?Symbol)
+#SELECT COUNT(?Format)
+#SELECT COUNT(?Image)
+#FROM <http://rdf.glytoucan.org>
+FROM <http://rdf.glytoucan.org/image/test> 
+WHERE {
+    # Image 
+    #?Sacc glycan:has_image ?Image .
+    #?Image a glycan:image .
+    #?Image dc:format ?Format .
+    #?Image glycan:has_symbol_format ?Symbol .
+
+}
+limit 100
 ```
 
 
@@ -293,6 +390,35 @@ WHERE {
 checkpoint;
 commit WORK;
 ```
+
+
+### Confirm query
+
+```
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
+PREFIX glytoucan:  <http://www.glytoucan.org/glyco/owl/glytoucan#>
+
+SELECT *
+#SELECT COUNT(?MotifName)
+#SELECT COUNT(?GlycanMotifAlias)
+#SELECT COUNT(?ReducingEnd)
+#SELECT COUNT(?GSequence)
+#SELECT COUNT(?GlycanMotif)
+#FROM <http://rdf.glytoucan.org>
+FROM <http://rdf.glytoucan.org/motif/test> 
+WHERE {
+    # Motif
+    #?Saccharide glycan:has_motif ?GlycanMotif.
+    #?GlycanMotif a glycan:glycan_motif .
+    #?GlycanMotif glycan:has_glycosequence ?GSequence .
+    #?GlycanMotif glytoucan:is_reducing_end ?ReducingEnd .
+    #?GlycanMotif rdfs:label ?MotifName .
+}
+limit 100
+```
+
+
+
 
 ### Note
 * http://test.ts.glytoucan.org/sparql
