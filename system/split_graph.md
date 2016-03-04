@@ -12,6 +12,11 @@ ResultSetMaxRows = 100万(テスト環境&本番環境)
 テスト環境では、CONSTRCTで全て取れた  
 本番環境では、CONSTRCTで全て取れなかった  
 
+GRAPHの削除
+```
+log_enable(2,1);
+sparql clear graph <graph name>;
+```
 
 
 ## Target GRAPH
@@ -51,15 +56,17 @@ including following classes
 **To**`http://rdf.glytoucan.org/core`  
 
 * glycan:componentは今後利用しない  
-* Accession numberは、has_primary_idを利用しない  
-	* Accession number はResource entryに移動する
-	* `<glycan:resource_entry> dcterms:identifier “Accession number”`とする
+* Accession numberは、has_primary_idを利用しない予定だが、</core>に今のところ必要
+* glycan:has_imageは、</image>に含まれる
+* glycan:has_motifは、</motif>に含まれる
+* glycan:has_glycosequenceは、</sequence/glycoct>と</motif>に含まれる
+
 
 | Instance URI | Proerty   | Class |  Instance URI Literal | Literal | Individual |
 |--------------|-----------|-------|-----------------------|---------|------------|
 | Saccharide instance | a | glycan:saccharide | 
-|                     | glycan:has_motif |  | Glycan motif instance |
-|                     | glycan:has_image |  | Image instance |
+|                     | ~~glycan:has_motif~~ |  | ~~Glycan motif instance~~ |
+|                     | ~~glycan:has_image~~|  | ~~Image instance~~ |
 |                     | glycan:has_resource_entry |  | Glycosequence instance |
 |                     | ~~glycan:has_component~~ |  | ~~component instance~~ |
 |                     | ~~glytoucan:has_primary_id~~ |  |  | ~~"Accession number"~~ |
@@ -75,23 +82,19 @@ PREFIX glytoucan:  <http://www.glytoucan.org/glyco/owl/glytoucan#>
 INSERT
 { GRAPH <http://rdf.glytoucan.org/core> {
     ?Saccharide a glycan:saccharide .
-    ?Saccharide glycan:has_image ?Image .
-    ?Saccharide glycan:has_resource_entry ?Entry .
-    ?Saccharide glycan:has_glycosequence ?GSequence .
-    ?Saccharide glytoucan:has_primary_id ?AccNum .
+    ?Saccharide glytoucan:has_primary_id ?AccessionNumber .
+    ?Saccharide glycan:has_resource_entry ?ResourceEntry .
   }
 }
 USING <http://rdf.glytoucan.org>
 WHERE {
     # Saccharide
     ?Saccharide a glycan:saccharide .
-    ?Saccharide glycan:has_image ?Image .
+    ?Saccharide glytoucan:has_primary_id ?AccessionNumber .
     ?Saccharide glycan:has_resource_entry ?Entry .
-    ?Saccharide glycan:has_glycosequence ?GSequence .
-    ?Saccharide glytoucan:has_primary_id ?AccNum .
-    OPTIONAL{
-      ?Saccharide glycan:has_motif ?Motif .
-    }
+    BIND(STR(?Entry) AS ?strEntry)
+    BIND(STRAFTER(?strEntry, "http://glytoucan.org/Structures/Glycans/") AS ?AccNum)
+    BIND(IRI(CONCAT("http://rdf.glycoinfo.org/resource-entry/", ?AccNum)) AS ?ResourceEntry)
 };
 checkpoint;
 commit WORK;
@@ -106,8 +109,8 @@ commit WORK;
 
 * 目的語のPerson instaceは、`http://rdf.glytoucan.org/users`のGRAPHにある
 * gs2virt版には、`dcterms:identifier`と`rdfs:seeAlso`が含まれていなかったので追加する。
-	* `glycan:resource_entry`のインスタンスに対して、`dcterms:identifier`を繋げて記述する事は、`glytoucan:has_primary_id`が実質、`glycan:resource_entry`に紐ずく形になる
-	* `glycan:resource_entry`のインスタンスがGlyTouCanのURLとなっているが、わかりやすくするため、`rdfs:seeAlso`を追加する
+  * `<glycan:resource_entry> dcterms:identifier “Accession number”`とする
+  * `<glycan:resource_entry> rdfs:seeAlso “GlyTouCan URL”`とする
 
 | Instance URI | Proerty   | Class |  Instance URI Literal | Literal | Individual |
 |--------------|-----------|-------|-----------------------|---------|------------|
@@ -129,23 +132,26 @@ PREFIX dcterms: <http://purl.org/dc/terms/>
 
 INSERT
 { GRAPH <http://rdf.glytoucan.org/core> {
-    ?REntry a glycan:resource_entry .
-    ?REntry glytoucan:contributor ?Contributor .
-    ?REntry glytoucan:date_registered ?Date .
-    ?REntry glycan:in_glycan_database ?DB .
-	?REntry dcterms:identifier ?AccessionNumber .
-	?REntry rdfs:seeAlso ?REntry .
+    ?ResourceEntry a glycan:resource_entry .
+    ?ResourceEntry glytoucan:contributor ?Contributor .
+    ?ResourceEntry glytoucan:date_registered ?Date .
+    ?ResourceEntry glycan:in_glycan_database ?DB .
+    ?ResourceEntry dcterms:identifier ?AccessionNumber .
+    ?ResourceEntry rdfs:seeAlso ?Entry .
   }
 }
-FROM <http://rdf.glytoucan.org>
+USING <http://rdf.glytoucan.org>
 WHERE {
     # Resource entry
     ?Saccharide glytoucan:has_primary_id ?AccessionNumber .
-    ?Saccharide glycan:has_resource_entry ?REntry .
-    ?REntry a glycan:resource_entry .
-    ?REntry glytoucan:contributor ?Contributor .
-    ?REntry glytoucan:date_registered ?Date .
-    ?REntry glycan:in_glycan_database ?DB .
+    ?Saccharide glycan:has_resource_entry ?Entry .
+    ?Entry a glycan:resource_entry .
+    ?Entry glytoucan:contributor ?Contributor .
+    ?Entry glytoucan:date_registered ?Date .
+    ?Entry glycan:in_glycan_database ?DB .
+    BIND(STR(?Entry) AS ?strEntry)
+    BIND(STRAFTER(?strEntry, "http://glytoucan.org/Structures/Glycans/") AS ?AccNum)
+    BIND(IRI(CONCAT("http://rdf.glycoinfo.org/resource-entry/", ?AccNum)) AS ?ResourceEntry)
 };
 checkpoint;
 commit WORK;
@@ -165,8 +171,9 @@ commit WORK;
 		* rdfs:label, glycan:has_glycosequence, glycan:has_sequence, glycan:in_carbohydrate_format
 		* glycan:glycosequenceのタイプ付けは無し
 			* glycan:glycosequenceのタイプ付けをした方が良い
-		* rdfs:labelとglycan:has_sequenceが同じ
+		* rdfs:labelとglycan:has_sequenceが同じデータタイプ
 			* rdfs:labeはどこかで使われているか？
+      * Stanzaでは使われていなかった
 
 ### INSERT query
 ```
@@ -175,15 +182,16 @@ sparql
 PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
 INSERT
 { GRAPH <http://rdf.glytoucan.org/sequence/glycoct> {
-    ?GSequence a glycan:glycosequence .
+    ?Saccharide glycan:has_glycosequence ?GSequence .
     ?GSequence glycan:has_sequence ?Sequence .
     ?GSequence glycan:in_carbohydrate_format ?Format .
+    ?GSequence rdfs:label ?Sequence .
   }
 }
 USING <http://rdf.glytoucan.org>
 WHERE {
     # Glycosequence
-    ?GSequence a glycan:glycosequence .
+    ?Saccharide glycan:has_glycosequence ?GSequence .
     ?GSequence glycan:has_sequence ?Sequence .
     ?GSequence glycan:in_carbohydrate_format ?Format .
 };
@@ -199,6 +207,13 @@ commit WORK;
 **From**`http://rdf.glytoucan.org`  
 **To**`http://rdf.glytoucan.org/image`  
 
+```
+* GlyTouCanでは、RDFで記述されているImageのURIは利用していない
+* JavascriptでイメージのURLを作っている
+* とくに必要な場面は今のところなし
+* 念のためにやり方を残す
+```
+
 * 新しいGRAPH `http://rdf.glytoucan.org/image`を用意する
 * gs2virtにあるImageをインサートする
 
@@ -211,6 +226,7 @@ PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
 PREFIX glytoucan:  <http://www.glytoucan.org/glyco/owl/glytoucan#>
 INSERT
 { GRAPH <http://rdf.glytoucan.org/image> {
+  ?Saccharide glycan:has_image ?Image .
     ?Image a glycan:image .
     ?Image dc:format ?Format .
     ?Image glycan:has_symbol_format ?Symbol .
@@ -219,6 +235,7 @@ INSERT
 FROM <http://rdf.glytoucan.org>
 WHERE {
     # Image 
+  ?Saccharide glycan:has_image ?Image .
     ?Image a glycan:image .
     ?Image dc:format ?Format .
     ?Image glycan:has_symbol_format ?Symbol .
@@ -229,9 +246,22 @@ WHERE {
 
 
 
-## Motif Class
+## Glycan motif Class
 **From**`http://rdf.glytoucan.org`  
 **To**`http://rdf.glytoucan.org/motif`  
+
+
+ `</motif>`
+
+* glycan:has_motif (only)
+
+
+追加
+
+* rdf:type
+* glycan:has_glycosequence
+* rdfs:label
+* glytoucan:is_reducing_end
 
 
 ### INSERT query
@@ -244,19 +274,21 @@ PREFIX glytoucan:  <http://www.glytoucan.org/glyco/owl/glytoucan#>
 INSERT
 { GRAPH <http://rdf.glytoucan.org/motif> {
    # Motif
-    ?Motif a glycan:glycan_motif ;
-           rdfs:label ?MotifName ;
-    	   glycan:has_glycosequence ?GSequence ;
-           glytoucan:is_reducing_end ?ReducingEnd .
+    ?Saccharide glycan:has_motif ?Motif .
+    ?Motif a glycan:glycan_motif .
+    ?Motif glycan:has_glycosequence ?GSequence .
+    ?Motif rdfs:label ?MotifName .
+    ?Motif glytoucan:is_reducing_end ?ReducingEnd .
   }
 }
 USING <http://rdf.glytoucan.org>
 WHERE {
     # Motif
-    ?Motif a glycan:glycan_motif ;
-           rdfs:label ?MotifName ;
-    	   glycan:has_glycosequence ?GSequence ;
-           glytoucan:is_reducing_end ?ReducingEnd .
+    ?Saccharide glycan:has_motif ?Motif .
+    ?Motif a glycan:glycan_motif .
+    ?Motif glycan:has_glycosequence ?GSequence .
+    ?Motif rdfs:label ?MotifName .
+    ?Motif glytoucan:is_reducing_end ?ReducingEnd .
 };
 checkpoint;
 commit WORK;
