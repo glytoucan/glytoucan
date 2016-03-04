@@ -49,6 +49,7 @@ The GlyTouCan Admin team will be responsible for creating new Partner Organizati
 The request form for this will be available soon, please [contact us](https://docs.google.com/forms/d/1O8xm39fLK6u1NQEn6ftRO-_2GBLUrE10TmJFBJW0hNc/viewform) if you have any questions.
 
 The Ontology used is schema.org and GlycoRDF.  The following is an example RDF of a new Organization:
+
 ```
 PREFIX schema: <http://schema.org/>
 PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
