@@ -129,7 +129,7 @@ limit 200
 **From**`http://rdf.glytoucan.org`  
 **To**`http://rdf.glytoucan.org/core`  
 
-* 目的語のPerson instaceは、`http://rdf.glytoucan.org/users`のGRAPHにある
+* 目的語のPerson instaceは、`http://rdf.glytoucan.org/users`のGRAPHにもある
 * gs2virt版には、`dcterms:identifier`と`rdfs:seeAlso`が含まれていなかったので追加する。
   * `<glycan:resource_entry> dcterms:identifier “Accession number”`とする
   * `<glycan:resource_entry> rdfs:seeAlso “GlyTouCan URL”`とする
@@ -225,6 +225,15 @@ limit 200
 			* rdfs:labeはどこかで使われているか？
       * Stanzaでは使われていなかった
 
+| Subject                  | Predicate                     | Object               |                         |                |                                    |
+|--------------------------|-------------------------------|----------------------|-------------------------|----------------|------------------------------------|
+| Instance URI             | property                      | Class                | Instance URI            | Literal        | Individual                         |
+| saccharide instance     | glycan:has_glycosequence      |                      | glycosequence instance |                |                                    |
+| glycosequence instance| a                             | glycosequence instance |                         |                |                                    |
+|                          | glycan:has_sequence           |                      |                         | GlycoCT string |                                    |
+|                          | glycan:in_carbohydrate_format |                      |                         |                | glycan:carbohydrate_format_glycoct |
+|                          | rdfs:label                    |                      |                         | GlycoCT string |                                    |
+
 ### INSERT query
 ```
 log_enable(2,1);
@@ -289,6 +298,21 @@ limit 100
 
 * 新しいGRAPH `http://rdf.glytoucan.org/image`を用意する
 * gs2virtにあるImageをインサートする
+
+
+| Subject             | Predicate                | Object         |              |                      |                                 |
+|---------------------|--------------------------|----------------|--------------|----------------------|---------------------------------|
+| Instance URI        | property                 | Class          | Instance URI | Literal              | Individual                      |
+| saccharide instance | glycan:has_image         | image instance |              |                      |                                 |
+| image instance    | a                        | glycan:image   |              |                      |                                 |
+|                     | dc:format                |                |              | image/pingxsd:string |                                 |
+|                     | glycan:has_symbol_format |                |              |                      | glycan:symbol_format_cfg        |
+|                     |                          |                |              |                      | glycan:symbol_format_uoxf       |
+|                     |                          |                |              |                      | glycan:symbol_format_text       |
+|                     |                          |                |              |                      | glycan:symbol_format_uoxf_color |
+|                     |                          |                |              |                      | glycan:symbol_format_cfg_uoxf   |
+|                     |                          |                |              |                      | glycan:symbol_format_cfg_bw     |
+
 
 
 ### INSERT query
@@ -359,6 +383,17 @@ limit 100
 * glycan:has_glycosequence
 * rdfs:label
 * glytoucan:is_reducing_end
+
+
+| Subject                 | Predicate                 | Object                |                          |                 |            |
+|-------------------------|---------------------------|-----------------------|--------------------------|-----------------|------------|
+| Instance URI            | property                  | Class                 | Instance URI             | Literal         | Individual |
+| saccharide instance     | glycan:has_motif          | glycan motif instance |                          |                 |            |
+| glycan motif instance | a                         | glycan:glycan_moti    |                          |                 |            |
+|                         | glycan:has_glycosequence  |                       | glycosequence instance |                 |            |
+|                         | rdfs:label                |                       |                          | “motif name”@en |            |
+|                         | glytoucan:is_reducing_end |                       |                          | boolean         |            |
+
 
 
 ### INSERT query
