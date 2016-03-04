@@ -56,7 +56,8 @@ including following classes
 **From**`http://rdf.glytoucan.org`  
 **To**`http://rdf.glytoucan.org/core`  
 
-* glycan:componentは今後利用しない  
+* glycan:has_componentは今後利用しない予定だが、'</core>'に今のところ必要
+    * glycan:has_componentが無ければ、Glycan ListやMonosaccharide compositionが表示されなくなるため
 * Accession numberは、has_primary_idを利用しない予定だが、`</core>`に今のところ必要
 * glycan:has_imageは、`</image>`に含まれる
 * glycan:has_motifは、`</motif>`に含まれる
@@ -69,7 +70,7 @@ including following classes
 |                     | ~~glycan:has_motif~~ |  | ~~Glycan motif instance~~ |
 |                     | ~~glycan:has_image~~|  | ~~Image instance~~ |
 |                     | glycan:has_resource_entry |  | Glycosequence instance |
-|                     | ~~glycan:has_component~~ |  | ~~component instance~~ |
+|                     | glycan:has_component |  | component instance |
 |                     | ~~glytoucan:has_primary_id~~ |  |  | ~~"Accession number"~~ |
 
 
@@ -117,6 +118,8 @@ FROM <http://rdf.glytoucan.org/core>
 WHERE {
     # Saccharide
     #?Saccharide a glycan:saccharide .
+    #?Saccharide glytoucan:has_primary_id ?AccessionNumber .
+    #?Saccharide glycan:has_resource_entry ?ResourceEntry .
     #?Saccharide glycan:has_resource_entry ?ResourceEntry .
 }
 limit 200
@@ -211,6 +214,83 @@ limit 200
 
 
 
+
+
+
+## Component Class
+**From**`http://rdf.glytoucan.org`  
+**To**`http://rdf.glytoucan.org/core`  
+
+* Componentは、WURCS版が開発中のため、`</core>`を利用する
+
+
+| Instance URI            | property                  | Class                 | Instance URI            | Literal     | Individual |
+|-------------------------|---------------------------|-----------------------|-------------------------|-------------|------------|
+| saccharide instance     | glycan:has_component      |                       | component instance      |             |            |
+| component instance      | a                         | glycan:component      |                         |             |            |
+|                         | glycan:has_cardinality    |                       |                         | xsd:integer |            |
+|                         | glycan:has_monosaccharide |                       | monosaccharide instance |             |            |
+| monosaccharide instance | a                         | glycan:monosaccharide |                         |             |            |
+
+
+### INSERT query
+
+```
+log_enable(2,1);
+sparql
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
+PREFIX glytoucan:  <http://www.glytoucan.org/glyco/owl/glytoucan#>
+INSERT
+{ GRAPH <http://rdf.glytoucan.org/core> {
+  ?Saccharide glycan:has_component ?Component .
+  ?Component a glycan:component .
+  ?Component glycan:has_cardinality ?Cardinality .
+  ?Component glycan:has_monosaccharide ?Monosaccharide .
+  ?Monosaccharide a glycan:monosaccharide .
+  }
+}
+USING <http://rdf.glytoucan.org>
+WHERE {
+    # Component 
+    ?Saccharide a glycan:saccharide .
+  ?Saccharide glycan:has_component ?Component .
+  ?Component a glycan:component .
+  ?Component glycan:has_cardinality ?Cardinality .
+  ?Component glycan:has_monosaccharide ?Monosaccharide .
+  ?Monosaccharide a glycan:monosaccharide .
+};
+checkpoint;
+commit WORK;
+```
+
+
+### Confirm query
+
+```
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
+PREFIX glytoucan:  <http://www.glytoucan.org/glyco/owl/glytoucan#>
+
+SELECT *
+#FROM <http://rdf.glytoucan.org>
+FROM <http://rdf.glytoucan.org/core>
+WHERE {
+  # Saccharide
+  ?Saccharide a glycan:saccharide .
+  ?Saccharide glycan:has_component ?Component .
+  ?Component a glycan:component .
+  ?Component glycan:has_cardinality ?Cardinality .
+  ?Component glycan:has_monosaccharide ?Monosaccharide.
+  ?Monosaccharide a glycan:monosaccharide .
+}
+limit 200
+
+```
+
+
+
+
+
+
 ## Glycosequence Class
 **From**`http://rdf.glytoucan.org`  
 **To**`http://rdf.glytoucan.org/sequence/glycoct`  
@@ -225,9 +305,8 @@ limit 200
 			* rdfs:labeはどこかで使われているか？
       * Stanzaでは使われていなかった
 
-| Subject                  | Predicate                     | Object               |                         |                |                                    |
-|--------------------------|-------------------------------|----------------------|-------------------------|----------------|------------------------------------|
 | Instance URI             | property                      | Class                | Instance URI            | Literal        | Individual                         |
+|--------------------------|-------------------------------|----------------------|-------------------------|----------------|------------------------------------|
 | saccharide instance     | glycan:has_glycosequence      |                      | glycosequence instance |                |                                    |
 | glycosequence instance| a                             | glycosequence instance |                         |                |                                    |
 |                          | glycan:has_sequence           |                      |                         | GlycoCT string |                                    |
@@ -300,9 +379,8 @@ limit 100
 * gs2virtにあるImageをインサートする
 
 
-| Subject             | Predicate                | Object         |              |                      |                                 |
-|---------------------|--------------------------|----------------|--------------|----------------------|---------------------------------|
 | Instance URI        | property                 | Class          | Instance URI | Literal              | Individual                      |
+|---------------------|--------------------------|----------------|--------------|----------------------|---------------------------------|
 | saccharide instance | glycan:has_image         | image instance |              |                      |                                 |
 | image instance    | a                        | glycan:image   |              |                      |                                 |
 |                     | dc:format                |                |              | image/pingxsd:string |                                 |
@@ -385,9 +463,8 @@ limit 100
 * glytoucan:is_reducing_end
 
 
-| Subject                 | Predicate                 | Object                |                          |                 |            |
-|-------------------------|---------------------------|-----------------------|--------------------------|-----------------|------------|
 | Instance URI            | property                  | Class                 | Instance URI             | Literal         | Individual |
+|-------------------------|---------------------------|-----------------------|--------------------------|-----------------|------------|
 | saccharide instance     | glycan:has_motif          | glycan motif instance |                          |                 |            |
 | glycan motif instance | a                         | glycan:glycan_moti    |                          |                 |            |
 |                         | glycan:has_glycosequence  |                       | glycosequence instance |                 |            |
