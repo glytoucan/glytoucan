@@ -17,6 +17,8 @@ TLDR: The API is a contract-first development method using the SOAP protocol, wh
 ## Functionality
 The below is a listing of the functionality provided by the api.  Words in **Bold** are "Complex", meaning they are a combination of literals.  *Italics* is for static data.  Multiple indicates a Set or Array of the contents directly below it.
 
+1. Registering bibo
+1. Searching structures (exact)
 1. Searching structures (substructure)
 	1. input
 		1. **GlycoSequence**
