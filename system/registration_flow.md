@@ -20,7 +20,7 @@ The original registration method processed all enrichment from a glycoct sequenc
 
 Herein introduces a new method to store input specifically for the user at the beginning, with minimal validation.  At regular intervals or at the user's request, a registration batch process is executed which enriches the data with required fields and can quickly convey results for massive numbers of structures in a simple user interface
 
-### Data flow
+### Data Flow
 
 A new graph will be used to store draft data for the initial user content.  This data is not public through the repository website, and should be considered unpublished information.  When a user inputs data to register(such as a glycan sequence string) via the website or client/REST API, the information is stored immediately in RDF.  A Resource Entry is also created to relate the information to the user.
 
@@ -37,13 +37,13 @@ GlyTouCan->User: status displayed
 All of the queries are also available via the [API](/system/api).
 The module execution flow will be explained below.
 
-### Preregister data
+### Pre-Register Data
 
 The following is the data fields accepted and the associated Class that will be stored.  Each type will have it's own validation checks and enrichment.  The field column is a link to the registration process in detail.
 
 | Data field | Class
 | -- | --
-| [Glycan Sequence](/system/glycosequence) | GlycoRDF GlycoSequence
+| [Glycan Sequence](/system/glycan_registration.md) | GlycoRDF GlycoSequence
 | [Glycan Name](/system/name) | Saccharide Alias
 | [Glycan Motif](/system/motif) | GlycoRDF Motif class
 | [Pubmed ID](/system/publication) | `dc:references <http://identifiers.org/pubmed/IDHERE>` as described in  [guidelines for the ToGo Project](http://wiki.lifesciencedb.jp/mw/BH14.14/RDFizingDatabaseGuideline)
@@ -53,7 +53,7 @@ The following is the data fields accepted and the associated Class that will be 
 
 The logging process is fairly complicated, and will be described in a [separate article](/system/logging).  In general information such as ID, contributor, description, and type of the action will be stored.
 
-### Staging process
+### Staging Process
 
 As explained above, the information received will be stored in a draft-version graph section of the triplestore.  When the batch process is initiated, all generated content and logging will also be stored in this draft section.  The user will be able to view this information in combination with live data to show how it would be once the data is committed in the [Draft View](/system/draftview) functionality.
 
@@ -61,12 +61,10 @@ This simply combines the draft data with public data currently stored in the rep
 
 Once the user is ready to publish the information, the preregister data is then transferred to the public graph.  Once again the same enrichment modules are executed and all results can be checked from the [Log View Dashboard](/manual/dashboard).
 
-### Module execution flow
+### Module Execution Flow
 
 The most complicated registration process is the sequence structure.
 The following describes the processing that occurs when a structure is first recorded.  Modules are executed and results can be reviewed from the dashboard.
-
-Once committed the data is destroyed, however the graph can also be completely reset in case there is remaining enrichment data.
 
 ```sequence
 User->GlyTouCan: User submits structure
@@ -89,48 +87,88 @@ GlyTouCan->RDF: check status of structure
 GlyTouCan->RDF: move structure to production
 GlyTouCan->User: show user link to entry page
 ```
+Once committed the data is destroyed, however the graph can also be completely reset in case there is remaining enrichment data.
 
 The "move structure to production" process executes the first workflow, running the modules again this time into the associated 
 graphs visible on production.
 
-## RDF Framework
+## RDF Process Framework
 
-The GlyTouCan project has created a framework for storing data inputs to RDF.  This framework is highly flexible however for the purposes of this article the scope will be limited to the GlycoSequence string to RDF interface.
+The GlyTouCan project has created a framework for storing glycoinfo data into RDF.  This section will describe the parent class functionality that are inherited.  It is a high-level view of the framework intentions.
 
-The following is the GlycoSequenceResourceProcess interface.  This is the minimal information required by the registration batch to execute the processing of a structural sequence.
+The main purpose of this framework is to give developers a simple interface to query and store GlyTouCan RDF repository data.  By simply inheriting the parent classes, an instance of an RDF DAO is made available, thus an interface to execute any SPARQL.  This way there is no need to worry about the complex details regarding how to connect to the RDF Triplestore, software driver dependencies, transactions, and error handling.  The [logging](/system/logging) system is also made available, for a very simple method to communicate to the end user the status of the program.
+
+The following is the ResourceProcess interface.  This is the minimal interface required by a module.
 ```
-public interface GlycoSequenceResourceProcess {
-	public ResourceProcessResult processGlycoSequence(String sequence) throws ResourceProcessException;
+public interface ResourceProcess {
+	public ResourceProcessResult run() throws ResourceProcessException;
 }
 ```
 
-Note that this is a very simple interface to follow.  The simplicity allows for flexibility in how the batch process is to be used.
+Please Note: In most cases developers will be extending the child classes for each module.  This interface is a bit too simple and only used by the framework for each pre-register child module.  Please refer to the "Pre-Register Data" section above.  The simplicity allows for flexibility in how the batch process is to be used now and in the future.
 
-More details can be seen in the ResourceProcessResult class:
+More details can be seen in the returned ResourceProcessResult class:
 
 ```
 public class ResourceProcessResult {
 
-	String type;
-	String message;
+	Log logMessage;
+	String id;
 	SparqlEntity sparqlEntity;
 	InsertSparql insertSparql;
-	
-	public String getStatus() {
-		return status;
-	}
-...	
+
+...
+
 }
 ```
 
-As would be expected the status and message is returned.  This will be logged directly into the [logging system](/system/logging).  The interesting parts are the InsertSparql and SparqlEntity classes.  This shows that implementations of this interface is given access to the triplestore.  By simply returning a SPARQL Insert statement, data resulting from the process is added into the repository RDF. 
+The logMessage is a Log class, which just contains a description of an event and a status:
+```
 
-More details regarding process-time access to the RDF will be given in the future, however as of now this shows a simple framework for processing a variety of data that can be logically determined from a Glycan Sequence string.
+public class Log {
+    protected String description;
+    protected Status status;
+...
+}
+```
+The status is just one of three events:
+```
+public enum Status {
 
-TODO:
-process-time triplestore connection
-log messaging by exception management
-suggested graph to input - outside of framework?
-required parameters:
+    SUCCESS,
+    WARNING,
+    ERROR
+...
+}    
+```
+
+This will be logged directly into the [logging system](/system/logging).  The interesting parts are the InsertSparql and SparqlEntity classes.  This shows that implementations of this interface is given access to the RDF repository.  By simply returning a SPARQL insert statement, data resulting from the process is added into the repository RDF. 
+
+Note the exception handling also uses a specialized class:
+```
+public class ResourceProcessException extends Exception {
+
+	public ResourceProcessException(ResourceProcessResult result) {
+		super(result.getMessage());
+	}
+}
+```
+
+The exception also contains the ResourceProcessResult class.  Thus in case of errors the logging interface should be updated for the user.
+
+If no SPARQL-update insert is to be made, it should not be set.
+
+At run-time, the DAO is available from the parent class of all child module interfaces:
+
+```
+public abstract class ResourceProcessParent implements ResourceProcess {
+	@Autowired
+	SparqlDAO sparqlDAO;
+}
+```
+
+sparqlDAO has methods such as `query()` and `insert()` which can be used to execute SELECT and INSERT SPARQL, respectively.
+
+It should be noted that at pre-registration time, all graphs will be replaced with the draft graph.  There already exists a graph policy specific to the [partner](/partner) program.
 
 > Written with [StackEdit](https://stackedit.io/).
