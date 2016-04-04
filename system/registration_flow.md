@@ -26,11 +26,18 @@ A new graph will be used to store draft data for the initial user content.  This
 
 ```sequence
 User->GlyTouCan: User submits structure
-GlyTouCan->RDF: GlyTouCan stores preregister data
-GlyTouCan->RDF: GlyTouCan logs storage of data
+GlyTouCan->Draft RDF: GlyTouCan stores preregister data
+GlyTouCan->Draft RDF: GlyTouCan logs storage of data
+Note right of GlyTouCan: Batch process here, explained below
+User->GlyTouCan: User requests view of structure with public data (draft view)
+GlyTouCan->Draft RDF: GlyTouCan queries user data
+Draft RDF->Public RDF: federated query to repository
+Public RDF->Draft RDF: results
+Draft RDF->GlyTouCan: results
+GlyTouCan->User: overall view of draft data in repo
 User->GlyTouCan: User requests registration status
-GlyTouCan->RDF: GlyTouCan queries status
-RDF->GlyTouCan: registration log returned
+GlyTouCan->Draft RDF: GlyTouCan queries status
+Draft RDF->GlyTouCan: registration log returned
 GlyTouCan->User: status displayed
 ```
 
@@ -67,25 +74,31 @@ The most complicated registration process is the sequence structure.
 The following describes the processing that occurs when a structure is first recorded.  Modules are executed and results can be reviewed from the dashboard.
 
 ```sequence
-User->GlyTouCan: User submits structure
-GlyTouCan->RDF: GlyTouCan checks stores core structure data
-GlyTouCan->RDF: Writes out result
-GlyTouCan->Module: Executes modules
-RDF-->Module: Optionally retrieves data
-Module->RDF: Executes logic and writes RDF
-Module->GlyTouCan: Return results of process and messages
-GlyTouCan->RDF: Writes out result of module and log
-RDF->GlyTouCan: Retrieve all logs of modules and structures
-GlyTouCan->User: View logs of structures
+GlyTouCanBatch->Draft RDF: checks draft for pre-register data
+GlyTouCanBatch->Module: executes modules, first core validation module
+Draft RDF-->Module: optionally retrieves data
+Module->Draft RDF: executes logic and writes RDF
+Module->GlyTouCanBatch: results of process and messages
+GlyTouCanBatch->Draft RDF: status log recorded
 ```
 
 Once ready, the structure can be committed by the user.   
 
 ```sequence
 User->GlyTouCan: commits structure for repository
-GlyTouCan->RDF: check status of structure
+GlyTouCan->Draft RDF: check status of structure
 GlyTouCan->RDF: move structure to production
-GlyTouCan->User: show user link to entry page
+GlyTouCan->Draft RDF: logs
+Note right of GlyTouCan: identical batch modules run
+Note right of GlyTouCan: with production graph policies
+User->GlyTouCan: requests registration status
+GlyTouCan->Draft RDF: queries status
+Draft RDF->GlyTouCan: status log returned
+GlyTouCan->User: status log displayed
+User->GlyTouCan: clicks on link
+GlyTouCan->RDF: registered data queried
+RDF->GlyTouCan: retrieved
+GlyTouCan->User: registered data displayed
 ```
 Once committed the data is destroyed, however the graph can also be completely reset in case there is remaining enrichment data.
 
@@ -169,6 +182,6 @@ public abstract class ResourceProcessParent implements ResourceProcess {
 
 sparqlDAO has methods such as `query()` and `insert()` which can be used to execute SELECT and INSERT SPARQL, respectively.
 
-It should be noted that at pre-registration time, all graphs will be replaced with the draft graph.  There already exists a graph policy specific to the [partner](/partner) program.
+It should be noted that at pre-registration time, all graphs will be replaced with the draft graph.  There already exists a graph policy specific to the [partner](/partner) program, once the registration is committed by the user.
 
 > Written with [StackEdit](https://stackedit.io/).
