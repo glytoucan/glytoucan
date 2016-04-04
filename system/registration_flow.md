@@ -1,9 +1,9 @@
 ---
-title: GlyTouCan Glycan Registration System
+title: GlyTouCan Registration System Flow
 layout: default
 ---
-* auto-gen TOC:
-{:toc}
+
+[TOC]
 
 # Overview
 This document describes the GlyTouCan Registration system and flow, as well as details describing the plugin system.
@@ -12,7 +12,7 @@ This document describes the GlyTouCan Registration system and flow, as well as d
 Originally the Glycan Registration process was a singular process which executed every enrichment processing by default.  This became bloated, prone to issues, and difficult to manage.  The majority of functions were compartmentalized, however there was no concrete framework to add new functionality.
 
 ## Improvement
-A new modular, step-wise, method was introduced with the latest version; this workflow provided the user more transparency in the registration process.
+A new modular, step-wise method was introduced with version two; this workflow provided the user more transparency in the registration process.
 
 ### Batch Method
 
@@ -22,8 +22,7 @@ Herein introduces a new method to store input specifically for the user at the b
 
 ### Data flow
 
-A new graph will be used to store draft data for the initial user content.  This data is not publicly viewable from the repository website, and should be considered unpublished information.  When a user inputs a sequence via the text area or graphical builder or client/REST api, the information is stored immediately in GlycoRDF's GlycoSequence class.  A Resource Entry is also created to relate the information to the user.
-
+A new graph will be used to store draft data for the initial user content.  This data is not public through the repository website, and should be considered unpublished information.  When a user inputs data to register(such as a glycan sequence string) via the website or client/REST API, the information is stored immediately in RDF.  A Resource Entry is also created to relate the information to the user.
 
 ```sequence
 User->GlyTouCan: User submits structure
@@ -35,21 +34,24 @@ RDF->GlyTouCan: registration log returned
 GlyTouCan->User: status displayed
 ```
 
+All of the queries are also available via the [API](/system/api).
+The module execution flow will be explained below.
+
 ### Preregister data
 
-Currently the following data is accepted:
+The following is the data fields accepted and the associated Class that will be stored.  Each type will have it's own validation checks and enrichment.  The field column is a link to the registration process in detail.
 
-1. Glycan Sequence strings
-2. Glycan Name
-3. Glycan Motif
-4. Pubmed ID
-5. Taxonomy ID
+| Data field | Class
+| -- | --
+| [Glycan Sequence](/system/glycosequence) | GlycoRDF GlycoSequence
+| [Glycan Name](/system/name) | Saccharide Alias
+| [Glycan Motif](/system/motif) | GlycoRDF Motif class
+| [Pubmed ID](/system/publication) | `dc:references <http://identifiers.org/pubmed/IDHERE>` as described in  [guidelines for the ToGo Project](http://wiki.lifesciencedb.jp/mw/BH14.14/RDFizingDatabaseGuideline)
+| [Taxonomy](/system/taxonomy) | `glycan:taxon <http://identifiers.org/taxonomy/IDHERE>`  as described in  [guidelines for the ToGo Project](http://wiki.lifesciencedb.jp/mw/BH14.14/RDFizingDatabaseGuideline)
 
 ### Logging
 
-The logging process is fairly complicated, and will be described in a [separate article](/system/logging).  In general the following information will be stored:
-
-1. registration number, a unique number to identify the preregister information.
+The logging process is fairly complicated, and will be described in a [separate article](/system/logging).  In general information such as ID, contributor, description, and type of the action will be stored.
 
 ### Staging process
 
@@ -57,7 +59,7 @@ As explained above, the information received will be stored in a draft-version g
 
 This simply combines the draft data with public data currently stored in the repository.
 
-Once the user is ready to publish the information, the preregister data is then transferred to the public graph.  Once again the same enrichment modules are executed and all results can be checked from the [Log View Dashboard](/system/dashboard).
+Once the user is ready to publish the information, the preregister data is then transferred to the public graph.  Once again the same enrichment modules are executed and all results can be checked from the [Log View Dashboard](/manual/dashboard).
 
 ### Module execution flow
 
@@ -109,9 +111,8 @@ More details can be seen in the ResourceProcessResult class:
 ```
 public class ResourceProcessResult {
 
-	String status;
+	String type;
 	String message;
-	String id;
 	SparqlEntity sparqlEntity;
 	InsertSparql insertSparql;
 	
@@ -122,7 +123,7 @@ public class ResourceProcessResult {
 }
 ```
 
-As would be expected the status, message, and preregister id is returned.  This will be logged directly into the [logging system](/system/logging).  The interesting parts are the InsertSparql and SparqlEntity classes.  This shows that implementations of this interface is given access to the triplestore.  By simply returning a SPARQL Insert statement, data resulting from the process is added into the repository RDF. 
+As would be expected the status and message is returned.  This will be logged directly into the [logging system](/system/logging).  The interesting parts are the InsertSparql and SparqlEntity classes.  This shows that implementations of this interface is given access to the triplestore.  By simply returning a SPARQL Insert statement, data resulting from the process is added into the repository RDF. 
 
 More details regarding process-time access to the RDF will be given in the future, however as of now this shows a simple framework for processing a variety of data that can be logically determined from a Glycan Sequence string.
 
