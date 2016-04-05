@@ -38,7 +38,7 @@ categories: [relation, graphical]
           → 新しいタブで指定したページを表示する
         * 指定した糖鎖の画像を表示（右クリック→Show this glycan image）<br>
           → 新しいタブで指定した糖鎖の画像のページを表示する。移動したページでは、糖鎖の画像を保存することが出来る。
-          
+
 * アクセス方法<br>
 ![Glytoucan Graphical Interface Results](/images/manual/glycan-entry-G00028MO.png)
-GlyTouCanの糖鎖のエントリーページの"Relation Data"の欄にある、"visualyzation Tool"をクリックすると本ツールのページに移動する。
+GlyTouCanの糖鎖のエントリーページの"Relation Data"の欄にある、"visualization Tool"をクリックすると本ツールのページに移動する。
