@@ -145,12 +145,12 @@ PREFIX schema: <http://schema.org/>
 SELECT *
 WHERE
 {
-	<URI:Saccharide:entry> glycan:hasResourceEntry ?resource
-    ?resource glycan:in_glycan_database ?database .
-    ?resource dcterms:identifier "00001" .
-	?organization schema:member <URI:schema:Person#newMember0>
-    ?organization schema:owns ?database .
-    ?database glycan:has_url_template "http://foo.bar.com/someglycan?id=%s"^^xsd:String .
+	<URI:Saccharide:entry> glycan:hasResourceEntry ?resource .
+	?resource glycan:in_glycan_database ?database .
+	?resource dcterms:identifier "00001" .
+	?organization schema:member <URI:schema:Person#newMember0> .
+	?organization schema:owns ?database .
+	?database glycan:has_url_template "http://foo.bar.com/someglycan?id=%s"^^xsd:String .
 }
 ```
 

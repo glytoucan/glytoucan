@@ -7,16 +7,27 @@ layout: default
 
 # Overview
 
-This document is a listing of the GlyTouCan API.  It will be updated as the API changes.
+This document is a listing of the GlyTouCan API and any technical details behind it.  It will be updated as the API changes.
 
 ## Background
 
-[Long background of this explained in a post]().
+[Long background of this explained in a post](/posts/2016/02/24/cleaning-with-soap/).
+
 TLDR: The API is a contract-first development method using the SOAP protocol, which is why this document should be updated first to clearly recognize functionality and how it will be transcribed into a definition file.
 
 ## Functionality
 The below is a listing of the functionality provided by the api.  Words in **Bold** are "Complex", meaning they are a combination of literals.  *Italics* is for static data.  Multiple indicates a Set or Array of the contents directly below it.
 
+1. Searching structures (exact)
+	2. input
+		3. **GlycoSequence**
+			2. sequence string
+			3. *sequence format* (optional)
+	4. output
+		7. **GlycoSequence**
+			2. sequence string
+			3. *sequence format* (optional)
+ 		6. [**ResponseMessage**](http://nexus.glycoinfo.org/content/sites/project/glytoucan/api.soap/apidocs/index.html)
 1. Searching structures (substructure)
 	1. input
 		1. **GlycoSequence**
@@ -163,5 +174,5 @@ The below is a listing of the functionality provided by the api.  Words in **Bol
 					1. alias string
 					1. *notation schema* (motif_name)
 				1. [**ResponseMessage**](http://nexus.glycoinfo.org/content/sites/project/glytoucan/api.soap/apidocs/org/glytoucan/api/soap/contributor/ResponseMessage.html)
-
+        1. Registering bibo
 > Written with [StackEdit](https://stackedit.io/).
