@@ -31,8 +31,6 @@ GlyTouCan->Draft RDF: GlyTouCan logs storage of data
 Note right of GlyTouCan: Batch process here, explained below
 User->GlyTouCan: User requests view of structure with public data (draft view)
 GlyTouCan->Draft RDF: GlyTouCan queries user data
-Draft RDF->Public RDF: federated query to repository
-Public RDF->Draft RDF: results
 Draft RDF->GlyTouCan: results
 GlyTouCan->User: overall view of draft data in repo
 User->GlyTouCan: User requests registration status
@@ -111,14 +109,14 @@ The GlyTouCan project has created a framework for storing glycoinfo data into RD
 
 The main purpose of this framework is to give developers a simple interface to query and store GlyTouCan RDF repository data.  By simply inheriting the parent classes, an instance of an RDF DAO is made available, thus an interface to execute any SPARQL.  This way there is no need to worry about the complex details regarding how to connect to the RDF Triplestore, software driver dependencies, transactions, and error handling.  The [logging](/system/logging) system is also made available, for a very simple method to communicate to the end user the status of the program.
 
-The following is the ResourceProcess interface.  This is the minimal interface required by a module.
+As an example the following is the interface of GlycoSequence RDF processing.  This is the minimal interface required by a module to process a user input GlycoSequence.
 ```
-public interface ResourceProcess {
-	public ResourceProcessResult run() throws ResourceProcessException;
+public interface GlycoSequenceResourceProcess {
+	public ResourceProcessResult processGlycoSequence(String sequence) throws ResourceProcessException;
 }
 ```
 
-Please Note: In most cases developers will be extending the child classes for each module.  This interface is a bit too simple and only used by the framework for each pre-register child module.  Please refer to the "Pre-Register Data" section above.  The simplicity allows for flexibility in how the batch process is to be used now and in the future.
+Please Note: In most cases developers will be extending the child classes for each type of input.  This interface is a bit simple and used by the framework even before sequence validation.  Please refer to the "Pre-Register Data" section above for the types of data input and better examples of how to create modules for them.  This example is used to show the simplicity of the framework; which allows for flexibility in how the batch process is to be used now and in the future.
 
 More details can be seen in the returned ResourceProcessResult class:
 
