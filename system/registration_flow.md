@@ -22,7 +22,7 @@ Herein introduces a new method to store input specifically for the user at the b
 
 ### Data Flow
 
-A new graph will be used to store draft data for the initial user content.  This data is not public through the repository website, and should be considered unpublished information.  When a user inputs data to register(such as a glycan sequence string) via the website or client/REST API, the information is stored immediately in RDF.  A Resource Entry is also created to relate the information to the user.
+A separate RDF triplestore will be used to store draft data for the initial user content.  This data is not public through the repository website, and should be considered unpublished information.  When a user inputs data to register(such as a glycan sequence string) via the website or client/REST API, the information is stored immediately in RDF.  A log entry is also created to relate the information to the user.
 
 ```sequence
 User->GlyTouCan: User submits structure
@@ -107,12 +107,18 @@ graphs visible on production.
 
 The GlyTouCan project has created a framework for storing glycoinfo data into RDF.  This section will describe the parent class functionality that are inherited.  It is a high-level view of the framework intentions.
 
-The main purpose of this framework is to give developers a simple interface to query and store GlyTouCan RDF repository data.  By simply inheriting the parent classes, an instance of an RDF DAO is made available, thus an interface to execute any SPARQL.  This way there is no need to worry about the complex details regarding how to connect to the RDF Triplestore, software driver dependencies, transactions, and error handling.  The [logging](/system/logging) system is also made available, for a very simple method to communicate to the end user the status of the program.
+The main purpose of this framework is to give developers a simple interface to query and store GlyTouCan RDF repository data.  By simply inheriting the parent classes, an instance of an RDF DAO is made available.  This allows for the module to execute any SPARQL necessary.  This way there is no need to worry about the complex details regarding how to connect to the RDF Triplestore, software driver dependencies, transactions, and error handling.  The [logging](/system/logging) system is also made available, for a very simple method to communicate to the end user the status of the program.
 
 As an example the following is the interface of GlycoSequence RDF processing.  This is the minimal interface required by a module to process a user input GlycoSequence.
 ```
-public interface GlycoSequenceResourceProcess {
-	public ResourceProcessResult processGlycoSequence(String sequence) throws ResourceProcessException;
+public interface GlycoSequenceResourceProcess extends ResourceProcess {
+	public ResourceProcessResult processGlycoSequence(String sequence, String contributorId) throws ResourceProcessException;
+}
+
+public interface ResourceProcess {
+	public SparqlDAO getSparqlDAO();
+
+	public void setSparqlDAO(SparqlDAO sparqlDAO);
 }
 ```
 
@@ -125,9 +131,6 @@ public class ResourceProcessResult {
 
 	Log logMessage;
 	String id;
-	SparqlEntity sparqlEntity;
-	InsertSparql insertSparql;
-
 ...
 
 }
@@ -142,7 +145,7 @@ public class Log {
 ...
 }
 ```
-The status is just one of three events:
+The status is an enumeration of events types:
 ```
 public enum Status {
 
@@ -153,7 +156,10 @@ public enum Status {
 }    
 ```
 
-This will be logged directly into the [logging system](/system/logging).  The interesting parts are the InsertSparql and SparqlEntity classes.  This shows that implementations of this interface is given access to the RDF repository.  By simply returning a SPARQL insert statement, data resulting from the process is added into the repository RDF. 
+This will be logged directly into the [logging system](/system/logging). 
+
+
+The interesting part is access to the SparqlDAO class, which is part of the GlyTouCan [batch project](http://code.glytoucan.org/batch/).  This is provided for access to the RDF repository.  It is possible to run any SPARQL from this class, without infrastructure worries.
 
 Note the exception handling also uses a specialized class:
 ```
@@ -169,17 +175,34 @@ The exception also contains the ResourceProcessResult class.  Thus in case of er
 
 If no SPARQL-update insert is to be made, it should not be set.
 
-At run-time, the DAO is available from the parent class of all child module interfaces:
-
+To simplify things, an implementation using the Spring Framework is available from the parent class.  It is recommended to inherit this for child module interfaces:
 ```
-public abstract class ResourceProcessParent implements ResourceProcess {
+public class ResourceProcessParent implements ResourceProcess { 
 	@Autowired
 	SparqlDAO sparqlDAO;
+
+	public SparqlDAO getSparqlDAO() {
+		return sparqlDAO;
+	}
+
+	public void setSparqlDAO(SparqlDAO sparqlDAO) {
+		this.sparqlDAO = sparqlDAO;
+	}
 }
 ```
 
-sparqlDAO has methods such as `query()` and `insert()` which can be used to execute SELECT and INSERT SPARQL, respectively.
+SparqlDAO has methods such as `query()` and `insert()` which can be used to execute SELECT and INSERT SPARQL, respectively.  
 
-It should be noted that at pre-registration time, all graphs will be replaced with the draft graph.  There already exists a graph policy specific to the [partner](/partner) program, once the registration is committed by the user.
+### Demonstration
+As a demonstration of how to use this framework, please refer to the [Glycan Registration](/system/glycan_registration.md) for a detailed test case.
+
+### Batch Project
+For more details on SparqlBeans and the SparqlDAO, please refer to the [GlyTouCan batch project](/batch)
+
+## Graphs
+
+There already exists a graph policy specific to the [partner](/partner) program, once the registration is committed by the user.
+
+
 
 > Written with [StackEdit](https://stackedit.io/).
