@@ -53,32 +53,35 @@ layout: default
 
 ### Computed Descriptors
 
-##### WURCS
+
+#####  WURCS and GlycoCT
 
 ```
-```
-
-##### GlycoCT
-
-```
-
 PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
 PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
 
-SELECT DISTINCT ?GlycoCT 
+SELECT DISTINCT ?WURCS_label ?GlycoCT 
 WHERE {
   # Accession Number
   VALUES ?accNum {"G00051MO"}
   ?saccharide glytoucan:has_primary_id ?accNum .
 
+  # WURCS
+  OPTIONAL{
+  ?saccharide glycan:has_glycosequence ?wcsSeq .
+  ?wcsSeq rdfs:label ?wcsLabel .
+  BIND(STR(?wcsLabel) AS ?WURCS_label)
+  ?wcsSeq glycan:in_carbohydrate_format glycan:carbohydrate_format_wurcs .
+  }
+
   # GlycoCT
+  OPTIONAL{
   ?saccharide glycan:has_glycosequence ?gctSeq .
   ?gctSeq glycan:has_sequence ?seq .
   BIND(STR(?seq) AS ?GlycoCT)
   ?gctSeq glycan:in_carbohydrate_format glycan:carbohydrate_format_glycoct .
+  }
 } 
-limit 100
-
 ```
 
 
@@ -133,7 +136,6 @@ WHERE{
 	}
 	?graph rdfs:label ?from .
 }
-limit 1000
 ```
 
 
@@ -164,7 +166,6 @@ WHERE{
 	}
 	?graph rdfs:label ?from .
 }
-limit 100
 ```
 
 
@@ -195,6 +196,5 @@ WHERE{
 	BIND(STR(?db) AS ?strDB)
 	BIND(STRAFTER(?strDB, "http://purl.jp/bio/12/glyco/glycan#Database_") AS ?db_label)
 }
-limit 1000
 ```
 
