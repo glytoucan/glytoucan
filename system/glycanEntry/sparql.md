@@ -5,6 +5,8 @@ layout: default
 
 # Items of the Glycan Entry
 
+date:4/8/2016
+
 * **Summary**
 	* Accession number
 	* Calculated Monoisotopic Mass
@@ -23,33 +25,56 @@ layout: default
 
 # Summary
 
-### Accession number
+* **Accession number**
+* **Calculated Monoisotopic Mass**
+* **WURCS**
+* **Created Date**
+
 
 ```
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
+PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
+
+SELECT DISTINCT ?AccNum ?Mass_label ?WURCS_label ?CreateDate
+WHERE {
+  # Accession Number
+  VALUES ?AccNum {"G00051MO"}
+  ?saccharide glytoucan:has_primary_id ?AccNum .
+
+  # Mass
+  OPTIONAL{
+  ?saccharide glytoucan:has_derivatized_mass ?dmass .
+  ?dmass rdfs:label ?msLabel .
+  BIND(STR(?msLabel) AS ?Mass_label) .
+  }
+
+  # Sequence
+   # WURCS
+  OPTIONAL{
+  ?saccharide glycan:has_glycosequence ?wcsSeq .
+  ?wcsSeq rdfs:label ?wcsLabel .
+  BIND(STR(?wcsLabel) AS ?WURCS_label)
+  ?wcsSeq glycan:in_carbohydrate_format glycan:carbohydrate_format_wurcs .
+  }
+
+  # Contributor
+  OPTIONAL{
+  ?saccharide glycan:has_resource_entry ?res .
+  ?res a glycan:resource_entry .
+  ?res glytoucan:date_registered ?date .
+  BIND(STR(?date) AS ?CreateDate) 
+  }
+} 
 ```
 
-### Calculated Monoisotopic Mass
-
-```
-```
-
-### WURCS
-
-```
-```
-
-### Created Date
-
-```
-```
 
 
 # Contents 
 
 ### Structure
 
-```
-```
+* A structure is not produced by SPARQL query.
+* This item is displayed by using javascript.
 
 ### Computed Descriptors
 
