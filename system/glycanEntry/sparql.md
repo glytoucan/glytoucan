@@ -143,7 +143,6 @@ WHERE{
 PREFIX dcterms: <http://purl.org/dc/terms/>
 
 SELECT DISTINCT ?from ?taxon_name ?taxon_id ?taxon_url 
-FROM <http://rdf.glytoucan.org/core>
 WHERE{
 	VALUES ?accNum {"G00051MO"}
 	?saccharide  glytoucan:has_primary_id ?accNum .
