@@ -129,35 +129,44 @@ More details can be seen in the returned ResourceProcessResult class:
 ```
 public class ResourceProcessResult {
 
-	Log logMessage;
+	Entry logMessage;
 	String id;
 ...
 
 }
 ```
 
-The logMessage is a Log class, which just contains a description of an event and a status:
+The logMessage is an Entry class, which is very similar to a log4j log entry:
 ```
 
-public class Log {
-    protected String description;
-    protected Status status;
+public class Entry {
+
+    protected LevelType level;
+    protected XMLGregorianCalendar date;
+    protected String className;
+    protected String resource;
+    protected String message;
 ...
 }
 ```
-The status is an enumeration of events types:
-```
-public enum Status {
 
-    SUCCESS,
-    WARNING,
-    ERROR
+The level type is a status level, which is enumerated as follows:
+```
+public enum LevelType {
+
+    ALL,
+    TRACE,
+    DEBUG,
+    INFO,
+    WARN,
+    ERROR,
+    FATAL,
+    OFF;
 ...
 }    
 ```
 
 This will be logged directly into the [logging system](/system/logging). 
-
 
 The interesting part is access to the SparqlDAO class, which is part of the GlyTouCan [batch project](http://code.glytoucan.org/batch/).  This is provided for access to the RDF repository.  It is possible to run any SPARQL from this class, without infrastructure worries.
 
