@@ -5,6 +5,6 @@ layout: default
 
 #### gs2virtの分解
 
-[rdf.glytoucan.org(from gs2virt)をバラす](/system/graph/split_graph/)
+[rdf.glytoucan.org(from gs2virt)をバラす](/system/graph/splitGraph/)
 
 #### Partner GRAPHについて
