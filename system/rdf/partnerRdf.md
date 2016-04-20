@@ -5,6 +5,11 @@ layout: default
 
 # GlyTouCan Partner RDF
 
+#### Construct query
+
+[SPARQL query](/system/sparql/partnerRdfConstructQuery)
+
+
 ####  Named GRAPH 
 
 from BCSDB  
@@ -18,8 +23,8 @@ from GlycoNAVI
 
 
 
-
 #### from BCSDB  
+
 `<http://rdf.glytoucan.org/partner/bcsdb>`  
 
 **Dataset**
@@ -61,6 +66,8 @@ from GlycoNAVI
  dcterms:identifier  "BCSDB ID" ;
  rdfs:seeAlso	<http://csdb.glycoscience.ru/bacterial/core/search_id.php?mode=record&id_list={bcsdb_id}> .
 ```
+
+
 ###### IRI
 
 **Species**  
@@ -118,6 +125,7 @@ http://csdb.glycoscience.ru/bacterial/core/search_id.php?mode=record&id_list=692
 
 
 #### from GlycomeDB  
+
 `<http://rdf.glytoucan.org/partner/glycome-db>`  
 
 **Dataset**
@@ -272,6 +280,7 @@ http://identifiers.org/glycoepitope/EP0011
 
 
 #### from GlycoNAVI  
+
 `<http://rdf.glytoucan.org/partner/glyconavi>`  
 
 **Dataset**
@@ -296,6 +305,7 @@ http://identifiers.org/glycoepitope/EP0011
  rdfs:seeAlso <http://pubchem.ncbi.nlm.nih.gov/compound/CID91844939> ;
 dcterms:identifier "91844939" .
 ```
+
 
 ###### IRI
 
