@@ -20,7 +20,9 @@ layout: default
 
 
 
-#### `<http://rdf.glytoucan.org/core>`  
+#### Saccharide & Resource entry classes
+
+`<http://rdf.glytoucan.org/core>`  
 
 * Saccharide class  
 * Resource entry class  
@@ -168,7 +170,9 @@ limit 200
 
 
 
-#### `<http://rdf.glytoucan.org/sequence/glycoct>`  
+#### Glycosequence class
+
+`<http://rdf.glytoucan.org/sequence/glycoct>`  
 
 * Glycosequence class  
 * `http://rdf.glytoucan.org/sequence/glycoct`のGRAPHについて
@@ -259,7 +263,9 @@ WHERE {
 limit 100
 ```
 
-#### `<http://rdf.glytoucan.org/image>`  
+#### Image class
+
+`<http://rdf.glytoucan.org/image>`  
 
 * とくに必要な場面は今のところ無いため、GRAPHは作っていない
 * Image class
@@ -334,7 +340,9 @@ limit 100
 
 
 
-#### `<http://rdf.glytoucan.org/motif>`  
+#### Glycan Motf class
+
+`<http://rdf.glytoucan.org/motif>`  
 
 * Motif class
 
