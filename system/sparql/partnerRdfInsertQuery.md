@@ -302,13 +302,91 @@ commit WORK;
 **Source**
 
 ```
+log_enable(2,1);
+sparql
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
+PREFIX glycodb: <http://purl.jp/bio/12/database/>
+PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
 
+INSERT{
+        GRAPH <http://rdf.glytoucan.org/partner/glycome-db>{
+        ?saccharide glycan:is_from_source ?taxon_iri .
+        ?taxon_iri a glycan:Source .
+        ?taxon_iri dcterms:identifier ?taxon_id .
+        ?taxon_iri rdfs:seeAlso ?taxon_url .
+        }
+}
+
+FROM <http://rdf.glytoucan.org/core>
+FROM NAMED <http://rdf.glycoinfo.org/mapping/glytoucan/glycome-db>
+FROM NAMED <http://rdf.glycoinfo.org/glycome-db>
+WHERE{
+        # Glytoucan
+        ?saccharide glytoucan:has_primary_id ?AccessionNumber.
+
+        # From glytoucan to glycome-db 
+        GRAPH <http://rdf.glycoinfo.org/mapping/glytoucan/glycome-db>{
+        ?saccharide skos:exactMatch ?glycomedb .
+        }
+
+        # GlycomeDB  
+        GRAPH <http://rdf.glycoinfo.org/glycome-db>{
+        ?glycomedb glycan:has_reference ?ref .
+
+        # Taxon
+        ?ref glycan:is_from_source ?source .
+        ?source a glycan:source_natural .
+        ?source glycan:has_taxon  ?taxon .
+        BIND(IRI(STRBEFORE(?taxon, ".rdf")) AS ?taxon_up)
+        BIND(STRAFTER(STR(?taxon_up), "http://www.uniprot.org/taxonomy/") AS ?taxon_id)
+        BIND(IRI(CONCAT("http://rdf.glycoinfo.org/source/", ?taxon_id)) AS ?taxon_iri)
+        BIND(IRI(CONCAT("http://identifiers.org/taxonomy/", ?taxon_id)) AS ?taxon_url)
+        
+        }
+};
+checkpoint;
+commit WORK;
 ```
 
 **Resource Entry**
 
 ```
+log_enable(2,1);
+sparql
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
+PREFIX glycodb: <http://purl.jp/bio/12/database/>
+PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
 
+INSERT{
+        GRAPH <http://rdf.glytoucan.org/partner/glycome-db>{
+        ?saccharide glycan:has_resource_entry ?rEntry_iri.
+        ?rEntry_iri a glycan:Resource_entry.
+        ?rEntry_iri glycan:in_glycan_database glycan:Database_glycomedb.
+        ?rEntry_iri dcterms:identifier ?glycomedb_id.
+        ?rEntry_iri rdfs:seeAlso ?glycomedb_url.
+        glycan:Database_glycomedb rdfs:label "GlycomeDB".
+        }
+}
+FROM <http://rdf.glytoucan.org/core>
+FROM NAMED <http://rdf.glycoinfo.org/mapping/glytoucan/glycome-db>
+WHERE{
+        # Glytoucan
+        ?saccharide glytoucan:has_primary_id ?AccessionNumber.
+
+        # From glytoucan to glycome-db 
+        GRAPH <http://rdf.glycoinfo.org/mapping/glytoucan/glycome-db>{
+        ?saccharide skos:exactMatch ?glycomedb .
+        ?glycomedb glycan:has_resource_entry ?glycomedb_url .
+        ?glycomedb_url dcterms:identifier ?glycomedb_id .
+        BIND(IRI(CONCAT("http://rdf.glycoinfo.org/glycome-db/", ?glycomedb_id)) AS ?rEntry_iri)
+        }
+};
+checkpoint;
+commit WORK;
 ```
 
 
