@@ -1,13 +1,18 @@
 ---
-title: Partner GRAPH
+title: Partner RDF
 layout: default
 ---
 
 # GlyTouCan Partner RDF
 
-#### Construct query
+#### SPARQL query
 
+Construct query  
 [SPARQL query](/system/sparql/partnerRdfConstructQuery)
+
+Insert query  
+[SPARQL query](/system/sparql/partnerRdfInsertQuery)
+
 
 
 ####  Named GRAPH 
