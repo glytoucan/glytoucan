@@ -15,8 +15,9 @@ BCSDB has two type of taxon IRI.
 * uniprot iri type  
 
 
-```
 for blank node
+
+```
 log_enable(2,1);
 sparql
 PREFIX dcterms: <http://purl.org/dc/terms/>
@@ -83,8 +84,10 @@ checkpoint;
 commit WORK;
 ```
 
-```
+
 for uniprot iri 
+
+```
 log_enable(2,1);
 sparql
 PREFIX dcterms: <http://purl.org/dc/terms/>

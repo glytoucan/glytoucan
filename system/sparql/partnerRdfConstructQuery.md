@@ -15,7 +15,7 @@ BCSDB has two type of taxon IRI.
 * uniprot iri type  
 
 ```
-for blank node
+# for blank node
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX bibo: <http://purl.org/ontology/bibo/>
 PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
@@ -79,8 +79,9 @@ WHERE{
 }
 ```
 
+
 ```
-for uniprot iri 
+# for uniprot iri 
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX bibo: <http://purl.org/ontology/bibo/>
 PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
