@@ -90,6 +90,7 @@ PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
 
 CONSTRUCT{
 ?saccharide glycan:is_from_source ?taxon_iri .
+?taxon_iri a glycan:Source .
 ?taxon_iri rdfs:label ?taxon_name .
 ?taxon_iri dcterms:identifier ?taxon_id .
 ?taxon_iri rdfs:seeAlso ?taxon_url .
@@ -229,7 +230,7 @@ CONSTRUCT{
         ?rEntry_iri glycan:in_glycan_database glycan:Database_bcsdb.
         ?rEntry_iri dcterms:identifier ?bcsdb_id.
         ?rEntry_iri rdfs:seeAlso ?bcsdb_url.
-        glycan:Database_bcsdb rdfs:label “BCSDB”.
+        glycan:Database_bcsdb rdfs:label "BCSDB".
 }
 #SELECT DISTINCT  ?rEntry_iri ?bcsdb_id ?bcsdb_url
 FROM <http://rdf.glytoucan.org/core>
@@ -342,7 +343,7 @@ CONSTRUCT{
 ?rEntry_iri glycan:in_glycan_database glycan:Database_glycomedb.
 ?rEntry_iri dcterms:identifier ?glycomedb_id.
 ?rEntry_iri rdfs:seeAlso ?glycomedb_url.
-glycan:Database_glycomedb rdfs:label “GlycomeDB”.
+glycan:Database_glycomedb rdfs:label "GlycomeDB".
 
 }
 
@@ -452,7 +453,7 @@ CONSTRUCT{
 ?rEntry_iri glycan:in_glycan_database glycan:Database_glycoepitope.
 ?rEntry_iri dcterms:identifier ?epitope_id.
 ?rEntry_iri rdfs:seeAlso ?glycoepitope_url.
-glycan:Database_glycoepitope rdfs:label “GlycoEpitope”.
+glycan:Database_glycoepitope rdfs:label "GlycoEpitope".
 }
 
 #SELECT DISTINCT ?epitope_id ?glycoepitope_url ?rEntry_iri
@@ -489,7 +490,7 @@ CONSTRUCT{
 ?rEntry_iri glycan:in_glycan_database glycan:Database_pubchem.
 ?rEntry_iri dcterms:identifier ?sid.
 ?rEntry_iri rdfs:seeAlso ?sid_url.
-glycan:Database_pubchem rdfs:label “PubChem”.
+glycan:Database_pubchem rdfs:label "PubChem".
 }
 
 #SELECT DISTINCT ?sid ?sid_url

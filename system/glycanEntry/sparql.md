@@ -139,7 +139,6 @@ WHERE{
 ```
 # Species
 # There are only same id and url in BCSDB RDF
-# Does not exist taxonomy name in GlycomeDB RDF, GlycoEpitope RDF and PubChem mapped RDF
 PREFIX dcterms: <http://purl.org/dc/terms/>
 
 SELECT DISTINCT ?from ?taxon_name ?taxon_id ?taxon_url 
@@ -171,7 +170,6 @@ WHERE{
 
 ```
 # Literature
-# does not exist in </partner/glyomedb>, </partner/wurcs-working-group> 
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX bibo: <http://purl.org/ontology/bibo/>
 
@@ -215,10 +213,9 @@ WHERE{
 		?entry glycan:in_glycan_database ?db .
 		?entry dcterms:identifier ?external_id .
 		?entry rdfs:seeAlso ?url .
+		?db rdfs:label ?db_label .
 	}
 	?graph rdfs:label ?from.	
-	BIND(STR(?db) AS ?strDB)
-	BIND(STRAFTER(?strDB, "http://purl.jp/bio/12/glyco/glycan#Database_") AS ?db_label)
 }
 ```
 
