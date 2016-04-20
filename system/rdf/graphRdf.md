@@ -48,8 +48,12 @@ INSERT DATA{
 };
 checkpoint;
 commit WORK;
+```
 
 
+**Clear graph**
+
+```
 log_enable(2,1);
 sparql clear graph <http://rdf.glytoucan.org/graph>;
 ```

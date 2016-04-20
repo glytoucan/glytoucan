@@ -19,10 +19,13 @@ Insert query
 
 from BCSDB  
 `<http://rdf.glytoucan.org/partner/bcsdb>`  
+
 from GlycomeDB  
 ` <http://rdf.glytoucan.org/partner/glycome-db>`  
+
 from GlycoEpitope  
 `<http://rdf.glytoucan.org/partner/glycoepitope>`  
+
 from GlycoNAVI  
 `<http://rdf.glytoucan.org/partner/glyconavi>`  
 
