@@ -420,8 +420,8 @@ WHERE {
     ?saccharide glytoucan:has_primary_id ?AccessionNumber.
     ?saccharide glycan:has_epitope ?ep .
     # Taxon
-    ?ep glycoepitope:organism ?taxon_iri.
-    BIND(STRAFTER(STR(?taxon_iri), "http://purl.org/obo/owl/NCBITaxon#NCBITaxon_") AS ?taxon_id)
+    ?ep glycoepitope:organism ?taxon.
+    BIND(STRAFTER(STR(?taxon), "http://purl.org/obo/owl/NCBITaxon#NCBITaxon_") AS ?taxon_id)
     BIND(IRI(CONCAT("http://rdf.glycoinfo.org/source/", ?taxon_id)) AS ?taxon_iri)
     BIND(IRI(CONCAT("http://identifiers.org/taxonomy/", ?taxon_id)) AS ?taxon_url)
 };
@@ -554,13 +554,13 @@ PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
 INSERT{
-    GRAPH <http://rdf.glytoucan.org/partner/wurcs-working-group>{
-        ?saccharide glycan:has_resource_entry ?rEntry_iri.
-        ?rEntry_iri a glycan:Resource_entry.
-        ?rEntry_iri glycan:in_glycan_database glycan:Database_pubchem.
-        ?rEntry_iri dcterms:identifier ?sid.
-        ?rEntry_iri rdfs:seeAlso ?sid_url.
-        }
+    GRAPH <http://rdf.glytoucan.org/partner/glyconavi>{
+    ?saccharide glycan:has_resource_entry ?rEntry_iri.
+    ?rEntry_iri a glycan:Resource_entry.
+    ?rEntry_iri glycan:in_glycan_database glycan:Database_pubchem.
+    ?rEntry_iri dcterms:identifier ?cid.
+    ?rEntry_iri rdfs:seeAlso ?cid_url.
+    }
 }
 FROM <http://rdf.glytoucan.org/core>
 FROM <http://rdf.glycoinfo.org/mapping/glytoucan/pubchem>
@@ -569,8 +569,8 @@ WHERE{
         ?saccharide glytoucan:has_primary_id ?AccessionNumber .
         ?saccharide glycan:has_resource_entry ?rEntry_iri .
 
-        ?rEntry_iri skos:exactMatch ?sid_url .
-        ?rEntry_iri dcterms:identifier ?sid .
+        ?rEntry_iri skos:closeMatch ?cid_url .
+        ?rEntry_iri dcterms:identifier ?cid .
 };
 checkpoint;
 commit WORK;

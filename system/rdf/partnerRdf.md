@@ -1,6 +1,9 @@
 ---
 title: Partner RDF
-layout: default
+authors:
+- Daisuke Shinmachi
+date: 2016-04-20
+layout: pading
 ---
 
 # GlyTouCan Partner RDF

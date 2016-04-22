@@ -1,11 +1,12 @@
 ---
 title: SPARQL query for the Glycan Entry ver2.0 
-layout: default
+authors:
+- Daisuke Shinmachi
+date: 2016-04-08
+layout: pading
 ---
 
 # Items of the Glycan Entry
-
-date:4/8/2016
 
 * **Summary**
 	* Accession number

@@ -1,6 +1,9 @@
 ---
 title: Split GlyTouCan RDF GRAPH
-layout: default
+authors:
+- Daisuke Shinmachi
+date: 2016-04-19
+layout: pading
 ---
 # rdf.glytoucan.org(from gs2virt)をバラす
 
