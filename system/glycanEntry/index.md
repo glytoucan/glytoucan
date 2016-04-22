@@ -3,7 +3,7 @@ title: Glycan Entry Development
 authors:
 - Daisuke Shinmachi
 date: 2016-04-22
-layout: pading
+layout: default
 ---
 
 ## Workflow

@@ -3,7 +3,7 @@ title: SPARQL query for the Glycan Entry ver2.0
 authors:
 - Daisuke Shinmachi
 date: 2016-04-08
-layout: pading
+layout: default
 ---
 
 # Items of the Glycan Entry
