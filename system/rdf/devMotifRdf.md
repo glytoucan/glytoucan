@@ -120,8 +120,8 @@ IRIには、MotifのWURCSが含まれる
 
 ## 問題点 3
 
-各Glycan MotifがどのMotif typeであるかをどうやって判断するか？
-
+各Glycan MotifがどのMotif typeであるかをどうやって判断するか？  
+例えば：G00051MOは３つのMotif typeのうち、どのタイプか？  
 
 
 
