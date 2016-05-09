@@ -1,5 +1,5 @@
 ---
-title: Partner RDF
+title: Glyca Motif RDF
 authors:
 - Daisuke Shinmachi
 date: 2016-05-9
