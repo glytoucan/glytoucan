@@ -153,11 +153,13 @@ IRIには、Accession numberを入れないので、別の記述方法を考え�
 GlyTouCanで扱うGlycan Motifは、登録されるSaccharideと違い、複数の表示形式を持たないことにする。
 つまり、Glycan Motifの糖鎖構造の表示形式は、WURCSのみとして扱う。
 
+
 これまでは、以下のようなSaccharideのGlycosequence IRIが使われている  
 `<http://rdf.glycoinfo.org/glycan/G00051MO/wurcs/2.0>`
 
 Motif sequeceであることと、WURCSの文字列を使ったIRI  
 => `<http://rdf.glycoinfo.org/motif/sequence/WURCS=2.0/3,3,2/[a2122h-1b_1-5_2*NCC/3=O][a1221m-1a_1-5][a2112h-1b_1-5]/1-2-3/a3-b1_a4-c1>`
+
 
 ```
 @prefix mseq: <http://rdf.glycoinfo.org/motif/sequence/> .
@@ -171,7 +173,7 @@ mseq:WURCS=2.0/3,3,2/[a2122h-1b_1-5_2*NCC/3=O][a1221m-1a_1-5][a2112h-1b_1-5]/1-2
 
 
 
-### 問題点５
+## 問題点５
 
 モチーフ名が今後、複数存在する可能性がある。  
 人によっては、違うモチーフ名が使われている可能性がある。  
