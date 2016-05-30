@@ -40,6 +40,7 @@ layout: default
 
 
 **Saccharide RDF**  
+
 ```
 ?Saccharide a glycan:saccharide, glycan:Saccharide .
 ?Saccharide glycan:has_resource_entry ?ResourceEntry .
@@ -47,6 +48,7 @@ layout: default
 ```
 
 **Resource entry RDF**
+
 ```
 ?ResourceEntry a glycan:resource_entry, glycan:Resource_entry .
 ?ResourceEntry glytoucan:contributor ?Person .
@@ -129,6 +131,7 @@ commit WORK;
 **confirm query**
 
 **Saccharide class**    
+
 ```
 # Saccharide 
 PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
@@ -151,6 +154,7 @@ limit 200
 
 
 **Resource Entry class**    
+
 ```
 # Resource entry 
 PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
@@ -197,6 +201,7 @@ limit 200
 
 
 **Glycosequence RDF**  
+
 ```
 ?Saccharide glycan:has_glycosequence ?Glycosequence .
 ?Glycosequence a glycan:glycosequence, glycan:Glycosequence .
@@ -280,6 +285,7 @@ Glycan motif class
 
 
 **Glycan motif RDF**  
+
 ```
 ?Saccharide glycan:has_motif ?GlycanMotif .
 ?GlycanMotif a glycan:glycan_motif, glycan:Glycan_motif .
@@ -365,6 +371,7 @@ Target GRAPH
 
 
 **Before RDF**  
+
 ```
 # Monosaccharide
 ?mono a glycan:monosaccharide .
@@ -375,6 +382,7 @@ Target GRAPH
 ```
 
 **After RDF**  
+
 ```
 # Component
 ?saccharide glycan:has_component ?component .
