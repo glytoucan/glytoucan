@@ -8,7 +8,7 @@ layout: default
 
 # Development of Glycan Motif RDF
 
-## 問題点 1
+**問題点 1**
 
 Glycan motifは構造のパターンである。  
 例えば、Motif Listから一つのMotifを選択した場合、エントリーページを表示するが、その糖鎖は、モチーフ構造を持っている糖鎖である。  
@@ -16,7 +16,7 @@ Glycan motifは構造のパターンである。
 そのため、Glycan Motifに、Accession numberを付けることが問題となった。
 
 
-## 解決策
+**解決策**
 
 Glycan motifのインスタンスIRIを作り、SaccharideとGlycan motifとを分ける。
 
@@ -108,12 +108,12 @@ glytoucan:Motif_type_non_reducing_end
 
 
 
-## 問題点 2
+**問題点 2**
 
 Glycan MotifのインスタンスのIRIの中身はどんな文字列か?
 
 
-## 解決策
+**解決策**
 
 Glycan motifのIRIに、WURCSを含ませる
 

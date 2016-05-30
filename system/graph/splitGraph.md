@@ -17,8 +17,10 @@ layout: default
 **To**  
 `http://rdf.glytoucan.org/core`  
 `http://rdf.glytoucan.org/sequence/glycoct`  
-\#`http://rdf.glytoucan.org/image` は作っていない  
 `http://rdf.glytoucan.org/motif`  
+`http://rdf.glytoucan.org/ms/carbbank`
+
+\#`http://rdf.glytoucan.org/image` は作っていない  
 
 
 
@@ -31,30 +33,33 @@ layout: default
 * Saccharide class  
 * Resource entry class  
 
-* glycan:has_componentは今後利用しない
+* glycan:Saccharide, glycan:Resource_entryの記述を含める
+* glycan:has_componentは、/ms/carbankの方に移す
 * Accession numberは、has_primary_idを利用してる
 * `</core>`に、has_componentが元々入っている糖鎖もある
 
 
-| Instance URI        | Proerty                   | Class             |  Instance URI Literal  | Literal            |
-|---------------------|---------------------------|-------------------|------------------------|--------------------|
-| Saccharide instance | a                         | glycan:saccharide | 
-|                     | glycan:has_resource_entry |                   | Glycosequence instance |
-|                     | glytoucan:has_primary_id  |                   |                        | "Accession number" |
+**Saccharide RDF**  
+```
+?Saccharide a glycan:saccharide, glycan:Saccharide .
+?Saccharide glycan:has_resource_entry ?ResourceEntry .
+?Saccharide glytoucan:has_primary_id ?AccessionNumber .
+```
 
+**Resource entry RDF**
+```
+?ResourceEntry a glycan:resource_entry, glycan:Resource_entry .
+?ResourceEntry glytoucan:contributor ?Person .
+?ResourceEntry glytoucan:date_registered ?dateTimeStanp .
+?ResourceEntry dcterms:identifier ?AccessionNumber .
+?ResourceEntry rdfs:seeAlso ?GlyTouCanURL .
+?ResourceEntry glycan:in_glycan_database glytoucan:database_glytoucan .
+```
 
-| Instance URI            | Proerty   | Class                 |  Instance URI Literal | Literal | Individual |
-|-------------------------|-----------|-----------------------|-----------------------|---------|------------|
-| Resource entry instance | a         | glycan:resource_entry | 
-|                         | glytoucan:contributor |  | Person instance |
-|                         | glytoucan:date_registered |  |  | dateTimestamp |
-|                         | dcterms:identifier |  |  | Accession number |
-|                         | rdfs:seeAlso |  |  | GlyTouCan URL | 
-|                         | glycan:in_glycan_database |  |  |  | glytoucan:database_glytoucan |
 
 **INSERT query**
 
-* Saccharide Class
+**Saccharide Class**
 
 ```
 log_enable(2,1);
@@ -63,7 +68,7 @@ PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
 PREFIX glytoucan:  <http://www.glytoucan.org/glyco/owl/glytoucan#>
 INSERT
 { GRAPH <http://rdf.glytoucan.org/core> {
-    ?Saccharide a glycan:saccharide .
+    ?Saccharide a glycan:saccharide, glycan:Saccharide .
     ?Saccharide glytoucan:has_primary_id ?AccessionNumber .
     ?Saccharide glycan:has_resource_entry ?ResourceEntry .
   }
@@ -82,7 +87,9 @@ checkpoint;
 commit WORK;
 ```
 
-* Resource Entry class
+
+
+**Resource Entry class**
 
 ```
 log_enable(2,1);
@@ -93,7 +100,7 @@ PREFIX dcterms: <http://purl.org/dc/terms/>
 
 INSERT
 { GRAPH <http://rdf.glytoucan.org/core> {
-    ?ResourceEntry a glycan:resource_entry .
+    ?ResourceEntry a glycan:resource_entry, glycan:Resource_entry .
     ?ResourceEntry glytoucan:contributor ?Contributor .
     ?ResourceEntry glytoucan:date_registered ?Date .
     ?ResourceEntry glycan:in_glycan_database glytoucan .
@@ -121,8 +128,7 @@ commit WORK;
 
 **confirm query**
 
-* Saccharide class
-
+**Saccharide class**    
 ```
 # Saccharide 
 PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
@@ -135,7 +141,7 @@ SELECT ?ResourceEntry
 FROM <http://rdf.glytoucan.org/core>
 WHERE {
     # Saccharide
-    #?Saccharide a glycan:saccharide .
+    #?Saccharide a ?Class .
     #?Saccharide glytoucan:has_primary_id ?AccessionNumber .
     #?Saccharide glycan:has_resource_entry ?ResourceEntry .
     #?Saccharide glycan:has_resource_entry ?ResourceEntry .
@@ -143,8 +149,8 @@ WHERE {
 limit 200
 ```
 
-* Resource Entry class
 
+**Resource Entry class**    
 ```
 # Resource entry 
 PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
@@ -161,7 +167,7 @@ SELECT *
 FROM <http://rdf.glytoucan.org/core>
 WHERE {
     # New Resource entry
-    #?ResourceEntry a glycan:resource_entry .
+    #?ResourceEntry a ?Class .
     #?ResourceEntry glytoucan:contributor ?Contributor .
     #?ResourceEntry glytoucan:date_registered ?Date .
     #?ResourceEntry glycan:in_glycan_database ?DB .
@@ -184,18 +190,21 @@ limit 200
 	* Property
 		* rdfs:label, glycan:has_glycosequence, glycan:has_sequence, glycan:in_carbohydrate_format
 		* glycan:glycosequenceのタイプ付けは無し
-			* glycan:glycosequenceのタイプ付けをした方が良い
+        * glycan:glycosequence, glycan:Glycosequenceのタイプをつける
 		* rdfs:labelとglycan:has_sequenceが同じデータタイプ
 			* rdfs:labeはどこかで使われているか？
      		* Stanzaでは使われていなかった
 
-| Instance URI             | property                      | Class                | Instance URI            | Literal        | Individual                         |
-|--------------------------|-------------------------------|----------------------|-------------------------|----------------|------------------------------------|
-| saccharide instance     | glycan:has_glycosequence      |                      | glycosequence instance |                |                                    |
-| glycosequence instance| a                             | glycosequence instance |                         |                |                                    |
-|                          | glycan:has_sequence           |                      |                         | GlycoCT string |                                    |
-|                          | glycan:in_carbohydrate_format |                      |                         |                | glycan:carbohydrate_format_glycoct |
-|                          | rdfs:label                    |                      |                         | GlycoCT string |                                    |
+
+**Glycosequence RDF**  
+```
+?Saccharide glycan:has_glycosequence ?Glycosequence .
+?Glycosequence a glycan:glycosequence, glycan:Glycosequence .
+?Glycosequence glycan:has_sequence ?GlycoCT_Sequence .
+?Glycosequence glycan:in_carbohydrate_format glycan:carbohydrate_format_glycoct .
+?Glycosequence rdfs:label ?GlycoCT_String .
+```
+
 
 **INSERT query**
 
@@ -206,6 +215,7 @@ PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
 INSERT
 { GRAPH <http://rdf.glytoucan.org/sequence/glycoct> {
     ?Saccharide glycan:has_glycosequence ?GSequence .
+    ?GSequence a glycan:glycosequence, glycan:Glycosequence .
     ?GSequence glycan:has_sequence ?Sequence .
     ?GSequence glycan:in_carbohydrate_format ?Format .
     ?GSequence rdfs:label ?Sequence .
@@ -223,26 +233,6 @@ commit WORK;
 ```
 
 
-* Add Glycosequence class
-
-```
-log_enable(2,1);
-sparql
-PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
-INSERT
-{ GRAPH <http://rdf.glytoucan.org/sequence/glycoct> {
-    ?GSequence a glycan:glycosequence .
-  }
-}
-USING <http://rdf.glytoucan.org/sequence/glycoct>
-WHERE {
-    # Glycosequence
-    ?Saccharide glycan:has_glycosequence ?GSequence .
-};
-checkpoint;
-commit WORK;
-```
-
 
 **Confirm query**
 
@@ -258,7 +248,7 @@ SELECT *
 FROM <http://rdf.glytoucan.org/sequence/glycoct> 
 WHERE {
     # Glycosequence
-    ?Saccharide a glycan:glycosequence .
+    ?Saccharide a ?Class .
     ?Saccharide glycan:has_glycosequence ?GSequence .
     ?GSequence glycan:has_sequence ?Sequence .
     ?GSequence glycan:in_carbohydrate_format ?Format .
@@ -267,93 +257,21 @@ WHERE {
 limit 100
 ```
 
-#### Image class
-
-`<http://rdf.glytoucan.org/image>`  
-
-* とくに必要な場面は今のところ無いため、GRAPHは作っていない
-* Image class
-
-```
-* GlyTouCanでは、RDFで記述されているImageのURIは利用していない
-* JavascriptでイメージのURLを作っている
-* 念のためにやり方を残す
-```
-
-| Instance URI        | property                 | Class          | Instance URI | Literal              | Individual                      |
-|---------------------|--------------------------|----------------|--------------|----------------------|---------------------------------|
-| saccharide instance | glycan:has_image         | image instance |              |                      |                                 |
-| image instance      | a                        | glycan:image   |              |                      |                                 |
-|                     | dc:format                |                |              | image/pingxsd:string |                                 |
-|                     | glycan:has_symbol_format |                |              |                      | glycan:symbol_format_cfg        |
-|                     |                          |                |              |                      | glycan:symbol_format_uoxf       |
-|                     |                          |                |              |                      | glycan:symbol_format_text       |
-|                     |                          |                |              |                      | glycan:symbol_format_uoxf_color |
-|                     |                          |                |              |                      | glycan:symbol_format_cfg_uoxf   |
-|                     |                          |                |              |                      | glycan:symbol_format_cfg_bw     |
 
 
 
-**INSERT query**
-
-```
-log_enable(2,1);
-sparql
-PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
-PREFIX glytoucan:  <http://www.glytoucan.org/glyco/owl/glytoucan#>
-INSERT
-{ GRAPH <http://rdf.glytoucan.org/image> {
-  ?Saccharide glycan:has_image ?Image .
-    ?Image a glycan:image .
-    ?Image dc:format ?Format .
-    ?Image glycan:has_symbol_format ?Symbol .
-  }
-}
-FROM <http://rdf.glytoucan.org>
-WHERE {
-    # Image 
-  ?Saccharide glycan:has_image ?Image .
-    ?Image a glycan:image .
-    ?Image dc:format ?Format .
-    ?Image glycan:has_symbol_format ?Symbol .
-}
-```
-
-**Confirm query**
-
-```
-PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
-PREFIX glytoucan:  <http://www.glytoucan.org/glyco/owl/glytoucan#>
-
-SELECT *
-#SELECT COUNT(?Symbol)
-#SELECT COUNT(?Format)
-#SELECT COUNT(?Image)
-#FROM <http://rdf.glytoucan.org>
-FROM <http://rdf.glytoucan.org/image/test> 
-WHERE {
-    # Image 
-    #?Sacc glycan:has_image ?Image .
-    #?Image a glycan:image .
-    #?Image dc:format ?Format .
-    #?Image glycan:has_symbol_format ?Symbol .
-
-}
-limit 100
-```
 
 
-
-#### Glycan Motf class
+#### Glycan motf class
 
 `<http://rdf.glytoucan.org/motif>`  
 
-* Motif class
+Glycan motif class
 
-* 以前の`</motif>`には、glycan:has_motifのみだった
+以前の`</motif>`には、glycan:has_motifのみだった
 
 
-追加
+`</motif>`に、以下の要素を追加する
 
 * rdf:type
 * glycan:has_glycosequence
@@ -361,14 +279,14 @@ limit 100
 * glytoucan:is_reducing_end
 
 
-| Instance URI            | property                  | Class                 | Instance URI             | Literal         | Individual |
-|-------------------------|---------------------------|-----------------------|--------------------------|-----------------|------------|
-| saccharide instance     | glycan:has_motif          | glycan motif instance |                          |                 |            |
-| glycan motif instance   | a                         | glycan:glycan_moti    |                          |                 |            |
-|                         | glycan:has_glycosequence  |                       | glycosequence instance   |                 |            |
-|                         | rdfs:label                |                       |                          | “motif name”@en |            |
-|                         | glytoucan:is_reducing_end |                       |                          | boolean         |            |
-
+**Glycan motif RDF**  
+```
+?Saccharide glycan:has_motif ?GlycanMotif .
+?GlycanMotif a glycan:glycan_motif, glycan:Glycan_motif .
+?GlycanMotif glycan:has_glycosequence ?Glycosequence .
+?GlycanMotif rdfs:label ?MotifName .
+?GlycanMotif glytoucan:is_reducing_end ?Boolean .
+```
 
 
 **INSERT query**
@@ -427,6 +345,182 @@ WHERE {
 }
 limit 100
 ```
+
+
+
+
+
+
+
+#### Component class
+
+Component情報がgs2virtからなくなると、Glycan listおよびGlycan entryが表示されなくなる
+glycan:Componentも追加する  
+そのため、/ms/carbbankにComponent情報を追加する
+
+
+
+Target GRAPH  
+`<http://rdf.glytoucan.org/ms/carbbank>` 
+
+
+**Before RDF**  
+```
+# Monosaccharide
+?mono a glycan:monosaccharide .
+?mono glycan:has_alias ?msdb .
+?msdb a glycan:monosaccharide_alias .
+?msdb glycan:has_alias_name ?ComponentName .
+?msdb glycan:has_monosaccharide_notation_scheme glycan:monosaccharide_notation_scheme_carbbank  .
+```
+
+**After RDF**  
+```
+# Component
+?saccharide glycan:has_component ?component .
+?component a glycan:component, glycan:Component .
+?component glycan:has_cardinality ?cardinality .
+?component glycan:has_monosaccharide ?mono .
+
+# Monosaccharide
+?mono a glycan:monosaccharide .
+?mono glycan:has_alias ?msdb .
+?msdb a glycan:monosaccharide_alias .
+?msdb glycan:has_alias_name ?ComponentName .
+?msdb glycan:has_monosaccharide_notation_scheme glycan:monosaccharide_notation_scheme_carbbank  .
+```
+
+
+**INSERT query**
+
+```
+log_enable(2,1);
+sparql
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
+PREFIX glytoucan:  <http://www.glytoucan.org/glyco/owl/glytoucan#>
+
+INSERT
+{ GRAPH <http://rdf.glytoucan.org/ms/carbbank> {
+   # Motif
+    ?saccharide glycan:has_component ?component .
+    ?component a glycan:component, glycan:Component .
+    ?component glycan:has_cardinality ?cardinality .
+    ?component glycan:has_monosaccharide ?mono .
+  }
+}
+USING <http://rdf.glytoucan.org>
+WHERE {
+    # Motif
+    ?saccharide glycan:has_component ?component .
+    ?component a glycan:component .
+    ?component glycan:has_cardinality ?cardinality .
+    ?component glycan:has_monosaccharide ?mono .
+};
+checkpoint;
+commit WORK;
+```
+
+**Confirm query**
+
+```
+## Monosaccharide
+SELECT DISTINCT ?ComponentName ?cardinality
+FROM <http://rdf.glytoucan.org>
+FROM <http://rdf.glytoucan.org/core>
+FROM <http://rdf.glytoucan.org/ms/carbbank>
+WHERE{
+    # Accession Number
+    ?glycan a glycan:saccharide.
+    ?glycan glytoucan:has_primary_id "G00051MO" .
+    OPTIONAL{
+        ?glycan glycan:has_component ?comp .
+        ?comp glycan:has_cardinality ?cardinality .
+        ?comp glycan:has_monosaccharide ?mono .
+        ?mono glycan:has_alias ?msdb .
+        ?msdb glycan:has_alias_name ?ComponentName .
+    }
+} 
+```
+
+
+
+
+
+#### Image class
+
+`<http://rdf.glytoucan.org/image>`  
+
+**GRAPHは作っていない(今のところ必要な場面が無いため)**
+
+
+```
+* GlyTouCanでは、RDFで記述されているImageのURIは利用していない
+* JavascriptでイメージのURLを作っている
+* 念のためにやり方を残す
+```
+
+| Instance URI        | property                 | Class          | Instance URI | Literal              | Individual                      |
+|---------------------|--------------------------|----------------|--------------|----------------------|---------------------------------|
+| saccharide instance | glycan:has_image         | image instance |              |                      |                                 |
+| image instance      | a                        | glycan:image   |              |                      |                                 |
+|                     | dc:format                |                |              | image/pingxsd:string |                                 |
+|                     | glycan:has_symbol_format |                |              |                      | glycan:symbol_format_cfg        |
+|                     |                          |                |              |                      | glycan:symbol_format_uoxf       |
+|                     |                          |                |              |                      | glycan:symbol_format_text       |
+|                     |                          |                |              |                      | glycan:symbol_format_uoxf_color |
+|                     |                          |                |              |                      | glycan:symbol_format_cfg_uoxf   |
+|                     |                          |                |              |                      | glycan:symbol_format_cfg_bw     |
+
+
+
+**INSERT query**
+
+```
+log_enable(2,1);
+sparql
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
+PREFIX glytoucan:  <http://www.glytoucan.org/glyco/owl/glytoucan#>
+INSERT
+{ GRAPH <http://rdf.glytoucan.org/image> {
+  ?Saccharide glycan:has_image ?Image .
+    ?Image a glycan:image, glycan:Image .
+    ?Image dc:format ?Format .
+    ?Image glycan:has_symbol_format ?Symbol .
+  }
+}
+FROM <http://rdf.glytoucan.org>
+WHERE {
+    # Image 
+  ?Saccharide glycan:has_image ?Image .
+    ?Image a glycan:image .
+    ?Image dc:format ?Format .
+    ?Image glycan:has_symbol_format ?Symbol .
+}
+```
+
+**Confirm query**
+
+```
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
+PREFIX glytoucan:  <http://www.glytoucan.org/glyco/owl/glytoucan#>
+
+SELECT *
+#SELECT COUNT(?Symbol)
+#SELECT COUNT(?Format)
+#SELECT COUNT(?Image)
+#FROM <http://rdf.glytoucan.org>
+FROM <http://rdf.glytoucan.org/image/test> 
+WHERE {
+    # Image 
+    #?Sacc glycan:has_image ?Image .
+    #?Image a ?Class .
+    #?Image dc:format ?Format .
+    #?Image glycan:has_symbol_format ?Symbol .
+
+}
+limit 100
+```
+
 
 
 
