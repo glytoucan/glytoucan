@@ -34,6 +34,50 @@ from GlycoNAVI
 
 
 
+##  About IRI
+
+using domain  
+--> rdf.glycoinfo.org  
+--> identifier.org
+
+Source instance IRI  
+`http://rdf.glycoinfo.org/source/{taxnomomy id}`
+
+Taxonomy URL    
+`http://identifiers.org/taxonomy/{taxonomy_id}`
+
+Article instance IRI  
+`http://rdf.glycoinfo.org/references/{pubmed_id}`
+
+PubMed URL  
+`http://identifiers.org/pubmed/{pubmed_id}`
+
+Resource entry instance IRI  
+`http://rdf.glycoinfo.org/{partner name}/{entry page id of the partner}`
+
+
+
+URL of a partner entry page  
+
+```
+BCSDB  
+http://csdb.glycoscience.ru/bacterial/core/search_id.php?mode=record&id_list={bcsdb_id}
+
+GlycomeDB  
+http://www.glycome-db.org/database/showStructure.action?glycomeId={glycome-db id}
+
+GlycoEpitope  
+http://identifiers.org/glycoepitope/{epitope id}
+
+PubChem substance  
+http://pubchem.ncbi.nlm.nih.gov/substance/{SID number}
+
+PubChem compound  
+http://pubchem.ncbi.nlm.nih.gov/compound/{CID number}
+```
+
+
+
 ## from BCSDB  
 
 `<http://rdf.glytoucan.org/partner/bcsdb>`  

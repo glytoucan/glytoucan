@@ -1,5 +1,5 @@
 ---
-title: GRAPH RDF
+title: Partner metadata RDF
 authors:
 - Daisuke Shinmachi
 date: 2016-04-20
@@ -7,7 +7,7 @@ layout: default
 ---
 
 
-## GRAPH RDF
+## Partner metadata RDF
 
 **Triple**
 
@@ -32,7 +32,7 @@ layout: default
 log_enable(2,1);
 sparql
 INSERT DATA{
-        GRAPH <http://rdf.glytoucan.org/graph> {
+        GRAPH <http://rdf.glytoucan.org/partner> {
                 
         <http://rdf.glytoucan.org/partner/bcsdb>
                 rdfs:label "BCSDB".
@@ -58,5 +58,5 @@ commit WORK;
 
 ```
 log_enable(2,1);
-sparql clear graph <http://rdf.glytoucan.org/graph>;
+sparql clear graph <http://rdf.glytoucan.org/partner>;
 ```

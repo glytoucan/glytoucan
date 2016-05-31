@@ -2,7 +2,7 @@
 title: Glycan Entry Development
 authors:
 - Daisuke Shinmachi
-date: 2016-04-22
+date: 2016-05-31
 layout: default
 ---
 
@@ -15,6 +15,7 @@ layout: default
 	1. Computed Descriptors
 		1. WURCS
 		1. GlycoCT
+		1. IUPAC
 	1. Species
 	1. Literature
 	1. External ID
@@ -28,11 +29,11 @@ layout: default
 1. What's the data for contents?
 	1. **Partner RDF**
 		1. this rdf include taxonomy, pubmed, external id data from external database
-	1. **GRAPH RDF**
-		1. this rdf include GRAPH name to indicate origination of the data
+	1. **Partner Metadata RDF**
+		1. this rdf include partner GRAPH name to indicate origination of the data
 1. Preparation of RDF
 	1. [Partner RDF document](/system/rdf/partnerRdf)
-	1. [GRAPH RDF documment](/system/rdf/graphRdf)
+	1. [Partner Metadata RDF documment](/system/rdf/partnerMetadataRdf)
 
 
 
@@ -40,7 +41,7 @@ layout: default
 
 1. using insert query
 	1. [partner RDF insert query](/system/sparql/partnerRdfInsertQuery)
-	1. [graph RDF insert query](/system/rfd/graphRdf)
+	1. [Partner Metadata RDF insert query](/system/rfd/partnerMetadataRdf)
 1. confirm the RDF dataset using sparql query
 	1. [sparql query](/system/glycanEntry/sparql)
 
