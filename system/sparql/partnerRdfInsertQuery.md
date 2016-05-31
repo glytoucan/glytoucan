@@ -1,5 +1,8 @@
 ---
 title: Insert Query for Partner RDF
+author:
+- Daisuke Shinmachi
+date: 2016-05-31
 layout: default
 ---
 
@@ -33,6 +36,7 @@ INSERT{
         ?taxon_iri rdfs:label ?taxon_name .
         }
 }
+FROM <http://rdf.glytoucan.org>
 FROM <http://rdf.glytoucan.org/core>
 FROM NAMED <http://rdf.glycoinfo.org/mapping/glytoucan/glycome-db>
 FROM NAMED <http://rdf.glycoinfo.org/glycome-db>
@@ -105,6 +109,7 @@ INSERT{
         ?taxon_iri rdfs:seeAlso ?taxon_url .
         }
 }
+FROM <http://rdf.glytoucan.org>
 FROM <http://rdf.glytoucan.org/core>
 FROM NAMED <http://rdf.glycoinfo.org/mapping/glytoucan/glycome-db>
 FROM NAMED <http://rdf.glycoinfo.org/glycome-db>
@@ -177,6 +182,7 @@ INSERT{
         ?article_iri rdfs:seeAlso ?pubmed_url .
         }
 }
+FROM <http://rdf.glytoucan.org>
 FROM <http://rdf.glytoucan.org/core>
 FROM NAMED <http://rdf.glycoinfo.org/mapping/glytoucan/glycome-db>
 FROM NAMED <http://rdf.glycoinfo.org/glycome-db>
@@ -249,6 +255,7 @@ INSERT{
         glycan:Database_bcsdb rdfs:label "BCSDB".
         }
 }
+FROM <http://rdf.glytoucan.org>
 FROM <http://rdf.glytoucan.org/core>
 FROM NAMED <http://rdf.glycoinfo.org/mapping/glytoucan/glycome-db>
 FROM NAMED <http://rdf.glycoinfo.org/glycome-db>
@@ -319,6 +326,7 @@ INSERT{
         }
 }
 
+FROM <http://rdf.glytoucan.org>
 FROM <http://rdf.glytoucan.org/core>
 FROM NAMED <http://rdf.glycoinfo.org/mapping/glytoucan/glycome-db>
 FROM NAMED <http://rdf.glycoinfo.org/glycome-db>
@@ -371,6 +379,7 @@ INSERT{
         glycan:Database_glycomedb rdfs:label "GlycomeDB".
         }
 }
+FROM <http://rdf.glytoucan.org>
 FROM <http://rdf.glytoucan.org/core>
 FROM NAMED <http://rdf.glycoinfo.org/mapping/glytoucan/glycome-db>
 WHERE{
@@ -412,6 +421,7 @@ INSERT{
         ?taxon_iri rdfs:seeAlso ?taxon_url .
         }
 }
+FROM <http://rdf.glytoucan.org>
 FROM <http://rdf.glytoucan.org/core>
 FROM <http://rdf.glycoinfo.org/mapping/accnum/ep>
 FROM <http://rdf.glycoinfo.org/glycoepitope>
@@ -449,6 +459,7 @@ INSERT{
         ?article_iri rdfs:seeAlso ?pubmed_url.
         }
 }
+FROM <http://rdf.glytoucan.org>
 FROM <http://rdf.glytoucan.org/core>
 FROM <http://rdf.glycoinfo.org/mapping/accnum/ep>
 FROM <http://rdf.glycoinfo.org/glycoepitope>
@@ -489,6 +500,7 @@ INSERT{
         glycan:Database_glycoepitope rdfs:label "GlycoEpitope".
         }
 }
+FROM <http://rdf.glytoucan.org>
 FROM <http://rdf.glytoucan.org/core>
 FROM <http://rdf.glycoinfo.org/mapping/accnum/ep>
 FROM <http://rdf.glycoinfo.org/glycoepitope>
@@ -529,6 +541,7 @@ INSERT{
         glycan:Database_pubchem rdfs:label "PubChem".
         }
 }
+FROM <http://rdf.glytoucan.org>
 FROM <http://rdf.glytoucan.org/core>
 FROM <http://rdf.glycoinfo.org/mapping/glytoucan/pubchem>
 WHERE{
@@ -562,6 +575,7 @@ INSERT{
         ?rEntry_iri rdfs:seeAlso ?cid_url.
     }
 }
+FROM <http://rdf.glytoucan.org>
 FROM <http://rdf.glytoucan.org/core>
 FROM <http://rdf.glycoinfo.org/mapping/glytoucan/pubchem>
 WHERE{
