@@ -520,7 +520,7 @@ PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
 INSERT{
-    GRAPH <http://rdf.glytoucan.org/partner/wurcs-working-group>{
+    GRAPH <http://rdf.glytoucan.org/partner/glyconavi>{
         ?saccharide glycan:has_resource_entry ?rEntry_iri.
         ?rEntry_iri a glycan:Resource_entry.
         ?rEntry_iri glycan:in_glycan_database glycan:Database_pubchem.
@@ -555,11 +555,11 @@ PREFIX skos: <http://www.w3.org/2004/02/skos/core#>
 
 INSERT{
     GRAPH <http://rdf.glytoucan.org/partner/glyconavi>{
-    ?saccharide glycan:has_resource_entry ?rEntry_iri.
-    ?rEntry_iri a glycan:Resource_entry.
-    ?rEntry_iri glycan:in_glycan_database glycan:Database_pubchem.
-    ?rEntry_iri dcterms:identifier ?cid.
-    ?rEntry_iri rdfs:seeAlso ?cid_url.
+        ?saccharide glycan:has_resource_entry ?rEntry_iri.
+        ?rEntry_iri a glycan:Resource_entry.
+        ?rEntry_iri glycan:in_glycan_database glycan:Database_pubchem.
+        ?rEntry_iri dcterms:identifier ?cid.
+        ?rEntry_iri rdfs:seeAlso ?cid_url.
     }
 }
 FROM <http://rdf.glytoucan.org/core>
