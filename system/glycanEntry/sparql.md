@@ -2,7 +2,7 @@
 title: SPARQL query for the Glycan Entry ver2.0 
 authors:
 - Daisuke Shinmachi
-date: 2016-04-08
+date: 2016-06-06
 layout: default
 ---
 
@@ -19,6 +19,7 @@ layout: default
 	* Computed Descriptors
 		* WURCS
 		* GlycoCT
+		* IUPAC
 	* Glycan Motif
 	* Species
 	* Literature
@@ -26,10 +27,16 @@ layout: default
 
 # Summary
 
-* **Accession number**
-* **Calculated Monoisotopic Mass**
-* **WURCS**
-* **Created Date**
+**Input**
+
+* Accession number
+
+**Output**
+
+* Accession number
+* Calculated Monoisotopic Mass
+* WURCS sequence
+* Created Date
 
 
 ```
@@ -75,18 +82,27 @@ WHERE {
 ### Structure
 
 * A structure is not produced by SPARQL query.
-* This item is displayed by using javascript.
 
 ### Computed Descriptors
 
 
-#####  WURCS and GlycoCT
+#####  WURCS
+
+
+**Input**
+
+* Accession number
+
+**Output**
+
+* WURCS sequence
+
 
 ```
 PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
 PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
 
-SELECT DISTINCT ?WURCS_label ?GlycoCT 
+SELECT DISTINCT ?WURCS_label
 WHERE {
   # Accession Number
   VALUES ?accNum {"G00051MO"}
@@ -99,6 +115,29 @@ WHERE {
   BIND(STR(?wcsLabel) AS ?WURCS_label)
   ?wcsSeq glycan:in_carbohydrate_format glycan:carbohydrate_format_wurcs .
   }
+}
+```
+
+
+#####  GlycoCT
+
+**Input**
+
+* Accession number
+
+**Output**
+
+* GlycoCT sequence
+
+```
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
+PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
+
+SELECT DISTINCT ?GlycoCT
+WHERE {
+  # Accession Number
+  VALUES ?accNum {"G00051MO"}
+  ?saccharide glytoucan:has_primary_id ?accNum .
 
   # GlycoCT
   OPTIONAL{
@@ -107,11 +146,57 @@ WHERE {
   BIND(STR(?seq) AS ?GlycoCT)
   ?gctSeq glycan:in_carbohydrate_format glycan:carbohydrate_format_glycoct .
   }
-} 
+}
 ```
 
 
+#####  IUPAC 
+
+**Input**
+
+* Accession number
+
+**Output**
+
+* IUPAC sequence
+
+```
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
+PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
+
+SELECT DISTINCT ?IUPAC
+WHERE {
+  # Accession Number
+  VALUES ?accNum {"G00051MO"}
+  ?saccharide glytoucan:has_primary_id ?accNum .
+
+  # IUPAC 
+  OPTIONAL{
+  ?saccharide glycan:has_glycosequence ?iupSeq .
+  ?iupSeq glycan:has_sequence ?seq .
+  BIND(STR(?seq) AS ?IUPAC)
+  ?iupSeq glycan:in_carbohydrate_format glycan:carbohydrate_format_iupac .
+  }
+}
+```
+
+
+
+
+
 ### Glycan Motif
+
+* Using accession number in motif instance IRI 
+* it IRI will be change to wurcs key and motif position insted of accession number. 
+
+**Input**
+
+* Accession number
+
+**Output**
+
+* Motif name
+* Motif accession number : for get glycan image 
 
 ```
 # Motif 
@@ -133,41 +218,66 @@ WHERE{
 
 ### Species
 
-##### Target database : BCSDB, GlycomeDB, GlycoEpitope 
+##### Target partners : BCSDB, GlycomeDB, GlycoEpitope 
 
-##### SPARQL query
+**Input**
+
+* Accession number
+
+**Output**
+
+* Partner name : ?from
+* Taxonomy name
+* NCBI Taxonomy URL
 
 ```
 # Species
-# There are only same id and url in BCSDB RDF
 PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
+PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
 
 SELECT DISTINCT ?from ?taxon_name ?taxon_id ?taxon_url 
 WHERE{
 	VALUES ?accNum {"G00051MO"}
 	?saccharide  glytoucan:has_primary_id ?accNum .
-
-	GRAPH ?graph {
-		?saccharide glycan:is_from_source ?source.
-		?source a glycan:Source .
-		OPTIONAL{
-		 ?source dcterms:identifier ?taxon_id .
-		 ?source rdfs:seeAlso ?taxon_url .
+	{
+		# for does exists taxon id
+		GRAPH ?graph {
+			?saccharide glycan:is_from_source ?source.
+			?source a glycan:Source .
+			?source dcterms:identifier ?taxon_id .
+			?source rdfs:seeAlso ?taxon_url .
 		}
-		OPTIONAL{
-		 ?source rdfs:label ?taxon_name .
-		}
+		?taxon_url rdfs:label ?taxon_name .
+		?graph rdfs:label ?from .
 	}
-	?graph rdfs:label ?from .
-}
+	UNION
+	{
+		# for doesn't exists taxon id
+		GRAPH ?graph {
+			?saccharide glycan:is_from_source ?source.
+			?source a glycan:Source .
+			?source rdfs:label ?taxon_name .
+		}
+		?graph rdfs:label ?from .
+	}
+} ORDER BY ?from
 ```
 
 
 ### Literature
 
-##### Target database : BCSDB, GlycoEpitope 
+##### Target partners : BCSDB, GlycoEpitope 
 
-##### SPARQL query
+**Input**
+
+* Accession number
+
+**Output**
+
+* Partner name : ?from
+* PubMed ID
+* PubMed URL
 
 ```
 # Literature
@@ -194,9 +304,18 @@ WHERE{
 
 ### External ID
 
-##### Target database : BCSDB, GlycomeDB, GlycoEpitope, PubChem 
+##### Target partners : BCSDB, GlycomeDB, GlycoEpitope, PubChem 
 
-##### SPARQL query
+**Input**
+
+* Accession number
+
+**Output**
+
+* Partner name : ?from
+* Database name : ?db_label
+* External ID : ?external_id
+* Databae entyr URL : ?url
 
 ```
 # External ID
