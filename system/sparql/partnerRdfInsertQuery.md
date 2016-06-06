@@ -360,6 +360,8 @@ commit WORK;
 
 **Resource Entry**
 
+GlycomeDB
+
 ```
 log_enable(2,1);
 sparql
@@ -398,6 +400,102 @@ checkpoint;
 commit WORK;
 ```
 
+
+
+JCGGDB
+
+```
+log_enable(2,1);
+sparql
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
+PREFIX glycodb: <http://purl.jp/bio/12/database/>
+PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
+
+INSERT{
+        GRAPH <http://rdf.glytoucan.org/partner/glycome-db>{
+        ?saccharide glycan:has_resource_entry ?rEntry_iri.
+        ?rEntry_iri a glycan:Resource_entry.
+        ?rEntry_iri glycan:in_glycan_database glycan:Database_jcggdb.
+        ?rEntry_iri dcterms:identifier ?jcggdb_id.
+        ?rEntry_iri rdfs:seeAlso ?jcggdb_url.
+        glycan:Database_jcggdb rdfs:label "JCGGDB".
+        }
+}
+FROM <http://rdf.glytoucan.org>
+FROM <http://rdf.glytoucan.org/core>
+FROM NAMED <http://rdf.glycoinfo.org/mapping/glytoucan/glycome-db>
+FROM NAMED <http://rdf.glycoinfo.org/glycome-db>
+WHERE{
+        # Glytoucan
+        ?saccharide glytoucan:has_primary_id ?AccessionNumber.
+
+        # From glytoucan to glycome-db 
+        GRAPH <http://rdf.glycoinfo.org/mapping/glytoucan/glycome-db>{
+        ?saccharide skos:exactMatch ?glycomedb .
+        }
+        # from glycome-db to JCGGDB
+        GRAPH <http://rdf.glycoinfo.org/glycome-db>{
+        ?glycomedb glycan:has_resource_entry ?jcggdb_url .
+        ?jcggdb_url glycan:in_glycan_database glycan:database_jcggdb .
+        ?jcggdb_url dcterms:identifier ?id.
+        BIND(STR(?id) AS ?jcggdb_id)
+        BIND(IRI(CONCAT("http://rdf.glycoinfo.org/jcggdb/", ?jcggdb_id)) AS ?rEntry_iri)
+
+        }
+};
+checkpoint;
+commit WORK;
+```
+
+
+PDBj
+
+```
+log_enable(2,1);
+sparql
+PREFIX dcterms: <http://purl.org/dc/terms/>
+PREFIX bibo: <http://purl.org/ontology/bibo/>
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
+PREFIX glycodb: <http://purl.jp/bio/12/database/>
+PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
+
+INSERT{
+        GRAPH <http://rdf.glytoucan.org/partner/glycome-db>{
+        ?saccharide glycan:has_resource_entry ?rEntry_iri.
+        ?rEntry_iri a glycan:Resource_entry.
+        ?rEntry_iri glycan:in_glycan_database glycan:Database_pdbj.
+        ?rEntry_iri dcterms:identifier ?pdb_id.
+        ?rEntry_iri rdfs:seeAlso ?pdbj_url.
+        glycan:Database_pdbj rdfs:label "PDBj".
+        }
+}
+FROM <http://rdf.glytoucan.org>
+FROM <http://rdf.glytoucan.org/core>
+FROM NAMED <http://rdf.glycoinfo.org/mapping/glytoucan/glycome-db>
+FROM NAMED <http://rdf.glycoinfo.org/glycome-db>
+WHERE{
+        # Glytoucan
+        ?saccharide glytoucan:has_primary_id ?AccessionNumber.
+
+        # From glytoucan to glycome-db 
+        GRAPH <http://rdf.glycoinfo.org/mapping/glytoucan/glycome-db>{
+        ?saccharide skos:exactMatch ?glycomedb .
+        }
+        # from glycome-db to PDB 
+        GRAPH <http://rdf.glycoinfo.org/glycome-db>{
+        ?glycomedb glycan:has_resource_entry ?pdb_url .
+        ?pdb_url glycan:in_glycan_database glycan:database_pdb .
+        ?pdb_url dcterms:identifier ?id.
+        BIND(STR(?id) AS ?pdb_id)
+        BIND(IRI(CONCAT("http://rdf.glycoinfo.org/pdbj/", ?pdb_id)) AS ?rEntry_iri)
+        BIND(IRI(CONCAT("http://pdbj.org/mine/structural_details/", ?pdb_id)) AS ?pdbj_url)
+        }
+};
+checkpoint;
+commit WORK;
+```
 
 ## GlycoEpitope
 
