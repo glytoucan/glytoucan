@@ -66,6 +66,12 @@ http://csdb.glycoscience.ru/bacterial/core/search_id.php?mode=record&id_list={bc
 GlycomeDB  
 http://www.glycome-db.org/database/showStructure.action?glycomeId={glycome-db id}
 
+JCGGDB
+http://jcggdb.jp/idb/jcggdb/{JCGGDB ID}
+
+PDBj
+http://pdbj.org/mine/structural_details/{PDB entry}
+
 GlycoEpitope  
 http://identifiers.org/glycoepitope/{epitope id}
 
@@ -120,6 +126,8 @@ http://pubchem.ncbi.nlm.nih.gov/compound/{CID number}
  glycan:in_glycan_database glycan:Database_bcsdb ;
  dcterms:identifier  "BCSDB ID" ;
  rdfs:seeAlso	<http://csdb.glycoscience.ru/bacterial/core/search_id.php?mode=record&id_list={bcsdb_id}> .
+
+glycan:Database_bcsdb rdfs:label "BCSDB".
 ```
 
 
@@ -204,6 +212,35 @@ http://csdb.glycoscience.ru/bacterial/core/search_id.php?mode=record&id_list=692
  glycan:in_glycan_database glycan:Database_glycomedb ;
  dcterms:identifier  "GlycomeDB ID" ;
  rdfs:seeAlso	<http://www.glycome-db.org/database/showStructure.action?glycomeId={glycome-db id}> .
+
+glycan:Database_glycomedb rdfs:label "GlycomeDB"
+
+
+# JCGGDB entry (External ID) from GlycomeDB 
+<http://rdf.glycoinfo.org/glycan/{accession number}> #Saccharide 
+ glycan:has_resource_entry <http://rdf.glycoinfo.org/jcggdb/{jcggdb id}>.
+
+<http://rdf.glycoinfo.org/jcggdb/{jcggdb id}>
+ a glycan:Resource_entry ;
+ glycan:in_glycan_database glycan:Database_jcggdb ;
+ dcterms:identifier  "JCGGDB ID" ;
+ rdfs:seeAlso	<http://jcggdb.jp/idb/jcggdb/{jcggdb id}> .
+
+glycan:Database_jcggdb	rdfs:label	"JCGGDB" .
+
+
+# PDBj entry (External ID) from GlycomeDB 
+# using PDB ID
+<http://rdf.glycoinfo.org/glycan/{accession number}> #Saccharide 
+ glycan:has_resource_entry <http://rdf.glycoinfo.org/pdbj/{pdb id}>.
+
+<http://rdf.glycoinfo.org/pdbj/{pdb id}>
+ a glycan:Resource_entry ;
+ glycan:in_glycan_database glycan:Database_pdbj ;
+ dcterms:identifier  "PDB ID" ;
+ rdfs:seeAlso	<http://pdbj.org/mine/structural_details/{pdb id}> .
+
+glycan:Database_pdbj	rdfs:label	"PDBj" .
 ```
 
 
@@ -231,15 +268,38 @@ http://identifiers.org/taxonomy/85962
 glycan:Resource_entryのインスタンスIRI
 
 ```
+# GlycomeDB
 http://rdf.glycoinfo.org/glycome-db/{glycome-db id}
 http://rdf.glycoinfo.org/glycome-db/6922
+
+
+# JCGGDB
+http://rdf.glycoinfo.org/jcggdb/{jcggdb id}
+http://rdf.glycoinfo.org/jcggdb/JCGG-STR010506
+
+
+# PDBj
+http://rdf.glycoinfo.org/pdbj/{pdb id}
+http://rdf.glycoinfo.org/pdbj/1g1r
 ```
 
 エントリーページURL
 
 ```
+# GlycomeDB
 http://www.glycome-db.org/database/showStructure.action?glycomeId={glycome-db id}
 http://www.glycome-db.org/database/showStructure.action?glycomeId=48
+
+
+# JCGGDB
+http://jcggdb.jp/idb/jcggdb/{jcggdb id}
+http://jcggdb.jp/idb/jcggdb/JCGG-STR010506
+
+
+# PDBj
+http://pdbj.org/mine/structural_details/{pdb id}
+http://pdbj.org/mine/structural_details/1g1r
+
 ```
 
 
@@ -278,6 +338,8 @@ http://www.glycome-db.org/database/showStructure.action?glycomeId=48
  glycan:in_glycan_database glycan:Database_glycoepitope ;
  dcterms:identifier	"Epitope id" ;
  rdfs:seeAlso	<http://identifiers.org/glycoepitope/{epitope id}> .
+
+glycan:Database_glycoepitope rdfs:label "GlycoEpitope".
 ```
 
 
@@ -359,6 +421,8 @@ http://identifiers.org/glycoepitope/EP0011
  glycan:in_glycan_databse	glytoucan:Database_pubchem ;
  rdfs:seeAlso <http://pubchem.ncbi.nlm.nih.gov/compound/CID91844939> ;
 dcterms:identifier "91844939" .
+
+glycan:Database_pubchem rdfs:label "PubChem".
 ```
 
 
