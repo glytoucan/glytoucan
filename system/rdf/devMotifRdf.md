@@ -57,7 +57,7 @@ Glycan motifのインスタンスIRIを作り、SaccharideとGlycan motifとを�
 	a	glycan:Glycan_motif;
 	rdfs:label	"Lewis X"@en;
 	glycan:has_glycosequence <Glycosequnece>;
-	glytoucan:has_type	glytoucan:Motif_type_non_reducing_end.
+	glytoucan:has_type	glytoucan:Motif_position_non_reducing_end.
 ```
 
 
@@ -73,34 +73,34 @@ Glycan motifのインスタンスIRIを作り、SaccharideとGlycan motifとを�
 @prefix sio: <http://semanticscience.org/resource/> . 
 
 ## Class
-glytoucan:Motif_type
+glytoucan:Motif_position
 	rdf:type	owl:Class;
 	rdfs:label	"Motif type"@en;
-	rdfs:comment	"Motif type means position type that appear in glycan structure."@en.
+	rdfs:comment	"Motif position means position type that appear in glycan structure."@en.
 
 
 ## Property
 glytoucan:has_type
 	rdf:type	owl:ObjectProperty;
 	rdfs:domain	glycan:Gycan_motif;
-	rdfs:range	glytoucan:Motif_type;
+	rdfs:range	glytoucan:Motif_position;
 	rdfs:label	"has type"@en.
 	rdfs:comment	"A glycan motif has type such as internal, reducing end and non-reducing end."@en.
 
 
 ## Individual
-glytoucan:Motif_type_internal 
-	rdf:type	glytoucan:Motif_type, owl:NamedIndividual;
+glytoucan:Motif_position_internal 
+	rdf:type	glytoucan:Motif_position, owl:NamedIndividual;
 	rdfs:label	“Internal”@en;
 	rdfs:comment	“A glycan motif  internal apper in the glycan structure. “@en.
 
-glytoucan:Motif_type_reducing_end
-	rdf:type	glytoucan:Motif_type, owl:NamedIndividual;
+glytoucan:Motif_position_reducing_end
+	rdf:type	glytoucan:Motif_position, owl:NamedIndividual;
 	rdfs:label	“Reducing end”@en;
 	rdfs:comment	“A glycan motif reducing end apper in the glycan structure. “@en.
 
-glytoucan:Motif_type_non_reducing_end
-	rdf:type	glytoucan:Motif_type, owl:NamedIndividual;
+glytoucan:Motif_position_non_reducing_end
+	rdf:type	glytoucan:Motif_position, owl:NamedIndividual;
 	rdfs:label	“Non-reducing end”@en;
 	sio:hasSynonym	“Non-reducing terminal”@en;
 	rdfs:comment	“A glycan motif non-reducing end apper in the glycan structure. “@en.
@@ -216,7 +216,7 @@ Motif nameは、複数存在する可能性がある。
 <http://rdf.glycoinfo.org/motif/WURCS=2.0/3,3,2/[a2122h-1b_1-5_2*NCC/3=O][a1221m-1a_1-5][a2112h-1b_1-5]/1-2-3/a3-b1_a4-c1>
 	a	glycan:Glycan_motif;
 	glycan:has_glycosequence <http://rdf.glycoinfo.org/motif/sequence/WURCS=2.0/3,3,2/[a2122h-1b_1-5_2*NCC/3=O][a1221m-1a_1-5][a2112h-1b_1-5]/1-2-3/a3-b1_a4-c1>;
-	glytoucan:has_type	glytoucan:Motif_type_non_reducing_end;
+	glytoucan:has_type	glytoucan:Motif_position_non_reducing_end;
 	glycan:has_alias	<http://rdf.glycoinfo.org/motif/aliasWURCS=2.0/3,3,2/[a2122h-1b_1-5_2*NCC/3=O][a1221m-1a_1-5][a2112h-1b_1-5]/1-2-3/a3-b1_a4-c1>.
 
 
