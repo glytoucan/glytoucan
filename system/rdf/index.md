@@ -10,8 +10,9 @@ layout: pading
 
 [Partner RDF](/system/rdf/partnerRdf)
 
+[Partner Motif Insert](/system/rdf/partnerMotif)
 
 
-#### GRAPH RDF
+#### Partner Metadata RDF
 
-[GRAPH RDF](/system/rdf/graphRdf)
+[Partner Metadata RDF](/system/rdf/partnerMetadata)
