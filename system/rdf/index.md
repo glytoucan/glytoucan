@@ -3,7 +3,7 @@ title: RDF development
 authors:
 - Daisuke Shinmachi
 date: 2016-04-20
-layout: pading
+layout: default
 ---
 
 #### GlyTouCan Partner RDF
