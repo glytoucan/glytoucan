@@ -35,7 +35,7 @@ INSERT DATA{
 			a	glycan:Glycan_motif ;
 			glycan:has_glycosequence <http://rdf.glycoinfo.org/motif/{position name}/{WURCSKey}/sequence/wurcs>;
 			glytoucan:has_type	glytoucan:Motif_position_{position name}; 
-			glycan:has_alias	<http://rdf.glycoinfo.org/motif/{position name}/{WURCSKey}/alisas>.
+			glycan:has_alias	<http://rdf.glycoinfo.org/motif/{position name}/{WURCSKey}/alias>.
 
 		<http://rdf.glycoinfo.org/motif/{position name}/{WURCSKey}/sequence/wurcs>
 			a	glycan:Glycosequence ;
@@ -43,7 +43,7 @@ INSERT DATA{
 			glycan:has_sequence "{WURCS sequence}"^^xsd:string;
 			glycan:in_carbohydrate_format	glycan:carbohydrate_format_wurcs.
 
-		<http://rdf.glycoinfo.org/motif/{position name}/{WURCSKey}/alisas>
+		<http://rdf.glycoinfo.org/motif/{position name}/{WURCSKey}/alias>
 			a	glytoucan:Glycan_motif_alias ;
 			glycan:has_alias_name	"{Motif name}"@en. 
 	}
@@ -104,7 +104,7 @@ Motif position has 3 type of position name
 	a	glycan:Glycan_motif ;
 	glycan:has_glycosequence <http://rdf.glycoinfo.org/motif/non_reducing_end/WURCS2md5=0401b43b4a36d0b2974e890d77a7b2a4/sequence/wurcs>;
 	glytoucan:has_type	glytoucan:Motif_type_non_reducing_end;
-	glycan:has_alias	<http://rdf.glycoinfo.org/motif/non_reducing_end/WURCS2md5=0401b43b4a36d0b2974e890d77a7b2a4/alisas>.
+	glycan:has_alias	<http://rdf.glycoinfo.org/motif/non_reducing_end/WURCS2md5=0401b43b4a36d0b2974e890d77a7b2a4/alias>.
 
 <http://rdf.glycoinfo.org/motif/non_reducing_end/WURCS2md5=0401b43b4a36d0b2974e890d77a7b2a4/sequence/wurcs>
 	a	glycan:Glycosequence ;
@@ -112,7 +112,7 @@ Motif position has 3 type of position name
 	glycan:has_sequence "	WURCS=2.0/3,3,2/[a2122h-1b_1-5_2*NCC/3=O][a1221m-1a_1-5][a2112h-1b_1-5]/1-2-3/a3-b1_a4-c1"^^xsd:string;
 	glycan:in_carbohydrate_format	glycan:carbohydrate_format_wurcs.
 
-<http://rdf.glycoinfo.org/motif/non_reducing_end/WURCS2md5=0401b43b4a36d0b2974e890d77a7b2a4/alisas>
+<http://rdf.glycoinfo.org/motif/non_reducing_end/WURCS2md5=0401b43b4a36d0b2974e890d77a7b2a4/alias>
 	a	glytoucan:Glycan_motif_alias ;
 	glycan:has_alias_name	"Lewis X"@en.
 ```
