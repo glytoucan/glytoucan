@@ -69,9 +69,6 @@ http://www.glycome-db.org/database/showStructure.action?glycomeId={glycome-db id
 JCGGDB
 http://jcggdb.jp/idb/jcggdb/{JCGGDB ID}
 
-PDBj
-http://pdbj.org/mine/structural_details/{PDB entry}
-
 GlycoEpitope  
 http://identifiers.org/glycoepitope/{epitope id}
 
@@ -228,19 +225,6 @@ glycan:Database_glycomedb rdfs:label "GlycomeDB"
 
 glycan:Database_jcggdb	rdfs:label	"JCGGDB" .
 
-
-# PDBj entry (External ID) from GlycomeDB 
-# using PDB ID
-<http://rdf.glycoinfo.org/glycan/{accession number}> #Saccharide 
- glycan:has_resource_entry <http://rdf.glycoinfo.org/pdbj/{pdb id}>.
-
-<http://rdf.glycoinfo.org/pdbj/{pdb id}>
- a glycan:Resource_entry ;
- glycan:in_glycan_database glycan:Database_pdbj ;
- dcterms:identifier  "PDB ID" ;
- rdfs:seeAlso	<http://pdbj.org/mine/structural_details/{pdb id}> .
-
-glycan:Database_pdbj	rdfs:label	"PDBj" .
 ```
 
 
@@ -276,11 +260,6 @@ http://rdf.glycoinfo.org/glycome-db/6922
 # JCGGDB
 http://rdf.glycoinfo.org/jcggdb/{jcggdb id}
 http://rdf.glycoinfo.org/jcggdb/JCGG-STR010506
-
-
-# PDBj
-http://rdf.glycoinfo.org/pdbj/{pdb id}
-http://rdf.glycoinfo.org/pdbj/1g1r
 ```
 
 エントリーページURL
@@ -294,12 +273,6 @@ http://www.glycome-db.org/database/showStructure.action?glycomeId=48
 # JCGGDB
 http://jcggdb.jp/idb/jcggdb/{jcggdb id}
 http://jcggdb.jp/idb/jcggdb/JCGG-STR010506
-
-
-# PDBj
-http://pdbj.org/mine/structural_details/{pdb id}
-http://pdbj.org/mine/structural_details/1g1r
-
 ```
 
 
