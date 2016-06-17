@@ -44,7 +44,15 @@ Source instance IRI
 `http://rdf.glycoinfo.org/source/{taxnomomy id}`
 
 Taxonomy URL    
-`http://identifiers.org/taxonomy/{taxonomy_id}`
+
+```
+http://identifiers.org/taxonomy/{taxonomy_id}`
+ex: http://identifiers.org/taxonomy/1010795
+
+http://rdf.glycoinfo.org/source/{encode_taxon_name}
+ex; http://rdf.glycoinfo.org/source/Helicobacter%20pylori%20O3
+
+```
 
 Article instance IRI  
 `http://rdf.glycoinfo.org/references/{pubmed_id}`
@@ -120,6 +128,7 @@ http://pubchem.ncbi.nlm.nih.gov/compound/{CID number}
 
 <http://rdf.glycoinfo.org/bcsdb/{bcsdb id}>
  a glycan:Resource_entry ;
+ rdfs:label	"BCSDB" ;
  glycan:in_glycan_database glycan:Database_bcsdb ;
  dcterms:identifier  "BCSDB ID" ;
  rdfs:seeAlso	<http://csdb.glycoscience.ru/bacterial/core/search_id.php?mode=record&id_list={bcsdb_id}> .
@@ -129,26 +138,6 @@ glycan:Database_bcsdb rdfs:label "BCSDB".
 
 
 ### IRI
-
-**Species**  
-
-glycan:SourceのインスタンスIRI
-
-```
-http://rdf.glycoinfo.org/source/{taxonomy_id}
-http://rdf.glycoinfo.org/source/85962
-
-http://rdf.glycoinfo.org/source/{encode_taxon_name}
-http://rdf.glycoinfo.org/source/Helicobacter%20pylori%20O3
-```
-
-TaxonomyのURL
-
-```
-http://identifiers.org/taxonomy/{taxonomy_id}
-http://identifiers.org/taxonomy/1010795
-```
-
 
 **Literature**  
 
@@ -219,6 +208,7 @@ glycan:Database_glycomedb rdfs:label "GlycomeDB"
 
 <http://rdf.glycoinfo.org/jcggdb/{jcggdb id}>
  a glycan:Resource_entry ;
+ rdfs:label	"JCGGDB" ;
  glycan:in_glycan_database glycan:Database_jcggdb ;
  dcterms:identifier  "JCGGDB ID" ;
  rdfs:seeAlso	<http://jcggdb.jp/idb/jcggdb/{jcggdb id}> .
@@ -308,6 +298,7 @@ http://jcggdb.jp/idb/jcggdb/JCGG-STR010506
 
 <http://rdf.glycoinfo.org/glycoepitope/{epitope id}>
  a glycan:Resource_entry ;
+ rdfs:label	"GlycoEpitope" ;
  glycan:in_glycan_database glycan:Database_glycoepitope ;
  dcterms:identifier	"Epitope id" ;
  rdfs:seeAlso	<http://identifiers.org/glycoepitope/{epitope id}> .
@@ -377,23 +368,23 @@ http://identifiers.org/glycoepitope/EP0011
 
 ```
 <http://rdf.glycoinfo.org/glycan/G35898DT>
- glycan:has_resource_entry <http://rdf.glycoinfo.org/pubchem/SID252275760> .
+ glycan:has_resource_entry 
+ 			<http://rdf.glycoinfo.org/pubchem/SID252275760> ,
+			<http://rdf.glycoinfo.org/pubchem/CID91844939> .
 
 <http://rdf.glycoinfo.org/pubchem/SID252275760>
  a glycan:Resource_entry ;
+ rdfs:label "PubChem SID" ;
  glycan:in_glycan_database　glycan:Database_pubchem ;
  rdfs:seeAlso <http://pubchem.ncbi.nlm.nih.gov/substance/SID252275760> ;
  dcterms:identifier "252275760" .
 
- <http://rdf.glycoinfo.org/glycan/G35898DT>
- a glycan:Saccharide ;
- glycan:has_resource_entry <http://rdf.glycoinfo.org/pubchem/CID91844939> .
-
-<http://rdf.glycoinfo.org/pubchem/CID91844939>
+<http://rdf.glycoinfo.org/glycan/G35898DT<http://rdf.glycoinfo.org/pubchem/CID91844939>
  a glycan:Resource_entry ;
+ rdfs:label "PubChem CID" ;
  glycan:in_glycan_databse	glytoucan:Database_pubchem ;
  rdfs:seeAlso <http://pubchem.ncbi.nlm.nih.gov/compound/CID91844939> ;
-dcterms:identifier "91844939" .
+ dcterms:identifier "91844939" .
 
 glycan:Database_pubchem rdfs:label "PubChem".
 ```
