@@ -1,12 +1,18 @@
 ---
-title: Partner Motif Insert
+title: Subsumption
 authors:
 - Daisuke Shinmachi
 date: 2016-06-07
 layout: default
 ---
 
-## RDF 
+### Subsumption image
+
+![Subsumption](/images/system/subsumption.png)
+
+
+
+### RDF 
 
 This RDF using the ROCS ontogoy  
 [ROCS](https://bitbucket.org/glycosw/glycanrelationontology) : Relation Ontology Carbohydrate Structure
