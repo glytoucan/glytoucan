@@ -6,19 +6,16 @@ date: 2016-06-07
 layout: default
 ---
 
-#### Subsumption image
+**Subsumption image**
 
 ![Subsumption](/images/system/subsumption.png)
 
 
 
-#### RDF 
+**RDF model**
 
 - This RDF using the ROCS ontogoy  
 - [ROCS](https://bitbucket.org/glycosw/glycanrelationontology) : Relation Ontology Carbohydrate Structure
-
-
-**RDF model**
 
 ```
 <Saccharide A>
@@ -46,7 +43,7 @@ layout: default
 
 **Template RDF**
 
-ex:  
+ex: If four accession numbers has follwing relationship.
 
 - {Accession number 1} has_topology {Accession number 2}
 - {Accession number 2} has_composition {Accession number 3}
