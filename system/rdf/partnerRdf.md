@@ -89,7 +89,7 @@ http://pubchem.ncbi.nlm.nih.gov/compound/{CID number}
 
 
 
-## from BCSDB  
+## from BCSDB
 
 `<http://rdf.glytoucan.org/partner/bcsdb>`  
 

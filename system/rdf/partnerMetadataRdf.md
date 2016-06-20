@@ -2,7 +2,7 @@
 title: Partner metadata RDF
 authors:
 - Daisuke Shinmachi
-date: 2016-04-20
+date: 2016-06-20
 layout: default
 ---
 
@@ -38,12 +38,20 @@ layout: default
     dcterms:description "GlycoNAVI is a gateway to free suite of carbohydrate research tools."@en ;
     rdfs:seeAlso <http://ws.glyconavi.org/> ;
     rdfs:label "GlycoNAVI".
+
+<http://rdf.glytoucan.org/partner/unicarbkb>
+    a   glytoucan:Partner ;
+    dcterms:description "The UniCarb KnowledgeBase (UniCarbKB) offers public access to a growing, curated database of information on the glycan structures of glycoproteins."@en ; 
+    rdfs:seeAlso  <http://www.unicarbkb.org/> ;
+    rdfs:label "UniCarbKB".
 ```
 
 
 **Insert query**
 
 ```
+# BCSDB, GlycomeDB, GlycoEpitope, GlycoNAVI, UniCarbKB
+
 log_enable(2,1);
 sparql
 PREFIX rdfs:    <http://www.w3.org/2000/01/rdf-schema#> 
@@ -74,6 +82,13 @@ INSERT DATA{
             dcterms:description "GlycoNAVI is a gateway to free suite of carbohydrate research tools."@en ;
             rdfs:seeAlso <http://ws.glyconavi.org/> ;
             rdfs:label "GlycoNAVI".
+
+        
+        <http://rdf.glytoucan.org/partner/unicarbkb>
+            a   glytoucan:Partner ;
+            dcterms:description "The UniCarb KnowledgeBase (UniCarbKB) offers public access to a growing, curated database of information on the glycan structures of glycoproteins."@en ; 
+            rdfs:seeAlso  <http://www.unicarbkb.org/> ;
+            rdfs:label "UniCarbKB".
         }
 };
 checkpoint;
