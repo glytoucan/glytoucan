@@ -1,5 +1,5 @@
 ---
-title: Subsumption
+title: Subsumption data model
 authors:
 - Daisuke Shinmachi
 date: 2016-06-07
