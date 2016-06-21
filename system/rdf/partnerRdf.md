@@ -13,13 +13,14 @@ layout: default
 * [from GlycoNAVI](#from GlycoNAVI)
 	* [PubChem](#pubchem)
 	* [wwPDB](#wwpdb) 
+	* [wwPDB CC](#wwpdb cc) 
 * [from UniCarbKB](#from UniCarbKB)
 * [SPARQL Query](#SPARQL Query)
 
 
 ##  About IRI
 
-**Domain** 
+**Using Domain** 
 
 - rdf.glycoinfo.org  
 - identifier.org
@@ -314,7 +315,7 @@ glycan:Database_pubchem
 ```
 
 
-<a name="wwwpdb"> wwPDB members  
+<a name="wwpdb"> wwPDB members  
 [return to menu](#menu)
 
 * PDBj 
@@ -362,7 +363,8 @@ OK http://www.rcsb.org/pdb/explore.do?structureId=3s0k
 
 OK http://rdf.wwpdb.org/pdb/3s0k
 
-**In the case of CC**
+<a name="wwpdb cc"> **In the case of CC**   
+[return to menu](#menu)
 
 * PDBj CC
 * PDBe CC
@@ -413,7 +415,7 @@ glycan:Database_rcsb_pdb
 ```
 
 
-### <a name="from GlycoNAVI">from UniCarbKB
+### <a name="from UniCarbKB"> from UniCarbKB
 [return to menu](#menu)
 
 GRAPH : `<http://rdf.glytoucan.org/partner/unicarbkb>`  
