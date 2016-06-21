@@ -6,32 +6,12 @@ date: 2016-04-20
 layout: default
 ---
 
-# GlyTouCan Partner RDF
-
-## SPARQL query
-
-Construct query  
-[SPARQL query](/system/sparql/partnerRdfConstructQuery)
-
-Insert query  
-[SPARQL query](/system/sparql/partnerRdfInsertQuery)
-
-
-
-##  Named GRAPH 
-
-from BCSDB  
-`<http://rdf.glytoucan.org/partner/bcsdb>`  
-
-from GlycomeDB  
-`<http://rdf.glytoucan.org/partner/glycome-db>`  
-
-from GlycoEpitope  
-`<http://rdf.glytoucan.org/partner/glycoepitope>`  
-
-from GlycoNAVI  
-`<http://rdf.glytoucan.org/partner/glyconavi>`  
-
+#  GlyTouCan Partner RDF
+* [from BCSDB](#from BCSDB)
+* [from GlycomeDB](#from GlycomeDB)  
+* [from GlycoEpitope](#from GlycoEpitope)
+* [from GlycoNAVI](#from GlycoNAVI)
+* [SPARQL Query](#SPARQL Query)
 
 
 ##  About IRI
@@ -89,7 +69,7 @@ http://pubchem.ncbi.nlm.nih.gov/compound/{CID number}
 
 
 
-## from BCSDB
+### <a name="from BCSDB">from BCSDB 
 
 `<http://rdf.glytoucan.org/partner/bcsdb>`  
 
@@ -416,3 +396,10 @@ http://pubchem.ncbi.nlm.nih.gov/compound/CID91844939
 
 ```
 
+## <a name="SPARQL Query">SPARQL query
+
+Construct query  
+[SPARQL query](/system/sparql/partnerRdfConstructQuery)
+
+Insert query  
+[SPARQL query](/system/sparql/partnerRdfInsertQuery)
