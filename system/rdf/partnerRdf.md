@@ -30,7 +30,7 @@ layout: default
 
 ```
 Source instance  
-http://rdf.glycoinfo.org/source/{taxnomomy id}
+http://rdf.glycoinfo.org/source/{taxnomomy_id}
 
 
 Taxonomy instance    
@@ -51,7 +51,7 @@ http://identifiers.org/pubmed/{pubmed_id}
 
 
 Resource entry instance IRI  
-http://rdf.glycoinfo.org/{database label}/{entry page id of the partner}
+http://rdf.glycoinfo.org/{database_label}/{each_entry_id}
 
 	# BCSDB
 	http://rdf.glycoinfo.org/bcsdb/6922
@@ -87,39 +87,39 @@ http://csdb.glycoscience.ru/bacterial/core/search_id.php?mode=record&id_list={bc
 => http://csdb.glycoscience.ru/bacterial/core/search_id.php?mode=record&id_list=6922 
 
 GlycomeDB  
-http://www.glycome-db.org/database/showStructure.action?glycomeId={glycome-db id}
+http://www.glycome-db.org/database/showStructure.action?glycomeId={glycome-db_id}
 => http://www.glycome-db.org/database/showStructure.action?glycomeId=48
 
 JCGGDB
-http://jcggdb.jp/idb/jcggdb/{JCGGDB ID}
+http://jcggdb.jp/idb/jcggdb/{jcggdb_id}
 => http://jcggdb.jp/idb/jcggdb/JCGG-STR010506
 
 GlycoEpitope  
-http://identifiers.org/glycoepitope/{epitope id}
+http://identifiers.org/glycoepitope/{epitope_id}
 => http://identifiers.org/glycoepitope/EP0011
 
 PubChem substance  
-http://pubchem.ncbi.nlm.nih.gov/substance/{SID number}
+http://pubchem.ncbi.nlm.nih.gov/substance/{sid}
 => http://pubchem.ncbi.nlm.nih.gov/substance/SID252275760
 
 PubChem compound  
-http://pubchem.ncbi.nlm.nih.gov/compound/{CID number}
+http://pubchem.ncbi.nlm.nih.gov/compound/{cid}
 => http://pubchem.ncbi.nlm.nih.gov/compound/CID91844939
 
 PDBj CC
-http://pdbj.org/chemie/summary/{id}
-=> http://pdbj.org/chemie/summary/
+http://pdbj.org/chemie/summary/{pdb_id}
+=> http://pdbj.org/chemie/summary/03F
 
 PDBe CC
-http://rdf.glycoinfo.org/pdbe-cc/{id}
-=> hhttp://rdf.glycoinfo.org/pdbe-cc/{id}
+http://rdf.glycoinfo.org/pdbe-cc/{pdb_id}
+=> hhttp://rdf.glycoinfo.org/pdbe-cc/03F
 
 RCSB PDB CC
-http://rdf.glycoinfo.org/rcsb_pdb-cc/{id}
-=> hhttp://rdf.glycoinfo.org/rcsb_pdb-cc/{id}
+http://rdf.glycoinfo.org/rcsb_pdb-cc/{pdb_id}
+=> hhttp://rdf.glycoinfo.org/rcsb_pdb-cc/03F
 
 UniCarbKB
-http://www.unicarbkb.org/structure/{structure id}
+http://www.unicarbkb.org/structure/{structure_id}
 => http://www.unicarbkb.org/structure/1
 ```
 
@@ -136,7 +136,7 @@ GRAPH : `<http://rdf.glytoucan.org/partner/bcsdb>`
 
 ``` 
 # Species
-<http://rdf.glycoinfo.org/glycan/{accession number}> #Saccharide 
+<http://rdf.glycoinfo.org/glycan/{accession_number}> #Saccharide 
 	glycan:is_from_source <http://rdf.glycoinfo.org/source/{taxonomy_id}> ;
 	glycan:is_from_source <http://rdf.glycoinfo.org/source/{encode_taxon_name}> .
 
@@ -144,7 +144,7 @@ GRAPH : `<http://rdf.glytoucan.org/partner/bcsdb>`
 <http://rdf.glycoinfo.org/source/{taxonomy_id}>
 	a glycan:Source ;
 	rdfs:label "taxon name" ;
-	dcterms:identifier "Taxonomy ID" ;
+	dcterms:identifier "{taxonomy_id}" ;
 	rdfs:seeAlso <http://identifiers.org/taxonomy/{taxonomy_id}> .
 
 # dose not taxonomy id
@@ -154,27 +154,28 @@ GRAPH : `<http://rdf.glytoucan.org/partner/bcsdb>`
 
 
 # Literature
-<http://rdf.glycoinfo.org/glycan/{accession number}> #Saccharide 
+<http://rdf.glycoinfo.org/glycan/{accession_number}> #Saccharide 
 	dcterms:references <http://rdf.glycoinfo.org/references/{pubmed_id}> ; #Article
 
 <http://rdf.glycoinfo.org/references/{pubmed_id}>
 	a bibo:Article ;
-	dcterms:identifier "PubMed id" ;
+	dcterms:identifier "{pubmed_id}" ;
 	rdfs:seeAlso <http://identifiers.org/pubmed/{pubmed_id}> . #PubMed URL
 
 
 # External ID
-<http://rdf.glycoinfo.org/glycan/{accession number}> #Saccharide 
-	glycan:has_resource_entry <http://rdf.glycoinfo.org/bcsdb/{bcsdb id}>.
+<http://rdf.glycoinfo.org/glycan/{accession_number}> #Saccharide 
+	glycan:has_resource_entry <http://rdf.glycoinfo.org/bcsdb/{bcsdb_id}>.
 
-<http://rdf.glycoinfo.org/bcsdb/{bcsdb id}>
+<http://rdf.glycoinfo.org/bcsdb/{bcsdb_id}>
 	a glycan:Resource_entry ;
 	rdfs:label	"BCSDB" ;
 	glycan:in_glycan_database glycan:Database_bcsdb ;
-	dcterms:identifier  "BCSDB ID" ;
+	dcterms:identifier  "{bcsdb_id}" ;
 	rdfs:seeAlso	<http://csdb.glycoscience.ru/bacterial/core/search_id.php?mode=record&id_list={bcsdb_id}> .
 
-glycan:Database_bcsdb rdfs:label "BCSDB".
+glycan:Database_bcsdb 
+	rdfs:label "BCSDB".
 ```
 
 
@@ -188,42 +189,44 @@ GRAPH : `<http://rdf.glytoucan.org/partner/glycome-db>`
 
 ```
 # Species
-<http://rdf.glycoinfo.org/glycan/{accession number}> #Saccharide 
+<http://rdf.glycoinfo.org/glycan/{accession_number}> #Saccharide 
 	glycan:is_from_source <http://rdf.glycoinfo.org/source/{taxonomy_id}> .
 
 <http://rdf.glycoinfo.org/source/{taxonomy_id}>
 	a glycan:Source ;
-	dcterms:identifier "Taxonomy ID" ;
+	dcterms:identifier "{taxonomy_id}" ;
 	rdfs:seeAlso <http://identifiers.org/taxonomy/{taxonomy_id}> .
 
 
 # External ID
-<http://rdf.glycoinfo.org/glycan/{accession number}> #Saccharide 
-	glycan:has_resource_entry <http://rdf.glycoinfo.org/glycome-db/{glycomedb id>.
+<http://rdf.glycoinfo.org/glycan/{accession_number}> #Saccharide 
+	glycan:has_resource_entry <http://rdf.glycoinfo.org/glycome-db/{glycome-db_id>.
 
-<http://rdf.glycoinfo.org/glycome-db/{glycomedb id}>
+<http://rdf.glycoinfo.org/glycome-db/{glycome-db_id}>
 	a glycan:Resource_entry ;
 	rdfs:label	"GlycomeDB" ;
 	glycan:in_glycan_database glycan:Database_glycomedb ;
-	dcterms:identifier  "GlycomeDB ID" ;
+	dcterms:identifier  "{glycome-db_id}" ;
 	rdfs:seeAlso	<http://www.glycome-db.org/database/showStructure.action?glycomeId={glycome-db id}> .
 
-glycan:Database_glycomedb rdfs:label "GlycomeDB"
+glycan:Database_glycomedb 
+	rdfs:label "GlycomeDB".
 
 
 
 # JCGGDB entry (External ID) from GlycomeDB 
-<http://rdf.glycoinfo.org/glycan/{accession number}> #Saccharide 
-	glycan:has_resource_entry <http://rdf.glycoinfo.org/jcggdb/{jcggdb id}>.
+<http://rdf.glycoinfo.org/glycan/{accession_number}> #Saccharide 
+	glycan:has_resource_entry <http://rdf.glycoinfo.org/jcggdb/{jcggdb_id}>.
 
-<http://rdf.glycoinfo.org/jcggdb/{jcggdb id}>
+<http://rdf.glycoinfo.org/jcggdb/{jcggdb_id}>
 	a glycan:Resource_entry ;
 	rdfs:label	"JCGGDB" ;
 	glycan:in_glycan_database glycan:Database_jcggdb ;
-	dcterms:identifier  "JCGGDB ID" ;
-	rdfs:seeAlso	<http://jcggdb.jp/idb/jcggdb/{jcggdb id}> .
+	dcterms:identifier  "jcggdb_id" ;
+	rdfs:seeAlso	<http://jcggdb.jp/idb/jcggdb/{jcggdb_id}> .
 
-glycan:Database_jcggdb	rdfs:label	"JCGGDB" .
+glycan:Database_jcggdb	
+	rdfs:label	"JCGGDB" .
 ```
 
 
@@ -238,37 +241,38 @@ GRAPH : `<http://rdf.glytoucan.org/partner/glycoepitope>`
 
 ```
  # Species
-<http://rdf.glycoinfo.org/glycan/{accession number}> #Saccharide 
+<http://rdf.glycoinfo.org/glycan/{accession_number}> #Saccharide 
  glycan:is_from_source <http://rdf.glycoinfo.org/source/{taxonomy_id}> ;
 
 <http://rdf.glycoinfo.org/source/{taxonomy_id}>
  a glycan:Source ;
- dcterms:identifier "Taxonomy ID" ;
+ dcterms:identifier "{taxonomy_id}" ;
  rdfs:seeAlso <http://identifiers.org/taxonomy/{taxonomy_id}> .
 
 
 # Literature
-<http://rdf.glycoinfo.org/glycan/{accession number}> #Saccharide 
+<http://rdf.glycoinfo.org/glycan/{accession_number}> #Saccharide 
  dcterms:references <http://rdf.glycoinfo.org/references/{pubmed_id}> ; #Article
 
 <http://rdf.glycoinfo.org/references/{pubmed_id}>
  a bibo:Article ;
- dcterms:identifier "PubMed id" ;
+ dcterms:identifier "{pubmed_id}" ;
  rdfs:seeAlso <http://identifiers.org/pubmed/{pubmed_id}> . #PubMed URL
 
 
 # External ID
-<http://rdf.glycoinfo.org/glycan/{accession number}> #Saccharide 
-	glycan:has_resource_entry <http://rdf.glycoinfo.org/glycoepitope/{epitope id}> .
+<http://rdf.glycoinfo.org/glycan/{accession_number}> #Saccharide 
+	glycan:has_resource_entry <http://rdf.glycoinfo.org/glycoepitope/{epitope_id}> .
 
-<http://rdf.glycoinfo.org/glycoepitope/{epitope id}>
+<http://rdf.glycoinfo.org/glycoepitope/{epitope_id}>
 	a glycan:Resource_entry ;
 	rdfs:label	"GlycoEpitope" ;
 	glycan:in_glycan_database glycan:Database_glycoepitope ;
-	dcterms:identifier	"Epitope id" ;
-	rdfs:seeAlso	<http://identifiers.org/glycoepitope/{epitope id}> .
+	dcterms:identifier	"{epitope_id}" ;
+	rdfs:seeAlso	<http://identifiers.org/glycoepitope/{epitope_id}> .
 
-glycan:Database_glycoepitope rdfs:label "GlycoEpitope".
+glycan:Database_glycoepitope 
+	rdfs:label "GlycoEpitope".
 ```
 
 
@@ -286,7 +290,7 @@ GRAPH : `<http://rdf.glytoucan.org/partner/glyconavi>`
 
 
 ```
-<http://rdf.glycoinfo.org/glycan/{accession number}>
+<http://rdf.glycoinfo.org/glycan/{accession_number}>
 	glycan:has_resource_entry 
  			<http://rdf.glycoinfo.org/pubchem/{sid}> ,
 			<http://rdf.glycoinfo.org/pubchem/{cid}> .
@@ -296,56 +300,60 @@ GRAPH : `<http://rdf.glytoucan.org/partner/glyconavi>`
 	rdfs:label "PubChem SID" ;
 	glycan:in_glycan_database　glycan:Database_pubchem ;
 	rdfs:seeAlso <http://pubchem.ncbi.nlm.nih.gov/substance/{sid}> ;
-	dcterms:identifier "252275760" .
+	dcterms:identifier "{sid}" .
 
 <http://rdf.glycoinfo.org/pubchem/{cid}>
 	a glycan:Resource_entry ;
 	rdfs:label "PubChem CID" ;
 	glycan:in_glycan_databse	glytoucan:Database_pubchem ;
 	rdfs:seeAlso <http://pubchem.ncbi.nlm.nih.gov/compound/{cid}> ;
-	dcterms:identifier "91844939" .
+	dcterms:identifier "{cid}" .
 
-glycan:Database_pubchem rdfs:label "PubChem".
+glycan:Database_pubchem 
+	rdfs:label "PubChem".
 ```
 
 
-<a name="wwwpdb"> wwPDB    
+<a name="wwwpdb"> wwPDB members  
 [return to menu](#menu)
 
+* PDBj CC
+* PDBe CC
+* RCSB PDB CC
 
-* cc : chemical component
+cc : chemical component
 
 ```
-<http://rdf.glycoinfo.org/glycan/{Accession number}>
+<http://rdf.glycoinfo.org/glycan/{accession_number}>
 	a glycan:Saccharide ;
-	glycan:has_resource_entry <http://rdf.glycoinfo.org/pdbj-cc/{id}> ;
-	glycan:has_resource_entry <http://rdf.glycoinfo.org/pdbe-cc/{id}> ;
-	glycan:has_resource_entry <http://rdf.glycoinfo.org/rcsb_pdb-cc/{id}> .
+	glycan:has_resource_entry <http://rdf.glycoinfo.org/pdbj-cc/{pdb_id}> ;
+	glycan:has_resource_entry <http://rdf.glycoinfo.org/pdbe-cc/{pdb_id}> ;
+	glycan:has_resource_entry <http://rdf.glycoinfo.org/rcsb_pdb-cc/{pdb_id}> .
 
-<http://rdf.glycoinfo.org/pdbj-cc/{id}>
+<http://rdf.glycoinfo.org/pdbj-cc/{pdb_id}>
 	a glycan:Resource_entry ;
 	rdfs:label	"PDBj CC" ;
-	dcterms:identifier	"id";
+	dcterms:identifier	"{pdb_id}";
 	glycan:in_glycan_database  glycan:Database_pdbj ;
-	rdfs:seeAlso	<http://pdbj.org/chemie/summary/{id}> ;
-	skos:exactMatch	<http://rdf.wwpdb.org/cc/{id}> .
+	rdfs:seeAlso	<http://pdbj.org/chemie/summary/{pdb_id}> ;
+	skos:exactMatch	<http://rdf.wwpdb.org/cc/{pdb_id}> .
 
-<http://rdf.glycoinfo.org/pdbe-cc/{id}>
-	dcterms:identifier	"id";
+<http://rdf.glycoinfo.org/pdbe-cc/{pdb_id}>
+	dcterms:identifier	"{pdb_id}";
 	rdfs:label	"PDBe CC" ;
 	glycan:in_glycan_database  glycan:Database_pdbe ;
-	rdfs:seeAlso	<http://www.ebi.ac.uk/pdbe/entry/pdb/{id}> ;
-	skos:exactMatch	<http://rdf.wwpdb.org/cc/{id}> .
+	rdfs:seeAlso	<http://www.ebi.ac.uk/pdbe/entry/pdb/{pdb_id}> ;
+	skos:exactMatch	<http://rdf.wwpdb.org/cc/{pdb_id}> .
 
-<http://rdf.glycoinfo.org/rcsb_pdb-cc/{id}>
-	dcterms:identifier	"id";
+<http://rdf.glycoinfo.org/rcsb_pdb-cc/{pdb_id}>
+	dcterms:identifier	"{pdb_id}";
 	rdfs:label	"RCSB PDB CC" ;
 	glycan:in_glycan_database  glycan:Database_rcsb_pdb ;
-	rdfs:seeAlso	<http://www.rcsb.org/pdb/explore.do?structureId={id}> ;
-	skos:exactMatch	<http://rdf.wwpdb.org/cc/{id}> .
+	rdfs:seeAlso	<http://www.rcsb.org/pdb/explore.do?structureId={pdb_id}> ;
+	skos:exactMatch	<http://rdf.wwpdb.org/cc/{pdb_id}> .
 
-<http://rdf.wwpdb.org/cc/{id}>
-	dcterms:identifier	"id".
+<http://rdf.wwpdb.org/cc/{pdb_id}>
+	dcterms:identifier	"{pdb_id}".
 
 glycan:Database_pdbj
 	rdfs:label	"PDBj" .
@@ -366,20 +374,20 @@ GRAPH : `<http://rdf.glytoucan.org/partner/unicarbkb>`
 **Dataset**
 
 ```
-<http://rdf.glycoinfo.org/glycan/{Accession number}>
+<http://rdf.glycoinfo.org/glycan/{accession_number}>
 	a glycan:Saccharide ;
-	glycan:has_resource_entry <https://glytoucan.org/Structures/Glycans/{Accession number}> ;
-	glycan:has_resource_entry <http://rdf.glycoinfo.org/unicarbkb/{structure id}> .
+	glycan:has_resource_entry <https://glytoucan.org/Structures/Glycans/{accession_number}> ;
+	glycan:has_resource_entry <http://rdf.glycoinfo.org/unicarbkb/{structure_id}> .
 
-<http://rdf.glycoinfo.org/unicarbkb/{structure id}>
+<http://rdf.glycoinfo.org/unicarbkb/{structure_id}>
 	a glycan:Resource_entry ;
 	glycan:in_glycan_database  glycan:Database_unicarbkb ;
-	dcterms:identifier	"{structure id}";
-	rdfs:label	"UnicarbKB" ;
-	rdfs:seeAlso	<http://www.unicarbkb.org/structure/{structure id}> .
+	dcterms:identifier	"{structure_id}";
+	rdfs:label	"UniCarbKB" ;
+	rdfs:seeAlso	<http://www.unicarbkb.org/structure/{structure_id}> .
 
 glycan:Database_unicarbkb
-	rdfs:label	"UnicarbKB" .
+	rdfs:label	"UniCarbKB" .
 ```
 
 
