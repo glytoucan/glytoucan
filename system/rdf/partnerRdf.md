@@ -317,6 +317,53 @@ glycan:Database_pubchem
 <a name="wwwpdb"> wwPDB members  
 [return to menu](#menu)
 
+* PDBj 
+* PDBe 
+* RCSB 
+
+```
+<http://rdf.glycoinfo.org/glycan/{accession_number}>
+	a glycan:Saccharide ;
+	glycan:has_resource_entry <http://rdf.glycoinfo.org/pdbj/{pdb_id}> ;
+	glycan:has_resource_entry <http://rdf.glycoinfo.org/pdbe/{pdb_id}> ;
+	glycan:has_resource_entry <http://rdf.glycoinfo.org/rcsb_pdb/{pdb_id}> .
+
+<http://rdf.glycoinfo.org/pdbj/{pdb_id}>
+	a glycan:Resource_entry ;
+	rdfs:label	"PDBj" ;
+	dcterms:identifier	"{pdb_id}";
+	glycan:in_glycan_database  glycan:Database_pdbj ;
+	rdfs:seeAlso	<http://pdbj.org/mine/summary/{pdb_id}> ;
+	skos:exactMatch	<http://rdf.wwpdb.org/pdb/{pdb_id}> .
+
+
+<http://rdf.glycoinfo.org/pdbe/{pdb_id}>
+	dcterms:identifier	"{pdb_id}";
+	rdfs:label	"PDBe" ;
+	glycan:in_glycan_database  glycan:Database_pdbe ;
+	rdfs:seeAlso	<http://www.ebi.ac.uk/pdbe/entry/pdb/{pdb_id}> ;
+	skos:exactMatch	<http://rdf.wwpdb.org/pdb/{pdb_id}> .
+
+<http://rdf.glycoinfo.org/rcsb_pdb/{pdb_id}>
+	dcterms:identifier	"{pdb_id}";
+	rdfs:label	"RCSB PDB" ;
+	glycan:in_glycan_database  glycan:Database_rcsb_pdb ;
+	rdfs:seeAlso	<http://www.rcsb.org/pdb/explore.do?structureId={pdb_id}> ;
+	skos:exactMatch	<http://rdf.wwpdb.org/pdb/{pdb_id}> .
+
+<http://rdf.wwpdb.org/pdb/{pdb_id}>
+	dcterms:identifier	"{pdb_id}".
+```
+
+OK http://pdbj.org/mine/summary/3s0k
+OK http://www.ebi.ac.uk/pdbe/entry/pdb/3s0k
+OK http://www.rcsb.org/pdb/explore/explore.do?pdbId=3s0k
+OK http://www.rcsb.org/pdb/explore.do?structureId=3s0k 
+
+OK http://rdf.wwpdb.org/pdb/3s0k
+
+**In the case of CC**
+
 * PDBj CC
 * PDBe CC
 * RCSB PDB CC
