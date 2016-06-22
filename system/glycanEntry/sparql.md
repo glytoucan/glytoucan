@@ -88,7 +88,7 @@ WHERE {
 ### Computed Descriptors
 
 
-#####  <a name="wurcs"> WURCS  
+####  <a name="wurcs"> WURCS  
 [return to contents](#contents)
 
 
@@ -122,7 +122,7 @@ WHERE {
 ```
 
 
-##### <a name="glycoct"> GlycoCT  
+#### <a name="glycoct"> GlycoCT  
 [return to contents](#contents)
 
 **Input**
@@ -154,7 +154,7 @@ WHERE {
 ```
 
 
-##### <a name="iupac"> IUPAC Condensed & Extended
+#### <a name="iupac"> IUPAC Condensed & Extended
 [return to contents](#contents)
 
 **Input**
