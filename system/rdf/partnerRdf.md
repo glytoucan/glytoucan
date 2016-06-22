@@ -52,26 +52,42 @@ http://identifiers.org/pubmed/{pubmed_id}
 
 
 Resource entry instance IRI  
-http://rdf.glycoinfo.org/{database_label}/{each_entry_id}
+http://rdf.glycoinfo.org/{database_label or entry_id_type}/{each_entry_id}
 
 	# BCSDB
 	http://rdf.glycoinfo.org/bcsdb/6922
+
 	# GlycomeDB
 	http://rdf.glycoinfo.org/glycome-db/48
+
 	# JCGGDB
 	http://rdf.glycoinfo.org/jcggdb/JCGG-STR010506
+
 	# GlycoEpitope
 	http://rdf.glycoinfo.org/glycoepitope/EP0011
+
 	# PubChem SID
 	http://rdf.glycoinfo.org/pubchem/SID252275760
+
 	# PubChem CID
 	http://rdf.glycoinfo.org/pubchem/CID91844939
-	# PDBj CC
-	http://rdf.glycoinfo.org/pdbj-cc/03F
-	# PDBe CC
-	http://rdf.glycoinfo.org/pdbe-cc/03F
-	# RCSB PDB CC
-	http://rdf.glycoinfo.org/rcsb_pdb-cc/03F
+
+	# wwPDB
+		# PDBj 
+		http://rdf.glycoinfo.org/pdbj/03F
+		# PDBe CC
+		http://rdf.glycoinfo.org/pdbe/03F
+		# RCSB PDB CC
+		http://rdf.glycoinfo.org/rcsb_pdb/03F
+
+	# wwPDB CC
+		# PDBj CC
+		http://rdf.glycoinfo.org/pdbj-cc/03F
+		# PDBe CC
+		http://rdf.glycoinfo.org/pdbe-cc/03F
+		# RCSB PDB CC
+		http://rdf.glycoinfo.org/rcsb_pdb-cc/03F
+
 	# UniCarbKB
 	http://rdf.glycoinfo.org/unicarbkb/1
 ```
@@ -301,6 +317,7 @@ GRAPH : `<http://rdf.glytoucan.org/partner/glyconavi>`
 	rdfs:label "PubChem SID" ;
 	glycan:in_glycan_database　glycan:Database_pubchem ;
 	rdfs:seeAlso <http://pubchem.ncbi.nlm.nih.gov/substance/{sid}> ;
+	skos:exactMatch <http://pubchem.ncbi.nlm.nih.gov/substance/{sid}> ;
 	dcterms:identifier "{sid}" .
 
 <http://rdf.glycoinfo.org/pubchem/{cid}>
@@ -308,6 +325,7 @@ GRAPH : `<http://rdf.glytoucan.org/partner/glyconavi>`
 	rdfs:label "PubChem CID" ;
 	glycan:in_glycan_databse	glytoucan:Database_pubchem ;
 	rdfs:seeAlso <http://pubchem.ncbi.nlm.nih.gov/compound/{cid}> ;
+	skos:closeMatch	<http://pubchem.ncbi.nlm.nih.gov/compound/{cid}> ;
 	dcterms:identifier "{cid}" .
 
 glycan:Database_pubchem 
@@ -444,8 +462,9 @@ glycan:Database_unicarbkb
 ## <a name="SPARQL Query">SPARQL query
 [return to menu](#menu)
 
-Construct query  
-[SPARQL query](/system/sparql/partnerRdfConstructQuery)
 
-Insert query  
-[SPARQL query](/system/sparql/partnerRdfInsertQuery)
+Insert   
+[from BCSDB](/system/sparql/insertSparqlPartnerBCSDB)
+[from GlycoEpitope](/system/sparql/insertSparqlPartnerGlycoEpitope)
+[from GlycomeDB](/system/sparql/insertSparqlPartnerGlycomeDB)
+[from GlycoNAVI](/system/sparql/insertSparqlPartnerGlycoNAVI)
