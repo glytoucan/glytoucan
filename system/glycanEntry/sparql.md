@@ -14,16 +14,16 @@ layout: default
 	* WURCS
 	* Created Date
 
-* **Contents**
-	* Structure
+* <a name="contents"> **Contents**
+	* [Structure](#structure)
 	* Computed Descriptors
-		* WURCS
-		* GlycoCT
-		* IUPAC
-	* Glycan Motif
-	* Species
-	* Literature
-	* External ID
+		* [WURCS](#wurcs)
+		* [GlycoCT](#glycoct)
+		* [IUPAC Condensed & Extended](#iupac)
+	* [Glycan Motif](#motif)
+	* [Species](#species)
+	* [Literature](#literature)
+	* [External ID](#external)
 
 # Summary
 
@@ -79,14 +79,17 @@ WHERE {
 
 # Contents 
 
-### Structure
+### <a name="structure"> Structure  
+[return to contents](#contents)
+
 
 * A structure is not produced by SPARQL query.
 
 ### Computed Descriptors
 
 
-#####  WURCS
+#####  <a name="wurcs"> WURCS  
+[return to contents](#contents)
 
 
 **Input**
@@ -119,7 +122,8 @@ WHERE {
 ```
 
 
-#####  GlycoCT
+##### <a name="glycoct"> GlycoCT  
+[return to contents](#contents)
 
 **Input**
 
@@ -150,7 +154,8 @@ WHERE {
 ```
 
 
-#####  IUPAC 
+##### <a name="iupac"> IUPAC Condensed & Extended
+[return to contents](#contents)
 
 **Input**
 
@@ -160,22 +165,48 @@ WHERE {
 
 * IUPAC sequence
 
+
+*IUPAC Condensed*  
+
 ```
 PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
 PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
 
-SELECT DISTINCT ?IUPAC
+SELECT DISTINCT ?IUPAC_Condensed
 WHERE {
   # Accession Number
   VALUES ?accNum {"G00051MO"}
   ?saccharide glytoucan:has_primary_id ?accNum .
 
-  # IUPAC 
+  # IUPAC_Condensed 
   OPTIONAL{
   ?saccharide glycan:has_glycosequence ?iupSeq .
   ?iupSeq glycan:has_sequence ?seq .
-  BIND(STR(?seq) AS ?IUPAC)
-  ?iupSeq glycan:in_carbohydrate_format glycan:carbohydrate_format_iupac .
+  BIND(STR(?seq) AS ?IUPAC_Condensed)
+  ?iupSeq glycan:in_carbohydrate_format glycan:carbohydrate_format_iupac_condensed .
+  }
+}
+```
+
+
+*IUPAC Extended sequence*
+
+```
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
+PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
+
+SELECT DISTINCT ?IUPAC_Extended
+WHERE {
+  # Accession Number
+  VALUES ?accNum {"G00051MO"}
+  ?saccharide glytoucan:has_primary_id ?accNum .
+
+  # IUPAC_Extended 
+  OPTIONAL{
+  ?saccharide glycan:has_glycosequence ?iupSeq .
+  ?iupSeq glycan:has_sequence ?seq .
+  BIND(STR(?seq) AS ?IUPAC_Extended)
+  ?iupSeq glycan:in_carbohydrate_format glycan:carbohydrate_format_iupac_extended .
   }
 }
 ```
@@ -183,8 +214,8 @@ WHERE {
 
 
 
-
-### Glycan Motif
+### <a name="motif"> Glycan Motif   
+[return to contents](#contents)
 
 * Using accession number in motif instance IRI 
 * it IRI will be change to wurcs key and motif position insted of accession number. 
@@ -195,8 +226,8 @@ WHERE {
 
 **Output**
 
-* Motif name
-* Motif accession number : for get glycan image 
+* Motif name : ?MotifName
+* Accession number : ?moAccNum (for get glycan image) 
 
 ```
 # Motif 
@@ -216,9 +247,16 @@ WHERE{
 ```
 
 
-### Species
+### <a name="species"> Species  
+[return to contents](#contents)
 
-##### Target partners : BCSDB, GlycomeDB, GlycoEpitope 
+
+##### Target partners :  
+
+* BCSDB 
+* GlycomeDB
+* GlycoEpitope
+
 
 **Input**
 
@@ -226,9 +264,10 @@ WHERE{
 
 **Output**
 
+* Taxonomy name : ?taxon_name
+* Taxonomy ID : ?taxon_id
+* NCBI Taxonomy URL : ?taxon_url
 * Partner name : ?from
-* Taxonomy name
-* NCBI Taxonomy URL
 
 ```
 # Species
@@ -236,7 +275,7 @@ PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
 PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
 
-SELECT DISTINCT ?from ?taxon_name ?taxon_id ?taxon_url 
+SELECT DISTINCT ?taxon_name ?taxon_id ?taxon_url ?from
 WHERE{
 	VALUES ?accNum {"G00051MO"}
 	?saccharide  glytoucan:has_primary_id ?accNum .
@@ -264,10 +303,23 @@ WHERE{
 } ORDER BY ?from
 ```
 
+*BCSDB has two case of txonomy data*  
+1) does exists taxnon name & id  
+2) does not exists taxon id  
 
-### Literature
 
-##### Target partners : BCSDB, GlycoEpitope 
+
+
+
+### <a name="literature"> Literature  
+[return to contents](#contents)
+
+
+##### Target partners :  
+
+* BCSDB 
+* GlycoEpitope
+
 
 **Input**
 
@@ -275,16 +327,16 @@ WHERE{
 
 **Output**
 
+* PubMed ID : ?pubmed_id
+* PubMed URL : ?pubmed_url
 * Partner name : ?from
-* PubMed ID
-* PubMed URL
 
 ```
 # Literature
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX bibo: <http://purl.org/ontology/bibo/>
 
-SELECT DISTINCT ?from ?pubmed_id ?pubmed_url
+SELECT DISTINCT ?pubmed_id ?pubmed_url ?from 
 WHERE{
 	VALUES ?accNum {"G00051MO"}
 	?saccharide  glytoucan:has_primary_id ?accNum .
@@ -302,9 +354,17 @@ WHERE{
 ```
 
 
-### External ID
+### <a name="external"> External ID  
+[return to contents](#contents)
 
-##### Target partners : BCSDB, GlycomeDB, GlycoEpitope, PubChem 
+##### Target partners :  
+
+* BCSDB 
+* GlycomeDB
+* GlycoEpitope
+* GlycoNAVI
+* UniCarbKB
+
 
 **Input**
 
@@ -312,30 +372,33 @@ WHERE{
 
 **Output**
 
-* Partner name : ?from
-* Database name : ?db_label
+* Database name : ?entry_label
 * External ID : ?external_id
 * Databae entyr URL : ?url
+* Partner name : ?from
 
 ```
-# External ID
 PREFIX dcterms: <http://purl.org/dc/terms/>
-PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
+PREFIX glytoucan: <http://www.glytoucan.org/glyco/owl/glytoucan#>
 
-SELECT DISTINCT ?from ?db_label ?external_id ?url
+SELECT DISTINCT ?entry_label ?external_id ?url ?from ?partner_url ?description
 WHERE{
-	VALUES ?accNum {"G00051MO"}
-	?saccharide  glytoucan:has_primary_id ?accNum .
-	
-	GRAPH ?graph {
-		?saccharide glycan:has_resource_entry ?entry .
-		?entry a glycan:Resource_entry .
-		?entry glycan:in_glycan_database ?db .
-		?entry dcterms:identifier ?external_id .
-		?entry rdfs:seeAlso ?url .
-		?db rdfs:label ?db_label .
-	}
-	?graph rdfs:label ?from.	
-}
+  VALUES ?accNum {"G48059CD"}
+  #VALUES ?accNum {"G61846BY"}
+  ?saccharide glytoucan:has_primary_id ?accNum .
+
+  GRAPH ?graph {
+    ?saccharide glycan:has_resource_entry ?entry .
+    ?entry a glycan:Resource_entry .
+        ?entry rdfs:label ?entry_label .
+    ?entry dcterms:identifier ?external_id .
+    ?entry rdfs:seeAlso ?url .
+  }
+  ?graph rdfs:label ?from.
+  ?graph dcterms:description ?description .
+  ?graph rdfs:seeAlso ?partner_url .
+} ORDER by ?from
+
 ```
 
