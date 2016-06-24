@@ -39,7 +39,7 @@ ex: If four accession numbers has follwing relationship.
 @prefix glycan: <http://purl.jp/bio/12/glyco/glycan#> .
 @prefix rocs: <http://www.glycoinfo.org/glyco/owl/relation#> .
 INSERT DATA{
-	GRAPH <http://rdf.glytoucan.org/partner/{partner name}>{
+	GRAPH <http://rdf.glytoucan.org/topology>{
 				<http://rdf.glycoinfo.org/glycan/{Accession number 1}>
 			a glycan:Saccharide ;
 			rocs:subsumes <http://rdf.glycoinfo.org/glycan/{Accession number 2}> ;
