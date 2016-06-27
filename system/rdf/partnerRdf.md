@@ -124,16 +124,16 @@ http://pubchem.ncbi.nlm.nih.gov/compound/{cid}
 => http://pubchem.ncbi.nlm.nih.gov/compound/CID91844939
 
 PDBj CC
-http://pdbj.org/chemie/summary/{pdb_id}
+http://pdbj.org/chemie/summary/{pdb_chem-comp_id}
 => http://pdbj.org/chemie/summary/03F
 
 PDBe CC
-http://rdf.glycoinfo.org/pdbe-cc/{pdb_id}
-=> hhttp://rdf.glycoinfo.org/pdbe-cc/03F
+http://www.ebi.ac.uk/pdbe-srv/pdbechem/chemicalCompound/show/{pdb_chem-comp_id}
+=> http://www.ebi.ac.uk/pdbe-srv/pdbechem/chemicalCompound/show/03F
 
 RCSB PDB CC
-http://rdf.glycoinfo.org/rcsb_pdb-cc/{pdb_id}
-=> hhttp://rdf.glycoinfo.org/rcsb_pdb-cc/03F
+http://ligand-expo.rcsb.org/pyapps/ldHandler.py?formid=cc-index-search&operation=ccid&target={pdb_chem-comp_id}
+=> http://ligand-expo.rcsb.org/pyapps/ldHandler.py?formid=cc-index-search&operation=ccid&target=03F
 
 UniCarbKB
 http://www.unicarbkb.org/structure/{structure_id}
@@ -393,34 +393,34 @@ cc : chemical component
 ```
 <http://rdf.glycoinfo.org/glycan/{accession_number}>
 	a glycan:Saccharide ;
-	glycan:has_resource_entry <http://rdf.glycoinfo.org/pdbj-cc/{pdb_id}> ;
-	glycan:has_resource_entry <http://rdf.glycoinfo.org/pdbe-cc/{pdb_id}> ;
-	glycan:has_resource_entry <http://rdf.glycoinfo.org/rcsb_pdb-cc/{pdb_id}> .
+	glycan:has_resource_entry <http://rdf.glycoinfo.org/pdbj-cc/{pdb_chem-comp_id}> ;
+	glycan:has_resource_entry <http://rdf.glycoinfo.org/pdbe-cc/{pdb_chem-comp_id}> ;
+	glycan:has_resource_entry <http://rdf.glycoinfo.org/rcsb_pdb-cc/{pdb_chem-comp_id}> .
 
-<http://rdf.glycoinfo.org/pdbj-cc/{pdb_id}>
+<http://rdf.glycoinfo.org/pdbj-cc/{pdb_chem-comp_id}>
 	a glycan:Resource_entry ;
 	rdfs:label	"PDBj CC" ;
-	dcterms:identifier	"{pdb_id}";
+	dcterms:identifier	"{pdb_chem-comp_id}";
 	glycan:in_glycan_database  glycan:Database_pdbj ;
-	rdfs:seeAlso	<http://pdbj.org/chemie/summary/{pdb_id}> ;
-	skos:exactMatch	<http://rdf.wwpdb.org/cc/{pdb_id}> .
+	rdfs:seeAlso	<http://pdbj.org/chemie/summary/{pdb_chem-comp_id}> ;
+	skos:exactMatch	<http://rdf.wwpdb.org/cc/{pdb_chem-comp_id}> .
 
-<http://rdf.glycoinfo.org/pdbe-cc/{pdb_id}>
-	dcterms:identifier	"{pdb_id}";
+<http://rdf.glycoinfo.org/pdbe-cc/{pdb_chem-comp_id}>
+	dcterms:identifier	"{pdb_chem-comp_id}";
 	rdfs:label	"PDBe CC" ;
 	glycan:in_glycan_database  glycan:Database_pdbe ;
-	rdfs:seeAlso	<http://www.ebi.ac.uk/pdbe/entry/pdb/{pdb_id}> ;
-	skos:exactMatch	<http://rdf.wwpdb.org/cc/{pdb_id}> .
+	rdfs:seeAlso	<http://www.ebi.ac.uk/pdbe-srv/pdbechem/chemicalCompound/show/{pdb_chem-comp_id}> ;
+	skos:exactMatch	<http://rdf.wwpdb.org/cc/{pdb_chem-comp_id}> .
 
-<http://rdf.glycoinfo.org/rcsb_pdb-cc/{pdb_id}>
-	dcterms:identifier	"{pdb_id}";
+<http://rdf.glycoinfo.org/rcsb_pdb-cc/{pdb_chem-comp_id}>
+	dcterms:identifier	"{pdb_chem-comp_id}";
 	rdfs:label	"RCSB PDB CC" ;
 	glycan:in_glycan_database  glycan:Database_rcsb_pdb ;
-	rdfs:seeAlso	<http://www.rcsb.org/pdb/explore.do?structureId={pdb_id}> ;
-	skos:exactMatch	<http://rdf.wwpdb.org/cc/{pdb_id}> .
+	rdfs:seeAlso	<http://ligand-expo.rcsb.org/pyapps/ldHandler.py?formid=cc-index-search&operation=ccid&target={pdb_chem-comp_id}> ;
+	skos:exactMatch	<http://rdf.wwpdb.org/cc/{pdb_chem-comp_id}> .
 
-<http://rdf.wwpdb.org/cc/{pdb_id}>
-	dcterms:identifier	"{pdb_id}".
+<http://rdf.wwpdb.org/cc/{pdb_chem-comp_id}>
+	dcterms:identifier	"{pdb_chem-comp_id}".
 
 glycan:Database_pdbj
 	rdfs:label	"PDBj" .
