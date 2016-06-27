@@ -374,12 +374,15 @@ glycan:Database_pubchem
 	dcterms:identifier	"{pdb_id}".
 ```
 
-OK http://pdbj.org/mine/summary/3s0k
-OK http://www.ebi.ac.uk/pdbe/entry/pdb/3s0k
-OK http://www.rcsb.org/pdb/explore/explore.do?pdbId=3s0k
-OK http://www.rcsb.org/pdb/explore.do?structureId=3s0k 
+OK http://pdbj.org/mine/summary/3s0k  
+OK http://www.ebi.ac.uk/pdbe/entry/pdb/3s0k  
+OK http://www.rcsb.org/pdb/explore/explore.do?pdbId=3s0k  
+OK http://www.rcsb.org/pdb/explore.do?structureId=3s0k   
 
-OK http://rdf.wwpdb.org/pdb/3s0k
+OK http://rdf.wwpdb.org/pdb/3s0k  
+
+<br/>
+<br/>
 
 <a name="wwpdb cc"> **In the case of CC**   
 [return to menu](#menu)
@@ -464,7 +467,7 @@ glycan:Database_unicarbkb
 
 
 Insert   
-[from BCSDB](/system/sparql/insertSparqlPartnerBCSDB)
-[from GlycoEpitope](/system/sparql/insertSparqlPartnerGlycoEpitope)
-[from GlycomeDB](/system/sparql/insertSparqlPartnerGlycomeDB)
-[from GlycoNAVI](/system/sparql/insertSparqlPartnerGlycoNAVI)
+[from BCSDB](/system/sparql/insertSparqlPartnerBCSDB)  
+[from GlycoEpitope](/system/sparql/insertSparqlPartnerGlycoEpitope)  
+[from GlycomeDB](/system/sparql/insertSparqlPartnerGlycomeDB)  
+[from GlycoNAVI](/system/sparql/insertSparqlPartnerGlycoNAVI)  
