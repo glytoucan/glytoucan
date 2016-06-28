@@ -152,6 +152,13 @@ GRAPH : `<http://rdf.glytoucan.org/partner/bcsdb>`
 **Dataset**
 
 ``` 
+@prefix rdfs:	<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix glycan:	<http://purl.jp/bio/12/glyco/glycan#> .
+@prefix glytoucan:	<http://www.glytoucan.org/glyco/owl/glytoucan#> .
+
+
 # Species
 <http://rdf.glycoinfo.org/glycan/{accession_number}> #Saccharide 
 	glycan:is_from_source <http://rdf.glycoinfo.org/source/{taxonomy_id}> ;
@@ -205,6 +212,11 @@ GRAPH : `<http://rdf.glytoucan.org/partner/glycome-db>`
 **Dataset**
 
 ```
+@prefix rdfs:	<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix glycan:	<http://purl.jp/bio/12/glyco/glycan#> .
+@prefix glytoucan:	<http://www.glytoucan.org/glyco/owl/glytoucan#> .
+
 # Species
 <http://rdf.glycoinfo.org/glycan/{accession_number}> #Saccharide 
 	glycan:is_from_source <http://rdf.glycoinfo.org/source/{taxonomy_id}> .
@@ -257,6 +269,12 @@ GRAPH : `<http://rdf.glytoucan.org/partner/glycoepitope>`
 **Dataset**
 
 ```
+@prefix rdfs:	<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix bibo: <http://purl.org/ontology/bibo/> .
+@prefix glycan:	<http://purl.jp/bio/12/glyco/glycan#> .
+@prefix glytoucan:	<http://www.glytoucan.org/glyco/owl/glytoucan#> .
+
  # Species
 <http://rdf.glycoinfo.org/glycan/{accession_number}> #Saccharide 
  glycan:is_from_source <http://rdf.glycoinfo.org/source/{taxonomy_id}> ;
@@ -307,6 +325,13 @@ GRAPH : `<http://rdf.glytoucan.org/partner/glyconavi>`
 
 
 ```
+@prefix rdfs:	<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix glycan:	<http://purl.jp/bio/12/glyco/glycan#> .
+@prefix glytoucan:	<http://www.glytoucan.org/glyco/owl/glytoucan#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
+
 <http://rdf.glycoinfo.org/glycan/{accession_number}>
 	glycan:has_resource_entry 
  			<http://rdf.glycoinfo.org/pubchem/{sid}> ,
@@ -341,6 +366,12 @@ glycan:Database_pubchem
 * RCSB 
 
 ```
+@prefix rdfs:	<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix glycan:	<http://purl.jp/bio/12/glyco/glycan#> .
+@prefix glytoucan:	<http://www.glytoucan.org/glyco/owl/glytoucan#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
 <http://rdf.glycoinfo.org/glycan/{accession_number}>
 	a glycan:Saccharide ;
 	glycan:has_resource_entry <http://rdf.glycoinfo.org/pdbj/{pdb_id}> ;
@@ -394,6 +425,12 @@ OK http://rdf.wwpdb.org/pdb/3s0k
 cc : chemical component
 
 ```
+@prefix rdfs:	<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix glycan:	<http://purl.jp/bio/12/glyco/glycan#> .
+@prefix glytoucan:	<http://www.glytoucan.org/glyco/owl/glytoucan#> .
+@prefix skos: <http://www.w3.org/2004/02/skos/core#> .
+
 <http://rdf.glycoinfo.org/glycan/{accession_number}>
 	a glycan:Saccharide ;
 	glycan:has_resource_entry <http://rdf.glycoinfo.org/pdbj-cc/{pdb_chem-comp_id}> ;
@@ -444,9 +481,13 @@ GRAPH : `<http://rdf.glytoucan.org/partner/unicarbkb>`
 **Dataset**
 
 ```
+@prefix rdfs:	<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix glycan:	<http://purl.jp/bio/12/glyco/glycan#> .
+@prefix glytoucan:	<http://www.glytoucan.org/glyco/owl/glytoucan#> .
+
 <http://rdf.glycoinfo.org/glycan/{accession_number}>
 	a glycan:Saccharide ;
-	glycan:has_resource_entry <https://glytoucan.org/Structures/Glycans/{accession_number}> ;
 	glycan:has_resource_entry <http://rdf.glycoinfo.org/unicarbkb/{structure_id}> .
 
 <http://rdf.glycoinfo.org/unicarbkb/{structure_id}>
