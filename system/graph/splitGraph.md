@@ -271,7 +271,7 @@ INSERT
     ?Saccharide
         glycan:has_motif ?Motif .
     ?Motif
-        a glycan:glycan_motif .
+        a glycan:glycan_motif ;
         glycan:has_glycosequence ?GSequence ;
         rdfs:label ?MotifName ;
         glytoucan:is_reducing_end ?ReducingEnd .
@@ -348,7 +348,7 @@ INSERT
     ?saccharide
         glycan:has_component ?component .
     ?component
-        a glycan:componentt .
+        a glycan:componentt ;
         glycan:has_cardinality ?cardinality ;
         glycan:has_monosaccharide ?mono .
   }
