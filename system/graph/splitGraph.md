@@ -268,11 +268,13 @@ PREFIX glytoucan:  <http://www.glytoucan.org/glyco/owl/glytoucan#>
 INSERT
 { GRAPH <http://rdf.glytoucan.org/motif> {
    # Motif
-    ?Saccharide glycan:has_motif ?Motif .
-    ?Motif a glycan:glycan_motif .
-    ?Motif glycan:has_glycosequence ?GSequence .
-    ?Motif rdfs:label ?MotifName .
-    ?Motif glytoucan:is_reducing_end ?ReducingEnd .
+    ?Saccharide
+        glycan:has_motif ?Motif .
+    ?Motif
+        a glycan:glycan_motif .
+        glycan:has_glycosequence ?GSequence ;
+        rdfs:label ?MotifName ;
+        glytoucan:is_reducing_end ?ReducingEnd .
   }
 }
 USING <http://rdf.glytoucan.org>
