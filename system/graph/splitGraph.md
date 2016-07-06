@@ -21,47 +21,30 @@ layout: default
 `http://rdf.glytoucan.org/ms/carbbank`
 
 \#`http://rdf.glytoucan.org/image` は作っていない  
+\# massは、gs2virtでは扱っていない。`http://rdf.glytoucan.org/mass`で記述されている。  
+\# クラス名を大文字から始めることは、この時点では行わない。登録システムの変更も行わなければならないため。  
+\# 現在本番環境で利用されているRDFモデルに準じて、gs2virtを各graphに分割する。
 
 
 
 
 
-#### Saccharide & Resource entry classes
+#### Saccharide & Resource entry
 
 `<http://rdf.glytoucan.org/core>`  
 
 * Saccharide class  
 * Resource entry class  
 
-* glycan:Saccharide, glycan:Resource_entryの記述を含める
 * glycan:has_componentは、/ms/carbankの方に移す
 * Accession numberは、has_primary_idを利用してる
 * `</core>`に、has_componentが元々入っている糖鎖もある
 
 
-**Saccharide RDF**  
 
-```
-?Saccharide a glycan:saccharide, glycan:Saccharide .
-?Saccharide glycan:has_resource_entry ?ResourceEntry .
-?Saccharide glytoucan:has_primary_id ?AccessionNumber .
-```
+**INSERT SPARQL**
 
-**Resource entry RDF**
-
-```
-?ResourceEntry a glycan:resource_entry, glycan:Resource_entry .
-?ResourceEntry glytoucan:contributor ?Person .
-?ResourceEntry glytoucan:date_registered ?dateTimeStanp .
-?ResourceEntry dcterms:identifier ?AccessionNumber .
-?ResourceEntry rdfs:seeAlso ?GlyTouCanURL .
-?ResourceEntry glycan:in_glycan_database glytoucan:database_glytoucan .
-```
-
-
-**INSERT query**
-
-**Saccharide Class**
+**Saccharide**
 
 ```
 log_enable(2,1);
@@ -70,9 +53,10 @@ PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
 PREFIX glytoucan:  <http://www.glytoucan.org/glyco/owl/glytoucan#>
 INSERT
 { GRAPH <http://rdf.glytoucan.org/core> {
-    ?Saccharide a glycan:saccharide, glycan:Saccharide .
-    ?Saccharide glytoucan:has_primary_id ?AccessionNumber .
-    ?Saccharide glycan:has_resource_entry ?ResourceEntry .
+    ?Saccharide
+        a glycan:saccharide ;
+        glytoucan:has_primary_id ?AccessionNumber ;
+        glycan:has_resource_entry ?ResourceEntry .
   }
 }
 USING <http://rdf.glytoucan.org>
@@ -91,7 +75,7 @@ commit WORK;
 
 
 
-**Resource Entry class**
+**Resource Entry**
 
 ```
 log_enable(2,1);
@@ -102,12 +86,13 @@ PREFIX dcterms: <http://purl.org/dc/terms/>
 
 INSERT
 { GRAPH <http://rdf.glytoucan.org/core> {
-    ?ResourceEntry a glycan:resource_entry, glycan:Resource_entry .
-    ?ResourceEntry glytoucan:contributor ?Contributor .
-    ?ResourceEntry glytoucan:date_registered ?Date .
-    ?ResourceEntry glycan:in_glycan_database glytoucan .
-    ?ResourceEntry dcterms:identifier ?AccessionNumber .
-    ?ResourceEntry rdfs:seeAlso ?Entry .
+    ?ResourceEntry
+        a glycan:resource_entry ;
+        glytoucan:contributor ?Contributor ;
+        glytoucan:date_registered ?Date ;
+        glycan:in_glycan_database ?DB ;
+        dcterms:identifier ?AccessionNumber ;
+        rdfs:seeAlso ?Entry .
   }
 }
 USING <http://rdf.glytoucan.org>
@@ -184,7 +169,7 @@ limit 200
 
 
 
-#### Glycosequence class
+#### Glycosequence 
 
 `<http://rdf.glytoucan.org/sequence/glycoct>`  
 
@@ -193,25 +178,12 @@ limit 200
 	* 登録時のGlycoCTを記述している
 	* Property
 		* rdfs:label, glycan:has_glycosequence, glycan:has_sequence, glycan:in_carbohydrate_format
-		* glycan:glycosequenceのタイプ付けは無し
-        * glycan:glycosequence, glycan:Glycosequenceのタイプをつける
+		* 今のところ、glycan:glycosequenceのタイプ付けはされていない
 		* rdfs:labelとglycan:has_sequenceが同じデータタイプ
-			* rdfs:labeはどこかで使われているか？
-     		* Stanzaでは使われていなかった
+			* rdfs:labeは、,Stanzaでは使われていなかった
 
 
-**Glycosequence RDF**  
-
-```
-?Saccharide glycan:has_glycosequence ?Glycosequence .
-?Glycosequence a glycan:glycosequence, glycan:Glycosequence .
-?Glycosequence glycan:has_sequence ?GlycoCT_Sequence .
-?Glycosequence glycan:in_carbohydrate_format glycan:carbohydrate_format_glycoct .
-?Glycosequence rdfs:label ?GlycoCT_String .
-```
-
-
-**INSERT query**
+**INSERT SPARQL**
 
 ```
 log_enable(2,1);
@@ -219,11 +191,12 @@ sparql
 PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
 INSERT
 { GRAPH <http://rdf.glytoucan.org/sequence/glycoct> {
-    ?Saccharide glycan:has_glycosequence ?GSequence .
-    ?GSequence a glycan:glycosequence, glycan:Glycosequence .
-    ?GSequence glycan:has_sequence ?Sequence .
-    ?GSequence glycan:in_carbohydrate_format ?Format .
-    ?GSequence rdfs:label ?Sequence .
+    ?Saccharide 
+        glycan:has_glycosequence ?GSequence .
+    ?GSequence
+        glycan:has_sequence ?Sequence ;
+        glycan:in_carbohydrate_format ?Format ;
+        rdfs:label ?Sequence .
   }
 }
 USING <http://rdf.glytoucan.org>
@@ -253,7 +226,6 @@ SELECT *
 FROM <http://rdf.glytoucan.org/sequence/glycoct> 
 WHERE {
     # Glycosequence
-    ?Saccharide a ?Class .
     ?Saccharide glycan:has_glycosequence ?GSequence .
     ?GSequence glycan:has_sequence ?Sequence .
     ?GSequence glycan:in_carbohydrate_format ?Format .
@@ -267,11 +239,10 @@ limit 100
 
 
 
-#### Glycan motf class
+#### Glycan motf 
 
 `<http://rdf.glytoucan.org/motif>`  
 
-Glycan motif class
 
 以前の`</motif>`には、glycan:has_motifのみだった
 
@@ -284,15 +255,6 @@ Glycan motif class
 * glytoucan:is_reducing_end
 
 
-**Glycan motif RDF**  
-
-```
-?Saccharide glycan:has_motif ?GlycanMotif .
-?GlycanMotif a glycan:glycan_motif, glycan:Glycan_motif .
-?GlycanMotif glycan:has_glycosequence ?Glycosequence .
-?GlycanMotif rdfs:label ?MotifName .
-?GlycanMotif glytoucan:is_reducing_end ?Boolean .
-```
 
 
 **INSERT query**
@@ -358,7 +320,7 @@ limit 100
 
 
 
-#### Component class
+#### Component 
 
 Component情報がgs2virtからなくなると、Glycan listおよびGlycan entryが表示されなくなる
 glycan:Componentも追加する  
@@ -368,35 +330,6 @@ glycan:Componentも追加する
 
 Target GRAPH  
 `<http://rdf.glytoucan.org/ms/carbbank>` 
-
-
-**Before RDF**  
-
-```
-# Monosaccharide
-?mono a glycan:monosaccharide .
-?mono glycan:has_alias ?msdb .
-?msdb a glycan:monosaccharide_alias .
-?msdb glycan:has_alias_name ?ComponentName .
-?msdb glycan:has_monosaccharide_notation_scheme glycan:monosaccharide_notation_scheme_carbbank  .
-```
-
-**After RDF**  
-
-```
-# Component
-?saccharide glycan:has_component ?component .
-?component a glycan:component, glycan:Component .
-?component glycan:has_cardinality ?cardinality .
-?component glycan:has_monosaccharide ?mono .
-
-# Monosaccharide
-?mono a glycan:monosaccharide .
-?mono glycan:has_alias ?msdb .
-?msdb a glycan:monosaccharide_alias .
-?msdb glycan:has_alias_name ?ComponentName .
-?msdb glycan:has_monosaccharide_notation_scheme glycan:monosaccharide_notation_scheme_carbbank  .
-```
 
 
 **INSERT query**
@@ -409,16 +342,18 @@ PREFIX glytoucan:  <http://www.glytoucan.org/glyco/owl/glytoucan#>
 
 INSERT
 { GRAPH <http://rdf.glytoucan.org/ms/carbbank> {
-   # Motif
-    ?saccharide glycan:has_component ?component .
-    ?component a glycan:component, glycan:Component .
-    ?component glycan:has_cardinality ?cardinality .
-    ?component glycan:has_monosaccharide ?mono .
+   # Component
+    ?saccharide
+        glycan:has_component ?component .
+    ?component
+        a glycan:componentt .
+        glycan:has_cardinality ?cardinality ;
+        glycan:has_monosaccharide ?mono .
   }
 }
 USING <http://rdf.glytoucan.org>
 WHERE {
-    # Motif
+    # Component
     ?saccharide glycan:has_component ?component .
     ?component a glycan:component .
     ?component glycan:has_cardinality ?cardinality .
@@ -433,12 +368,11 @@ commit WORK;
 ```
 ## Monosaccharide
 SELECT DISTINCT ?ComponentName ?cardinality
-FROM <http://rdf.glytoucan.org>
-FROM <http://rdf.glytoucan.org/core>
+#FROM <http://rdf.glytoucan.org>
+#FROM <http://rdf.glytoucan.org/core>
 FROM <http://rdf.glytoucan.org/ms/carbbank>
 WHERE{
     # Accession Number
-    ?glycan a glycan:saccharide.
     ?glycan glytoucan:has_primary_id "G00051MO" .
     OPTIONAL{
         ?glycan glycan:has_component ?comp .
@@ -529,6 +463,79 @@ WHERE {
 limit 100
 ```
 
+### RDF model
+
+各GRAPHに記述されているRDF model
+
+**Saccharide RDF**  
+
+```
+?Saccharide a glycan:saccharide, glycan:Saccharide .
+?Saccharide glycan:has_resource_entry ?ResourceEntry .
+?Saccharide glytoucan:has_primary_id ?AccessionNumber .
+```
+
+**Resource entry RDF**
+
+```
+?ResourceEntry a glycan:resource_entry, glycan:Resource_entry .
+?ResourceEntry glytoucan:contributor ?Person .
+?ResourceEntry glytoucan:date_registered ?dateTimeStanp .
+?ResourceEntry dcterms:identifier ?AccessionNumber .
+?ResourceEntry rdfs:seeAlso ?GlyTouCanURL .
+?ResourceEntry glycan:in_glycan_database glytoucan:database_glytoucan .
+```
+
+
+**Glycosequence RDF**  
+
+```
+?Saccharide glycan:has_glycosequence ?Glycosequence .
+?Glycosequence a glycan:glycosequence, glycan:Glycosequence .
+?Glycosequence glycan:has_sequence ?GlycoCT_Sequence .
+?Glycosequence glycan:in_carbohydrate_format glycan:carbohydrate_format_glycoct .
+?Glycosequence rdfs:label ?GlycoCT_String .
+```
+
+**Glycan motif RDF**  
+
+```
+?Saccharide glycan:has_motif ?GlycanMotif .
+?GlycanMotif a glycan:glycan_motif, glycan:Glycan_motif .
+?GlycanMotif glycan:has_glycosequence ?Glycosequence .
+?GlycanMotif rdfs:label ?MotifName .
+?GlycanMotif glytoucan:is_reducing_end ?Boolean .
+```
+
+**Component RDF**
+
+**Before RDF**  
+
+```
+# Monosaccharide
+?mono a glycan:monosaccharide .
+?mono glycan:has_alias ?msdb .
+?msdb a glycan:monosaccharide_alias .
+?msdb glycan:has_alias_name ?ComponentName .
+?msdb glycan:has_monosaccharide_notation_scheme glycan:monosaccharide_notation_scheme_carbbank  .
+```
+
+**After RDF**  
+
+```
+# Component
+?saccharide glycan:has_component ?component .
+?component a glycan:component, glycan:Component .
+?component glycan:has_cardinality ?cardinality .
+?component glycan:has_monosaccharide ?mono .
+
+# Monosaccharide
+?mono a glycan:monosaccharide .
+?mono glycan:has_alias ?msdb .
+?msdb a glycan:monosaccharide_alias .
+?msdb glycan:has_alias_name ?ComponentName .
+?msdb glycan:has_monosaccharide_notation_scheme glycan:monosaccharide_notation_scheme_carbbank  .
+```
 
 
 
