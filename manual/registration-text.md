@@ -18,6 +18,21 @@ Text Interface
   * GlycoCT
   * LinearCode
   * KCF
+
+    # Sequence
+# WURCS
+OPTIONAL{
+?glycan glycan:has_glycosequence ?wcsSeq .
+?wcsSeq rdfs:label ?WURCS_label .
+?wcsSeq glycan:in_carbohydrate_format glycan:carbohydrate_format_wurcs .
+}
+# GlycoCT
+OPTIONAL{
+?glycan glycan:has_glycosequence ?gctSeq .
+?gctSeq glycan:has_sequence ?GlycoCT .
+?gctSeq glycan:in_carbohydrate_format glycan:carbohydrate_format_glycoct .
+}
+
   
 the sequence can be typed or pasted into the text area input screen.  Multiple sequences can be input with a carriage return between each sequence.
 
