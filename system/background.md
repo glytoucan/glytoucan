@@ -2,8 +2,8 @@
 title: GlyTouCan Background System
 layout: default
 ---
-
-[TOC]
+* auto-gen TOC:
+{:toc}
 
 # Overview
 This document describes the GlyTouCan Background system.  A number of batches are created based upon a glycosemantic framework for easily constructing enrichment data.  There also exists a robust tool for logging to record and inform about system events.  Both are integrated together with Jenkins to providing a complete scheduling and management interface with detailed logs for all batches.
