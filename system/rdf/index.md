@@ -12,7 +12,6 @@ layout: default
 
 [Partner Motif Insert](/system/rdf/partnerMotif)
 
+[Partner Info RDF](/system/rdf/partnerInfoRdf)
 
-#### Partner Metadata RDF
 
-[Partner Metadata RDF](/system/rdf/partnerMetadata)
