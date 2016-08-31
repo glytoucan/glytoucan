@@ -15,6 +15,7 @@ layout: default
 	* [wwPDB](#wwpdb) 
 	* [wwPDB CC](#wwpdb cc) 
 * [from UniCarbKB](#from UniCarbKB)
+* [from UniCarb-DB](#from UniCarb-DB)
 * [SPARQL Query](#SPARQL Query)
 
 
@@ -501,6 +502,32 @@ glycan:Database_unicarbkb
 	rdfs:label	"UniCarbKB" .
 ```
 
+### <a name="from UniCarb-DB"> from UniCarb-DB
+[return to menu](#menu)
+
+GRAPH : `<http://rdf.glytoucan.org/partner/unicarb-db>`  
+
+**Dataset**
+
+```
+@prefix rdfs:	<http://www.w3.org/2000/01/rdf-schema#> .
+@prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix glycan:	<http://purl.jp/bio/12/glyco/glycan#> .
+@prefix glytoucan:	<http://www.glytoucan.org/glyco/owl/glytoucan#> .
+
+
+<http://rdf.glycoinfo.org/glycan/{accession_number}>
+	glycan:has_resource_entry <http://rdf.glycoinfo.org/glycan/resource-entry/unicarb-db/{structure id}> .
+	
+<http://rdf.glycoinfo.org/glycan/resource-entry/unicarb-db/{structure id}> 
+	a glycan:Resource_entry ;
+	glycan:in_glycan_database <http://rdf.glytoucan.org/partner/unicarb-db> ;
+	rdfs:label "UniCarb-DB" ;
+	dcterms:identifier "structure id" ;
+	rdfs:seeAlso <http://unicarb-db.biomedicine.gu.se/msData/{structure id}> ;
+	glytoucan:contributor <http://rdf.glycoinfo.org/glytoucan/contributor/userId/{user id}> ;
+	glytoucan:date_registered "time stanp"^^xsd:dateTimeStamp ;
+```
 
 
 ## <a name="SPARQL Query">SPARQL query
