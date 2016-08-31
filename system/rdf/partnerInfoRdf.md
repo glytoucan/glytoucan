@@ -30,7 +30,7 @@ layout: default
 
 **Triple**
 
-GRAPH name : <http://rdf.glytoucan.org/partner>
+GRAPH name : `<http://rdf.glytoucan.org/partner>`
 
 [PartnerInfo TTL](https://raw.githubusercontent.com/glytoucan/partner-info-rdf-data/master/PartnerInfo.ttl)
 
