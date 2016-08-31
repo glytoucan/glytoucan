@@ -12,7 +12,10 @@ layout: default
 
 ```
 @prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
+@prefix xsd: <http://www.w3.org/2001/XMLSchema#> .
 @prefix dcterms: <http://purl.org/dc/terms/> .
+@prefix glycan:	<http://purl.jp/bio/12/glyco/glycan#> .
+@prefix glytoucan:	<http://www.glytoucan.org/glyco/owl/glytoucan#> .
 
 <Partner>
 	a glytoucan:Partner
@@ -29,64 +32,23 @@ layout: default
 
 GRAPH name : <http://rdf.glytoucan.org/partner>
 
+[PartnerInfo TTL](https://raw.githubusercontent.com/glytoucan/partner-info-rdf-data/master/PartnerInfo.ttl)
+
+
+**Clear graph**
+
 ```
-@prefix rdfs:   <http://www.w3.org/2000/01/rdf-schema#> .
-@prefix dcterms: <http://purl.org/dc/terms/> .
-
-<http://rdf.glytoucan.org/partner/bcsdb>
-    a   glytoucan:Partner ;
-    dcterms:description "The Bacterial Carbohydrate Structure DataBase (BCSDB) provides structural, bibliographic, taxonomic, NMR spectroscopic and other information on bacterial carbohydrates."@en ; 
-    rdfs:seeAlso  <http://csdb.glycoscience.ru/bacterial/> ;
-    glycan:has_url_template "http://csdb.glycoscience.ru/bacterial/core/search_id.php?mode=record&id_list=[?id?]"^^xsd:string ;
-    dcterms:identifier "bcsdb" ;
-    rdfs:label "BCSDB".
-
-<http://rdf.glytoucan.org/partner/glycome-db>
-    a   glytoucan:Partner ;
-    dcterms:description "GlycomeDB is a database of carbohydrates including structural and taxonomic data."@en ;
-    rdfs:seeAlso <http://www.glycome-db.org/> ;
-    glycan:has_url_template "http://www.glycome-db.org/database/showStructure.action?glycomeId=[?id?]"^^xsd:string ;
-    dcterms:identifier "glycome-db" ;
-    rdfs:label "GlycomeDB".
-
-<http://rdf.glytoucan.org/partner/glycoepitope>
-    a   glytoucan:Partner ;
-    dcterms:description "GlycoEpitope is a database containing useful information about carbohydrate antigens (glyco-epitopes) and the antibodies (polyclonal or monoclonal) that can be used to analyze their expression."@en ;
-    rdfs:seeAlso <http://identifiers.org/glycoepitope/> ;
-    glycan:has_url_template "http://identifiers.org/glycoepitope/[?id?]"^^xsd:string ;
-    dcterms:identifier "glycoepitope" ;
-    rdfs:label "GlycoEpitope".
-
-<http://rdf.glytoucan.org/partner/glyconavi>
-    a   glytoucan:Partner ;
-    dcterms:description "GlycoNAVI is a gateway to free suite of carbohydrate research tools."@en ;
-    rdfs:seeAlso <http://ws.glyconavi.org/> ;
-    glycan:has_url_template "http://ws.glyconavi.org/DbDetail/moldetail.aspx?moleculeID=[?id?]"^^xsd:string ;
-    dcterms:identifier "glyconavi" ;
-    rdfs:label "GlycoNAVI".
-
-<http://rdf.glytoucan.org/partner/unicarbkb>
-    a   glytoucan:Partner ;
-    dcterms:description "The UniCarb KnowledgeBase (UniCarbKB) offers public access to a growing, curated database of information on the glycan structures of glycoproteins."@en ; 
-    rdfs:seeAlso  <http://www.unicarbkb.org/> ;
-    glycan:has_url_template "http://www.unicarbkb.org/structure/[?id?]"^^xsd:string ;
-    dcterms:identifier "unicarbkb" ;
-    rdfs:label "UniCarbKB".
-
-<http://rdf.glytoucan.org/partner/unicarb-db>
-    a   glytoucan:Partner ;
-    dcterms:description " UniCarb-DB is a platform for presenting glycan structures and fragment data characterised by LC-MS/MS strategies."@en ; 
-    rdfs:seeAlso  <http://unicarb-db.biomedicine.gu.se/> ;
-    glycan:has_url_template "http://unicarb-db.biomedicine.gu.se/msData/[?id?]"^^xsd:string ;
-    dcterms:identifier "unicarb-db" ;
-    rdfs:label "UniCarb-DB".
+log_enable(2,1);
+sparql clear graph <http://rdf.glytoucan.org/partner>;
 ```
+
+
 
 
 
 -------
 
->> following old plan
+>> following My old plan
 
 * a partner name
 * a partner web url
