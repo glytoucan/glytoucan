@@ -10,7 +10,7 @@ layout: default
 
 [Partner RDF](/system/rdf/partnerRdf)
 
-[Partner Motif Insert](/system/rdf/partnerMotif)
+<!-- [Partner Motif Insert](/system/rdf/partnerMotif) -->
 
 [Partner Info RDF](/system/rdf/partnerInfoRdf)
 
