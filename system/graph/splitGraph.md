@@ -369,9 +369,10 @@ commit WORK;
 
 ```
 ## Monosaccharide
-SELECT DISTINCT ?ComponentName ?cardinality
+SELECT DISTINCT *
+#SELECT DISTINCT ?ComponentName ?cardinality
 #FROM <http://rdf.glytoucan.org>
-#FROM <http://rdf.glytoucan.org/core>
+FROM <http://rdf.glytoucan.org/core>
 FROM <http://rdf.glytoucan.org/ms/carbbank>
 WHERE{
     # Accession Number
@@ -381,6 +382,7 @@ WHERE{
         ?comp glycan:has_cardinality ?cardinality .
         ?comp glycan:has_monosaccharide ?mono .
         ?mono glycan:has_alias ?msdb .
+        ?mono a ?class.
         ?msdb glycan:has_alias_name ?ComponentName .
     }
 } 
