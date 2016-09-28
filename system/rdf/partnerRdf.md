@@ -389,6 +389,7 @@ glycan:Database_pubchem
 
 
 <http://rdf.glycoinfo.org/pdbe/{pdb_id}>
+	a glycan:Resource_entry ;
 	dcterms:identifier	"{pdb_id}";
 	rdfs:label	"PDBe" ;
 	glycan:in_glycan_database  glycan:Database_pdbe ;
@@ -396,6 +397,7 @@ glycan:Database_pubchem
 	skos:exactMatch	<http://rdf.wwpdb.org/pdb/{pdb_id}> .
 
 <http://rdf.glycoinfo.org/rcsb_pdb/{pdb_id}>
+	a glycan:Resource_entry ;
 	dcterms:identifier	"{pdb_id}";
 	rdfs:label	"RCSB PDB" ;
 	glycan:in_glycan_database  glycan:Database_rcsb_pdb ;
@@ -447,6 +449,7 @@ cc : chemical component
 	skos:exactMatch	<http://rdf.wwpdb.org/cc/{pdb_chem-comp_id}> .
 
 <http://rdf.glycoinfo.org/pdbe-cc/{pdb_chem-comp_id}>
+	a glycan:Resource_entry ;
 	dcterms:identifier	"{pdb_chem-comp_id}";
 	rdfs:label	"PDBe CC" ;
 	glycan:in_glycan_database  glycan:Database_pdbe ;
@@ -454,6 +457,7 @@ cc : chemical component
 	skos:exactMatch	<http://rdf.wwpdb.org/cc/{pdb_chem-comp_id}> .
 
 <http://rdf.glycoinfo.org/rcsb_pdb-cc/{pdb_chem-comp_id}>
+	a glycan:Resource_entry ;
 	dcterms:identifier	"{pdb_chem-comp_id}";
 	rdfs:label	"RCSB PDB CC" ;
 	glycan:in_glycan_database  glycan:Database_rcsb_pdb ;
