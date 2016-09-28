@@ -32,7 +32,7 @@ layout: default
 
 GRAPH name : `<http://rdf.glytoucan.org/partner>`
 
-[PartnerInfo TTL](https://raw.githubusercontent.com/glytoucan/partner-info-rdf-data/master/PartnerInfo.ttl)
+[PartnerInfo TTL](https://bitbucket.org/glytoucan/partner-info-rdf/raw/cb128b98339ec3e19ce11a38e736ec34ed166408/PartnerInfo.ttl)
 
 
 **Clear graph**
@@ -40,6 +40,8 @@ GRAPH name : `<http://rdf.glytoucan.org/partner>`
 ```
 log_enable(2,1);
 sparql clear graph <http://rdf.glytoucan.org/partner>;
+checkpoint;
+commit WORK;
 ```
 
 
