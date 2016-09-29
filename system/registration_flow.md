@@ -12,9 +12,9 @@ This document describes the GlyTouCan Registration system and flow, as well as d
 Originally the Glycan Registration process was a singular process which executed every enrichment processing by default.  This became bloated, prone to issues, and difficult to manage.  The majority of functions were compartmentalized, however there was no concrete framework to add new functionality.
 
 ## Improvement
-A new modular, step-wise method was introduced with version two; this workflow provided the user more transparency in the registration process, as well as the ability to "recycle" already submitted structures. The entire process is broken down into three steps:
+A new modular, step-wise method was introduced with version two; this workflow provided the user more transparency in the registration process.  The entire process is broken down into three steps:
 
-1. Initial Registration: This will be the initial submission containing the core data, which is any glycan structure that can be represented in WURCS 2.0 format.  The structure sequence will be given a unique accession number.
+1. Initial Registration: This will be the initial submission of data with minimal validation.
 2. Enrichment: submitted data can be enriched with supplementary information where applicable.
 3. Release: The user submitting the data can confirm how the data will be presented on the website privately, the option then exists to release the information into the public repository.
 
@@ -30,8 +30,8 @@ A separate RDF triplestore will be used to store draft data privately for the in
 
 ```sequence
 User->GlyTouCan: User submits structure
-GlyTouCan->RDF: GlyTouCan stores core data
-GlyTouCan->RDF: GlyTouCan logs storage of data
+GlyTouCan->Draft RDF: GlyTouCan stores preregister data
+GlyTouCan->Draft RDF: GlyTouCan logs storage of data
 Note right of GlyTouCan: Batch process here, explained below
 User->GlyTouCan: User requests view of structure with public data (draft view)
 GlyTouCan->Draft RDF: GlyTouCan queries user data
@@ -60,7 +60,7 @@ The following is the data fields accepted and the associated Class that will be 
 
 ### Logging
 
-The logging process is fairly complicated, and will be described in the [complete background article](/system/background).  In general information such as ID, contributor, description, and type of the action will be stored.
+The logging process is fairly complicated, and will be described in a [separate article](/system/logging).  In general information such as ID, contributor, description, and type of the action will be stored.
 
 ### Staging Process
 

@@ -6,7 +6,7 @@ layout: default
 {:toc}
 
 # Overview
-This document describes the GlyTouCan Background system.  A number of batches are created based upon a framework for easily constructing enrichment data.  There also exists a robust tool for logging to record and inform about system events.  Both are integrated together with Jenkins to providing a complete scheduling and management interface with detailed logs for all batches.
+This document describes the GlyTouCan Background system.  A number of batches are created based upon a glycosemantic framework for easily constructing enrichment data.  There also exists a robust tool for logging to record and inform about system events.  Both are integrated together with Jenkins to providing a complete scheduling and management interface with detailed logs for all batches.
 
 ## Background
 The original GlyTouCan was primarily a form-driven website with no background processing functionality.  After reviewing the overall system and  bottlenecks, a framework change was necessary.  Separating the Registration process from the Enrichment(extraction of information about the structure) will enhance system stability and user friendliness by processing complex logic in the background.  There was also a number of error-catching logic that required specialized communication to the user, which could not be properly handled by a one-time form-based post/response method.  Logging will provide an interface for developers to easily log messages into the RDF storage, allow for historical information of data to be recorded as it is edited or processed, as well as the possibility of recording user interaction for commands that may require more transparency.  This will also allow logs to be queried and viewed through a variety of channels.
@@ -154,24 +154,3 @@ The insertion should take place without issue, however just in case:
 
 All of the log messages will be associated to the Saccharide, which will contain the Accession Number.
 
-## Batch Processes
-
-The above section explained how the log system works and is integrated with the batch process.  The batch process and framework from the initial registration is described in detail in the [registration flow](/system/registration_flow) document.  The following will describe the continuously processing system after a glycan registration is complete.
-
-## System Management
-
-Batch processes are executed in a schedule or dependent upon other criteria.  Jenkins has been a reliable integration system used for GlyTouCan releases, and so this time used again internally for the management of scheduled system batches and their dependencies.
-
-### Batch processes
-
-As of this writing, the following batches will be executed on a regular schedule:
-
- - WURCS2 mass calculation
- - WURCS2 to IUPAC condensed conversion
- - WURCS2 to IUPAC extended conversion
- - IUPAC to GlycoCT conversion
- - WURCS2 topology generation
- - WURCS2 RDF generation
-	 - Motif generation
-
-These processes will be added to jenkins and scheduled to run on a 24 hour cycle.  Note the Motif generation will be dependent upon the WURCS2 RDF batch.
