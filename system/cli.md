@@ -12,11 +12,10 @@ The GTCC is a command line interface to the GlyTouCan API.
 It is primarily written in groovy.
 
 ##  Requirements
-1. 
 1. This is a unix script.  This has not been tested on windows, but it probably could be converted to a bat file.  Please take a look at simple.groovy, a simple groovy script that can execute a request.
 1. [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
-1. [Groovy](http://groovy-lang.org/download.html)
-  1. it is recommended to install using the SDK.io method
+1. [Groovy](http://groovy-lang.org)
+  1. it is recommended to install using the [SDKMAN! method](http://groovy-lang.org/download.html) as described in the groovy download page.
 1. Your Contributor ID*
 1. Your API Key*
 1. If you want to register your database id links, your URL template must be registered with the [Partner Program](http://code.glytoucan.org/partner/registration/)
@@ -41,8 +40,8 @@ To register sequences in a csv file:
 
 `groovy gtc -u [contributor id] -a [API key] -c [csvFile]`
 
-The first line will be ignored as it will be expected to be a header.
-It will read every cell in the CSV file and attempt to register it as a glycan sequence.
+The CSV file is expected to have at least one column.  The first row is not considered data and expected to be a header.  One column must contain the word "sequence" and all data below it will be considered a sequence format.
+
 
 ### On first execute, why is it stuck?
 
@@ -76,14 +75,24 @@ This will register the sequence if it does not exist, and return the Accession N
 
 To register sequences in a csv file:
 
-`groovy gtc -u [contributor id] -a [API key] -c [csvFile] -p [your id]`
+`groovy gtc -u [contributor id] -a [API key] -c [csvFile]`
 
-The first line will be ignored as it will be expected to be a header.
-It will read every cell in the CSV file and attempt to register it as a glycan sequence.
+The CSV file format is described above.  Another column must contain "ID",  with your id in the rows below.  The sequence on the same row will be linked to this id.
 
+example CSV file:
+```
+id,sequence
+1,"WURCS=2.0/4,5,4/[u2122h_2*NCC/3=O][a2122h-1b_1-5_2*NCC/3=O][a1122h-1b_1-5][
+a1122h-1a_1-5]/1-2-3-4-4/a4-b1_b4-c1_c3-d1_c6-e1"
+2,"WURCS=2.0/3,3,2/[a2122h-1x_1-5][a2112h-1x_1-5][a1221m-1x_1-5]/1-2-3/a?-b1_b
+?-c1"
+3,"WURCS=2.0/5,7,6/[a2122h-1b_1-5_2*NCC/3=O][a1122h-1b_1-5][a1122h-1a_1-5][a12
+21m-1x_1-5][a221h-1x_1-5]/1-1-2-3-4-3-5/a4-b1_b4-c1_c3-d1_c6-f1_d?-e1_f?-g1"
+```
 
 ## Notes
 
 1. For some formats, the carriage return characters must be replaced with "\n".
 1. Because of "\n", the entire sequence must be in quotes (see example).
+2. Since WURCS contains "," in the sequence, it should be in quotes.
 2. [Partner Registration in Japanese](http://code.glytoucan.org/partner/registration_ja/)
