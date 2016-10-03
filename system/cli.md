@@ -59,12 +59,26 @@ Register a WURCS sequence.
 
 * recognizes the sequence format automatically
 
-## Linking Partner ID
+# Linking Partner ID
 
 After registration and confirmation from [GLIC](http://glic.glycoinfo.org) that your Contributor ID is registered to your Organization, it will be possible to link the IDs of your website so that it will appear on the Glycan Entry page under the "External Ids" section.
+
+This will require [registration](http://code.glytoucan.org/partner/registration/) and then confirmation.
+
+To register a single sequence with your id:
+`groovy gtc -u [contributor id] -a [API key] -s [sequence] -p [your id]`
+
+This will register the sequence if it does not exist, and return the Accession Number.  The linkage will be formulated from the organizational information 
+
+To register sequences in a csv file:
+`groovy gtc -u [contributor id] -a [API key] -c [csvFile] -p [your id]`
+
+The first line will be ignored as it will be expected to be a header.
+It will read every cell in the CSV file and attempt to register it as a glycan sequence.
 
 
 ## Notes
 
 1. For some formats, the carriage return characters must be replaced with "\n".
 1. Because of "\n", the entire sequence must be in quotes (see example).
+2. [Partner Registration in Japanese](http://code.glytoucan.org/partner/registration_ja/)
