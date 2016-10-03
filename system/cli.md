@@ -15,7 +15,8 @@ It is primarily written in groovy.
 1. This is a unix script.  This has not been tested on windows, but it probably could be converted to a bat file.  Please take a look at simple.groovy, a simple groovy script that can execute a request.
 1. [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 1. [Groovy](http://groovy-lang.org)
-  1. it is recommended to install using the [SDKMAN! method](http://groovy-lang.org/download.html) as described in the groovy download page.
+  1.  Tested only on version 2.4
+  1.  it is recommended to install using the [SDKMAN! method](http://groovy-lang.org/download.html) as described in the groovy download page.
 1. Your Contributor ID*
 1. Your API Key*
 1. If you want to register your database id links, your URL template must be registered with the [Partner Program](http://code.glytoucan.org/partner/registration/)
