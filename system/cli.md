@@ -12,6 +12,7 @@ The GTCC is a command line interface to the GlyTouCan API.
 It is primarily written in groovy.
 
 ##  Requirements
+1. 
 1. This is a unix script.  This has not been tested on windows, but it probably could be converted to a bat file.  Please take a look at simple.groovy, a simple groovy script that can execute a request.
 1. [Java 8](http://www.oracle.com/technetwork/java/javase/downloads/index.html)
 1. [Groovy](http://groovy-lang.org/download.html)
@@ -20,7 +21,7 @@ It is primarily written in groovy.
 1. Your API Key*
 1. If you want to register your database id links, your URL template must be registered with the [Partner Program](http://code.glytoucan.org/partner/registration/)
 
-*The ID and key can be obtained via the [profile](https://glytoucan.org/Users/profile) page
+*The ID and key can be obtained via the [profile](https://glytoucan.org/Users/profile) page.
 
 ## Installation
 `git clone https://github.com/glytoucan/databaseSync.git`
@@ -31,11 +32,13 @@ The gtc command is the glytoucan command line interface.  This is actually a sim
 ## Usage
 
 To register a single sequence:
+
 `groovy gtc -u [contributor id] -a [API key] -s [sequence]`
 
 This will register the sequence if it does not exist, and return the Accession Number.
 
 To register sequences in a csv file:
+
 `groovy gtc -u [contributor id] -a [API key] -c [csvFile]`
 
 The first line will be ignored as it will be expected to be a header.
@@ -66,11 +69,13 @@ After registration and confirmation from [GLIC](http://glic.glycoinfo.org) that 
 This will require [registration](http://code.glytoucan.org/partner/registration/) and then confirmation.
 
 To register a single sequence with your id:
+
 `groovy gtc -u [contributor id] -a [API key] -s [sequence] -p [your id]`
 
 This will register the sequence if it does not exist, and return the Accession Number.  The linkage will be formulated from the organizational information 
 
 To register sequences in a csv file:
+
 `groovy gtc -u [contributor id] -a [API key] -c [csvFile] -p [your id]`
 
 The first line will be ignored as it will be expected to be a header.
