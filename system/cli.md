@@ -83,12 +83,10 @@ The CSV file format is described above.  Another column must contain "ID",  with
 example CSV file:
 ```
 id,sequence
-1,"WURCS=2.0/4,5,4/[u2122h_2*NCC/3=O][a2122h-1b_1-5_2*NCC/3=O][a1122h-1b_1-5][
-a1122h-1a_1-5]/1-2-3-4-4/a4-b1_b4-c1_c3-d1_c6-e1"
-2,"WURCS=2.0/3,3,2/[a2122h-1x_1-5][a2112h-1x_1-5][a1221m-1x_1-5]/1-2-3/a?-b1_b
-?-c1"
-3,"WURCS=2.0/5,7,6/[a2122h-1b_1-5_2*NCC/3=O][a1122h-1b_1-5][a1122h-1a_1-5][a12
-21m-1x_1-5][a221h-1x_1-5]/1-1-2-3-4-3-5/a4-b1_b4-c1_c3-d1_c6-f1_d?-e1_f?-g1"
+"1","WURCS=2.0/2,2,1/[a2122h-1b_1-5_2*NCC/3=O][a2112h-1b_1-5]/1-2/a4-b1"
+"2","WURCS=2.0/3,3,2/[a2122h-1b_1-5_2*NCC/3=O][a1221m-1a_1-5][a2112h-1b_1-5]/1-2-3/a3-b1_a4-c1"
+"3","WURCS=2.0/3,3,2/[a2122h-1b_1-5_2*NCC/3=O][a2112h-1b_1-5][Aad21122h-2a_2-6_5*NCC/3=O]/1-2-3/a4-b1_b3-c2"
+"4","WURCS=2.0/3,3,2/[a2122h-1x_1-5_2*NCC/3=O][a2112h-1b_1-5][a1221m-1a_1-5]/1-2-3/a3-b1_a4-c1"
 ```
 
 ## Notes
