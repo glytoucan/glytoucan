@@ -25,21 +25,6 @@ Contributor ID     | A hashed key used to identify your account.
 Verified Email     | A flag indicating if your email is verified or not.
 Generate API Key     | A link to randomly generate a hash key.  The current hash key is displayed.
   
-As described in the bottom half, a link to Sign out is possible.  Also, if 
+As described in the bottom half, a link to Sign out is possible.  However to complete this process, it is necessary to access your authentication provider.
 
-
-*Once the browser is closed or if the user session times out, this selection will no longer be in effect.  It will have to be selected again.* 
-
-#### Language
-
-The language buttons allow for configuration of a specific language to be used for all words on website.
-
-  * English
-  * Japanese
-  * Chinese
-  * Chinese(Traditional)
-  * France
-  * German
-  * Russian
-
-*If you would like to contribute your language translation expertise, please [contact us!](mailto:support@glytoucan.org)* 
+For Google, this will be at [accounts.google.com](http://accounts.google.com).
