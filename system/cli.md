@@ -43,6 +43,49 @@ To register sequences in a csv file:
 
 The CSV file is expected to have at least one column.  The first row is not considered data and expected to be a header.  One column must contain the word "sequence" and all data below it will be considered a sequence format.
 
+To register sequences in a ｔsv file:
+
+`groovy gtc -u [contributor id] -a [API key] -t [tsvFile]`
+
+Output data is supported by tsv and csv format.
+
+To output in csv format:
+
+`groovy gtc -u [contributor id] -a [API key] -c [csvFile] -o csv`
+
+```
+"G00055MO","WURCS=2.0/2,2,1/[a2122h-1b_1-5_2*NCC/3=O][a2112h-1b_1-5]/1-2/a4-b1"
+"G00051MO","WURCS=2.0/3,3,2/[a2122h-1b_1-5_2*NCC/3=O][a1221m-1a_1-5][a2112h-1b_1-5]/1-2-3/a3-b1_a4-c1"
+"G00065MO","WURCS=2.0/3,3,2/[a2122h-1b_1-5_2*NCC/3=O][a2112h-1b_1-5][Aad21122h-2a_2-6_5*NCC/3=O]/1-2-3/a4-b1_b3-c2"
+"G00047MO","WURCS=2.0/3,3,2/[a2122h-1x_1-5_2*NCC/3=O][a2112h-1b_1-5][a1221m-1a_1-5]/1-2-3/a3-b1_a4-c1"
+```
+
+To output in tsv format:
+
+`groovy gtc -u [contributor id] -a [API key] -c [csvFile] -o tsv`
+
+```
+G00055MO	WURCS=2.0/2,2,1/[a2122h-1b_1-5_2*NCC/3=O][a2112h-1b_1-5]/1-2/a4-b1
+G00051MO	WURCS=2.0/3,3,2/[a2122h-1b_1-5_2*NCC/3=O][a1221m-1a_1-5][a2112h-1b_1-5]/1-2-3/a3-b1_a4-c1
+G00065MO	WURCS=2.0/3,3,2/[a2122h-1b_1-5_2*NCC/3=O][a2112h-1b_1-5][Aad21122h-2a_2-6_5*NCC/3=O]/1-2-3/a4-b1_b3-c2
+G00047MO	WURCS=2.0/3,3,2/[a2122h-1x_1-5_2*NCC/3=O][a2112h-1b_1-5][a1221m-1a_1-5]/1-2-3/a3-b1_a4-c1
+```
+
+You can add a header in output data by using '-m' option.
+
+`groovy gtc -u [contributor id] -a [API key] -c [csvFile] -o tsv -m uafh`
+
+u: contributorId, a: apiKey, f: csvFileName or tsvFileName, h: header
+```
+User ID: your user id
+Api Key: your api key
+Reading file: sample-wurcs.tsv
+Accession Number	sequence
+G00055MO	WURCS=2.0/2,2,1/[a2122h-1b_1-5_2*NCC/3=O][a2112h-1b_1-5]/1-2/a4-b1
+G00051MO	WURCS=2.0/3,3,2/[a2122h-1b_1-5_2*NCC/3=O][a1221m-1a_1-5][a2112h-1b_1-5]/1-2-3/a3-b1_a4-c1
+G00065MO	WURCS=2.0/3,3,2/[a2122h-1b_1-5_2*NCC/3=O][a2112h-1b_1-5][Aad21122h-2a_2-6_5*NCC/3=O]/1-2-3/a4-b1_b3-c2
+G00047MO	WURCS=2.0/3,3,2/[a2122h-1x_1-5_2*NCC/3=O][a2112h-1b_1-5][a1221m-1a_1-5]/1-2-3/a3-b1_a4-c1
+```
 
 ### On first execute, why is it stuck?
 
@@ -89,6 +132,33 @@ id,sequence
 "3","WURCS=2.0/3,3,2/[a2122h-1b_1-5_2*NCC/3=O][a2112h-1b_1-5][Aad21122h-2a_2-6_5*NCC/3=O]/1-2-3/a4-b1_b3-c2"
 "4","WURCS=2.0/3,3,2/[a2122h-1x_1-5_2*NCC/3=O][a2112h-1b_1-5][a1221m-1a_1-5]/1-2-3/a3-b1_a4-c1"
 ```
+
+example output data
+
+```
+"1","G00055MO","WURCS=2.0/2,2,1/[a2122h-1b_1-5_2*NCC/3=O][a2112h-1b_1-5]/1-2/a4-b1"
+"2","G00051MO","WURCS=2.0/3,3,2/[a2122h-1b_1-5_2*NCC/3=O][a1221m-1a_1-5][a2112h-1b_1-5]/1-2-3/a3-b1_a4-c1"
+"3","G00065MO","WURCS=2.0/3,3,2/[a2122h-1b_1-5_2*NCC/3=O][a2112h-1b_1-5][Aad21122h-2a_2-6_5*NCC/3=O]/1-2-3/a4-b1_b3-c2"
+"4","G00047MO","WURCS=2.0/3,3,2/[a2122h-1x_1-5_2*NCC/3=O][a2112h-1b_1-5][a1221m-1a_1-5]/1-2-3/a3-b1_a4-c1"
+```
+
+To output data including header string
+
+`groovy gtc -u [contributor id] -a [API key] -c [csvFile] -m uafh -o tsv`
+
+example of output data including header string
+
+```
+User ID: your user id
+Api Key: your api key
+Reading file: sample-id-wurcs.tsv
+partnerId	Accession Number	sequence
+1	G00055MO	WURCS=2.0/2,2,1/[a2122h-1b_1-5_2*NCC/3=O][a2112h-1b_1-5]/1-2/a4-b1
+2	G00051MO	WURCS=2.0/3,3,2/[a2122h-1b_1-5_2*NCC/3=O][a1221m-1a_1-5][a2112h-1b_1-5]/1-2-3/a3-b1_a4-c1
+3	G00065MO	WURCS=2.0/3,3,2/[a2122h-1b_1-5_2*NCC/3=O][a2112h-1b_1-5][Aad21122h-2a_2-6_5*NCC/3=O]/1-2-3/a4-b1_b3-c2
+4	G00047MO	WURCS=2.0/3,3,2/[a2122h-1x_1-5_2*NCC/3=O][a2112h-1b_1-5][a1221m-1a_1-5]/1-2-3/a3-b1_a4-c1
+```
+
 
 ## Notes
 
