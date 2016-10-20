@@ -41,13 +41,13 @@ To register sequences in a csv file:
 
 `groovy gtc -u [contributor id] -a [API key] -c [csvFile]`
 
-The CSV file is expected to have at least one column.  The first row is not considered data and expected to be a header.  One column must contain the word "sequence" and all data below it will be considered a sequence format.
+The CSV file is expected to have only one column. The first row is not considered data and expected to be a header. One column must contain the word "sequence" and all data below it will be considered a sequence format.
 
 To register sequences in a ｔsv file:
 
 `groovy gtc -u [contributor id] -a [API key] -t [tsvFile]`
 
-Output data is supported by tsv and csv format.
+Output data is supported by a tsv and csv format.
 
 To output in csv format:
 
