@@ -164,5 +164,5 @@ partnerId	Accession Number	sequence
 
 1. For some formats, the carriage return characters must be replaced with "\n".
 1. Because of "\n", the entire sequence must be in quotes (see example).
-2. Since WURCS contains "," in the sequence, it should be in quotes.
+2. Since WURCS contains "," in the sequence, it should be in quotes if you use CSV format.
 2. [Partner Registration in Japanese](http://code.glytoucan.org/partner/registration_ja/)
