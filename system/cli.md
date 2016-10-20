@@ -43,7 +43,7 @@ To register sequences in a csv file:
 
 The CSV file is expected to have only one column. The first row is not considered data and expected to be a header. One column must contain the word "sequence" and all data below it will be considered a sequence format.
 
-To register sequences in a ｔsv file:
+To register sequences in a tsv file:
 
 `groovy gtc -u [contributor id] -a [API key] -t [tsvFile]`
 
