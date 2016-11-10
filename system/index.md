@@ -9,6 +9,7 @@ This is a detailed description of the various parts of the GlyTouCan repository.
 ![Glytoucan System Architecture diagram](/images/system/glytoucan2-system-architecture.svg)
 
 <br>
+
 ## Repository of Subsystems
 
 The GlyTouCan glycan repository is actually a combination of various subsystems.  Each subsystem undertakes a specific role in managing the information stored in the repository; this information will ultimately be stored in a triplestore.  How each component was designed, the technologies used, and the source code will be provided in detail below.
@@ -32,6 +33,7 @@ The GlyTouCan java icon is the front-end server providing web pages cleanly form
 It is primarily written in Java using the Spring Framework as a controller and [togostanza](http://www.togostanza.org/) as a dynamic view of the RDF data.  The details behind on how this is accomplished is available in the [glytoucan architecture](glytoucan) page.
 
 <br>
+
 ## Infrastructure
 
 All of the above could not be completed in an efficient manner without the tools used to manage the multiple environments and requirements demanded for each environment.  The [infrastructure](infrastructure) page delves into how this was managed, and the development methods that were used behind each tool.
