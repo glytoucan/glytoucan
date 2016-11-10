@@ -6,7 +6,7 @@ layout: default
 ## A simple interface to complex data
 
 As can be seen in the system diagram, four different systems and a multitude of dependent libraries are embedded in the site code in order to display the top page.  The following is a list of the different systems/tools that were used to generate the web interface, as well as future plans on the subject.
-![Glytoucan System Architecture diagram](/images/glytoucan-system-architecture.svg)
+![Glytoucan System Architecture diagram](/images/system/glytoucan-system-architecture.svg)
 
 ### Web MVC framework
 
@@ -31,7 +31,7 @@ Campbell MP, Peterson R, Mariethoz J, Gasteiger E, Akune Y, Aoki-Kinoshita KF, L
 
 ### RINGS
 
-As there are a variety of sequence formats available to describe a glycan, a robust method to convert the sequences was necessary.  The format stored within the glyspace database was GlycoCT.  Therefore it was necessary to convert any input sequence into this format real-time.  The RINGS conversion web service was used to pass the correct format into the glyspace web service.
+As there are a variety of sequence formats available to describe a glycan, a robust method to convert the sequences was necessary.  The format stored within the glyspace database was GlycoCT.  Therefore it was necessary to convert any input sequence into this format in real-time.  The RINGS conversion web service was used to pass the correct format into the glyspace web service.
 
 * [rings](http://rings.t.soka.ac.jp/)
 * [rings conversion tool](http://rings.t.soka.ac.jp/cgi-bin/tools/utilities/convert/index.pl)
@@ -48,7 +48,7 @@ It should be noted here that the [glyspace](glyspace) web service has the functi
 
 * [glyspace](glyspace)
 
-### <a name="i18n">&nbsp;</a>internationalization
+### <a name="i18n">&nbsp;</a>Internationalization
 
 A completely new localization framework was also developed during this phase of the project.  By storing the translations within a different database, and caching the results locally as a JSON file, a quick and reliable translation service was created.  There was a minor change on the view side of the site to incorporate this method, but the end result is a robust and clean multilingual system.  Considering glytoucan.org is to be used for all countries globally, this was an important requirement for the site.
 
@@ -56,6 +56,6 @@ A completely new localization framework was also developed during this phase of 
 
 * [glytoucan localization](https://bitbucket.org/glytoucan_localization/glytoucan_localization)
 
-### <a name="futurework">&nbsp;</a>future work
+### <a name="futurework">&nbsp;</a>Future work
 
 User-editable is the key word for version two.  We hope to have more social-esque functionality for nearly all of the pages, and have the data stored completely in RDF.  Adding social functionality will have privacy concerns, so some governing rules will have to be prepared for intent to be clear with everyone involved.
