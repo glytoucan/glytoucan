@@ -12,7 +12,7 @@ There are many philosophies behind how a web-based system should be structured, 
 
 At it's core, GlyTouCan is very simple.  When one considers a "repository to identify structures" the keywords here are identify and structure.  At the least, the repository would store two items: a standard method of representing a structure, and an identifier.  To take this idea even further, if the structure can be represented in a *unique fashion* the representation itself could be considered the identifier, thus leaving only one time.
 
-What this means is that GlyTouCan will eventually have to replace the randomly-generated identifiers with a unique representation method, similar to Inchi.  This is important to consider for future work.
+What this means is that GlyTouCan will eventually have to replace the randomly-generated identifiers with a unique representation method ([WURCS](http://www.wurcs-wg.org/)), similar to [IUPAC InChI](http://www.inchi-trust.org).  This is important to consider for future work.
 
 ## Curation
 
@@ -22,7 +22,7 @@ This methodology is based on the reality that GlyTouCan does not have a full-tim
 
 With this in mind, the amount of curation required for other user-input data should be handled in the same method.  However zero support is not future-proof, a volunteer-based group of moderators is required.
 
-The GlyTouCan Partner program exists as part of the GlycoInformatics Coalition to provide collaboration and support between Glycomics researchers, including both biological and information technology specialists.  GlyTouCan users that are members of a partner organization would be considered to have a Moderator-role.  These two roles of regular user and moderator can be utilized for all  supplementary data fields.
+The GlyTouCan Partner program exists as part of the GlycoInformatics Consortium ([GLIC](http://glic.glycoinfo.org)) to provide collaboration and support between Glycomics researchers, including both biological and information technology specialists.  GlyTouCan users that are members of a partner organization would be considered to have a Moderator-role.  These two roles of regular user and moderator can be utilized for all  supplementary data fields.
 
 ### Supplementary Data
 
