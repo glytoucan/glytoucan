@@ -165,6 +165,10 @@ The ```--remove``` or ```-r``` parameter removes the linkage from glytoucan:
 
 `groovy gtc -u [contributor id] -a [API key] -s  [sequence] -r [your glycan id]`
 
+example of removing partner linked data
+
+`groovy gtc -u [contributor id] -a [API key] -r 1G94 -s "WURCS=2.0/4,5,4/[a2122h-1b_1-5][a2122h-1a_1-5][a2122m-1a_1-5][a2122m-1a_1-5_4*NC^SC^SC^SC^RC^RCO/7C$3/6O/5O/4O]/1-2-3-2-4/a4-b1_b4-c1_c4d1-d1d2*1NC^SC^SC^RC^RO*2/6C^RCO/9C$3/5O/4O_d4-e1"`
+
 ## Notes
 
 1. For some formats, the carriage return characters must be replaced with "\n".
