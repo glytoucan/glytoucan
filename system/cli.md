@@ -159,10 +159,16 @@ partnerId	Accession Number	sequence
 4	G00047MO	WURCS=2.0/3,3,2/[a2122h-1x_1-5_2*NCC/3=O][a2112h-1b_1-5][a1221m-1a_1-5]/1-2-3/a3-b1_a4-c1
 ```
 
+## Removing Linked Partner ID
+
+The ```--remove``` or ```-r``` parameter removes the linkage from glytoucan:
+
+`groovy gtc -u [contributor id] -a [API key] -s  [sequence] -r [your glycan id]`
 
 ## Notes
 
 1. For some formats, the carriage return characters must be replaced with "\n".
 1. Because of "\n", the entire sequence must be in quotes (see example).
-2. Since WURCS contains "," in the sequence, it should be in quotes if you use CSV format.
-2. [Partner Registration in Japanese](http://code.glytoucan.org/partner/registration_ja/)
+1. Since WURCS contains "," in the sequence, it should be in quotes.
+1. [Partner Registration in Japanese](http://code.glytoucan.org/partner/registration_ja/)
+1. If there are weird compilation errors, this may be due to a snapshot version update, and groovy does not handle these very well.  In these cases, it is easiest to simply move or delete the grapes folder in the local groovy cache folder.
