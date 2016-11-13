@@ -133,7 +133,7 @@ id,sequence
 "4","WURCS=2.0/3,3,2/[a2122h-1x_1-5_2*NCC/3=O][a2112h-1b_1-5][a1221m-1a_1-5]/1-2-3/a3-b1_a4-c1"
 ```
 
-example output data
+example of output data
 
 ```
 "1","G00055MO","WURCS=2.0/2,2,1/[a2122h-1b_1-5_2*NCC/3=O][a2112h-1b_1-5]/1-2/a4-b1"
@@ -169,13 +169,22 @@ example of removing partner linked data
 
 `groovy gtc -u [contributor id] -a [API key] -r 1G94 -s "WURCS=2.0/4,5,4/[a2122h-1b_1-5][a2122h-1a_1-5][a2122m-1a_1-5][a2122m-1a_1-5_4*NC^SC^SC^SC^RC^RCO/7C$3/6O/5O/4O]/1-2-3-2-4/a4-b1_b4-c1_c4d1-d1d2*1NC^SC^SC^RC^RO*2/6C^RCO/9C$3/5O/4O_d4-e1"`
 
-example of removing partner linked data with data of a csv file.
+example of removing partner linked data with data of a CSV file.
 
 `groovy gtc -u [contributor id] -a [API key] -c [csvFile] -r file`
 
-example of removing partner linked data with data of a tsv file.
+example of removing partner linked data with data of a TSV file.
 
 `groovy gtc -u [contributor id] -a [API key] -t [tsvFile] -r file`
+
+example of removing partner linked data using outputdata (CSV)
+
+`groovy gtc -u [contributor id] -a [API key] -c [csvFile] -o csv -r file  > [CSV outputdata]`
+
+example of removing partner linked data using outputdata (TSV)
+
+`groovy gtc -u [contributor id] -a [API key] -t [tsvFile] -o tsv -r file  > [TSV outputdata]`
+
 
 example output data
 
