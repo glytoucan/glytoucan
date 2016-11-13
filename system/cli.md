@@ -169,6 +169,24 @@ example of removing partner linked data
 
 `groovy gtc -u [contributor id] -a [API key] -r 1G94 -s "WURCS=2.0/4,5,4/[a2122h-1b_1-5][a2122h-1a_1-5][a2122m-1a_1-5][a2122m-1a_1-5_4*NC^SC^SC^SC^RC^RCO/7C$3/6O/5O/4O]/1-2-3-2-4/a4-b1_b4-c1_c4d1-d1d2*1NC^SC^SC^RC^RO*2/6C^RCO/9C$3/5O/4O_d4-e1"`
 
+example of removing partner linked data with data of a csv file.
+
+`groovy gtc -u [contributor id] -a [API key] -c [csvFile] -r file`
+
+example of removing partner linked data with data of a tsv file.
+
+`groovy gtc -u [contributor id] -a [API key] -t [tsvFile] -r file`
+
+example output data
+
+```
+Removing partner Accession Number:1	sequence: WURCS=2.0/2,2,1/[a2122h-1b_1-5_2*NCC/3=O][a2112h-1b_1-5]/1-2/a4-b1
+Removing partner Accession Number:2	sequence: WURCS=2.0/3,3,2/[a2122h-1b_1-5_2*NCC/3=O][a1221m-1a_1-5][a2112h-1b_1-5]/1-2-3/a3-b1_a4-c1
+Removing partner Accession Number:3	sequence: WURCS=2.0/3,3,2/[a2122h-1b_1-5_2*NCC/3=O][a2112h-1b_1-5][Aad21122h-2a_2-6_5*NCC/3=O]/1-2-3/a4-b1_b3-c2
+Removing partner Accession Number:4	sequence: WURCS=2.0/3,3,2/[a2122h-1x_1-5_2*NCC/3=O][a2112h-1b_1-5][a1221m-1a_1-5]/1-2-3/a3-b1_a4-c1
+```
+
+
 ## Notes
 
 1. For some formats, the carriage return characters must be replaced with "\n".
