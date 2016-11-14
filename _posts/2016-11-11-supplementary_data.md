@@ -6,6 +6,7 @@ layout: post
 categories: posts
 ---
 # Accepting User Data
+
 ## The core values
 
 There are many philosophies behind how a web-based system should be structured, and one major issue is how much user-supplied information should be incorporated into the system.
