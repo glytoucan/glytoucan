@@ -165,6 +165,31 @@ The ```--remove``` or ```-r``` parameter removes the linkage from glytoucan:
 
 `groovy gtc -u [contributor id] -a [API key] -s  [sequence] -r [your glycan id]`
 
+# Production Environment
+
+By default, the glytoucan client utilizes the test or beta environment, located at http://beta.glytoucan.org.  The test api interface is configured to http://test.api.glytoucan.org.
+
+In order to have the client switch to the production environment, an environment variable must be configured to the api server.
+
+On a bash shell system, this is executed via the following commands:
+
+```
+$ export API_HOSTNAME="https://api.glytoucan.org"
+$ echo $API_HOSTNAME
+https://api.glytoucan.org
+```
+
+Please check your operating system in order to modify environment variables within the shell used for the client.
+
+```
+$ groovy gtc -u {user id} -a {api key} -s Gal
+Registering sequence: Gal
+Accession Number of Gal is G68158BT
+```
+
+Please be sure to check the production environment for your changes: https://glytoucan.org/Structures/Glycans/G68158BT
+
+
 ## Notes
 
 1. For some formats, the carriage return characters must be replaced with "\n".
@@ -172,3 +197,4 @@ The ```--remove``` or ```-r``` parameter removes the linkage from glytoucan:
 1. Since WURCS contains "," in the sequence, it should be in quotes.
 1. [Partner Registration in Japanese](http://code.glytoucan.org/partner/registration_ja/)
 1. If there are weird compilation errors, this may be due to a snapshot version update, and groovy does not handle these very well.  In these cases, it is easiest to simply move or delete the grapes folder in the local groovy cache folder.
+1. Since the accession numbers are randomly generated, they may differ between the production and beta environments.  On a regular basis the beta environment data is overwritten by the production data in order to synchronize.
