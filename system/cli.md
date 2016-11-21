@@ -23,6 +23,14 @@ It is primarily written in groovy.
 
 *The ID and key can be obtained via the [profile](https://glytoucan.org/Users/profile) page.
 
+## Important Note Regarding Contributor ID
+
+Please note that while GlyTouCan can support multiple users as a maintainer of one database, it cannot handle one user acting as a maintainer of multiple databases.  Due to this restriction, it is advisable to create a "service account" for your database in the case you need to register for multiple websites.
+
+To create a service account, all that is necessary is to create an account such as "myDatabaseSupport@gmail.com", confirm the email once registered, and then login to GlyTouCan with this account.  Please be sure to confirm the email is verified as GlyTouCan does not accept submissions from users without a confirmed email address.
+
+As GlyTouCan can handle multiple users to a database, the service account can be added later once you are ready.  Please use the contributor id and api key for this account available on the profile screen.
+
 ## Installation
 `git clone https://github.com/glytoucan/databaseSync.git`
 
@@ -190,7 +198,8 @@ Accession Number of Gal is G68158BT
 Please be sure to check the production environment for your changes: https://glytoucan.org/Structures/Glycans/G68158BT
 
 
-## Notes
+
+# Notes
 
 1. For some formats, the carriage return characters must be replaced with "\n".
 1. Because of "\n", the entire sequence must be in quotes (see example).
