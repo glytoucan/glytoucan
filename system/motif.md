@@ -5,11 +5,13 @@ layout: default
 
 ## Overview
 
-The analysis of this system began when a specific motif had an issue and it was found necessary to modify it.  At the time a static list of motifs was defined (given the ``` a glycan:Motif ``` class) which was also mistakingly ``` a glycan:Saccharide ```
+The analysis of this system began when a specific motif had an issue and it was found necessary to modify it.  At the time a static list of motifs was defined (given the ``` a glycan:Motif ``` class) which was also mistakingly ``` a glycan:Saccharide ```.  This lead to the Motif having a registered accession number. 
 
-[example of article to link to](http://www.ncbi.nlm.nih.gov/pubmed/15535969)
+It was apparent that there were support and maintenence issues with this method.  It could not be sustained effectively which would eventually make this functionality insignificant.  Despite the fact that motifs are commonly describe in published literature.  [Here is one example](http://www.ncbi.nlm.nih.gov/pubmed/15535969).
 
-  
+As described above, there were also issues with considering Motifs to be Saccharides themselves, and registering them in the repository.
+
+
 As of this writing, there does not exist a de-facto standard for naming glycans.  Even within the cheminfo organizations, there only exist proposals of standards.
 
 As a glycan repository, it is important for the system to be able to associate names and naming conventions to specific structures or structural patterns.  This will allow for easier queries and recognizable associations for users and contributors.
