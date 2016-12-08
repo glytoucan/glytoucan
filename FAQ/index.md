@@ -3,7 +3,10 @@ title: FAQ
 layout: default
 ---
 
-Using this tool
+#Frequently Asked Questions 
+
+##GlyTouCan
+
 ---------------
 
 **Q.** What is GlyTouCan?<br>
@@ -62,3 +65,6 @@ In addition, please inform us of link(s) to your work [Contact Us]( mailto:suppo
 
 **Q.** How are aglycons supported?<br>
 **A.** Currently aglycons and glycoconjugates are not supported.  However we do plan to support them in the near future.
+
+**Q.** Is there a way to filter to those glycans that have a calculated mass? <br>
+**A.** Yes, currently this is supported on the [Glycan List](https://glytoucan.org/Structures) by clicking on the box to the left of the 

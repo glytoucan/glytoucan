@@ -4,12 +4,15 @@ layout: default
 ---
 ## Target Audience
 
-This is a detailed description of the various parts of the GlyTouCan repository.  It is meant to be a resource to understand how the system is maintained and to analyze where there can be made improvements.
+This is a detailed description of the various parts of the GlyTouCan repository.  It is meant to be a resource to understand how the system is maintained and to analyze where there improvements can be made.
 
 ![Glytoucan System Architecture diagram](/images/system/glytoucan2-system-architecture.svg)
+
+<br>
+
 ## Repository of Subsystems
 
-The GlyTouCan glycan repository is actually a combination of various subsystems.  Each subsystem undertakes a specific role in managing the information stored in the repository; this information will ultimately be stored in a triplestore.  How each component was designed, the technologies used, and source code will be provided in detail below.
+The GlyTouCan glycan repository is actually a combination of various subsystems.  Each subsystem undertakes a specific role in managing the information stored in the repository; this information will ultimately be stored in a triplestore.  How each component was designed, the technologies used, and the source code will be provided in detail below.
 
 ### Linked Data RDF Triplestore
 
@@ -25,10 +28,12 @@ The [api server](http://api.glytoucan.org) interacts directly with the triplesto
 
 ### Web Server and Internationalization
 
-The GlyTouCan java icon is the front-end server providing web pages cleanly formatted to display the information in the repository.  The site allows users(glycoscientists) to visual inspect, create, or modify the data in the repository using a web browser.  The front-end server uses the web services provided by the backend servers to extract or modify information in the database and does not store data itself.  It utilizes the [java client](http://github.com/glytoucan/client) to implement this cleanly.  
+The GlyTouCan java icon is the front-end server providing web pages cleanly formatted to display the information in the repository.  The site allows users(glycoscientists) to visually inspect, create, or modify the data in the repository using a web browser.  The front-end server uses the web services provided by the backend servers to extract or modify information in the database and does not store data itself.  It utilizes the [java client](http://github.com/glytoucan/client) to implement this cleanly.  
 
-It is primarily written in Java using the Spring Framework as controller and [togostanza](http://www.togostanza.org/) as dynamic view of the RDF data.  The details behind how this is accomplished is available in the [glytoucan architecture](glytoucan) page.
+It is primarily written in Java using the Spring Framework as a controller and [togostanza](http://www.togostanza.org/) as a dynamic view of the RDF data.  The details behind on how this is accomplished is available in the [glytoucan architecture](glytoucan) page.
+
+<br>
 
 ## Infrastructure
 
-All of the above could not be completed in an efficient manner without the tools used to manage the multiple environments and requirements demanded for each environment.  The [infrastructure](infrastructure) page delves into how this was managed, and the development methods used behind each tool.
+All of the above could not be completed in an efficient manner without the tools used to manage the multiple environments and requirements demanded for each environment.  The [infrastructure](infrastructure) page delves into how this was managed, and the development methods that were used behind each tool.

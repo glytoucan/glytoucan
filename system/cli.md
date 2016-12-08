@@ -23,6 +23,14 @@ It is primarily written in groovy.
 
 *The ID and key can be obtained via the [profile](https://glytoucan.org/Users/profile) page.
 
+## Important Note Regarding Contributor ID
+
+Please note that while GlyTouCan can support multiple users as a maintainer of one database, it cannot handle one user acting as a maintainer of multiple databases.  Due to this restriction, it is advisable to create a "service account" for your database in the case you need to register for multiple websites.
+
+To create a service account, all that is necessary is to create an account such as "myDatabaseSupport@gmail.com", confirm the email once registered, and then login to GlyTouCan with this account.  Please be sure to confirm the email is verified as GlyTouCan does not accept submissions from users without a confirmed email address.
+
+As GlyTouCan can handle multiple users to a database, the service account can be added later once you are ready.  Please use the contributor id and api key for this account available on the profile screen.
+
 ## Installation
 `git clone https://github.com/glytoucan/databaseSync.git`
 
@@ -41,8 +49,51 @@ To register sequences in a csv file:
 
 `groovy gtc -u [contributor id] -a [API key] -c [csvFile]`
 
-The CSV file is expected to have at least one column.  The first row is not considered data and expected to be a header.  One column must contain the word "sequence" and all data below it will be considered a sequence format.
+The CSV file is expected to have only one column. The first row is not considered data and expected to be a header. One column must contain the word "sequence" and all data below it will be considered a sequence format.
 
+To register sequences in a tsv file:
+
+`groovy gtc -u [contributor id] -a [API key] -t [tsvFile]`
+
+Output data is supported by a tsv and csv format.
+
+To output in csv format:
+
+`groovy gtc -u [contributor id] -a [API key] -c [csvFile] -o csv`
+
+```
+"G00055MO","WURCS=2.0/2,2,1/[a2122h-1b_1-5_2*NCC/3=O][a2112h-1b_1-5]/1-2/a4-b1"
+"G00051MO","WURCS=2.0/3,3,2/[a2122h-1b_1-5_2*NCC/3=O][a1221m-1a_1-5][a2112h-1b_1-5]/1-2-3/a3-b1_a4-c1"
+"G00065MO","WURCS=2.0/3,3,2/[a2122h-1b_1-5_2*NCC/3=O][a2112h-1b_1-5][Aad21122h-2a_2-6_5*NCC/3=O]/1-2-3/a4-b1_b3-c2"
+"G00047MO","WURCS=2.0/3,3,2/[a2122h-1x_1-5_2*NCC/3=O][a2112h-1b_1-5][a1221m-1a_1-5]/1-2-3/a3-b1_a4-c1"
+```
+
+To output in tsv format:
+
+`groovy gtc -u [contributor id] -a [API key] -c [csvFile] -o tsv`
+
+```
+G00055MO	WURCS=2.0/2,2,1/[a2122h-1b_1-5_2*NCC/3=O][a2112h-1b_1-5]/1-2/a4-b1
+G00051MO	WURCS=2.0/3,3,2/[a2122h-1b_1-5_2*NCC/3=O][a1221m-1a_1-5][a2112h-1b_1-5]/1-2-3/a3-b1_a4-c1
+G00065MO	WURCS=2.0/3,3,2/[a2122h-1b_1-5_2*NCC/3=O][a2112h-1b_1-5][Aad21122h-2a_2-6_5*NCC/3=O]/1-2-3/a4-b1_b3-c2
+G00047MO	WURCS=2.0/3,3,2/[a2122h-1x_1-5_2*NCC/3=O][a2112h-1b_1-5][a1221m-1a_1-5]/1-2-3/a3-b1_a4-c1
+```
+
+You can add a header in output data by using '-m' option.
+
+`groovy gtc -u [contributor id] -a [API key] -c [csvFile] -o tsv -m uafh`
+
+u: contributorId, a: apiKey, f: csvFileName or tsvFileName, h: header
+```
+User ID: your user id
+Api Key: your api key
+Reading file: sample-wurcs.tsv
+Accession Number	sequence
+G00055MO	WURCS=2.0/2,2,1/[a2122h-1b_1-5_2*NCC/3=O][a2112h-1b_1-5]/1-2/a4-b1
+G00051MO	WURCS=2.0/3,3,2/[a2122h-1b_1-5_2*NCC/3=O][a1221m-1a_1-5][a2112h-1b_1-5]/1-2-3/a3-b1_a4-c1
+G00065MO	WURCS=2.0/3,3,2/[a2122h-1b_1-5_2*NCC/3=O][a2112h-1b_1-5][Aad21122h-2a_2-6_5*NCC/3=O]/1-2-3/a4-b1_b3-c2
+G00047MO	WURCS=2.0/3,3,2/[a2122h-1x_1-5_2*NCC/3=O][a2112h-1b_1-5][a1221m-1a_1-5]/1-2-3/a3-b1_a4-c1
+```
 
 ### On first execute, why is it stuck?
 
@@ -81,6 +132,7 @@ To register sequences in a csv file:
 The CSV file format is described above.  Another column must contain "ID",  with your id in the rows below.  The sequence on the same row will be linked to this id.
 
 example CSV file:
+
 ```
 id,sequence
 "1","WURCS=2.0/2,2,1/[a2122h-1b_1-5_2*NCC/3=O][a2112h-1b_1-5]/1-2/a4-b1"
@@ -89,9 +141,69 @@ id,sequence
 "4","WURCS=2.0/3,3,2/[a2122h-1x_1-5_2*NCC/3=O][a2112h-1b_1-5][a1221m-1a_1-5]/1-2-3/a3-b1_a4-c1"
 ```
 
-## Notes
+example output data
+
+```
+"1","G00055MO","WURCS=2.0/2,2,1/[a2122h-1b_1-5_2*NCC/3=O][a2112h-1b_1-5]/1-2/a4-b1"
+"2","G00051MO","WURCS=2.0/3,3,2/[a2122h-1b_1-5_2*NCC/3=O][a1221m-1a_1-5][a2112h-1b_1-5]/1-2-3/a3-b1_a4-c1"
+"3","G00065MO","WURCS=2.0/3,3,2/[a2122h-1b_1-5_2*NCC/3=O][a2112h-1b_1-5][Aad21122h-2a_2-6_5*NCC/3=O]/1-2-3/a4-b1_b3-c2"
+"4","G00047MO","WURCS=2.0/3,3,2/[a2122h-1x_1-5_2*NCC/3=O][a2112h-1b_1-5][a1221m-1a_1-5]/1-2-3/a3-b1_a4-c1"
+```
+
+To output data including header string
+
+`groovy gtc -u [contributor id] -a [API key] -c [csvFile] -m uafh -o tsv`
+
+example of output data including header string
+
+```
+User ID: your user id
+Api Key: your api key
+Reading file: sample-id-wurcs.tsv
+partnerId	Accession Number	sequence
+1	G00055MO	WURCS=2.0/2,2,1/[a2122h-1b_1-5_2*NCC/3=O][a2112h-1b_1-5]/1-2/a4-b1
+2	G00051MO	WURCS=2.0/3,3,2/[a2122h-1b_1-5_2*NCC/3=O][a1221m-1a_1-5][a2112h-1b_1-5]/1-2-3/a3-b1_a4-c1
+3	G00065MO	WURCS=2.0/3,3,2/[a2122h-1b_1-5_2*NCC/3=O][a2112h-1b_1-5][Aad21122h-2a_2-6_5*NCC/3=O]/1-2-3/a4-b1_b3-c2
+4	G00047MO	WURCS=2.0/3,3,2/[a2122h-1x_1-5_2*NCC/3=O][a2112h-1b_1-5][a1221m-1a_1-5]/1-2-3/a3-b1_a4-c1
+```
+
+## Removing Linked Partner ID
+
+The ```--remove``` or ```-r``` parameter removes the linkage from glytoucan:
+
+`groovy gtc -u [contributor id] -a [API key] -s  [sequence] -r [your glycan id]`
+
+# Production Environment
+
+By default, the glytoucan client utilizes the test or beta environment, located at http://beta.glytoucan.org.  The test api interface is configured to http://test.api.glytoucan.org.
+
+In order to have the client switch to the production environment, an environment variable must be configured to the api server.
+
+On a bash shell system, this is executed via the following commands:
+
+```
+$ export API_HOSTNAME="https://api.glytoucan.org"
+$ echo $API_HOSTNAME
+https://api.glytoucan.org
+```
+
+Please check your operating system in order to modify environment variables within the shell used for the client.
+
+```
+$ groovy gtc -u {user id} -a {api key} -s Gal
+Registering sequence: Gal
+Accession Number of Gal is G68158BT
+```
+
+Please be sure to check the production environment for your changes: https://glytoucan.org/Structures/Glycans/G68158BT
+
+
+
+# Notes
 
 1. For some formats, the carriage return characters must be replaced with "\n".
 1. Because of "\n", the entire sequence must be in quotes (see example).
-2. Since WURCS contains "," in the sequence, it should be in quotes.
-2. [Partner Registration in Japanese](http://code.glytoucan.org/partner/registration_ja/)
+1. Since WURCS contains "," in the sequence, it should be in quotes.
+1. [Partner Registration in Japanese](http://code.glytoucan.org/partner/registration_ja/)
+1. If there are weird compilation errors, this may be due to a snapshot version update, and groovy does not handle these very well.  In these cases, it is easiest to simply move or delete the grapes folder in the local groovy cache folder.
+1. Since the accession numbers are randomly generated, they may differ between the production and beta environments.  On a regular basis the beta environment data is overwritten by the production data in order to synchronize.

@@ -15,6 +15,6 @@ Full details regarding the background of this repository is available in the [Me
 
 The [manual](/manual) best describes the services available through the website.  Also, the [api](/system/api) is the best resource to see the backend services provided.
 
-### Partnership Program
+## Partnership Program
 
 The [GlyTouCan partnership program](/partner){:target="_blank"} allows for specialized functionality to organizations working directly with GlyTouCan.  It mainly revolves around organizations registered into [GLIC](http://glic.glyocinfo.org){:target="_blank"}.

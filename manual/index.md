@@ -7,7 +7,7 @@ This page will be updated with documentation on new functionality as it is added
 
 User Preferences
 -----------------------------------------
-The user preferences page is a usable by all users of the repository.  It can be used to configure display settings for all aspects of GlyTouCan.
+The user preferences page is usable by all users of the repository.  This can be used to configure the display settings for all aspects of GlyTouCan.
 
 <ul class="lesson-images">
   <li>
@@ -21,10 +21,10 @@ The user preferences page is a usable by all users of the repository.  It can be
 Registration
 -----------------------------------------
 
-In order to register structures into GlyTouCan, it is necessary to sign up with the site using Google Authentication.  GlyTouCan will request from google your email address, first and last name.  Only the first name will be displayed when a new structure is registered.
+In order to register structures into GlyTouCan, it is necessary to sign up to the site using Google Authentication.  GlyTouCan will request from google your email address, and your first and last name.  Only the first name will be displayed when a new structure is registered.
 
 
-Registration is the main functionality of GlyTouCan.  Below are the currently available methods of adding glycan sequences, as well as what happens behind the scenes when they are registered.  Other methods of registration are currently being investigated, [your input](mailto: support@glytoucan.org) would be a great help!
+Registration is the main functionality of GlyTouCan.  Below are the currently available methods of adding glycan sequences, as well as what happens behind the scenes when they are registered.  Other methods of registration are currently being investigated, [your input](mailto: support@glytoucan.org) would be of great help!
 
 <ul class="lesson-images">
   <li>
@@ -56,7 +56,7 @@ Registration is the main functionality of GlyTouCan.  Below are the currently av
 Search
 ---------------
 
-The search functionality displays the wealth of information that was gathered from the currently available data in public Glycan databases.  This functionality will be constantly improved and expanded to include data requested by users.
+The search functionality displays the wealth of information that was gathered from the currently available data in the public Glycan databases.  This functionality will constantly be improved and expanded to include data requested by the users.
 
 <ul class="lesson-images">
   <li>
@@ -88,7 +88,7 @@ The search functionality displays the wealth of information that was gathered fr
 View
 ---------------
 
-The View All functionality provides a quick way to browse all of a specific data type.  All data in the glycan repository can be analyzed from these interfaces. 
+The View All functionality provides a quick way to browse all of the specific data type.  All data in the glycan repository can be analyzed from these interfaces. 
 
 <ul class="lesson-images">
   <li>

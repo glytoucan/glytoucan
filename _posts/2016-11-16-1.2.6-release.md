@@ -1,0 +1,50 @@
+---
+title: Latest Toco Upgrade Release
+authors:
+- Nobuyuki Aoki
+layout: post
+categories: posts
+---
+
+
+<img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Ramphastos_toco_-Birdworld,_Farnham,_Surrey,_England-8a.jpg" align="left" height="300" >
+
+Photo provided by wikimedia.
+
+1.2.6 was released yesterday, after major backend upgrades and collaboration with partner organizations.
+
+## Main Features
+
+An interesting aspect of Linked Data stored in triples is the storing of relationships between each piece of data.  Due to this, as the data expands, it is possible to formulate more ways to view this information.  For this release we took advantage of the data formalization steps taken last time (to clean up all of the volunteered data we received), as well as the new data being registered within the glytoucan partner program.  This shows the nice boosts in productivity and efficiency achieved by taking the time to organize data into a well-defined ontology.
+
+### Database Filtering
+
+The [View All](https://glytoucan.org/Structures) page, which allows users to filter down to distinct structures, can now filter based on specific databases where the structure was supplied.  It is also possible to view the intersection between these databases; so if you would like to see the structures stored both within your own database and those that intersect with [PDB](http://www.rcsb.org/pdb/home/home.do), it is now possible.
+
+![databases](/images/manual/gtc-databases.png)
+
+### Partner Glycan Id Registration 
+
+With this release, all of the major backend upgrades are finally complete.  Thus the work that started with the [STINT program](http://www.stint.se/en/scholarships_and_grants/joint_japan-swedish) while we were in Sweden is finally coming to fruition.  During the program we had designed a method to register structures securely through an API and a client.  Both of these subsystems have been matured to the point where it is possible for any registered partner to register structures simply through a command line.
+
+It is also possible to register your own glycan structures id's and the URL to link it back to.  This will allow for easier registration of structures and automatic maintenance of links stored within the repository.
+
+During the [partner registration process](http://code.glytoucan.org/partner/registration/) we also request the database name that should be used for your glycan id.  This name will be used within the Database filtering (explained above) to get a quick summary of the linked data between the repository and your public database.
+
+A lot of work was put into this release with help from many developers of partner organizations.  Thanks to their input we added some very nice last-minute features into the partner process.
+
+Now that this is complete, it's possible to look at what other new features should be added for partners and the data they would like to share.
+
+## Future work (and Other Technical Mumbo)
+
+Instead of going into details about the backend deficiencies that existed previous to release, I think a more positive point of view would be to look at what this means for glytoucan in the future.
+
+The reason why major backend overhauls require so much time and planning is because it is a difficult balancing act between many aspects: the data that exists currently, the system as it functions currently, the new functionality required, the new data required, the new systems that need to be introduced.
+
+These aspects impact every piece of the entire glytoucan system, including the migration of the code out of the development environment and into the public view.
+
+It is quite a relief to be able to have overcome this milestone.  One major reason why is because now that the foundation has matured, it will be possible to easily expand and grow any new features that user's would like.  I don't want to go into too much detail at this point, as some things are finalized and others are not.  Please volunteer any suggestions via the contact information below!
+
+![toco in flight](https://upload.wikimedia.org/wikipedia/commons/8/8f/Toco_toucan_%28Ramphastos_toco%29_in_flight_composite.jpg)
+
+The [Toco](https://en.wikipedia.org/wiki/Toco_toucan) is the largest and probably the best known species in the toucan family. 

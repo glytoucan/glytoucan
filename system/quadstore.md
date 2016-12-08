@@ -5,7 +5,7 @@ layout: default
 
 The following is an example of how the tools created were used to maintain the linked data currently residing in [glytoucan](http://glytoucan.org).  A comprehensive list is available below.
 
-## handling RDF with care
+## Handling RDF with Care
 
 The quadstore chosen to manage the linked data was Openlink's Virtuoso.  The open-source version 7.2 was compiled and setup to run in all of our environments (please refer to the [infrastructure](infrastructure) section).  One of the first steps needed was to copy the glyspace database into the quadstore as RDF.  To accomplish this, a [gs2virt](https://bitbucket.org/glycosw/gs2virt) batch program was written.  This process utilized both JDBC and Jena to access the postgresql database and transfer the data into Virtuoso.  Once this batch is complete, a base GlycoRDF ontology with glycoct sequences will be available from the Virtuoso endpoint.  The glycoct strings are stored in the GlycoSequence class, for example:
 
@@ -73,7 +73,9 @@ ORDER BY ?Motif
 
 > Here is the results of this query on the [glytoucan endpoint](http://ts.glytoucan.org/sparql?default-graph-uri=&query=PREFIX+glycan%3A+%3Chttp%3A%2F%2Fpurl.jp%2Fbio%2F12%2Fglyco%2Fglycan%23%3E%0D%0APREFIX+glytoucan%3A++%3Chttp%3A%2F%2Fwww.glytoucan.org%2Fglyco%2Fowl%2Fglytoucan%23%3E%0D%0ASELECT+DISTINCT+%3FSaccharide+%3FMotif%0D%0AWHERE+%7B%0D%0A%3FSaccharide+a+glycan%3Asaccharide+.%0D%0A%3FSaccharide+glytoucan%3Ahas_primary_id+%22G99973YH%22+.%0D%0A%3FSaccharide+glycan%3Ahas_motif+%3FMotif+.%0D%0A%7D%0D%0AORDER+BY+%3FMotif&format=text%2Fhtml&timeout=0&debug=on)
 
-## list of tools
+<br>
+
+## List of Tools
 
 A complete listing of all of the tools used or created for the site.
 
@@ -115,12 +117,13 @@ The SPARQL created was based upon the glycoinformatics-specific RDF ontologies s
   * [source code](http://code.glytoucan.org/batch/)
   * [Spring Batch](http://projects.spring.io/spring-batch/)
   
-## <a name="futurework">&nbsp;</a>future work
+<br>
+  
+## <a name="futurework">&nbsp;</a>Future Work
 
 In preparation for the next release, one of the major items proposed is to have user-editable content.  As the data within GlyTouCan grows, the maintenance required will also escalate.  Therefore a community-driven framework for data maintenance would improve content quality and give direction to new functionality requirements.
 
   Adding relationships between structures also adds value to the dataset.  Enrichment with sub/super structure or isomer relationships is a straight-forward process, however performance analysis will be necessary as the processes could be highly resource intensive.
   Separately, a great deal of new work is being done based upon the WURCS sequence format, a transition to utilizing this as the main format for the entire Repository is also in discussion.  
   Finally, the post-registration processes describes the many steps involved with generating the relationships between structures.  Currently these processes are run at a batched interval in order to process newly submitted structures.  Ideally this should be a real-time process immediately after the sequence is registered, however the complexity involved and potential resource bottlenecks require more evaluation on how this is to be implemented.  This is a high priority item that will be covered within the few months after the first release.
-
 
