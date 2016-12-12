@@ -63,7 +63,7 @@ In addition, please inform us of link(s) to your work [Contact Us]( mailto:suppo
 **A.** The position would be considered ambigous.  It would be registered as ambiguous and when searching, the similar structures with any linkage position will be queried.<br><br>
 
 **Q.** How are aglycons supported?<br>
-**A.** Currently aglycons and glycoconjugates are not supported.  However we do plan to support them in the near future.
+**A.** Currently aglycons and glycoconjugates are not supported.  However we do plan to support them in the near future.<br><br>
 
 **Q.** Is there a way to filter to those glycans that have a calculated mass? <br>
-**A.** Yes, currently this is supported on the [Glycan List](https://glytoucan.org/Structures) by clicking on the box to the left.
+**A.** Yes, currently this is supported on the [Glycan List](https://glytoucan.org/Structures) by clicking on the box to the left.<br><br>
