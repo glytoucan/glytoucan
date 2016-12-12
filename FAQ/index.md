@@ -3,9 +3,9 @@ title: FAQ
 layout: default
 ---
 
-#Frequently Asked Questions 
+# Frequently Asked Questions 
 
-##GlyTouCan
+## GlyTouCan
 
 ---------------
 
