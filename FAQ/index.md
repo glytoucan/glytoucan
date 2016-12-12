@@ -46,10 +46,9 @@ In addition, please inform us of any link(s) from [Contact Us]( mailto:support@g
 
 **Q.** Can I use data and graphics from the GlyTouCan?<br>
 **A.** Yes, data and graphics can be used in your web site and does not require any permission. However, redistribution of some of the resources in part or may be restricted.<br>
-Please read and follow the [Site Policies](http://code.glytoucan.org/manual/sitePolicy) of the GlyTouCan home page and [Creative  
-Commons licenses](https://creativecommons.org/licenses/by/4.0/).<br> 
+Please read and follow the [Site Policies](http://code.glytoucan.org/manual/sitePolicy) of the GlyTouCan home page and [Creative Commons licenses](https://creativecommons.org/licenses/by/4.0/).<br> 
 When you reprint and/or quote data and graphics from the GlyTouCan, please attribute it to “GlyTouCan”.<br>
-In addition, please inform us of link(s) to your work [Contact Us]( mailto:support@glytoucan.org).
+In addition, please inform us of link(s) to your work [Contact Us]( mailto:support@glytoucan.org).<br><br>
 
 **Q.** Where should I contact for inquiries for services of the GlyTouCan?<br>
 **A.** Please contact us via [Contact Us]( mailto:support@glytoucan.org).<br><br>
@@ -67,4 +66,4 @@ In addition, please inform us of link(s) to your work [Contact Us]( mailto:suppo
 **A.** Currently aglycons and glycoconjugates are not supported.  However we do plan to support them in the near future.
 
 **Q.** Is there a way to filter to those glycans that have a calculated mass? <br>
-**A.** Yes, currently this is supported on the [Glycan List](https://glytoucan.org/Structures) by clicking on the box to the left of the 
+**A.** Yes, currently this is supported on the [Glycan List](https://glytoucan.org/Structures) by clicking on the box to the left.
