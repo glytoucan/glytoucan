@@ -25,11 +25,15 @@ It is primarily written in groovy.
 
 ## Important Note Regarding Contributor ID
 
-Please note that while GlyTouCan can support multiple users as a maintainer of one database, it cannot handle one user acting as a maintainer of multiple databases.  Due to this restriction, it is advisable to create a "service account" for your database in the case you need to register for multiple websites.
+It is highly recommended to create a "service account" email address in order to maintain the linkage data between glytoucan and your organization.  This way it will be possible to share this account with other trusted maintainers of your database, without giving away any private passwords.
 
 To create a service account, all that is necessary is to create an account such as "myDatabaseSupport@gmail.com", confirm the email once registered, and then login to GlyTouCan with this account.  Please be sure to confirm the email is verified as GlyTouCan does not accept submissions from users without a confirmed email address.
 
-As GlyTouCan can handle multiple users to a database, the service account can be added later once you are ready.  Please use the contributor id and api key for this account available on the profile screen.
+As GlyTouCan can handle multiple users to a database, the service account can be added later once you are ready.  Please use the contributor id and api key for this account.  This information is available on the profile screen once you have logged in.
+
+## Regarding multiple database to one user
+
+Please note that while GlyTouCan can support multiple users as a maintainer of one database, it cannot handle one user acting as a maintainer of multiple databases.  Due to this restriction, it is advisable to create a "service account" for your database in the case you need to register for multiple websites.
 
 ## Installation
 `git clone https://github.com/glytoucan/databaseSync.git`
