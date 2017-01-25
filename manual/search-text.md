@@ -19,12 +19,18 @@ Text Interface
   * LinearCode
   * KCF
   
+<br>
+  
 the sequence can be typed or pasted into the text area input screen.
 
 ![Glytoucan Text Interface](/images/manual/search-text.png)
+
 *Only one sequence can be pasted into this field.  Please be careful of whitespace when pasting text.* 
+
+<br>
 
 Once entered, any related super-structures will be displayed.  If the input structure is not registered, it will indicate so as it will not have an Accession Number. 
 
 ![Glytoucan Graphical Interface](/images/manual/search-result.png)
+
 _Please note that the sequence is converted to WURCS, and the WURCS sequence is used to search for the structure_
