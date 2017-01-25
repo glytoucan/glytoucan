@@ -30,6 +30,7 @@ When a representation is selected, the image structure will change to the select
 *Once the browser is closed or if the user session times out, this selection will no longer be in effect.  It will have to be selected again.* 
 
 <br>
+
 #### Language
 
 The language buttons allow for configuration of a specific language to be used for all words on the website.
