@@ -22,10 +22,14 @@ To search registered glycans with a specific structural fragment, it is possible
 
 It is possible to create or extend from existing structures within this interface.
 
+<br>
+
 ![Glytoucan Graphical Interface](/images/manual/search-graphical.png)
 _Note: User registration is not required to query for a structure._
 
 Once the structure is complete, a sequence is generated from the input and used to search the database for a valid id.  If the sequence is found, the structure format and any related super structures will be displayed.
+
+<br>
 
 ![Glytoucan Graphical Interface Results](/images/manual/search-result.png)
 
