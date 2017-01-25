@@ -22,6 +22,8 @@ Text Interface
   
 The sequence can be typed or pasted into the text area input screen.
 
+<br>
+
 ![Glytoucan Text Interface](/images/manual/search-text.png)
 
 *Only one sequence can be pasted into this field.  Please be careful of whitespace when pasting text.* 
@@ -29,6 +31,8 @@ The sequence can be typed or pasted into the text area input screen.
 <br>
 
 Once entered, any related super-structures will be displayed.  If the input structure is not registered, it will indicate so as it will not have an Accession Number. 
+
+<br>
 
 ![Glytoucan Graphical Interface](/images/manual/search-result.png)
 
