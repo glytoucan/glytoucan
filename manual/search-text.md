@@ -19,9 +19,8 @@ Text Interface
   * LinearCode
   * KCF
   
-<br>
   
-the sequence can be typed or pasted into the text area input screen.
+The sequence can be typed or pasted into the text area input screen.
 
 ![Glytoucan Text Interface](/images/manual/search-text.png)
 
