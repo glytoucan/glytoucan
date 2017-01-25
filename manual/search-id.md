@@ -17,6 +17,8 @@ If you already have the accession number of the glycan that you are looking for,
 
 ![Glytoucan Accession Number Search Interface](/images/manual/search-id.png)
 
+<br>
+
 Once found, the results will be shown on the next screen:
 
 ![Glytoucan Graphical Interface Results](/images/manual/glycan-entry-G00028MO.png)
