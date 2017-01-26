@@ -28,8 +28,6 @@ Each motif is a link to a more detailed page.  For instance when the "N-Glycan h
 
 ![Glytoucan Motif Results](/images/manual/glycan-entry2-G00028MO.png)
 
-![Glytoucan Motif Results](/images/manual/glycan-entry3-G00028MO.png)
-
 <br>
 
 Please [contact us](/team) in case there are any issues with this list.
