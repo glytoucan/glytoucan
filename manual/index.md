@@ -18,6 +18,12 @@ The user preferences page is usable by all users of the repository.  This can be
       <h3 style="text-align: center;">Preferences</h3>
     </a>
   </li>
+  <li>
+    <a href="../manual/profile">
+      <img src="../images/manual/profile.png">
+      <h3 style="text-align: center;">Profile</h3>
+    </a>
+  </li>
 </ul>
 
 Registration
