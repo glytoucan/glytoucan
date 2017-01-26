@@ -21,13 +21,13 @@ Profile
 
 The following are the field names and where they are originated from.
   
-Field     | Description
--------- | ---
-Username | The user name used to recognize your account.  Taken from the First name of your linked account.
-Email    | Email address received from your authentication provider.
-Contributor ID     | A hashed key used to identify your account.
-Verified Email     | A flag indicating if your email is verified or not.
-Generate API Key     | A link to randomly generate a hash key.  The current hash key is displayed.
+** Field - Description **
+
+* Username - The user name used to recognize your account.  Taken from the First name of your linked account.  
+* Email - Email address received from your authentication provider.  
+* Contributor ID - A hashed key used to identify your account.  
+* Verified Email - A flag indicating if your email is verified or not.  
+* Generate API Key - A link to randomly generate a hash key.  The current hash key is displayed.  
   
 <br>
 
