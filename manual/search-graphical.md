@@ -7,8 +7,8 @@ reviewers:
 - Kiyoko Kinoshita
 layout: paging
 categories: [query, graphical]
-next: search-text
 previous: registration-result
+next: search-text
 ---
 
 Graphical Interface
