@@ -21,7 +21,7 @@ Profile
 
 The following are the field names and where they are originated from.
   
-** Field - Description **
+**Field - Description**
 
 * Username - The user name used to recognize your account.  Taken from the First name of your linked account.  
 * Email - Email address received from your authentication provider.  
