@@ -7,7 +7,6 @@ reviewers:
 - Kiyoko Kinoshita
 layout: paging
 categories: [preferences, image format, language]
-previous: browse-glycan
 next: profile
 ---
 
