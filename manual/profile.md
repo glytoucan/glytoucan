@@ -13,7 +13,11 @@ Profile
 ------------
   The User Profile displays the information registered with GlyTouCan.  This information is stored in a private triplestore inaccessible from the public.
 
+<br>
+
 ![User Preferences](/images/manual/profile-details.png)
+
+<br>
 
 The following are the field names and where they are originated from.
   
@@ -25,6 +29,8 @@ Contributor ID     | A hashed key used to identify your account.
 Verified Email     | A flag indicating if your email is verified or not.
 Generate API Key     | A link to randomly generate a hash key.  The current hash key is displayed.
   
-As described in the bottom half, a link to Sign out is possible.  However to complete this process, it is necessary to access your authentication provider.
+<br>
 
+As described in the bottom half, a link to Sign out is possible.  However to complete this process, it is necessary to access your authentication provider.  
+  
 For Google, this will be at [accounts.google.com](http://accounts.google.com).
