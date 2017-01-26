@@ -26,7 +26,7 @@ Each motif is a link to a more detailed page.  For instance when the "N-Glycan h
 
 <br>
 
-![Glytoucan Motif Results](/images/manual/glycan-entry-G00028MO.png)
+![Glytoucan Motif Results](/images/manual/glycan-entry2-G00028MO.png)
 
 <br>
 
