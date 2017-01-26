@@ -8,6 +8,7 @@ reviewers:
 layout: paging
 categories: [query]
 previous: search-motif
+next: browse-motif
 ---
 
 Accession number search
