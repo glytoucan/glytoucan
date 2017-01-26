@@ -7,8 +7,8 @@ reviewers:
 - Kiyoko Kinoshita
 layout: paging
 categories: [query, graphical]
-next: search-id
 previous: search-text
+next: search-id
 ---
 
 Motif Search
