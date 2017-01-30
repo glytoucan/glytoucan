@@ -13,13 +13,13 @@ next:
 
 Search Engine
 ------------
-  The Search Engine can be used to search through the Glytoucan website for any information that you are looking for.
+  The Search Engine can be used to search through the Glytoucan website for any information that you are looking for. The seach box is located on the front page or under the Search menu on the top navigation bar.
 
 ![Search Engine](/images/manual/search-engine.png)
 
 <br>
 
-A list of links will pop up for any common pages of what you are searching for.  
+A list of links will pop up for any related pages of what you are searching for.  
 
 <br>
 
@@ -27,7 +27,7 @@ A list of links will pop up for any common pages of what you are searching for.
 
 <br>
 
-There is also a tab option to look for images only.  
+There is also a tab option to look at the related images only.  
 
 <br>
 
