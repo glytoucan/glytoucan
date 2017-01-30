@@ -14,7 +14,7 @@ Registering Your Publications
 You can register your publication into the website under the Literature section by clicking on the "Register your Publication!" link of the selected [Motif](/manual/browse-motif.md).  
 <br>
 
-On the next page the currently registered literatures can be seen, under this section you can enter the pubmed id of your literature and submit.  *Note: Must be pubmed ids.*  
+On the next page the current literatures can be seen if there are any entries, under this section you can enter the pubmed id of your literature and submit.  *Note: Must be pubmed ids.*  
 *To clear, click on the "Reset" button.*  
 
 <br>
