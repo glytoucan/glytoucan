@@ -15,7 +15,7 @@ Search Engine
 ------------
   The Search Engine can be used to search through the Glytoucan website for any information that you are looking for.
 
-![Search Engine](images/manual/search-engine.png)
+![Search Engine](/images/manual/search-engine.png)
 
 <br>
 
@@ -31,4 +31,4 @@ There is also a tab option to look for images only.
 
 <br>
 
-![Searching Images](images/manual/search-engine-images.png)
+![Searching Images](/images/manual/search-engine-images.png)
