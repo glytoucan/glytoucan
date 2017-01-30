@@ -11,6 +11,6 @@ layout: default
 
 **Q.** What does this image mean?<br>
 
-![Glytoucan Motif List](/images/toucan-no-image.png)
+![Glytoucan No Image](/images/toucan-no-image.png)
 
 **A.** This image replaces a no image text for the particular structure or motif, which is why the glytoucan is sorrowful.<br><br>
