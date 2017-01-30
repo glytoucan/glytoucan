@@ -11,9 +11,10 @@ categories: [publication, registration]
 
 Registering Your Publications
 ------------
-You can register your publication into the website under the Literature section by clicking on the "Register your Publication!" link of the selected Motif.  
+You can register your publication into the website under the Literature section by clicking on the "Register your Publication!" link of the selected [Motif](/manual/browse-motif.md).  
 On the next page the currently registered literatures can be seen, under this section you can enter the pubmed id of your literature and submit.  
 *Click on the reset button to clear.*  
+
 <br>
 
 ![Glytoucan Literature Section](/images/manual/literature-registration.png)
