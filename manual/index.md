@@ -61,6 +61,12 @@ Registration is the main functionality of GlyTouCan.  Below are the currently av
       <h3 style="text-align: center;">Registration Results</h3>
     </a>
   </li>
+  <li>
+    <a href="../manual/publication-registration">
+      <img src="../images/manual/literature-registration.png">
+      <h3 style="text-align: center;">Publication Registration</h3>
+    </a>
+  </li>
 </ul>
 
 Search
