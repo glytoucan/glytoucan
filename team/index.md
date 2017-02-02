@@ -11,11 +11,17 @@ layout: default
 
 <br>
 
+<br>
+
 {% include contact-info.html name="Daisuke Shinmachi" %}  
 
 <br>
 
+<br>
+
 {% include contact-info.html name="Nobuyuki Aoki" %}  
+
+<br>
 
 <br>
 
