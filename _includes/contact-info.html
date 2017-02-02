@@ -8,16 +8,16 @@
 {{ member.bio }}
 <br/>
 	{% if member.url %}
-		<a href="{{member.url}}"><i class="fa fa-home fa-lg"></i></a>
+		<a href="{{member.url}}"><i class="fa fa-home fa-lg" style="color: #019F73"></i></a>
 	{% endif %}
 	{% if member.email %}
-		<a href="mailto:{{member.email}}"><i class="fa fa-envelope-square fa-lg" ></i></a>
+		<a href="mailto:{{member.email}}"><i class="fa fa-envelope-square fa-lg" style="color: #019F73"></i></a>
 	{% endif %}
 	{% if member.twitter %}
-		<a href="http://twitter.com/{{member.twitter}}"><i class="fa fa-twitter-square fa-lg"></i></a>
+		<a href="http://twitter.com/{{member.twitter}}"><i class="fa fa-twitter-square fa-lg" style="color: #019F73"></i></a>
 	{% endif %}
 	{% if member.github %}
-		<a href="http://github.com/{{member.github}}"><i class="fa fa-github-square fa-lg"></i></a>
+		<a href="http://github.com/{{member.github}}"><i class="fa fa-github-square fa-lg" style="color: #019F73"></i></a>
 	{% endif %}
 {% endif %}
 {% endfor %}
