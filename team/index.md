@@ -7,12 +7,18 @@ layout: default
 
 **This is our team information.**  
   
-  <br>
+<br>
   
 {% include contact-info.html name="Kiyoko F. Kinoshita" %}  
 
+<br>
+
 {% include contact-info.html name="Daisuke Shinmachi" %}  
 
+<br>
+
 {% include contact-info.html name="Nobuyuki Aoki" %}  
+
+<br>
 
 {% include contact-info.html name="Chiharu Elizabeth Aoki" %}  
