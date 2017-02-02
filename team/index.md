@@ -3,9 +3,7 @@ title: Our Team
 layout: default
 ---
 
-## Our Team
-
-**This is our team information.**  
+## Glytoucan Team Information 
   
 <br>
   
@@ -22,3 +20,7 @@ layout: default
 <br>
 
 {% include contact-info.html name="Chiharu Elizabeth Aoki" %}  
+
+<br>
+
+<br>
