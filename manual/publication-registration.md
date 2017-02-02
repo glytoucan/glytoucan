@@ -14,7 +14,7 @@ Registering Your Publications
 You can register your publication into the website under the Literature section by clicking on the "Register your Publication!" link of the selected glycan.  
 <br>
 
-On the next page the Currently Registered Literature will be shown if there are any entries, under this section you can enter the pubmed id of your literature and submit.  *Note: Currently only registered pubmed ids.* **Caution: Please make sure you are submitting the correct id, once submitted there is no way to delete it.**  
+On the next page the Currently Registered Literature will be shown if there are any entries, under this section you can enter the pubmed id of your literature and submit.  *Note: Currently only registered pubmed ids.* **Caution: Please make sure you are submitting the correct id, currently once submitted there is no way to delete it.**  
 *To clear, click on the "Reset" button.*  
 
 <br>
