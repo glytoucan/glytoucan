@@ -8,7 +8,7 @@ reviewers:
 layout: paging
 categories: [registration, results, glycan]
 previous: registration-upload
-next: search-graphical
+next: publication-registration
 ---
 
 Registration Processing
