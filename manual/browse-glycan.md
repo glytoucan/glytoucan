@@ -3,6 +3,7 @@ title: Browsing Structures
 authors:
 - Nobuyuki Aoki
 date: 2015-05-15
+latest update: 2017-02-02
 reviewers:
 - Kiyoko Kinoshita
 layout: paging
@@ -17,7 +18,7 @@ All glycans registered into the Glycan Repository can be easily reviewed from th
 
 <br>
 
-![Glytoucan Glycan Browser](/images/manual/browse-glycan.png)
+![Glytoucan Glycan Browser](/images/manual/browse-glycanlist.png)
 
 The search field provides a method to filter the scope of structures to any number of monosaccharides or motifs.
 
