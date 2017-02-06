@@ -3,7 +3,6 @@ title: Browsing Structures
 authors:
 - Nobuyuki Aoki
 date: 2015-05-15
-latest update: 2017-02-02
 reviewers:
 - Kiyoko Kinoshita
 layout: paging
