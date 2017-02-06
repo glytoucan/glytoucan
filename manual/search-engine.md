@@ -1,10 +1,10 @@
 ---
 title: Search
 authors:
-- Nobuyuki Aoki
+- Chiharu Aoki
 date: 
 reviewers:
-- Kiyoko Kinoshita
+- 
 layout: paging
 categories: [search engine, image search]
 previous: search-id
@@ -27,7 +27,7 @@ A list of links will pop up for any related pages of what you are searching for.
 
 <br>
 
-There is also a tab option to look at the related images only.  
+There is also a tab option to look at the related images only. *Note: The search engine will go back to Web tab after doing another search in the Image tab.* 
 
 <br>
 
