@@ -7,6 +7,8 @@ reviewers:
 - Nobuyuki Aoki
 layout: paging
 categories: [publication, registration]
+previous: registration-result
+next: search-graphical
 ---
 
 Registering Your Publications
