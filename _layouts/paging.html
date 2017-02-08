@@ -15,7 +15,10 @@
 		<article>
     {% include coins.html %}
 			<header>
-			    <p class="kicker">{{ page.date | date: "%B %-d, %Y" }}</p>
+			    <p class="kicker">{{ page.date | date: "%B %-d, %Y" }} <br> 
+				{% if page.last_modified_at %}
+				    {{ page.last_modified_at | date: "%B %-d, %Y" }} <i>(Last Updated)</i> 
+				{% endif %} </p>
 				<h1><a href="{{ site.url }}{{ page.url }}">{{ page.title }}</a></h1>
 				<p class="byline">By
 				{% assign authorCount = page.authors | size %}
