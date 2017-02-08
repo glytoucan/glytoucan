@@ -8,6 +8,7 @@ reviewers:
 layout: paging
 categories: [browse, glycan]
 previous: browse-motif
+last_modified_at: 2017-02-08
 ---
 
 View All Glycans
@@ -23,7 +24,12 @@ The search field provides a method to filter the scope of structures to any numb
 
 The mass range bar filters the structures to be within the maximum and minimum limits.
 
+The link DB filters the structures based on specific databases where the structure is supplied.
+
 <br>
+
+![databases](/images/manual/gtc-databases.png)
+
 
 ### Formats
 
