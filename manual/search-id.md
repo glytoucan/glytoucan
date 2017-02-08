@@ -9,6 +9,7 @@ layout: paging
 categories: [query]
 previous: search-motif
 next: browse-motif
+last_modified_at: 2017-02-08
 ---
 
 Accession number search
@@ -22,6 +23,6 @@ If you already have the accession number of the glycan that you are looking for,
 
 Once found, the results will be shown on the next screen:
 
-![Glytoucan Graphical Interface Results](/images/manual/glycan-entry-G00028MO.png)
+![Glytoucan Graphical Interface Results](/images/manual/glycan-entry2-G00028MO.png)
 
 _Result page of searching for "G00028MO".  Any linked data found will also be displayed._
