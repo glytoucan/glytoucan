@@ -14,3 +14,4 @@ redcarpet:
 gems:
   - jekyll-paginate
   - jekyll-sitemap
+  - jekyll-last-modified-at
