@@ -9,6 +9,7 @@ layout: paging
 categories: [query, graphical]
 previous: search-text
 next: search-id
+last_modified_at: 2017-02-08
 ---
 
 Motif Search
@@ -28,7 +29,7 @@ Simply by clicking on a specific Motif, the results screen is then displayed.
 
 <br>
 
-![Glytoucan Graphical Interface Results](/images/manual/search-motif-result.png)
+![Glytoucan Graphical Interface Results](/images/manual/search-motif-nglycan.png)
 
 _Result page of an N-glycan-core-basic Motif search._
 
