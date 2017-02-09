@@ -23,7 +23,7 @@ A list of links will be shown for any related pages of the search.
 
 <br>
 
-![Search list](/images/manual/search-engine-G00028MO.png)
+![Search list](/images/manual/search-engine-search.png)
 
 <br>
 
