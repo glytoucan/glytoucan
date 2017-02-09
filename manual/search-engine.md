@@ -1,7 +1,7 @@
 ---
 title: Search
 authors:
-- Chiharu Aoki
+- Nobuyuki Aoki
 date: 2017-02-06
 reviewers:
 - pending
