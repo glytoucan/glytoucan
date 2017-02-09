@@ -1,7 +1,7 @@
 ---
 title: Search
 authors:
-- Chiharu Aoki
+- Kiyoko Kinoshita
 date: 2017-02-06
 reviewers:
 - pending
