@@ -2,6 +2,7 @@
   url: "http://rings.t.soka.ac.jp/lab_info/Kinoshita_Laboratory/index_en.html"
   twitter: kiyoko
   github: kiyoko
+  email: kiyo.f.kino@gmail.com
   bio: |
     Kiyoko F. Kinoshita is a Professor in the Department of Bioinformatics, Faculty of Engineering, Soka University.
   
@@ -9,7 +10,7 @@
   github: shinmachi
   email: d.shinmachi.aist@gmail.com
   bio: |
-       Daisuke Shinmachi is a research assistant at Soka University.  RDF ontology design lead and front end developer of the glycan repository.
+    Daisuke Shinmachi is a research assistant at Soka University.  RDF ontology design lead and front end developer of the glycan repository.
 
 - name: Nobuyuki Aoki
   github: aokinobu
@@ -22,7 +23,7 @@
   github: AokiCE
   email: achiharu263@gmail.com
   bio: |
-   Chiharu Elizabeth Aoki is an assistant to Kiyoko F. Kinoshita at Soka University.
+    Chiharu Elizabeth Aoki is an assistant to Kiyoko F. Kinoshita at Soka University.
 
 #- name: Mitsuko Yamazaki
 #  bio: |
