@@ -27,7 +27,7 @@ A list of links will be shown for any related pages of the search.
 
 <br>
 
-There is also a tab option to look at the related images only. *Note: The search engine will go back to Web tab after doing another search in the Image tab.
+There is also a tab option to look at the related images only. *Note: The search engine will go back to Web tab after doing another search in the Image tab.*
 
 <br>
 
