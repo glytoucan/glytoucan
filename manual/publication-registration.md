@@ -1,7 +1,7 @@
 ---
 title: Registering Publications
 authors:
-- Chiharu Aoki
+- Chiharu E. Aoki
 date: 2017-02-02
 reviewers:
 - Nobuyuki Aoki
