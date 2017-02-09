@@ -25,7 +25,7 @@ layout: default
 
 <br>
 
-{% include contact-info.html name="Chiharu Elizabeth Aoki" %}  
+{% include contact-info.html name="Chiharu E. Aoki" %}  
 
 <br>
 
