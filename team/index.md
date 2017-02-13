@@ -7,7 +7,7 @@ layout: default
   
 <br>
   
-{% include contact-info.html name="Kiyoko F. Kinoshita" %}  
+{% include contact-info.html name="Kiyoko F. Aoki-Kinoshita" %}  
 
 <br>
 
