@@ -26,7 +26,7 @@ For every structure submitted, the components and linkage information will have 
 
 <br>
 
-The information from the sequence will be converted into RDF format and accessible from the glytoucan [endpoint](http://ts.glytoucan.org/sparql).  As the data will be in [glycoRDF](http://glycoinfo.org/glycoRDF) and [glytoucanRDF](http://glycoinfo.org/rdf) ontologies, it is possible to extract information about the sequence and any other linked data using standard SPARQL.
+The information from the sequence will be converted into RDF format and accessible from the GlyTouCan [endpoint](http://ts.glytoucan.org/sparql).  As the data will be in [glycoRDF](http://glycoinfo.org/glycoRDF) and [GlyTouCanRDF](http://glycoinfo.org/rdf) ontologies, it is possible to extract information about the sequence and any other linked data using standard SPARQL.
 
 * conversion to WURCS
 
