@@ -19,7 +19,7 @@ The sequence can be typed or pasted into the text area input screen.  Multiple s
 
 <br>
 
-![Glytoucan Text Interface](/images/manual/registration-text.png)
+![Glytoucan Text Interface](/images/manual/registration-text.png)  
 *Multiple sequences can be pasted into this field, the Add button also generates another text field for multiple entry.*
 
 Once entered, each structure will be checked for redundancy and if not previously registered, the confirmation screen will be shown.
