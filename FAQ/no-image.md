@@ -11,6 +11,6 @@ layout: default
 
 **Q.** What does this image mean?<br>
 
-![Glytoucan No Image](/images/toucan-no-image.png)
+![glytoucan_sad_icon](https://cloud.githubusercontent.com/assets/16686185/21878002/7ed27082-d8d2-11e6-8e8d-63898326dd90.png)
 
-**A.** This image replaces a no image text for the particular structure or motif, which is why the glytoucan is sorrowful.<br><br>
+**A.** This image replaces a no image text for the particular structure or motif, which is why the toucan image is sorrowful.<br><br>
