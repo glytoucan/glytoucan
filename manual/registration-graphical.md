@@ -7,6 +7,7 @@ reviewers:
 - Kiyoko Kinoshita
 layout: paging
 categories: [registration, graphical]
+previous: profile
 next: registration-text
 ---
 
