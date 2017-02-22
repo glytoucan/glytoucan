@@ -101,6 +101,12 @@ The search functionality displays the wealth of information that was gathered fr
       <h3 style="text-align: center;">By ID</h3>
     </a>
   </li>
+  <li>
+    <a href="../manual/search-engine">
+      <img src="../images/manual/search-engine.png">
+      <h3 style="text-align: center;">Search Engine</h3>
+    </a>
+  </li>
 </ul>
 
 View
