@@ -1,5 +1,5 @@
 ---
-title: what is a glytoucan?
+title: What is a GlyTouCan?
 layout: default
 ---
 
