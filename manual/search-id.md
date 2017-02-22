@@ -8,8 +8,8 @@ reviewers:
 layout: paging
 categories: [query]
 previous: search-motif
-next: browse-motif
-last_modified_at: 2017-02-08
+next: search-engine
+last_modified_at: 2017-02-22
 ---
 
 Accession number search
