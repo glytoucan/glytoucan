@@ -8,6 +8,7 @@ reviewers:
 layout: paging
 categories: [preferences, image format, language]
 previous: preferences
+next: registration-graphical
 last_modified_at: 2017-01-26
 ---
 
