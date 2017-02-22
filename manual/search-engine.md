@@ -8,7 +8,7 @@ reviewers:
 layout: paging
 categories: [search engine, image search]
 previous: search-id
-next:
+next: browse-motif
 ---
 
 Search Engine
