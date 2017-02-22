@@ -4,7 +4,7 @@ authors:
 - Chiharu E. Aoki
 date: 2017-02-06
 reviewers:
-- pending
+- Nobuyuki Aoki
 layout: paging
 categories: [search engine, image search]
 previous: search-id
