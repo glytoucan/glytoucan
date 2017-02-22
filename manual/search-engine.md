@@ -1,5 +1,5 @@
 ---
-title: Search
+title: Search Engine
 authors:
 - Chiharu E. Aoki
 date: 2017-02-06
