@@ -1,6 +1,6 @@
 ---
 title: GlyTouCan Partners
-layout: default
+layout: partnerprog
 ---
 ## Current members of the GlyTouCan Partner Program
 
