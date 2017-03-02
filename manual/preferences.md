@@ -5,7 +5,7 @@ authors:
 date: 2016-01-20
 reviewers:
 - Kiyoko Kinoshita
-layout: paging
+layout: discourseManual
 categories: [preferences, image format, language]
 next: profile
 ---
