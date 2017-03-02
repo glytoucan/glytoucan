@@ -26,3 +26,17 @@ Once found, the results will be shown on the next screen:
 ![Glytoucan Graphical Interface Results](/images/manual/glycan-entry2-G00028MO.png)
 
 _Result page of searching for "G00028MO".  Any linked data found will also be displayed._
+
+
+<div id='discourse-comments'></div>
+
+<script type="text/javascript">
+  DiscourseEmbed = { discourseUrl: 'http://test.discourse.glytoucan.org/',
+                     discourseEmbedUrl: 'http://code.glytoucan.org/manual/search-id/' };
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+    d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
