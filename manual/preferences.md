@@ -5,7 +5,7 @@ authors:
 date: 2016-01-20
 reviewers:
 - Kiyoko Kinoshita
-layout: discourseManual
+layout: paging
 categories: [preferences, image format, language]
 next: profile
 ---
@@ -44,3 +44,16 @@ The language buttons allow for configuration of a specific language to be used f
   * Russian
 
 *If you would like to contribute your language translation expertise, please [contact us!](mailto:support@glytoucan.org)* 
+
+<div id='discourse-comments'></div>
+
+<script type="text/javascript">
+  DiscourseEmbed = { discourseUrl: 'http://test.discourse.glytoucan.org/',
+                     discourseEmbedUrl: 'http://code.glytoucan.org/manual/preferences/' };
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+    d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
