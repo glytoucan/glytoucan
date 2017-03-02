@@ -36,3 +36,16 @@ _Result page of an N-glycan-core-basic Motif search._
 <br>
 
 This shows a filtered view of every structure with the chosen Motif in the repository.  It is then possible to browse through the results and click on a specific glycan for more information. 
+
+<div id='discourse-comments'></div>
+
+<script type="text/javascript">
+  DiscourseEmbed = { discourseUrl: 'http://test.discourse.glytoucan.org/',
+                     discourseEmbedUrl: 'http://code.glytoucan.org/manual/search-motif/' };
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+    d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
