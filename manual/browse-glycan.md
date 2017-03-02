@@ -36,3 +36,16 @@ The link DB filters the structures based on specific databases where the structu
 There are three display formats to see the results.  The default is **list view**, where the Accession Number, Mass, Motifs, Contributor, Structural Image and Registration Date are visible.  The **WURCS view** displays each structure's WURCS sequence, Structural Image, and Accession Number.  Finally the **GlycoCT view** displays each structure's GlycoCT sequence, Structural Image, and Accession Number.
 
 It is also possible to sort in increasing or decreasing order, and the results by Mass, Contributor name, Date registered, and Accession Number (the default sort setting).
+
+<div id='discourse-comments'></div>
+
+<script type="text/javascript">
+  DiscourseEmbed = { discourseUrl: 'http://test.discourse.glytoucan.org/',
+                     discourseEmbedUrl: 'http://code.glytoucan.org/manual/browse-glycan/' };
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+    d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
