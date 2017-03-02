@@ -37,3 +37,17 @@ Once the structure is complete, a sequence is generated from the input and used 
 ![Glytoucan Graphical Interface Results](/images/manual/search-result.png)
 
 _Result page of the search.  Other glycans containing the input structure will also be displayed._
+
+
+<div id='discourse-comments'></div>
+
+<script type="text/javascript">
+  DiscourseEmbed = { discourseUrl: 'http://test.discourse.glytoucan.org/',
+                     discourseEmbedUrl: 'http://code.glytoucan.org/manual/search-graphical/' };
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+    d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
