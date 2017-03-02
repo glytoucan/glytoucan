@@ -37,3 +37,16 @@ The following are the field names and where they are originated from.
 As described in the bottom half, a link to Sign out is possible.  However to complete this process, it is necessary to access your authentication provider.  
   
 For Google, this will be at [accounts.google.com](http://accounts.google.com).
+
+<div id='discourse-comments'></div>
+
+<script type="text/javascript">
+  DiscourseEmbed = { discourseUrl: 'http://test.discourse.glytoucan.org/',
+                     discourseEmbedUrl: 'http://code.glytoucan.org/manual/profile/' };
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+    d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
