@@ -39,3 +39,17 @@ In order to enrich data using the logic available in the wurcs libraries, conver
 <br>
 
 Using the wurcs formats it was possible to search through the structural data to find substructure relationships of the specifically-defined [motif structures](http://www.glytoucan.org/Motifs/listAll).  The batch process then inserts these relationships back into RDF.
+
+
+<div id='discourse-comments'></div>
+
+<script type="text/javascript">
+  DiscourseEmbed = { discourseUrl: 'http://test.discourse.glytoucan.org/',
+                     discourseEmbedUrl: 'http://code.glytoucan.org/manual/registration-result/' };
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+    d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
