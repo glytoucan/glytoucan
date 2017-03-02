@@ -38,3 +38,16 @@ Then you will have your submitted literature in the section as shown in the imag
 <br>
 
 ![Glytoucan Literature Section](/images/manual/literature-submitted.png)
+
+<div id='discourse-comments'></div>
+
+<script type="text/javascript">
+  DiscourseEmbed = { discourseUrl: 'http://test.discourse.glytoucan.org/',
+                     discourseEmbedUrl: 'http://code.glytoucan.org/manual/publication-registration/' };
+
+  (function() {
+    var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
+    d.src = DiscourseEmbed.discourseUrl + 'javascripts/embed.js';
+    (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
+  })();
+</script>
