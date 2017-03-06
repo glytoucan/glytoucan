@@ -1,5 +1,5 @@
 ---
-title: Registering Publications
+title: Registering Structures
 authors:
 - Chiharu E. Aoki
 date: 2017-02-02
@@ -16,7 +16,7 @@ Registering Your Publications
 You can register your publication for specific glycans in GlyTouCan under the Literature section by clicking on the "Register your Publication!" link of the selected glycan.  
 <br>
 
-On the next page the Currently Registered Literature will be shown (if any), and under this section you can enter the PubMed ID of your literature and submit.  *Note: Currently only registered PubMed IDs.* **Caution: Please make sure you are submitting the correct id, as currently there is no way to delete it once it is submitted.**  
+On the next page the Currently Registered Literature will be shown (if any), and under this section you can enter the PubMed ID of your literature and submit.  *Note: Currently only registered PubMed IDs.* **Caution: Please make sure you are submitting the correct ID, as currently there is an [issue](https://github.com/glytoucan/glytoucan.github.io/issues/107) of no option to delete it once submitted.**  
 *To clear, click on the "Reset" button.*  
 
 <br>
