@@ -49,7 +49,7 @@ The language buttons allow for configuration of a specific language to be used f
 
 <script type="text/javascript">
   DiscourseEmbed = { discourseUrl: 'http://test.discourse.glytoucan.org/',
-                     discourseEmbedUrl: 'http://code.glytoucan.org/manual/preferences/' };
+                     discourseEmbedUrl: 'http://code.glytoucan.org/manual/preferences.md' };
 
   (function() {
     var d = document.createElement('script'); d.type = 'text/javascript'; d.async = true;
