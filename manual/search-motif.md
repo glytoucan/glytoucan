@@ -37,6 +37,8 @@ _Result page of an N-glycan-core-basic Motif search._
 
 This shows a filtered view of every structure with the chosen Motif in the repository.  It is then possible to browse through the results and click on a specific glycan for more information. 
 
+<br>
+
 <div id='discourse-comments'></div>
 
 <script type="text/javascript">
@@ -49,3 +51,7 @@ This shows a filtered view of every structure with the chosen Motif in the repos
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
   })();
 </script>
+
+<br>
+
+<br>
