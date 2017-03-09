@@ -38,6 +38,8 @@ It is possible to create or extend embedded default structures from this interfa
 
 As all sequences will be stored in GlycoCT (condensed) format, the sequence initially input will be displayed under _original structure_, while the sequence converted into WURCS will be displayed under _Structure_.  The image generated will be shown on the right.  This screen is necessary to confirm there are no issues in the conversion process.
 
+<br>
+
 <div id='discourse-comments'></div>
 
 <script type="text/javascript">
@@ -50,3 +52,7 @@ As all sequences will be stored in GlycoCT (condensed) format, the sequence init
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
   })();
 </script>
+
+<br>
+
+<br>
