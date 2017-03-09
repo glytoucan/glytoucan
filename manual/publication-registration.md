@@ -39,6 +39,8 @@ Then you will have your submitted literature in the section as shown in the imag
 
 ![Glytoucan Literature Section](/images/manual/literature-submitted.png)
 
+<br>
+
 <div id='discourse-comments'></div>
 
 <script type="text/javascript">
@@ -51,3 +53,7 @@ Then you will have your submitted literature in the section as shown in the imag
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
   })();
 </script>
+
+<br>
+
+<br>
