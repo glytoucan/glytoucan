@@ -38,6 +38,8 @@ As described in the bottom half, a link to Sign out is possible.  However to com
   
 For Google, this will be at [accounts.google.com](http://accounts.google.com).
 
+<br>
+
 <div id='discourse-comments'></div>
 
 <script type="text/javascript">
@@ -50,3 +52,7 @@ For Google, this will be at [accounts.google.com](http://accounts.google.com).
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
   })();
 </script>
+
+<br>
+
+<br>
