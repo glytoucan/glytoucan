@@ -38,6 +38,8 @@ Once entered, any related super-structures will be displayed.  If the input stru
 
 _Please note that the sequence is converted to WURCS, and the WURCS sequence is used to search for the structure_
 
+<br>
+
 <div id='discourse-comments'></div>
 
 <script type="text/javascript">
@@ -50,3 +52,7 @@ _Please note that the sequence is converted to WURCS, and the WURCS sequence is 
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
   })();
 </script>
+
+<br>
+
+<br>
