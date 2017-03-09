@@ -27,6 +27,7 @@ Once found, the results will be shown on the next screen:
 
 _Result page of searching for "G00028MO".  Any linked data found will also be displayed._
 
+<br>
 
 <div id='discourse-comments'></div>
 
@@ -40,3 +41,7 @@ _Result page of searching for "G00028MO".  Any linked data found will also be di
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
   })();
 </script>
+
+<br>
+
+<br>
