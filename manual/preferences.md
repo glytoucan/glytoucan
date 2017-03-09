@@ -45,6 +45,10 @@ The language buttons allow for configuration of a specific language to be used f
 
 *If you would like to contribute your language translation expertise, please [contact us!](mailto:support@glytoucan.org)* 
 
+<br>
+
+<br>
+
 <div id='discourse-comments'></div>
 
 <script type="text/javascript">
