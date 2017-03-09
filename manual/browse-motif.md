@@ -33,6 +33,7 @@ Each motif is a link to a more detailed page.  For instance when the "N-Glycan h
 
 Please [contact us](/team) in case there are any issues with this list.
 
+<br>
 
 <div id='discourse-comments'></div>
 
@@ -46,3 +47,7 @@ Please [contact us](/team) in case there are any issues with this list.
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
   })();
 </script>
+
+<br>
+
+<br>
