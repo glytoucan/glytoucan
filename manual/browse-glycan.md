@@ -37,6 +37,8 @@ There are three display formats to see the results.  The default is **list view*
 
 It is also possible to sort in increasing or decreasing order, and the results by Mass, Contributor name, Date registered, and Accession Number (the default sort setting).
 
+<br>
+
 <div id='discourse-comments'></div>
 
 <script type="text/javascript">
@@ -49,3 +51,7 @@ It is also possible to sort in increasing or decreasing order, and the results b
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
   })();
 </script>
+
+<br>
+
+<br>
