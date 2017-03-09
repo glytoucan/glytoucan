@@ -36,6 +36,8 @@ The sequences input will be converted into WURCS and displayed on this screen.  
 
 Please note the checkbox to the left of each structure result, as there can be multiple structures registered on this page, and a checkbox is provided to choose the sequence that is to be submitted.  For those that are checked, a new Accession number will be generated and placed in the registration queue.
 
+<br>
+
 <div id='discourse-comments'></div>
 
 <script type="text/javascript">
@@ -48,3 +50,7 @@ Please note the checkbox to the left of each structure result, as there can be m
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
   })();
 </script>
+
+<br>
+
+<br>
