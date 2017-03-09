@@ -47,8 +47,6 @@ The language buttons allow for configuration of a specific language to be used f
 
 <br>
 
-<br>
-
 <div id='discourse-comments'></div>
 
 <script type="text/javascript">
@@ -61,3 +59,8 @@ The language buttons allow for configuration of a specific language to be used f
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
   })();
 </script>
+
+
+<br>
+
+<br>
