@@ -33,6 +33,7 @@ There is also a tab option to look at the related images only. *Note: The search
 
 ![Search Images](/images/manual/search-engine-images.png)
 
+<br>
 
 <div id='discourse-comments'></div>
 
@@ -46,3 +47,7 @@ There is also a tab option to look at the related images only. *Note: The search
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
   })();
 </script>
+
+<br>
+
+<br>
