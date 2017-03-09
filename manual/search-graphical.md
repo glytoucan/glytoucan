@@ -38,6 +38,7 @@ Once the structure is complete, a sequence is generated from the input and used 
 
 _Result page of the search.  Other glycans containing the input structure will also be displayed._
 
+<br>
 
 <div id='discourse-comments'></div>
 
@@ -51,3 +52,7 @@ _Result page of the search.  Other glycans containing the input structure will a
     (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(d);
   })();
 </script>
+
+<br>
+
+<br>
