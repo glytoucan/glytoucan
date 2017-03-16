@@ -11,6 +11,6 @@ layout: default
 
 **Q.** Will this link work?<br>
 
-**A.** Click [here](http://test.glytoucan.org/new-topic?title=topic%20title&body=topic%20body&category=category/subcategory&tags=email,planned) if you any comments about this page.
+**A.** Click [here](http://test.discourse.glytoucan.org/new-topic?title=Accession%20Number%20G12345&body=Type%20your%20comment%20here.&category=glycan%20structure/) if you any comments about this page.
 
 <br><br>
