@@ -67,3 +67,10 @@ In addition, please inform us of link(s) to your work [Contact Us]( mailto:suppo
 
 **Q.** Is there a way to filter to those glycans that have a calculated mass? <br>
 **A.** Yes, currently this is supported on the [Glycan List](https://glytoucan.org/Structures) by clicking on the box to the left.<br><br>
+
+
+## About Glycan Image
+
+---------------
+**Q.** Why does the image for a glycan entry not match the IUPAC string? <br>
+**A.** The image generation software is currently not multi-threaded, causing the same image to appear for multiple entries due to a caching problem.  This can be resolved by right-clicking on the image, opening it in a new browser window or tab and refreshing it.  Refreshing may require holding down the control key while refreshing.<br><br>
