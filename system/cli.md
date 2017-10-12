@@ -217,7 +217,7 @@ Please be sure to check the production environment for your changes: https://gly
 
 1. For some formats, the carriage return characters must be replaced with "\n".
 1. Because of "\n", the entire sequence must be in quotes (see example).
-1. Since WURCS contains "," in the sequence, it should be in quotes ('sequence' not "sequence").
+1. Since WURCS contains "," in the sequence, it should be in quotes (usage of quotes is 'sequence' not "sequence".).
 1. [Partner Registration in Japanese](http://code.glytoucan.org/partner/registration_ja/)
 1. If there are weird compilation errors, this may be due to a snapshot version update, and groovy does not handle these very well.  In these cases, it is easiest to simply move or delete the grapes folder in the local groovy cache folder.
 1. Since the accession numbers are randomly generated, they may differ between the production and beta environments.  On a regular basis the beta environment data is overwritten by the production data in order to synchronize.
