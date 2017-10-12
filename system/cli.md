@@ -176,12 +176,15 @@ partnerId	Accession Number	sequence
 The ```--remove``` or ```-r``` parameter removes the linkage from glytoucan:
 
 example of single 'your glycan id'
+
 `groovy gtc -u [contributor id] -a [API key] -s  '[sequence]' -r [your glycan id]`
 
 example of file (tsv)
+
 `groovy gtc -u [contributor id] -a [API key] -t '[file name]' -r "file"`
 
 example of file (csv)
+
 `groovy gtc -u [contributor id] -a [API key] -c '[file name]' -r "file"`
 
 # Production Environment
