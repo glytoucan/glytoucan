@@ -45,7 +45,7 @@ The gtc command is the glytoucan command line interface.  This is actually a sim
 
 To register a single sequence:
 
-`groovy gtc -u [contributor id] -a [API key] -s [sequence]`
+`groovy gtc -u [contributor id] -a [API key] -s '[sequence]'`
 
 This will register the sequence if it does not exist, and return the Accession Number.
 
@@ -105,11 +105,11 @@ The first time this is run, groovy will download the dependencies required by th
 
 ## Examples
 
-`groovy gtc -u 254 -a abcdefghijklmnopqrstuvwxyz1234567890== -s "RES\n1b:b-dglc-HEX-1:5\n2s:n-acetyl\n3b:b-dgal-HEX-1:5\nLIN\n1:1d(2+1)2n\n2:1o(4+1)3d\n"`
+`groovy gtc -u 254 -a abcdefghijklmnopqrstuvwxyz1234567890== -s 'RES\n1b:b-dglc-HEX-1:5\n2s:n-acetyl\n3b:b-dgal-HEX-1:5\nLIN\n1:1d(2+1)2n\n2:1o(4+1)3d\n'`
 
 GlycoCT - note the carriage returns are "\n"
 
-`groovy gtc -u 254 -a abcdefghijklmnopqrstuvwxyz1234567890== -s "WURCS=2.0/2,2,1/[a2122h-1b_1-5_2*NCC/3=O][a2112h-1b_1-5]/1-2/a4-b1"`
+`groovy gtc -u 254 -a abcdefghijklmnopqrstuvwxyz1234567890== -s 'WURCS=2.0/2,2,1/[a2122h-1b_1-5_2*NCC/3=O][a2112h-1b_1-5]/1-2/a4-b1'`
 
 Register a WURCS sequence.
 
@@ -125,7 +125,7 @@ This will require [registration](http://code.glytoucan.org/partner/registration/
 
 To register a single sequence with your id:
 
-`groovy gtc -u [contributor id] -a [API key] -s [sequence] -p [your id]`
+`groovy gtc -u [contributor id] -a [API key] -s '[sequence]' -p [your id]`
 
 This will register the sequence if it does not exist, and return the Accession Number.  The linkage will be formulated from the organizational information 
 
@@ -175,7 +175,14 @@ partnerId	Accession Number	sequence
 
 The ```--remove``` or ```-r``` parameter removes the linkage from glytoucan:
 
-`groovy gtc -u [contributor id] -a [API key] -s  [sequence] -r [your glycan id]`
+example of single 'your glycan id'
+`groovy gtc -u [contributor id] -a [API key] -s  '[sequence]' -r [your glycan id]`
+
+example of file (tsv)
+`groovy gtc -u [contributor id] -a [API key] -t '[file name]' -r "file"`
+
+example of file (csv)
+`groovy gtc -u [contributor id] -a [API key] -c '[file name]' -r "file"`
 
 # Production Environment
 
@@ -207,7 +214,7 @@ Please be sure to check the production environment for your changes: https://gly
 
 1. For some formats, the carriage return characters must be replaced with "\n".
 1. Because of "\n", the entire sequence must be in quotes (see example).
-1. Since WURCS contains "," in the sequence, it should be in quotes.
+1. Since WURCS contains "," in the sequence, it should be in quotes ('sequence' not "sequence").
 1. [Partner Registration in Japanese](http://code.glytoucan.org/partner/registration_ja/)
 1. If there are weird compilation errors, this may be due to a snapshot version update, and groovy does not handle these very well.  In these cases, it is easiest to simply move or delete the grapes folder in the local groovy cache folder.
 1. Since the accession numbers are randomly generated, they may differ between the production and beta environments.  On a regular basis the beta environment data is overwritten by the production data in order to synchronize.
