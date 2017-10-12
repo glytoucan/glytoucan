@@ -181,11 +181,11 @@ example of single 'your glycan id'
 
 example of file (tsv)
 
-`groovy gtc -u [contributor id] -a [API key] -t '[file name]' -r "file"`
+`groovy gtc -u [contributor id] -a [API key] -t '[ｔsvFile]' -r "file"`
 
 example of file (csv)
 
-`groovy gtc -u [contributor id] -a [API key] -c '[file name]' -r "file"`
+`groovy gtc -u [contributor id] -a [API key] -c '[csvFile]' -r "file"`
 
 # Production Environment
 
