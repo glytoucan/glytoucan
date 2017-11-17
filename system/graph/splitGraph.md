@@ -49,7 +49,7 @@ layout: default
 ```
 log_enable(2,1);
 sparql
-PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
 PREFIX glytoucan:  <http://www.glytoucan.org/glyco/owl/glytoucan#>
 INSERT
 { GRAPH <http://rdf.glytoucan.org/core> {
@@ -80,7 +80,7 @@ commit WORK;
 ```
 log_enable(2,1);
 sparql
-PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
 PREFIX glytoucan:  <http://www.glytoucan.org/glyco/owl/glytoucan#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 
@@ -118,8 +118,8 @@ commit WORK;
 **Saccharide class**    
 
 ```
-# Saccharide 
-PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
+# Saccharide
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
 PREFIX glytoucan:  <http://www.glytoucan.org/glyco/owl/glytoucan#>
 
 SELECT ?ResourceEntry
@@ -141,8 +141,8 @@ limit 200
 **Resource Entry class**    
 
 ```
-# Resource entry 
-PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
+# Resource entry
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
 PREFIX glytoucan:  <http://www.glytoucan.org/glyco/owl/glytoucan#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 
@@ -169,7 +169,7 @@ limit 200
 
 
 
-#### Glycosequence 
+#### Glycosequence
 
 `<http://rdf.glytoucan.org/sequence/glycoct>`  
 
@@ -188,10 +188,10 @@ limit 200
 ```
 log_enable(2,1);
 sparql
-PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
 INSERT
 { GRAPH <http://rdf.glytoucan.org/sequence/glycoct> {
-    ?Saccharide 
+    ?Saccharide
         glycan:has_glycosequence ?GSequence .
     ?GSequence
         glycan:has_sequence ?Sequence ;
@@ -215,7 +215,7 @@ commit WORK;
 **Confirm query**
 
 ```
-PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
 
 SELECT *
 #SELECT COUNT(?label)
@@ -223,7 +223,7 @@ SELECT *
 #SELECT COUNT(?Sequence)
 #SELECT COUNT(?GSequence)
 #FROM <http://rdf.glytoucan.org>
-FROM <http://rdf.glytoucan.org/sequence/glycoct> 
+FROM <http://rdf.glytoucan.org/sequence/glycoct>
 WHERE {
     # Glycosequence
     ?Saccharide glycan:has_glycosequence ?GSequence .
@@ -239,7 +239,7 @@ limit 100
 
 
 
-#### Glycan motf 
+#### Glycan motf
 
 `<http://rdf.glytoucan.org/motif>`  
 
@@ -262,7 +262,7 @@ limit 100
 ```
 log_enable(2,1);
 sparql
-PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
 PREFIX glytoucan:  <http://www.glytoucan.org/glyco/owl/glytoucan#>
 
 INSERT
@@ -294,7 +294,7 @@ commit WORK;
 **Confirm query**
 
 ```
-PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
 PREFIX glytoucan:  <http://www.glytoucan.org/glyco/owl/glytoucan#>
 
 SELECT *
@@ -304,7 +304,7 @@ SELECT *
 #SELECT COUNT(?GSequence)
 #SELECT COUNT(?GlycanMotif)
 #FROM <http://rdf.glytoucan.org>
-FROM <http://rdf.glytoucan.org/motif/test> 
+FROM <http://rdf.glytoucan.org/motif/test>
 WHERE {
     # Motif
     #?Saccharide glycan:has_motif ?GlycanMotif.
@@ -322,7 +322,7 @@ limit 100
 
 
 
-#### Component 
+#### Component
 
 Component情報がgs2virtからなくなると、Glycan listおよびGlycan entryが表示されなくなる
 glycan:Componentも追加する  
@@ -331,7 +331,7 @@ glycan:Componentも追加する
 
 
 Target GRAPH  
-`<http://rdf.glytoucan.org/ms/carbbank>` 
+`<http://rdf.glytoucan.org/ms/carbbank>`
 
 
 **INSERT query**
@@ -339,7 +339,7 @@ Target GRAPH
 ```
 log_enable(2,1);
 sparql
-PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
 PREFIX glytoucan:  <http://www.glytoucan.org/glyco/owl/glytoucan#>
 
 INSERT
@@ -385,7 +385,7 @@ WHERE{
         ?mono a ?class.
         ?msdb glycan:has_alias_name ?ComponentName .
     }
-} 
+}
 ```
 
 
@@ -424,7 +424,7 @@ WHERE{
 ```
 log_enable(2,1);
 sparql
-PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
 PREFIX glytoucan:  <http://www.glytoucan.org/glyco/owl/glytoucan#>
 INSERT
 { GRAPH <http://rdf.glytoucan.org/image> {
@@ -436,7 +436,7 @@ INSERT
 }
 FROM <http://rdf.glytoucan.org>
 WHERE {
-    # Image 
+    # Image
   ?Saccharide glycan:has_image ?Image .
     ?Image a glycan:image .
     ?Image dc:format ?Format .
@@ -447,7 +447,7 @@ WHERE {
 **Confirm query**
 
 ```
-PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#> 
+PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
 PREFIX glytoucan:  <http://www.glytoucan.org/glyco/owl/glytoucan#>
 
 SELECT *
@@ -455,9 +455,9 @@ SELECT *
 #SELECT COUNT(?Format)
 #SELECT COUNT(?Image)
 #FROM <http://rdf.glytoucan.org>
-FROM <http://rdf.glytoucan.org/image/test> 
+FROM <http://rdf.glytoucan.org/image/test>
 WHERE {
-    # Image 
+    # Image
     #?Sacc glycan:has_image ?Image .
     #?Image a ?Class .
     #?Image dc:format ?Format .
@@ -474,7 +474,7 @@ limit 100
 **Saccharide RDF**  
 
 ```
-?Saccharide a glycan:saccharide, glycan:Saccharide .
+?Saccharide a glycan:saccharide .
 ?Saccharide glycan:has_resource_entry ?ResourceEntry .
 ?Saccharide glytoucan:has_primary_id ?AccessionNumber .
 ```
@@ -489,23 +489,26 @@ limit 100
 ?ResourceEntry rdfs:seeAlso ?GlyTouCanURL .
 ?ResourceEntry glycan:in_glycan_database glytoucan:database_glytoucan .
 ```
+2017/11/17  
+* glycan:resource_entryと glycan:Resource_entryの混在が確認された。
 
 
 **Glycosequence RDF**  
 
 ```
 ?Saccharide glycan:has_glycosequence ?Glycosequence .
-?Glycosequence a glycan:glycosequence, glycan:Glycosequence .
 ?Glycosequence glycan:has_sequence ?GlycoCT_Sequence .
 ?Glycosequence glycan:in_carbohydrate_format glycan:carbohydrate_format_glycoct .
 ?Glycosequence rdfs:label ?GlycoCT_String .
 ```
+2017/11/17  
+* glycan:glycosequenceが記述されていないことが確認された。
 
 **Glycan motif RDF**  
 
 ```
 ?Saccharide glycan:has_motif ?GlycanMotif .
-?GlycanMotif a glycan:glycan_motif, glycan:Glycan_motif .
+?GlycanMotif a glycan:glycan_motif .
 ?GlycanMotif glycan:has_glycosequence ?Glycosequence .
 ?GlycanMotif rdfs:label ?MotifName .
 ?GlycanMotif glytoucan:is_reducing_end ?Boolean .
@@ -550,5 +553,3 @@ limit 100
 	* 本番環境のエンドポイントでコンストラクトをすると、glytoucan:is_reducing_endのbooleanが"true"^^xsd:booleanと"false"^^xsd:boolean になる
 * テスト環境にTTLをアップロードしても、Virtuosoの状態により、0と1になってしまう。
 * テスト環境、本番環境、共にINSERTクエリを利用する
-
-
