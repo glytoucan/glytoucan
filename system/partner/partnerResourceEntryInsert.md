@@ -20,6 +20,9 @@ layout: default
 * Partner name (use in insert query)
 
 ```
+<http://rdf.glycoinfo.org/glycan/{GlyTouCan AccessionNumber}>
+    glycan:has_resource_entry <http://rdf.glycoinfo.org/{resource_entry_label}/{entry_id}>
+
 <http://rdf.glycoinfo.org/{resource_entry_label}/{entry_id}>
     a glycan:Resource_entry ;
     rdfs:label  "{resource_entry_label}" ;
@@ -43,6 +46,9 @@ PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIC glytoucan:  <http://www.glytoucan.org/glyco/owl/glytoucan#>
 INSERT DATA{
         GRAPH <http://rdf.glytoucan.org/partner/{partner_name}> {
+            <http://rdf.glycoinfo.org/glycan/{GlyTouCan AccessionNumber}>
+                glycan:has_resource_entry <http://rdf.glycoinfo.org/{resource_entry_label}/{entry_id}>
+                
             <http://rdf.glycoinfo.org/{resource_entry_label}/{entry_id}>
                 a glycan:Resource_entry ;
                 rdfs:label  "{resource_entry_label}" ;
