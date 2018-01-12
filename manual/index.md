@@ -1,6 +1,7 @@
 ---
 title: User Manual
 layout: default
+last_modified_at: 2018-01-12  
 ---
 
 This page will be updated with documentation on new functionality as it is added.  If there is something missing, please [let us know](/team)!
@@ -112,7 +113,7 @@ The search functionality displays the wealth of information that was gathered fr
 View
 ---------------
 
-The View All functionality provides a quick way to browse all of the specific data type.  All data in the glycan repository can be analyzed from these interfaces. 
+The View All functionality provides a quick way to browse all of the specific data type.  All data in the glycan repository can be analyzed from these interfaces.
 
 <br>
 
