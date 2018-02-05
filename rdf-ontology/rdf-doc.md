@@ -5,10 +5,62 @@ authors:
 date: 2018-01-25
 layout: default
 ---
+<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
-## GRAPH
+- [Ontology](#ontology)
+- [Overview diagram](#overview-diagram)
+- [GRAPH](#graph)
+	- [Core graph](#core-graph)
+	- [Mass graph](#mass-graph)
+	- [Motif graph](#motif-graph)
+	- [Monosaccharide graph (MsDB CarbBank schema)](#monosaccharide-graph-msdb-carbbank-schema)
+	- [Sequence graph](#sequence-graph)
+		- [WURCS graph](#wurcs-graph)
+		- [GlycoCT graph](#glycoct-graph)
+		- [IUPAC Condensed graph](#iupac-condensed-graph)
+		- [IUPAC Extended graph](#iupac-extended-graph)
+	- [Partner graph](#partner-graph)
+		- [Bacterial Carbohydrate Structure Database (BCSDB) graph](#bacterial-carbohydrate-structure-database-bcsdb-graph)
+		- [GlycoChemExplorer AIST graph](#glycochemexplorer-aist-graph)
+		- [GlycoEpitope garph](#glycoepitope-garph)
+		- [GlycomeDB graph](#glycomedb-graph)
+		- [GlycoNAVI graph](#glyconavi-graph)
+			- [PubChem](#pubchem)
+			- [PDBj CC](#pdbj-cc)
+			- [PDBe CC](#pdbe-cc)
+			- [RCSB PDB CC](#rcsb-pdb-cc)
+		- [JCGGDB AIST graph](#jcggdb-aist-graph)
+		- [JMSDB AIST graph](#jmsdb-aist-graph)
+		- [UniCarb-DB graph](#unicarb-db-graph)
+		- [UniCarbKB graph](#unicarbkb-graph)
+		- [SugarBindDB graph](#sugarbinddb-graph)
 
-#### Core graph
+<!-- /TOC -->
+
+
+
+# Ontology
+
+  Prefix|  Namespace |  Vocabularies
+--|---|--
+rdf  | `http://www.w3.org/1999/02/22-rdf-syntax-ns#` |  RDF
+rdfs  | `http://www.w3.org/2000/01/rdf-schema#`  |  RDF Schema
+owl  | `http://www.w3.org/2002/07/owl#`  |  OWL
+xsd  | `http://www.w3.org/2001/XMLSchema#`  |  XML Schema
+foaf  | `http://xmlns.com/foaf/0.1/`  |  FOAF Vocabulary
+bibo  | `http://purl.org/ontology/bibo/`  |  Bibliographic Ontology
+glycan  | `http://purl.jp/bio/12/glyco/glycan#`  |  GlycoRDF Ontology
+glytoucan  | `>http://www.glytoucan.org/glyco/owl/glytoucan#`  |  GlyTouCan Ontology
+wurcs  | `http://www.glycoinfo.org/glyco/owl/wurcs#`  |  WURCS OWL
+
+
+# Overview diagram
+
+[![overview](/images/rdf_doc/overview-schema.png)](/images/rdf_doc/overview-schema.png)
+
+# GRAPH
+
+## Core graph
 
 Named graph: `http://rdf.glytoucan.org/core`
 
@@ -61,7 +113,7 @@ limit 20
 [=> run](https://ts.glytoucan.org/sparql?default-graph-uri=&query=PREFIX+glycan%3A+%3Chttp%3A%2F%2Fpurl.jp%2Fbio%2F12%2Fglyco%2Fglycan%23%3E%0D%0APREFIX+glytoucan%3A++%3Chttp%3A%2F%2Fwww.glytoucan.org%2Fglyco%2Fowl%2Fglytoucan%23%3E%0D%0APREFIX+dcterms%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0A%0D%0ASELECT+DISTINCT+*%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fcore%3E%0D%0AWHERE+%7B%0D%0A++%0D%0A++++%3FSaccharide+a+%3FSaccharideClass+.%0D%0A++++%3FSaccharide+glytoucan%3Ahas_primary_id+%3FAccessionNumber+.%0D%0A++++%3FSaccharide+glycan%3Ahas_resource_entry+%3FResourceEntry+.%0D%0A++++%0D%0A++++%3FResourceEntry+a+%3FResourceEntryClass+.%0D%0A++++%3FResourceEntry+glytoucan%3Acontributor+%3FContributor+.%0D%0A++++%3FResourceEntry+glytoucan%3Adate_registered+%3FDate+.%0D%0A++++%3FResourceEntry+glycan%3Ain_glycan_database+%3FDB+.%0D%0A++++%3FResourceEntry+dcterms%3Aidentifier+%3FAccessionNumber+.%0D%0A++++%3FResourceEntry+rdfs%3AseeAlso+%3FEntry+.%0D%0A++++%0D%0A%7D%0D%0Alimit+20%0D%0A%0D%0A%0D%0A%0D%0A&format=text%2Fhtml&timeout=0&debug=on)
 
 
-#### Mass graph
+## Mass graph
 
 Named graph: `http://rdf.glytoucan.org/mass`
 
@@ -103,7 +155,7 @@ limit 10
 ```
 [=> run](https://ts.glytoucan.org/sparql?default-graph-uri=&query=PREFIX+glycan%3A+%3Chttp%3A%2F%2Fpurl.jp%2Fbio%2F12%2Fglyco%2Fglycan%23%3E%0D%0APREFIX+glytoucan%3A++%3Chttp%3A%2F%2Fwww.glytoucan.org%2Fglyco%2Fowl%2Fglytoucan%23%3E%0D%0A%0D%0ASELECT+DISTINCT+*%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fmass%3E%0D%0AWHERE%7B%0D%0A%3Fsaccharide+glytoucan%3Ahas_derivatized_mass+%3Fd_mass.%0D%0A%3Fd_mass+a+%3Fclass+.%0D%0A%3Fd_mass+rdfs%3Alabel+%3Fd_mass_label.%0D%0A%3Fd_mass+glytoucan%3Ahas_mass+%3Fmass.%0D%0ABIND%28datatype%28%3Fmass%29+AS+%3Fdatatype%29%0D%0A%3Fd_mass+glytoucan%3Ahas_derivatization_type+%3Fd_mass_type.%0D%0A%7D%0D%0Alimit+10%0D%0A&format=text%2Fhtml&timeout=0&debug=on)
 
-#### Motif graph
+## Motif graph
 
 Named graph: `http://rdf.glytoucan.org/motif`
 
@@ -150,7 +202,7 @@ limit 10
 [=> run](https://ts.glytoucan.org/sparql?default-graph-uri=&query=PREFIX+glycan%3A+%3Chttp%3A%2F%2Fpurl.jp%2Fbio%2F12%2Fglyco%2Fglycan%23%3E%0D%0APREFIX+glytoucan%3A++%3Chttp%3A%2F%2Fwww.glytoucan.org%2Fglyco%2Fowl%2Fglytoucan%23%3E%0D%0A%0D%0ASELECT+*%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fmotif%3E%0D%0AWHERE+%7B%0D%0A++++%23+Motif%0D%0A++++%3FSaccharide+glycan%3Ahas_motif+%3FGlycanMotif.%0D%0A++++%3FGlycanMotif+a+%3FClass+.%0D%0A++++%3FGlycanMotif+glycan%3Ahas_glycosequence+%3FGSequence+.%0D%0A++++%3FGlycanMotif+glytoucan%3Ais_reducing_end+%3FReducingEnd+.%0D%0A++++%3FGlycanMotif+rdfs%3Alabel+%3FMotifName+.%0D%0A%7D%0D%0Alimit+10%0D%0A&format=text%2Fhtml&timeout=0&debug=on)
 
 
-#### MonosaccharideDB / CarbBank schema graph
+## Monosaccharide graph (MsDB CarbBank schema)
 
 Named graph: `http://rdf.glytoucan.org/ms/carbbank`
 
@@ -201,9 +253,9 @@ WHERE{
 [=> run](https://ts.glytoucan.org/sparql?default-graph-uri=&query=SELECT+DISTINCT+*%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fcore%3E%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fms%2Fcarbbank%3E%0D%0AWHERE%7B%0D%0A++++%23+Accession+Number%0D%0A++++%3Fglycan+glytoucan%3Ahas_primary_id+%22G00051MO%22+.%0D%0A++++OPTIONAL%7B%0D%0A++++++++%3Fglycan+glycan%3Ahas_component+%3Fcomp+.%0D%0A++++++++%3Fcomp+glycan%3Ahas_cardinality+%3Fcardinality+.%0D%0A++++++++%3Fcomp+glycan%3Ahas_monosaccharide+%3Fmono+.%0D%0A++++++++%3Fmono+glycan%3Ahas_alias+%3Fmsdb+.%0D%0A++++++++%3Fmono+a+%3Fclass.%0D%0A++++++++%3Fmsdb+glycan%3Ahas_alias_name+%3FComponentName+.%0D%0A++++%7D%0D%0A%7D%0D%0A&format=text%2Fhtml&timeout=0&debug=on)
 
 
-#### Sequence graph
+## Sequence graph
 
-**WURCS**
+### WURCS graph
 
 Named graph: `http://rdf.glytoucan.org/sequence/wurcs`
 
@@ -285,7 +337,7 @@ limit 10
 [=> run](https://ts.glytoucan.org/sparql?default-graph-uri=&query=PREFIX+glycan%3A+%3Chttp%3A%2F%2Fpurl.jp%2Fbio%2F12%2Fglyco%2Fglycan%23%3E%0D%0APREFIX+glytoucan%3A++%3Chttp%3A%2F%2Fwww.glytoucan.org%2Fglyco%2Fowl%2Fglytoucan%23%3E%0D%0A%0D%0ASELECT+DISTINCT+*%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fsequence%2Fwurcs%3E%0D%0AWHERE%7B%0D%0A%3Fsaccharide+a+%3Fsclass%3B%0D%0A%09glycan%3Ahas_glycosequence+%3Fgseq.%0D%0A%3Fgseq+a+%3Fgsclass.%09%0D%0A%3Fgseq+glycan%3Ahas_sequence+%3Fseq.%0D%0A%7D%0D%0Alimit+10%0D%0A&format=text%2Fhtml&timeout=0&debug=on)
 
 
-**GlycoCT**
+### GlycoCT graph
 
 Named graph: `http://rdf.glytoucan.org/sequence/glycoct`
 
@@ -302,9 +354,9 @@ Sample RDF Triple
   glycan:has_glycosequence  <http://rdf.glycoinfo.org/glycan/G35898DT/glycoct> .
 
 <http://rdf.glycoinfo.org/glycan/G35898DT/glycoct>
-  rdfs:label  "RES\n1b:a-dgal-HEX-1:5\n2s:n-acetyl\n3b:b-dgal-HEX-1:5\n4b:b-dglc-HEX-1:5\n5s:n-acetyl\n6b:b-dgal-HEX-1:5\n7b:a-lgal-HEX-1:5|6:d\n8b:b-dglc-HEX-1:5\n9s:n-acetyl\n10b:b-dglc-HEX-1:5\n11s:n-acetyl\n12b:b-dgal-HEX-1:5\n13b:a-lgal-HEX-1:5|6:d\nLIN\n1:1d(2+1)2n\n2:1o(3+1)3d\n3:3o(3+1)4d\n4:4d(2+1)5n\n5:4o(4+1)6d\n6:6o(2+1)7d\n7:3o(6+1)8d\n8:8d(2+1)9n\n9:1o(6+1)10d\n10:10d(2+1)11n\n11:10o(4+1)12d\n12:12o(2+1)13d"^^xsd:string ;
-	glycan:has_sequence  "RES\n1b:a-dgal-HEX-1:5\n2s:n-acetyl\n3b:b-dgal-HEX-1:5\n4b:b-dglc-HEX-1:5\n5s:n-acetyl\n6b:b-dgal-HEX-1:5\n7b:a-lgal-HEX-1:5|6:d\n8b:b-dglc-HEX-1:5\n9s:n-acetyl\n10b:b-dglc-HEX-1:5\n11s:n-acetyl\n12b:b-dgal-HEX-1:5\n13b:a-lgal-HEX-1:5|6:d\nLIN\n1:1d(2+1)2n\n2:1o(3+1)3d\n3:3o(3+1)4d\n4:4d(2+1)5n\n5:4o(4+1)6d\n6:6o(2+1)7d\n7:3o(6+1)8d\n8:8d(2+1)9n\n9:1o(6+1)10d\n10:10d(2+1)11n\n11:10o(4+1)12d\n12:12o(2+1)13d"^^xsd:string ;
-	glycan:in_carbohydrate_format	glycan:carbohydrate_format_glycoct .
+		rdfs:label  "RES\n1b:a-dgal-HEX-1:5\n2s:n-acetyl\n3b:b-dgal-HEX-1:5\n4b:b-dglc-HEX-1:5\n5s:n-acetyl\n6b:b-dgal-HEX-1:5\n7b:a-lgal-HEX-1:5|6:d\n8b:b-dglc-HEX-1:5\n9s:n-acetyl\n10b:b-dglc-HEX-1:5\n11s:n-acetyl\n12b:b-dgal-HEX-1:5\n13b:a-lgal-HEX-1:5|6:d\nLIN\n1:1d(2+1)2n\n2:1o(3+1)3d\n3:3o(3+1)4d\n4:4d(2+1)5n\n5:4o(4+1)6d\n6:6o(2+1)7d\n7:3o(6+1)8d\n8:8d(2+1)9n\n9:1o(6+1)10d\n10:10d(2+1)11n\n11:10o(4+1)12d\n12:12o(2+1)13d"^^xsd:string ;
+		glycan:has_sequence  "RES\n1b:a-dgal-HEX-1:5\n2s:n-acetyl\n3b:b-dgal-HEX-1:5\n4b:b-dglc-HEX-1:5\n5s:n-acetyl\n6b:b-dgal-HEX-1:5\n7b:a-lgal-HEX-1:5|6:d\n8b:b-dglc-HEX-1:5\n9s:n-acetyl\n10b:b-dglc-HEX-1:5\n11s:n-acetyl\n12b:b-dgal-HEX-1:5\n13b:a-lgal-HEX-1:5|6:d\nLIN\n1:1d(2+1)2n\n2:1o(3+1)3d\n3:3o(3+1)4d\n4:4d(2+1)5n\n5:4o(4+1)6d\n6:6o(2+1)7d\n7:3o(6+1)8d\n8:8d(2+1)9n\n9:1o(6+1)10d\n10:10d(2+1)11n\n11:10o(4+1)12d\n12:12o(2+1)13d"^^xsd:string ;
+		glycan:in_carbohydrate_format	glycan:carbohydrate_format_glycoct .
 ```
 
 SPARQL example
@@ -325,7 +377,7 @@ limit 10
 ```
 [=> run](https://ts.glytoucan.org/sparql?default-graph-uri=&query=PREFIX+glycan%3A+%3Chttp%3A%2F%2Fpurl.jp%2Fbio%2F12%2Fglyco%2Fglycan%23%3E%0D%0A%0D%0ASELECT+*%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fsequence%2Fglycoct%3E%0D%0AWHERE+%7B%0D%0A++++%23+Glycosequence%0D%0A++++%3FSaccharide+glycan%3Ahas_glycosequence+%3FGSequence+.%0D%0A++++%3FGSequence+glycan%3Ahas_sequence+%3FSequence+.%0D%0A++++%3FGSequence+glycan%3Ain_carbohydrate_format+%3FFormat+.%0D%0A++++%3FGSequence+rdfs%3Alabel+%3Flabel+.%0D%0A%7D%0D%0Alimit+10%0D%0A&format=text%2Fhtml&timeout=0&debug=on)
 
-**IUPAC Condensed**
+### IUPAC Condensed graph
 
 Named graph: `http://rdf.glytoucan.org/sequence/iupac_condensed`
 
@@ -364,7 +416,7 @@ limit 10
 [=> run](https://ts.glytoucan.org/sparql?default-graph-uri=&query=PREFIX+glycan%3A+%3Chttp%3A%2F%2Fpurl.jp%2Fbio%2F12%2Fglyco%2Fglycan%23%3E%0D%0APREFIX+glytoucan%3A++%3Chttp%3A%2F%2Fwww.glytoucan.org%2Fglyco%2Fowl%2Fglytoucan%23%3E%0D%0A%0D%0ASELECT+DISTINCT+*%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fsequence%2Fiupac_condensed%3E%0D%0AWHERE%7B%0D%0A%3Fsaccharide+glycan%3Ahas_glycosequence+%3Fgseq.%0D%0A%3Fgseq+rdfs%3Alabel+%3Flabel.%0D%0A%3Fgseq+glycan%3Ahas_sequence+%3Fseq.%0D%0A%3Fgseq+glycan%3Ain_carbohydrate_format+%3Fformat.%0D%0A%7D%0D%0Alimit+10%0D%0A&format=text%2Fhtml&timeout=0&debug=on)
 
 
-**IUPAC Extended**
+### IUPAC Extended graph
 
 Named graph: `http://rdf.glytoucan.org/sequence/iupac_extended`
 
@@ -404,9 +456,9 @@ limit 10
 [=> run](https://ts.glytoucan.org/sparql?default-graph-uri=&query=PREFIX+glycan%3A+%3Chttp%3A%2F%2Fpurl.jp%2Fbio%2F12%2Fglyco%2Fglycan%23%3E%0D%0APREFIX+glytoucan%3A++%3Chttp%3A%2F%2Fwww.glytoucan.org%2Fglyco%2Fowl%2Fglytoucan%23%3E%0D%0A%0D%0ASELECT+DISTINCT+*%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fsequence%2Fiupac_extended%3E%0D%0AWHERE%7B%0D%0A%3Fsaccharide+glycan%3Ahas_glycosequence+%3Fgseq.%0D%0A%3Fgseq+rdfs%3Alabel+%3Flabel.%0D%0A%3Fgseq+glycan%3Ahas_sequence+%3Fseq.%0D%0A%3Fgseq+glycan%3Ain_carbohydrate_format+%3Fformat.%0D%0A%7D%0D%0Alimit+10%0D%0A&format=text%2Fhtml&timeout=0&debug=on)
 
 
-#### Partner graph
+## Partner graph
 
-**Bacterial Carbohydrate Structure Database (BCSDB)**
+### Bacterial Carbohydrate Structure Database (BCSDB) graph
 
 Named graph: `http://rdf.glytoucan.org/partner/bcsdb`
 
@@ -420,25 +472,25 @@ Sample RDF Triple
 @prefix glytoucan:	<http://www.glytoucan.org/glyco/owl/glytoucan#> .
 
 
-# Species
+> Species
 <http://rdf.glycoinfo.org/glycan/{accession_number}> #Saccharide
 	glycan:is_from_source <http://rdf.glycoinfo.org/source/{taxonomy_id}> ;
 	glycan:is_from_source <http://rdf.glycoinfo.org/source/{encode_taxon_name}> .
 
-# exist taxonomy id
+> exist taxonomy id
 <http://rdf.glycoinfo.org/source/{taxonomy_id}>
 	a glycan:Source ;
 	rdfs:label "taxon name" ;
 	dcterms:identifier "{taxonomy_id}" ;
 	rdfs:seeAlso <http://identifiers.org/taxonomy/{taxonomy_id}> .
 
-# dose not taxonomy id
+> dose not taxonomy id
 <http://rdf.glycoinfo.org/source/{encode_taxon_name}>
 	a glycan:Source ;
 	rdfs:label "taxon name" .
 
 
-# Literature
+> Literature
 <http://rdf.glycoinfo.org/glycan/{accession_number}> #Saccharide
 	dcterms:references <http://rdf.glycoinfo.org/references/{pubmed_id}> ; #Article
 
@@ -448,7 +500,7 @@ Sample RDF Triple
 	rdfs:seeAlso <http://identifiers.org/pubmed/{pubmed_id}> . #PubMed URL
 
 
-# External ID
+> External ID
 <http://rdf.glycoinfo.org/glycan/{accession_number}> #Saccharide
 	glycan:has_resource_entry <http://rdf.glycoinfo.org/bcsdb/{bcsdb_id}>.
 
@@ -485,7 +537,7 @@ WHERE{
 [=> run](https://ts.glytoucan.org/sparql?default-graph-uri=&query=PREFIX+dcterms%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0APREFIX+glycan%3A+%3Chttp%3A%2F%2Fpurl.jp%2Fbio%2F12%2Fglyco%2Fglycan%23%3E%0D%0APREFIX+glytoucan%3A+%3Chttp%3A%2F%2Fwww.glytoucan.org%2Fglyco%2Fowl%2Fglytoucan%23%3E%0D%0A%0D%0ASELECT+DISTINCT+%3FaccNum+%3Fentry+%3Fentry_label+%3Fexternal_id+%3Furl+%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fcore%3E%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fpartner%2Fbcsdb%3E%0D%0AWHERE%7B%0D%0A++%3Fsaccharide+glytoucan%3Ahas_primary_id+%3FaccNum+.%0D%0A++%3Fsaccharide+glycan%3Ahas_resource_entry+%3Fentry+.%0D%0A++%3Fentry+a+glycan%3AResource_entry+.%0D%0A++%3Fentry+rdfs%3Alabel+%3Fentry_label+.%0D%0A++%3Fentry+dcterms%3Aidentifier+%3Fexternal_id+.%0D%0A++%3Fentry+rdfs%3AseeAlso+%3Furl+.%0D%0A%7D+limit+10%0D%0A%0D%0A%0D%0A&format=text%2Fhtml&timeout=0&debug=on)
 
 
-**GlyoChemExplorer**
+### GlycoChemExplorer AIST graph
 
 Named graph: `http://rdf.glytoucan.org/partner/glycochemexplorer_jcggdb_aist`
 
@@ -536,7 +588,7 @@ WHERE{
 
 
 
-**GlycoEpitope**
+### GlycoEpitope garph
 
 Named graph: `http://rdf.glytoucan.org/partner/glycoepitope`
 
@@ -559,7 +611,7 @@ Sample RDF Triple
     rdfs:seeAlso <http://identifiers.org/taxonomy/{taxonomy_id}> .
 
 
-# Literature
+> Literature
 <http://rdf.glycoinfo.org/glycan/{accession_number}> #Saccharide
     dcterms:references <http://rdf.glycoinfo.org/references/{pubmed_id}> ; #Article
 
@@ -569,7 +621,7 @@ Sample RDF Triple
     rdfs:seeAlso <http://identifiers.org/pubmed/{pubmed_id}> . #PubMed URL
 
 
-# External ID
+> External ID
 <http://rdf.glycoinfo.org/glycan/{accession_number}> #Saccharide
     glycan:has_resource_entry <http://rdf.glycoinfo.org/glycoepitope/{epitope_id}> .
 
@@ -605,7 +657,7 @@ WHERE{
 ```
 [=> run](https://ts.glytoucan.org/sparql?default-graph-uri=&query=PREFIX+dcterms%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0APREFIX+glycan%3A+%3Chttp%3A%2F%2Fpurl.jp%2Fbio%2F12%2Fglyco%2Fglycan%23%3E%0D%0APREFIX+glytoucan%3A+%3Chttp%3A%2F%2Fwww.glytoucan.org%2Fglyco%2Fowl%2Fglytoucan%23%3E%0D%0A%0D%0ASELECT+DISTINCT+%3FaccNum+%3Fentry+%3Fentry_label+%3Fexternal_id+%3Furl+%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fcore%3E%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fpartner%2Fglycoepitope%3E%0D%0AWHERE%7B%0D%0A++%3Fsaccharide+glytoucan%3Ahas_primary_id+%3FaccNum+.%0D%0A++%3Fsaccharide+glycan%3Ahas_resource_entry+%3Fentry+.%0D%0A++%3Fentry+a+glycan%3AResource_entry+.%0D%0A++%3Fentry+rdfs%3Alabel+%3Fentry_label+.%0D%0A++%3Fentry+dcterms%3Aidentifier+%3Fexternal_id+.%0D%0A++%3Fentry+rdfs%3AseeAlso+%3Furl+.%0D%0A%7D+limit+10%0D%0A%0D%0A%0D%0A&format=text%2Fhtml&timeout=0&debug=on)
 
-**GlycomeDB**
+### GlycomeDB graph
 
 Named graph: `http://rdf.glytoucan.org/partner/glycome-db`
 
@@ -617,7 +669,7 @@ Sample RDF Triple
 @prefix glycan:	<http://purl.jp/bio/12/glyco/glycan#> .
 @prefix glytoucan:	<http://www.glytoucan.org/glyco/owl/glytoucan#> .
 
-# Species
+> Species
 <http://rdf.glycoinfo.org/glycan/{accession_number}> #Saccharide
 	glycan:is_from_source <http://rdf.glycoinfo.org/source/{taxonomy_id}> .
 
@@ -627,7 +679,7 @@ Sample RDF Triple
 	rdfs:seeAlso <http://identifiers.org/taxonomy/{taxonomy_id}> .
 
 
-# External ID
+> External ID
 <http://rdf.glycoinfo.org/glycan/{accession_number}> #Saccharide
 	glycan:has_resource_entry <http://rdf.glycoinfo.org/glycome-db/{glycome-db_id>.
 
@@ -642,7 +694,7 @@ glycan:Database_glycomedb
 	rdfs:label "GlycomeDB".
 
 
-# JCGGDB entry (External ID) from GlycomeDB
+> JCGGDB entry (External ID) from GlycomeDB
 <http://rdf.glycoinfo.org/glycan/{accession_number}> #Saccharide
 	glycan:has_resource_entry <http://rdf.glycoinfo.org/jcggdb/{jcggdb_id}>.
 
@@ -657,7 +709,7 @@ glycan:Database_jcggdb
 	rdfs:label	"JCGGDB" .
 
 
-# Carbbank(CCSD) entry (External ID) from GlycomeDB
+> Carbbank(CCSD) entry (External ID) from GlycomeDB
 <http://rdf.glycoinfo.org/glycan/{accession_number}> #Saccharide
 	glycan:has_resource_entry <http://rdf.glycoinfo.org/carbbank/{carbbank_id}>.
 
@@ -672,7 +724,7 @@ glycan:Database_carbbank
 	rdfs:label	"Carbbank(CCSD)" .
 
 
-# CFG entry (External ID) from GlycomeDB
+> CFG entry (External ID) from GlycomeDB
 <http://rdf.glycoinfo.org/glycan/{accession_number}> #Saccharide
 	glycan:has_resource_entry <http://rdf.glycoinfo.org/cfg/{cfg_id}>.
 
@@ -687,7 +739,7 @@ glycan:Database_cfg
 	rdfs:label	"CFG" .
 
 
-# Glycobase entry (External ID) from GlycomeDB
+> Glycobase entry (External ID) from GlycomeDB
 <http://rdf.glycoinfo.org/glycan/{accession_number}> #Saccharide
 	glycan:has_resource_entry <http://rdf.glycoinfo.org/glycobase_lille/{glycobase_lille_id}>.
 
@@ -702,7 +754,7 @@ glycan:Database_glycobase_lille
 	rdfs:label	"Glycobase" .
 
 
-# GLYCOSCIENCES.de entry (External ID) from GlycomeDB
+> GLYCOSCIENCES.de entry (External ID) from GlycomeDB
 <http://rdf.glycoinfo.org/glycan/{accession_number}> #Saccharide
 	glycan:has_resource_entry <http://rdf.glycoinfo.org/glycosciences_de/{glycosciences_de_id}>.
 
@@ -717,7 +769,7 @@ glycan:Database_glycosciences_de
 	rdfs:label	"GLYCOSCIENCES.de" .
 
 
-# KEGG entry (External ID) from GlycomeDB
+> KEGG entry (External ID) from GlycomeDB
 <http://rdf.glycoinfo.org/glycan/{accession_number}> #Saccharide
 	glycan:has_resource_entry <http://rdf.glycoinfo.org/kegg/{kegg_id}>.
 
@@ -732,7 +784,7 @@ glycan:Database_kegg
 	rdfs:label	"KEGG" .
 
 
-# PDB entry (External ID) from GlycomeDB
+> PDB entry (External ID) from GlycomeDB
 <http://rdf.glycoinfo.org/glycan/{accession_number}> #Saccharide
 	glycan:has_resource_entry <http://rdf.glycoinfo.org/pdb/{pdb_id}>.
 
@@ -771,10 +823,10 @@ WHERE{
 [=> run](https://ts.glytoucan.org/sparql?default-graph-uri=&query=PREFIX+dcterms%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0APREFIX+glycan%3A+%3Chttp%3A%2F%2Fpurl.jp%2Fbio%2F12%2Fglyco%2Fglycan%23%3E%0D%0APREFIX+glytoucan%3A+%3Chttp%3A%2F%2Fwww.glytoucan.org%2Fglyco%2Fowl%2Fglytoucan%23%3E%0D%0A%0D%0ASELECT+DISTINCT+%3FaccNum+%3Fentry+%3Fentry_label+%3Fexternal_id+%3Furl+%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fcore%3E%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fpartner%2Fglycome-db%3E%0D%0AWHERE%7B%0D%0A++%3Fsaccharide+glytoucan%3Ahas_primary_id+%3FaccNum+.%0D%0A++%3Fsaccharide+glycan%3Ahas_resource_entry+%3Fentry+.%0D%0A++%3Fentry+a+glycan%3AResource_entry+.%0D%0AVALUES+%3Fentry_label+%7B%22GlycomeDB%22%7D%0D%0A++%3Fentry+rdfs%3Alabel+%3Fentry_label+.%0D%0A++%3Fentry+dcterms%3Aidentifier+%3Fexternal_id+.%0D%0A++%3Fentry+rdfs%3AseeAlso+%3Furl+.%0D%0A%7D+limit+10%0D%0A%0D%0A%0D%0A&format=text%2Fhtml&timeout=0&debug=on)
 
 
-**GlycoNAVI**
+### GlycoNAVI graph
 
 
-_PubChem_
+#### PubChem
 
 Named graph: `http://rdf.glytoucan.org/partner/glyconavi`
 
@@ -835,7 +887,7 @@ WHERE{
 ```
 [=> run](https://ts.glytoucan.org/sparql?default-graph-uri=&query=PREFIX+dcterms%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0APREFIX+glycan%3A+%3Chttp%3A%2F%2Fpurl.jp%2Fbio%2F12%2Fglyco%2Fglycan%23%3E%0D%0APREFIX+glytoucan%3A+%3Chttp%3A%2F%2Fwww.glytoucan.org%2Fglyco%2Fowl%2Fglytoucan%23%3E%0D%0A%0D%0ASELECT+DISTINCT+%3FaccNum+%3Fentry+%3Fentry_label+%3Fexternal_id+%3Furl+%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fcore%3E%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fpartner%2Fglyconavi%3E%0D%0AWHERE%7B%0D%0A++%3Fsaccharide+glytoucan%3Ahas_primary_id+%3FaccNum+.%0D%0A++%3Fsaccharide+glycan%3Ahas_resource_entry+%3Fentry+.%0D%0A++%3Fentry+a+glycan%3AResource_entry+.%0D%0A++VALUES+%3Fentry_label+%7B%22PubChem+SID%22%7D%0D%0A++%3Fentry+rdfs%3Alabel+%3Fentry_label+.%0D%0A++%3Fentry+dcterms%3Aidentifier+%3Fexternal_id+.%0D%0A++%3Fentry+rdfs%3AseeAlso+%3Furl+.%0D%0A%7D+limit+10%0D%0A%0D%0A%0D%0A&format=text%2Fhtml&timeout=0&debug=on)
 
-_PDBj CC_
+#### PDBj CC
 
 Named graph: `http://rdf.glytoucan.org/partner/glyconavi`
 
@@ -889,7 +941,7 @@ WHERE{
 ```
 [=> run](https://ts.glytoucan.org/sparql?default-graph-uri=&query=PREFIX+dcterms%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0APREFIX+glycan%3A+%3Chttp%3A%2F%2Fpurl.jp%2Fbio%2F12%2Fglyco%2Fglycan%23%3E%0D%0APREFIX+glytoucan%3A+%3Chttp%3A%2F%2Fwww.glytoucan.org%2Fglyco%2Fowl%2Fglytoucan%23%3E%0D%0A%0D%0ASELECT+DISTINCT+%3FaccNum+%3Fentry+%3Fentry_label+%3Fexternal_id+%3Furl%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fcore%3E%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fpartner%2Fglyconavi%3E%0D%0AWHERE%7B%0D%0A++%3Fsaccharide+glytoucan%3Ahas_primary_id+%3FaccNum+.%0D%0A++%3Fsaccharide+glycan%3Ahas_resource_entry+%3Fentry+.%0D%0A++%3Fentry+a+glycan%3AResource_entry+.%0D%0A++VALUES+%3Fentry_label+%7B%22PDBj+CC%22%7D%0D%0A++%3Fentry+rdfs%3Alabel+%3Fentry_label+.%0D%0A++%3Fentry+dcterms%3Aidentifier+%3Fexternal_id+.%0D%0A++%3Fentry+rdfs%3AseeAlso+%3Furl+.%0D%0A%7D+limit+10%0D%0A&format=text%2Fhtml&timeout=0&debug=on)
 
-_PDBe CC_
+#### PDBe CC
 
 Named graph: `http://rdf.glytoucan.org/partner/glyconavi`
 
@@ -943,7 +995,7 @@ WHERE{
 ```
 [=> run](https://ts.glytoucan.org/sparql?default-graph-uri=&query=PREFIX+dcterms%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0APREFIX+glycan%3A+%3Chttp%3A%2F%2Fpurl.jp%2Fbio%2F12%2Fglyco%2Fglycan%23%3E%0D%0APREFIX+glytoucan%3A+%3Chttp%3A%2F%2Fwww.glytoucan.org%2Fglyco%2Fowl%2Fglytoucan%23%3E%0D%0A%0D%0ASELECT+DISTINCT+%3FaccNum+%3Fentry+%3Fentry_label+%3Fexternal_id+%3Furl%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fcore%3E%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fpartner%2Fglyconavi%3E%0D%0AWHERE%7B%0D%0A++%3Fsaccharide+glytoucan%3Ahas_primary_id+%3FaccNum+.%0D%0A++%3Fsaccharide+glycan%3Ahas_resource_entry+%3Fentry+.%0D%0A++%3Fentry+a+glycan%3AResource_entry+.%0D%0A++VALUES+%3Fentry_label+%7B%22PDBe+CC%22%7D%0D%0A++%3Fentry+rdfs%3Alabel+%3Fentry_label+.%0D%0A++%3Fentry+dcterms%3Aidentifier+%3Fexternal_id+.%0D%0A++%3Fentry+rdfs%3AseeAlso+%3Furl+.%0D%0A%7D+limit+10%0D%0A&format=text%2Fhtml&timeout=0&debug=on)
 
-_RCSB PDB CC_
+#### RCSB PDB CC
 
 Named graph: `http://rdf.glytoucan.org/partner/glyconavi`
 
@@ -997,7 +1049,7 @@ WHERE{
 ```
 [=> run](https://ts.glytoucan.org/sparql?default-graph-uri=&query=PREFIX+dcterms%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0APREFIX+glycan%3A+%3Chttp%3A%2F%2Fpurl.jp%2Fbio%2F12%2Fglyco%2Fglycan%23%3E%0D%0APREFIX+glytoucan%3A+%3Chttp%3A%2F%2Fwww.glytoucan.org%2Fglyco%2Fowl%2Fglytoucan%23%3E%0D%0A%0D%0ASELECT+DISTINCT+%3FaccNum+%3Fentry+%3Fentry_label+%3Fexternal_id+%3Furl%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fcore%3E%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fpartner%2Fglyconavi%3E%0D%0AWHERE%7B%0D%0A++%3Fsaccharide+glytoucan%3Ahas_primary_id+%3FaccNum+.%0D%0A++%3Fsaccharide+glycan%3Ahas_resource_entry+%3Fentry+.%0D%0A++%3Fentry+a+glycan%3AResource_entry+.%0D%0A++VALUES+%3Fentry_label+%7B%22RCSB+PDB+CC%22%7D%0D%0A++%3Fentry+rdfs%3Alabel+%3Fentry_label+.%0D%0A++%3Fentry+dcterms%3Aidentifier+%3Fexternal_id+.%0D%0A++%3Fentry+rdfs%3AseeAlso+%3Furl+.%0D%0A%7D+limit+10%0D%0A&format=text%2Fhtml&timeout=0&debug=on)
 
-**JCGGDB AIST**
+### JCGGDB AIST graph
 
 Named graph: `http://rdf.glytoucan.org/partner/jcggdb_aist`
 
@@ -1046,7 +1098,7 @@ WHERE{
 ```
 [=> run](https://ts.glytoucan.org/sparql?default-graph-uri=&query=PREFIX+dcterms%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0APREFIX+glycan%3A+%3Chttp%3A%2F%2Fpurl.jp%2Fbio%2F12%2Fglyco%2Fglycan%23%3E%0D%0APREFIX+glytoucan%3A+%3Chttp%3A%2F%2Fwww.glytoucan.org%2Fglyco%2Fowl%2Fglytoucan%23%3E%0D%0A%0D%0ASELECT+DISTINCT+%3FaccNum+%3Fentry+%3Fentry_label+%3Fexternal_id+%3Furl+%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fcore%3E%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fpartner%2Fjcggdb_aist%3E%0D%0AWHERE%7B%0D%0A++%3Fsaccharide+glytoucan%3Ahas_primary_id+%3FaccNum+.%0D%0A++%3Fsaccharide+glycan%3Ahas_resource_entry+%3Fentry+.%0D%0A++%3Fentry+a+glycan%3AResource_entry+.%0D%0A++%3Fentry+rdfs%3Alabel+%3Fentry_label+.%0D%0A++%3Fentry+dcterms%3Aidentifier+%3Fexternal_id+.%0D%0A++%3Fentry+rdfs%3AseeAlso+%3Furl+.%0D%0A%7D+limit+10&format=text%2Fhtml&timeout=0&debug=on)
 
-**JMSDB AIST**
+### JMSDB AIST graph
 
 Named graph: `http://rdf.glytoucan.org/partner/jmsdb_jcggdb_aist`
 
@@ -1096,7 +1148,7 @@ WHERE{
 [=> run](https://ts.glytoucan.org/sparql?default-graph-uri=&query=PREFIX+dcterms%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0APREFIX+glycan%3A+%3Chttp%3A%2F%2Fpurl.jp%2Fbio%2F12%2Fglyco%2Fglycan%23%3E%0D%0APREFIX+glytoucan%3A+%3Chttp%3A%2F%2Fwww.glytoucan.org%2Fglyco%2Fowl%2Fglytoucan%23%3E%0D%0A%0D%0ASELECT+DISTINCT+%3FaccNum+%3Fentry+%3Fentry_label+%3Fexternal_id+%3Furl+%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fcore%3E%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fpartner%2Fjmsdb_jcggdb_aist%3E%0D%0AWHERE%7B%0D%0A++%3Fsaccharide+glytoucan%3Ahas_primary_id+%3FaccNum+.%0D%0A++%3Fsaccharide+glycan%3Ahas_resource_entry+%3Fentry+.%0D%0A++%3Fentry+a+glycan%3AResource_entry+.%0D%0A++%3Fentry+rdfs%3Alabel+%3Fentry_label+.%0D%0A++%3Fentry+dcterms%3Aidentifier+%3Fexternal_id+.%0D%0A++%3Fentry+rdfs%3AseeAlso+%3Furl+.%0D%0A%7D+limit+10&format=text%2Fhtml&timeout=0&debug=on)
 
 
-**UniCarb-DB**
+### UniCarb-DB graph
 
 Named graph: `http://rdf.glytoucan.org/partner/unicarb-db`
 
@@ -1147,7 +1199,7 @@ WHERE{
 [=> run](https://ts.glytoucan.org/sparql?default-graph-uri=&query=PREFIX+dcterms%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0APREFIX+glycan%3A+%3Chttp%3A%2F%2Fpurl.jp%2Fbio%2F12%2Fglyco%2Fglycan%23%3E%0D%0APREFIX+glytoucan%3A+%3Chttp%3A%2F%2Fwww.glytoucan.org%2Fglyco%2Fowl%2Fglytoucan%23%3E%0D%0A%0D%0ASELECT+DISTINCT+%3FaccNum+%3Fentry+%3Fentry_label+%3Fexternal_id+%3Furl+%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fcore%3E%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fpartner%2Funicarb-db%3E%0D%0AWHERE%7B%0D%0A++%3Fsaccharide+glytoucan%3Ahas_primary_id+%3FaccNum+.%0D%0A++%3Fsaccharide+glycan%3Ahas_resource_entry+%3Fentry+.%0D%0A++%3Fentry+a+glycan%3AResource_entry+.%0D%0A++%3Fentry+rdfs%3Alabel+%3Fentry_label+.%0D%0A++%3Fentry+dcterms%3Aidentifier+%3Fexternal_id+.%0D%0A++%3Fentry+rdfs%3AseeAlso+%3Furl+.%0D%0A%7D+limit+10&format=text%2Fhtml&timeout=0&debug=on)
 
 
-**UniCarbKB**
+### UniCarbKB graph
 
 Named graph: `http://rdf.glytoucan.org/partner/unicarbkb`
 
@@ -1192,7 +1244,7 @@ WHERE{
 [=> run](https://ts.glytoucan.org/sparql?default-graph-uri=&query=PREFIX+dcterms%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0APREFIX+glycan%3A+%3Chttp%3A%2F%2Fpurl.jp%2Fbio%2F12%2Fglyco%2Fglycan%23%3E%0D%0APREFIX+glytoucan%3A+%3Chttp%3A%2F%2Fwww.glytoucan.org%2Fglyco%2Fowl%2Fglytoucan%23%3E%0D%0A%0D%0ASELECT+DISTINCT+%3FaccNum+%3Fentry+%3Fentry_label+%3Fexternal_id+%3Furl+%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fcore%3E%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fpartner%2Funicarbkb%3E%0D%0AWHERE%7B%0D%0A++%3Fsaccharide+glytoucan%3Ahas_primary_id+%3FaccNum+.%0D%0A++%3Fsaccharide+glycan%3Ahas_resource_entry+%3Fentry+.%0D%0A++%3Fentry+a+glycan%3AResource_entry+.%0D%0A++%3Fentry+rdfs%3Alabel+%3Fentry_label+.%0D%0A++%3Fentry+dcterms%3Aidentifier+%3Fexternal_id+.%0D%0A++%3Fentry+rdfs%3AseeAlso+%3Furl+.%0D%0A%7D+limit+10&format=text%2Fhtml&timeout=0&debug=on)
 
 
-**SugarBindDB**
+### SugarBindDB graph
 
 Named graph: `http://rdf.glytoucan.org/partner/swiss_institute_of_bioinformatics`
 
