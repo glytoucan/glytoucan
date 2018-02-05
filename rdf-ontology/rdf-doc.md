@@ -5,6 +5,8 @@ authors:
 date: 2018-01-25
 layout: default
 ---
+
+
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [Ontology](#ontology)
@@ -59,6 +61,10 @@ wurcs  | `http://www.glycoinfo.org/glyco/owl/wurcs#`  |  WURCS OWL
 [![overview](/images/rdf_doc/overview-schema.png)](/images/rdf_doc/overview-schema.png)
 
 # GRAPH
+
+The GlyTouCan RDF consists of multiple Named GRAPHs.
+
+
 
 ## Core graph
 
