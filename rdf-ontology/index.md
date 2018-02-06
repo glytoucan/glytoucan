@@ -6,6 +6,7 @@ date: 2018-01-29
 layout: paging
 ---
 
-RDF Data Model
------------------------------------------
-[GlyTouCan RDF](rdf-doc)
+
+* [GlyTouCan RDF](rdf-doc)
+* [Sample SPARQL Queries](sparql-queries)
+* [GlyTouCan Endpoint](https://ts.glytoucan.org/sparql)
