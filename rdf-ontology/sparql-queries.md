@@ -8,13 +8,13 @@ layout: default
 
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
-- [Select all Glycan structures (WURCS)](#select-all-glycan-structures-wurcs)
-- [Select all Glycan structures (GlycoCT)](#select-all-glycan-structures-glycoct)
-- [Select A GlyTouCan Accession from GlycomeDB ID](#select-a-glytoucan-accession-from-glycomedb-id)
-- [Select Glycan structures (IUPAC Condensed) related to Homo sapines](#select-glycan-structures-iupac-condensed-related-to-homo-sapines)
+- [Find all Glycan structures (WURCS)](#find-all-glycan-structures-wurcs)
+- [Find all Glycan structures (GlycoCT)](#find-all-glycan-structures-glycoct)
+- [Find A GlyTouCan Accession from GlycomeDB ID](#find-a-glytoucan-accession-from-glycomedb-id)
+- [Find Glycan structures (IUPAC Condensed) related to Homo sapines](#find-glycan-structures-iupac-condensed-related-to-homo-sapines)
+- [Find Glycan structures (IUPAC Condensed) related to Mus musculus](#find-glycan-structures-iupac-condensed-related-to-mus-musculus)
 
 <!-- /TOC -->
-
 # Find all Glycan structures (WURCS)
 
 ```
