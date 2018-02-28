@@ -3,7 +3,17 @@ title: FAQ
 layout: default
 ---
 
-# Frequently Asked Questions 
+<!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
+
+- [Frequently Asked Questions](#frequently-asked-questions)
+	- [GlyTouCan](#glytoucan)
+	- [About Glycan Image](#about-glycan-image)
+- [GlyTouCan Tips](#glytoucan-tips)
+
+<!-- /TOC -->
+
+# Frequently Asked Questions
+
 
 ## GlyTouCan
 
@@ -13,8 +23,8 @@ layout: default
 **A.** Please see the [Top page](http://www.glytoucan.org/).<br><br>
 
 **Q.** What is the meaning of GlyTouCan?<br>
-**A.** GlyTouCan is the international glycan structure repository. 
-Thus, it is named by a combination of “Glycan” and “Tou（糖）”, which means sugar in Japanese.<br> 
+**A.** GlyTouCan is the international glycan structure repository.
+Thus, it is named by a combination of “Glycan” and “Tou（糖）”, which means sugar in Japanese.<br>
 The word “Can” of GlyTouCan also means a can in both English and Japanese, to indicate that it is a container where glycans are accumulated. Therefore, a can is used in the logo to indicate that it is a repository with accumulated glycan data.
 In addition, a toucan is used as a character since the word “Toucan” is  used in GlyTouCan.<br>
 Moreover, a toucan is sitting on a branch of glycan.<br><br>
@@ -36,17 +46,17 @@ GlyTouCan will not include information that identifies an individual in the acce
 
 **Q.** How can I collaborate with the “GlyTouCan”?<br>
 **A.** Please inquire from [Contact Us]( mailto:support@glytoucan.org) and let us know how we may collaborate.<br><br>
- 
+
 **Q.** Can I link to one or several services available from the GlyTouCan home page?<br>
 **A.** Yes, links can be used in your web site and does not require any permission.<br>
 Please read the Site Policies of the GlyTouCan home page and Creative  
-Commons licenses for terms and conditions of use.<br> 
+Commons licenses for terms and conditions of use.<br>
 When you post links of GlyTouCan, please attribute links to the GlyTouCan URL as a link source by noting “GlyTouCan”.<br>
 In addition, please inform us of any link(s) from [Contact Us]( mailto:support@glytoucan.org).<br><br>
 
 **Q.** Can I use data and graphics from the GlyTouCan?<br>
 **A.** Yes, data and graphics can be used in your web site and does not require any permission. However, redistribution of some of the resources in part or may be restricted.<br>
-Please read and follow the [Site Policies](http://code.glytoucan.org/manual/sitePolicy) of the GlyTouCan home page and [Creative Commons licenses](https://creativecommons.org/licenses/by/4.0/).<br> 
+Please read and follow the [Site Policies](http://code.glytoucan.org/manual/sitePolicy) of the GlyTouCan home page and [Creative Commons licenses](https://creativecommons.org/licenses/by/4.0/).<br>
 When you reprint and/or quote data and graphics from the GlyTouCan, please attribute it to “GlyTouCan”.<br>
 In addition, please inform us of link(s) to your work [Contact Us]( mailto:support@glytoucan.org).<br><br>
 
@@ -74,3 +84,7 @@ In addition, please inform us of link(s) to your work [Contact Us]( mailto:suppo
 ---------------
 **Q.** Why does the image for a glycan entry not match the IUPAC string? <br>
 **A.** The image generation software is currently not multi-threaded, causing the same image to appear for multiple entries due to a caching problem.  This can be resolved by right-clicking on the image, opening it in a new browser window or tab and refreshing it.  Refreshing may require holding down the control key while refreshing.<br><br>
+
+# GlyTouCan Tips
+
+* [How do I find all glycan structures in human that are registered in GlyTouCan?](/rdf-ontology/sparql-queries/#find-glycan-structures-iupac-condensed-related-to-homo-sapiens)

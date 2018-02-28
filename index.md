@@ -16,3 +16,8 @@ A vast spectrum of contributed data from multiple glycoinformatic resources are 
 <h2><a class="anchor" href="#system-architecture" aria-hidden="true"></a>System Architecture</h2>
 
 By incorporating the results of multiple [systems and implementations](system) of other projects, the repository was able to be completed within one year of planning and development.  For the sake of sanity, all of the systems used, their source code, and project links are provided along with any planned future work.
+
+
+<h2><a class="anchor" href="#faq" aria-hidden="true"></a>FAQ</h2>
+
+[Frequently asked questions](FAQ)
