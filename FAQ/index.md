@@ -6,16 +6,24 @@ layout: default
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [Frequently Asked Questions](#frequently-asked-questions)
-	- [GlyTouCan](#glytoucan)
+	- [GlyTouCan Tips](#glytoucan-tips)
+	- [GlyTouCan Site](#glytoucan-site)
 	- [About Glycan Image](#about-glycan-image)
-- [GlyTouCan Tips](#glytoucan-tips)
 
 <!-- /TOC -->
-
 # Frequently Asked Questions
 
 
-## GlyTouCan
+
+## GlyTouCan Tips
+
+---------------
+
+* [How do I find all glycan structures in human that are registered in GlyTouCan?](/rdf-ontology/sparql-queries/#find-glycan-structures-iupac-condensed-related-to-homo-sapiens)
+* [How do I find all glycan structures in mouse that are registered in GlyTouCan?](/rdf-ontology/sparql-queries/#find-glycan-structures-iupac-condensed-related-to-mus-musculus)
+
+
+## GlyTouCan Site
 
 ---------------
 
@@ -84,7 +92,3 @@ In addition, please inform us of link(s) to your work [Contact Us]( mailto:suppo
 ---------------
 **Q.** Why does the image for a glycan entry not match the IUPAC string? <br>
 **A.** The image generation software is currently not multi-threaded, causing the same image to appear for multiple entries due to a caching problem.  This can be resolved by right-clicking on the image, opening it in a new browser window or tab and refreshing it.  Refreshing may require holding down the control key while refreshing.<br><br>
-
-# GlyTouCan Tips
-
-* [How do I find all glycan structures in human that are registered in GlyTouCan?](/rdf-ontology/sparql-queries/#find-glycan-structures-iupac-condensed-related-to-homo-sapiens)
