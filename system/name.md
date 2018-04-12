@@ -24,7 +24,7 @@ To simplify the wording used for the scope of this document, please note the fol
 | Contributor| The person or organization responsible for maintaining a trivial naming convention.
 | Glycan Alias | This will be considered the same as a Trivial Name.
 | Notation | A notation is a textual system used to represent glycan structures.  The definition of the system must be in a referencable, published work.  For example, the GlycoCT and WURCS sequence structures are considered notations, as well as the Abbreviated Terminology of Oligosaccharide Chains[^4] as an early model.
-| GlycoSequence | The term glycosequence is used to define a notation that is supported by GlyTouCan, which is simply the notations fully supported in the [GlyConvert](http://bitbucket/glycosw/glyconvert){:target="_blank"} project.
+| GlycoSequence | The term glycosequence is used to define a notation that is supported by GlyTouCan, which is simply the notations fully supported in the [GlyConvert](http://bitbucket.org/glycosw/glyconvert){:target="_blank"} project.
 
 As of this writing, the glycosequences supported include the following formats:
 
