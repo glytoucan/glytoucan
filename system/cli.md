@@ -7,9 +7,12 @@ layout: default
 
 # GlyTouCan Client CLI
 
-The GTCC is a command line interface to the GlyTouCan API.
+The GTCC is a command line interface to the GlyTouCan Repository API.
 
-It is primarily written in groovy.
+## Features
+
+* A simple command line script to register structures into GlyTouCan.
+* If the structure is already registered, the accession number will be returned.  Otherwise a reference tag will be displayed.  This reference tag, as well as all other submissions, can be tracked on the [Entries](https://glytoucan.org/Users/structure) page.
 
 ##  Requirements
 1. This is a unix script.  This has not been tested on windows, but it probably could be converted to a bat file.  Please take a look at simple.groovy, a simple groovy script that can execute a request.
@@ -33,7 +36,15 @@ As GlyTouCan can handle multiple users to a database, the service account can be
 
 ## Regarding multiple database to one user
 
-Please note that while GlyTouCan can support multiple users as a maintainer of one database, it cannot handle one user acting as a maintainer of multiple databases.  Due to this restriction, it is advisable to create a "service account" for your database in the case you need to register for multiple websites.
+Please note that while GlyTouCan can support multiple users as a maintainer of one database, it cannot handle one user email acting as a maintainer of multiple databases.  Due to this restriction, it is advisable to create a "service account" for your database in the case you need to register for multiple websites.
+
+# Update to August 2019 Release
+
+Pleae note that the backend to GlyTouCan was overhauled in this release.  Months of planning and development was made to not impact the user experience.  Therefore, usage of this script has not changed.  The only change is for the case of new structures not already stored in the repository.  In this case, instead of the accession number being immediately returned, a reference tag will be shown.  Details available in the blog post.
+
+## New Submissions page (Aug 2019)
+
+If you login to the GlyTouCan [Entries](https://glytoucan.org/Users/structure) page, the data sent over this script can be confirmed.
 
 ## Installation
 `git clone https://github.com/glytoucan/databaseSync.git`
@@ -43,11 +54,11 @@ The gtc command is the glytoucan command line interface.  This is actually a sim
 
 ## Usage
 
-To register a single sequence:
+To submit a single sequence:
 
 `groovy gtc -u [contributor id] -a [API key] -s '[sequence]'`
 
-This will register the sequence if it does not exist, and return the Accession Number.
+This will submit the structure data.  If it is already registered and validated, the output will be the accession number.  Otherwise, a reference tag will be returned.
 
 To register sequences in a csv file:
 
@@ -113,10 +124,6 @@ GlycoCT - note the carriage returns are "\n"
 
 Register a WURCS sequence.
 
-## Features
-
-* recognizes the sequence format automatically
-
 # Linking Partner ID
 
 After registration and confirmation from [GLIC](http://glic.glycoinfo.org) that your Contributor ID is registered to your Organization, it will be possible to link the IDs of your website so that it will appear on the Glycan Entry page under the "External Ids" section.
@@ -127,7 +134,7 @@ To register a single sequence with your id:
 
 `groovy gtc -u [contributor id] -a [API key] -s '[sequence]' -p [your id]`
 
-This will register the sequence if it does not exist, and return the Accession Number.  The linkage will be formulated from the organizational information 
+This will register the sequence if it does not exist, and return the Accession Number.  The linkage will be formulated from the organizational information
 
 To register sequences in a csv file:
 
@@ -189,7 +196,7 @@ example of file (csv)
 
 # Production Environment
 
-By default, the glytoucan client utilizes the test or beta environment, located at http://beta.glytoucan.org.  The test api interface is configured to http://test.api.glytoucan.org.
+By default, the glytoucan client utilizes the test or beta environment, located at http://test.glytoucan.org.  The test api interface is configured to http://test.api.glytoucan.org.
 
 In order to have the client switch to the production environment, an environment variable must be configured to the api server.
 
@@ -202,16 +209,15 @@ https://api.glytoucan.org
 ```
 
 Please check your operating system in order to modify environment variables within the shell used for the client.
-
+## Submission output example
 ```
-$ groovy gtc -u {user id} -a {api key} -s Gal
-Registering sequence: Gal
-Accession Number of Gal is G68158BT
+$ groovy gtc -u {user id} -a {api key} -s "WURCS=2.0/4,9,8/[a2122h-1x_1-5_2*NCC/3=O][a1122h-1b_1-5][a1122h-1a_1-5][a2122h-1a_1-5]/1-2-3-3-3-4-3-3-3/a4-b1_b3-c1_b6-g1_c2-d1_d2-e1_e3-f1_g3-h1_h2-i1"
+Registering sequence: WURCS=2.0/4,9,8/[a2122h-1x_1-5_2*NCC/3=O][a1122h-1b_1-5][a1122h-1a_1-5][a2122h-1a_1-5]/1-2-3-3-3-4-3-3-3/a4-b1_b3-c1_b6-g1_c2-d1_d2-e1_e3-f1_g3-h1_h2-i1
+Complete list of all submissions can be found at https://glytoucan.org/Users/structure
+Registration of sequence:>WURCS=2.0/4,9,8/[a2122h-1x_1-5_2*NCC/3=O][a1122h-1b_1-5][a1122h-1a_1-5][a2122h-1a_1-5]/1-2-3-3-3-4-3-3-3/a4-b1_b3-c1_b6-g1_c2-d1_d2-e1_e3-f1_g3-h1_h2-i1< output:>G66357CN<
 ```
 
-Please be sure to check the production environment for your changes: https://glytoucan.org/Structures/Glycans/G68158BT
-
-
+Please be sure to check the production environment for your changes: https://glytoucan.org/Structures/Glycans/G66357CN
 
 # Notes
 
