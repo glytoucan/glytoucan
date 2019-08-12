@@ -42,7 +42,7 @@ Multiple server-side, backend batch processes are executed to work on the submit
 
 The status of these batch processes will be visible through the Entries page as well as the detailed entry page of each structure submitted.  An "Accession Number registration batch" will assign the structure once it has been validated, converted, etc.
 
-This will cause some delay between initial registration and final Accession Number assignment.  However it will help clarify what exactly are the issues with the structure, if there are any.
+This will cause some delay between initial registration and Accession Number assignment.  However it will help clarify what exactly are the issues with the structure, if there are any, for very specific steps in the flow.  By removing all complex logic libraries from the website/API, more stability is guaranteed as there are less points of failure.
 
 ### Detailed Registration Example
 
@@ -66,5 +66,7 @@ A new image generation batch process will convert the input structures into mult
 ### Known issues
 
 The GlycoCT conversion to WURCS batch process is in development.  It will be introduced within the next few weeks.
+
+The website still does some conversion automatically.  This will be removed once the GlycoCT batch is complete.
 
 One of the major changes with this process is that the Accession Number is not received in real-time after submission.  The Website, client library, and CLI interface were all slightly modified to account for this.  As a simple measure to prevent duplications, an exact search of the input sequence is done to check if it is registered already or not.  If so, the accession number is returned, otherwise the reference tag is returned.
