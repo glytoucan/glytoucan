@@ -6,7 +6,7 @@ layout: post
 categories: posts
 ---
 
-# August 2019 release
+# New Registration Flow and Backend Framework
 
 This past week, a major release and infrastructure change was made to the GlyTouCan system.  Here is a brief rundown of features and then a more detailed explanation of how these changes will impact users.
 
@@ -14,13 +14,13 @@ It has been a while since the last post.  One reason is that the initial GlyTouC
 
 ## Main Features
 
-* New structure registration process: any structure format or nomenclature accepted.
-* More transparency of how inputted structures are detected, converted, validated, etc.
-* Background batch-processing framework introduced.
-* Audited data conversion/modification/validation.
-* Image background processing.
-* New server hardware.
-* New [Entries](https://glytoucan.org/Users/structure) page which shows all previous registrations.
+* New structure registration process: Any structure format or nomenclature accepted
+* More transparency of how inputted structures are detected, converted, validated, etc
+* Background batch-processing framework introduced
+* Audited data conversion/modification/validation
+* Image background processing
+* New server hardware
+* New [Entries](https://glytoucan.org/Users/structure) page which shows all previous registrations
 * New UI methodology
 * CI introduced (for developer's sanity)
 
@@ -34,9 +34,9 @@ This release answers a lot of questions that we were receiving.  In particular t
 
 ## New Registration Flow
 
-The above questions pointed at an initial design flow of the repository.  The server-side logic process was not transparent.  The previous validation method was the following: "If the structure could be converted into WURCS, then it was accepted".  The problem with this policy is that it is ambiguous in important audit information such as conversion methods and specification versions.  This showed how the system was not future-proof, and so a major architecture shift was required.
+The above questions pointed at an initial design flaw of the repository: The policy to assign an Accession Number was the following: "If the structure could be converted into WURCS, then it was accepted".  The problem with this policy is that it is ambiguous in important audit information such as conversion methods and specification versions.  Also, since the registration system solely was an API server, all background logic was executed once the submit button was pressed.  Error management handling was not very user-friendly, as it was not recorded or logged, which made it difficult to support.  This showed how the system was not future-proof, and so a major architecture shift was required.
 
-This release introduces a new registration flow.  The new general rule is the following: "Any structure sequence format is accepted".  Once accepted, the submission will be given a reference tag.  This tag can be used to lookup the structure at a later time.  In case this tag is lost, all previously submitted structures are displayed in the new personalized [Entries](https://glytoucan.org/Users/structure) page.
+This release introduces a new registration flow.  The new policy is the following: "Any structure sequence format is accepted".  Once accepted, the submission will be given a reference tag.  This tag can be used to lookup the structure at a later time.  In case this tag is lost, all previously submitted structures are displayed in the new personalized [Entries](https://glytoucan.org/Users/structure) page.
 
 Multiple server-side, backend batch processes are executed to work on the submitted structure.  They include logic such as detecting the format, converting it to WURCS(if necessary), validating it, assigning an Accession Number, generating the image etc.
 
@@ -45,6 +45,8 @@ The status of these batch processes will be visible through the Entries page as 
 This will cause some delay between initial registration and final Accession Number assignment.  However it will help clarify what exactly are the issues with the structure, if there are any.
 
 ### Detailed Registration Example
+
+The following is a simple example of a structure registration, with detailed explanation of the new flow.
 
 1. Registration of WURCS structure
 1. Format Detection
@@ -59,7 +61,7 @@ The next process searches for validated structures, and contains logic to see if
 
 ## New Image Batch Processing
 
-A new image generation batch process will convert the input structures into multiple notations and formats.  All of the different combinations of SNFG, CFG, IUPAC and SVG, PNG will be generated and stored locally.  The main problem why there were weird images appearing before were because the previous system was generating the image in real-time for every user request.  Since this CPU intensive process is now put off into the batch process, each user request will be a simple read of the correct image raw data.
+A new image generation batch process will convert the input structures into multiple notations and formats.  All of the different combinations of SNFG, CFG, IUPAC and SVG, PNG will be generated and stored locally.  The main problem why there were weird images appearing before were because the previous system was generating the image in real-time for every user request.  Since this CPU intensive and non-multi-threaded process is now put off into the background batch process, each user request will be a simple read of the correct image raw data.
 
 ### Known issues
 
