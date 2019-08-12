@@ -10,7 +10,7 @@ categories: posts
 
 This past week, a major release and infrastructure change was made to the GlyTouCan system.  Here is a brief rundown of features and then a more detailed explanation of how these changes will impact users.
 
-It has been a while since the last post.  One reason is that the initial GlyTouCan project officially ended, while planning and expansion of the system was included into the new <a href="https://glycosmos.org">GlyCosmos Project</a>.
+It has been a while since the last post.  One reason is that the initial GlyTouCan project officially ended, while planning and expansion of the system was included in the new <a href="https://glycosmos.org">GlyCosmos Project</a>.
 
 ## Main Features
 
@@ -34,11 +34,11 @@ This release answers a lot of questions that we were receiving.  In particular t
 
 ## New Registration Flow
 
-The above questions pointed at an initial design flaw of the repository.  The policy to assign an Accession Number was the following: "If the structure could be converted into WURCS, then it was assigned an Accession Number".  The problem with this policy is that it is ambiguous in important audit information such as conversion methods and specification versions.  Also, since the registration system solely was an API server, all background logic was executed once the submit button was pressed.  Error management handling was not very user-friendly, as it was not recorded or logged, which made it difficult to support.  This showed how the system was not future-proof, and so a major architecture shift was required.
+The above questions pointed at an initial design flaw of the repository.  The policy to assign an Accession Number was the following: "If the structure could be converted into WURCS, then it was assigned an Accession Number".  The problem with this policy is that it is ambiguous in important audit information such as conversion methods and specification versions.  Also, since the registration system solely was an API server, the multiple steps required were executed once the submit button was pressed.  Error management handling was not very user-friendly, as it was not recorded or logged, which made it difficult to support.  This showed how the system was not future-proof, and so a major architecture shift was required.
 
 This release introduces a new registration flow.  The new policy is the following: "Any structure sequence format is accepted".  Once accepted, the submission will be given a reference tag.  This tag can be used to lookup the structure at a later time.  In case this tag is lost, all previously submitted structures are displayed in the new personalized [Entries](https://glytoucan.org/Users/structure) page.
 
-Multiple server-side, backend batch processes are executed to work on the submitted structure.  They include logic such as detecting the format, converting it to WURCS(if necessary), validating it, assigning an Accession Number, generating the image etc.
+Multiple server-side, backend batch processes are executed to work on the submitted structure.  They include unit-based, simple logic such as detecting the format, converting it to WURCS(if necessary), validating it, assigning an Accession Number, or generating the image etc.
 
 The status of these batch processes will be visible through the Entries page as well as the detailed entry page of each structure submitted.  An "Accession Number registration batch" will assign the structure once it has been validated, converted, etc.
 
@@ -70,3 +70,10 @@ The GlycoCT conversion to WURCS batch process is in development.  It will be int
 The website still does some conversion automatically.  This will be removed once the GlycoCT batch is complete.
 
 One of the major changes with this process is that the Accession Number is not received in real-time after submission.  The Website, client library, and CLI interface were all slightly modified to account for this.  As a simple measure to prevent duplications, an exact search of the input sequence is done to check if it is registered already or not.  If so, the accession number is returned, otherwise the reference tag is returned.
+
+
+## Future Work
+
+Since the Batch process is based on a framework, an API to this framework can be created to give user's direct access to these batch process timings and even direct execution requests.
+
+More work on the user interface.  Simple things such as pagination were deprioritized until after the release.  These will be hotfixed as they will not impact underlying RDF data.
