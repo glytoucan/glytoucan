@@ -1,50 +1,63 @@
 ---
-title: Latest Toco Upgrade Release
+title: August 2019 Release
 authors:
 - Nobuyuki Aoki
 layout: post
 categories: posts
 ---
 
+# August 2019 release
 
-<img src="https://upload.wikimedia.org/wikipedia/commons/a/a4/Ramphastos_toco_-Birdworld,_Farnham,_Surrey,_England-8a.jpg" align="left" height="300" >
+This past week, a major release and infrastructure change was made to the GlyTouCan system.  Here is a brief rundown of features and then a more detailed explanation of how these changes will impact users.
 
-Photo provided by wikimedia.
-
-1.2.6 was released yesterday, after major backend upgrades and collaboration with partner organizations.
+It has been a while since the last post.  One reason is that the initial GlyTouCan project officially ended, while planning and expansion of the system was included into the new <a href="https://glycosmos.org">GlyCosmos Project</a>.
 
 ## Main Features
 
-An interesting aspect of Linked Data stored in triples is the storing of relationships between each piece of data.  Due to this, as the data expands, it is possible to formulate more ways to view this information.  For this release we took advantage of the data formalization steps taken last time (to clean up all of the volunteered data we received), as well as the new data being registered within the glytoucan partner program.  This shows the nice boosts in productivity and efficiency achieved by taking the time to organize data into a well-defined ontology.
+* New Registration flow, any structure format or nomenclature accepted.
+* More transparency of how inputted structures are detected, converted, validated, etc.
+* Background batch-processing framework introduced.
+* Audited data conversion/modification/validation.
+* Image background processing.
+* New Server Hardware
+* New [Entries](https://glytoucan.org/Users/structure) page which shows all previous registration requests.
+* New UI methodology
 
-### Database Filtering
+### Questions Answered
 
-The [View All](https://glytoucan.org/Structures) page, which allows users to filter down to distinct structures, can now filter based on specific databases where the structure was supplied.  It is also possible to view the intersection between these databases; so if you would like to see the structures stored both within your own database and those that intersect with [PDB](http://www.rcsb.org/pdb/home/home.do), it is now possible.
+This release answers a lot of questions that we were receiving.  In particular the following:
 
-![databases](/images/manual/gtc-databases.png)
+* "Why can't I input my structure in IUPAC/GlycoCT/KCF/... format?"
+* "I have doubts about this structure, how was it generated?"
+* "The image is wrong!"
 
-### Partner Glycan Id Registration 
+## New structure registration changes
 
-With this release, all of the major backend upgrades are finally complete.  Thus the work that started with the [STINT program](http://www.stint.se/en/scholarships_and_grants/joint_japan-swedish) while we were in Sweden is finally coming to fruition.  During the program we had designed a method to register structures securely through an API and a client.  Both of these subsystems have been matured to the point where it is possible for any registered partner to register structures simply through a command line.
+One of the main issues with the initial design of the repository, was the validation process.  The previous validation method was as a general rule, the following: "If the structure could be converted into WURCS, then it was accepted".  The problem with this policy is that it is ambiguous in important audit information such as conversion methods and specification versions.  This showed how the system was not future-proof, and so a major architecture shift was required.
 
-It is also possible to register your own glycan structures id's and the URL to link it back to.  This will allow for easier registration of structures and automatic maintenance of links stored within the repository.
+This release introduces a new registration flow.  The new general rule is the following: "Any structure sequence format is accepted".  Once accepted, the submission will be given a reference tag.  This tag can be used to lookup the structure at a later time.  In case this tag is lost, all previously submitted structures are displayed in the new personalized [Entries](https://glytoucan.org/Users/structure) page.
 
-During the [partner registration process](http://code.glytoucan.org/partner/registration/) we also request the database name that should be used for your glycan id.  This name will be used within the Database filtering (explained above) to get a quick summary of the linked data between the repository and your public database.
+Multiple batch processes are executed to detect the format, convert it to WURCS(if necessary), validate it, assign an Accession Number, generate the image etc.
 
-A lot of work was put into this release with help from many developers of partner organizations.  Thanks to their input we added some very nice last-minute features into the partner process.
+The status of these batch processes will be visible through the Entries page as well as the detailed entry page of each structure submitted.  An "Accession Number registration batch" will assign the structure once it has been validated, converted, etc.
 
-Now that this is complete, it's possible to look at what other new features should be added for partners and the data they would like to share.
+### Detailed Example
 
-## Future work (and Other Technical Mumbo)
+1. Registration of WURCS structure
+1. Format Detection
+1. WURCS Validation
+1. Accession Number Generation
 
-Instead of going into details about the backend deficiencies that existed previous to release, I think a more positive point of view would be to look at what this means for glytoucan in the future.
+The first batch process is a simple "structure format detection" batch.  It is meant to organize structures into specific formats so that it will be more obvious what batch process needs to run next.  This will detect the structure as WURCS and add a new RDF triple indicating that the structure has a format of "wurcs".
 
-The reason why major backend overhauls require so much time and planning is because it is a difficult balancing act between many aspects: the data that exists currently, the system as it functions currently, the new functionality required, the new data required, the new systems that need to be introduced.
+The next batch process contains logic to search only for structures labeled as "wurcs", and validates them.  A specific WURCS library is used which reads the structure in and outputs warnings or error messages.  These warnings and error messages are now stored into the RDF and linked to the structure.  If there are error messages, it is not considered validated.  Since the warnings and error messages are now stored, the reason why the validation failed can now be displayed to the user on the Entries page.
 
-These aspects impact every piece of the entire glytoucan system, including the migration of the code out of the development environment and into the public view.
+The next process searches for validated structures, and contains logic to see if the structure was already registered or not.  If registered it will assign the resulting Accession Number.  Otherwise it will generate a new Accession Number for the new structure.  Once the Accession Number is assigned, the previous GlyTouCan system will continue to run as normal.
 
-It is quite a relief to be able to have overcome this milestone.  One major reason why is because now that the foundation has matured, it will be possible to easily expand and grow any new features that user's would like.  I don't want to go into too much detail at this point, as some things are finalized and others are not.  Please volunteer any suggestions via the contact information below!
+### Known issues
 
-![toco in flight](https://upload.wikimedia.org/wikipedia/commons/8/8f/Toco_toucan_%28Ramphastos_toco%29_in_flight_composite.jpg)
+The GlycoCT conversion to WURCS batch process is not complete.  It will be introduced within the next few weeks.
 
-The [Toco](https://en.wikipedia.org/wiki/Toco_toucan) is the largest and probably the best known species in the toucan family. 
+## New Image Batch Processing
+
+A new image generation batch process will convert the input structures into multiple notations and formats.  All of the different combinations of SNFG, CFG, IUPAC and SVG, PNG will be generated and stored locally.  The main problem why there were weird images appearing was because the previous system was generating the image in real-time for every user request.  Since this CPU intensive process is not put off into the background, now each request will be a simple read of the data.
