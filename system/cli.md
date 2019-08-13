@@ -40,7 +40,7 @@ Please note that while GlyTouCan can support multiple users as a maintainer of o
 
 # Update to August 2019 Release
 
-Pleae note that the backend to GlyTouCan was overhauled in this release.  Months of planning and development was made to not impact the user experience.  Therefore, usage of this script has not changed.  The only change is for the case of new structures not already stored in the repository.  In this case, instead of the accession number being immediately returned, a reference tag will be shown.  Details available in the blog post.
+Pleae note that the backend to GlyTouCan was overhauled in this release.  Months of planning and development was made to not impact the user experience.  Therefore, usage of this script has not changed.  The only change is for the case of new structures not already stored in the repository.  In this case, instead of the accession number being immediately returned, a reference tag will be shown.  Details available in the [blog post](/posts/2019/08/01/new-backend-release/).
 
 ## New Submissions page (Aug 2019)
 
