@@ -36,7 +36,7 @@ This release answers a lot of questions that we were receiving.  In particular t
 
 The above questions pointed at an initial design flaw of the repository.  The policy to assign an Accession Number was the following: "If the structure could be converted into WURCS, then it was assigned an Accession Number".  The problem with this policy is that it assumes all structures input can be converted into WURCS.  If it could not, then an error was returned.  Also, since the registration system solely was an API server, the many steps required (detection/conversion/validation) were executed once the submit button was pressed.  Error management handling was not very user-friendly.  These errors were not recorded or logged, which made it difficult to support.  This showed how the system was not future-proof, and so a major architecture shift was required.
 
-![new flow](https://files.slack.com/files-pri/THGCYABL0-FM9LK8DGD/newglytoucan2019.png)
+![new flow](/images/newglytoucan2019.png)
 
 This release introduces a new registration flow.  The new policy is the following: "Any structure sequence format can be input".  Once "pre-registered", the submission will be given a reference tag.  This tag can be used to lookup the structure at a later time.  In case this tag is lost, all previously submitted structures are displayed in the new personalized [Entries](https://glytoucan.org/Users/structure) page.
 
