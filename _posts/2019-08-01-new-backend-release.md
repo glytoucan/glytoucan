@@ -40,7 +40,7 @@ The above questions pointed at an initial design flaw of the repository.  The po
 
 This release introduces a new registration flow.  The new policy is the following: "Any structure sequence format can be input".  Once "pre-registered", the submission will be given a reference tag.  This tag can be used to lookup the structure at a later time.  In case this tag is lost, all previously submitted structures are displayed in the new personalized [Entries](https://glytoucan.org/Users/structure) page.
 
-The steps described above are now split up into multiple server-side, backend batch processes.  These are used to work on the submitted structure, such as detecting the nomenclature/format, converting it to WURCS(if necessary), validating it, assigning an Accession Number, or generating the image etc.
+The steps described above (detection/conversion/validation) are now split up into multiple server-side, backend batch processes.  These are used to work on the submitted structure, such as detecting the nomenclature/format, converting it to WURCS(if necessary), validating it, assigning an Accession Number, or generating the image etc. 
 
 The status of these batch processes will be visible through the Entries page as well as the detailed entry page of each structure submitted.  As a general policy all batch process information will be transparent to the user.  We will be constantly updating the UI to show as much information as possible returned by these batch processes.
 
@@ -78,3 +78,5 @@ One of the major changes with this process is that the Accession Number is not r
 Since the Batch process is based on a framework, an API to this framework can be created to give user's direct access to these batch process timings and even direct execution requests.
 
 More work on the user interface.  Simple things such as pagination were deprioritized until after the release.  These will be hotfixed as they will not impact underlying RDF data.  Since we are utilizing a new more modern standardized method of GUI written in javascript, along with a CI development system, it allows us to quickly release updates in seconds.
+
+The new architecture allows us to split up the vast amount of work we had done on the website, and focuses more on discrete logical steps to process each strucure.  This allows for a simple way to develop and expand the RDF data in an organized fashion, while keeping the user interface completely stable.  Please contact us directly if there are any issues!
