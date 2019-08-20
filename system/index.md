@@ -24,7 +24,8 @@ The [api server](http://api.glytoucan.org) interacts directly with the triplesto
 
 * [API Server Documentation](https://github.com/glytoucan/api)
 * [Java Client Library Documentation](https://github.com/glytoucan/client)
-* [Java Client CLI Documentation](https://github.com/glytoucan/databaseSync)
+* [Java Client CLI Documentation](/system/cli)
+* [Basic Tool CLI Documentation](/system/basic)
 
 ### Web Server and Internationalization
 

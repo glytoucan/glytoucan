@@ -31,8 +31,7 @@ Basic Authentication over HTTPS is used to transfer the user authentication info
 ### Example
 
 ```
-curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --user <GTC User ID>:<GTC API Key>
-655dbdc7739 -d '{ "sequence": "<sequence data>" }' 'https://api.glytoucan.org/glycan/register'
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --user <GTC User ID>:<GTC API Key> -d '{ "sequence": "<sequence data>" }' 'https://api.glytoucan.org/glycan/register'
 ```
 
 Note how the GlyTouCan User Id and API Key are passed in the basic authentication parameter.  The sequence data should be supplied in JSON format with the "sequence" key.
