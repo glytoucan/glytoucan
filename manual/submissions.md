@@ -22,17 +22,11 @@ Submissions
 The following are the field names and where they are originated from.
 
 **Field - Description**
-* Submission Ref -
-* Accession Number -
-* Sequence -
-* Registration Date -
-* Validation -
-
-* Username - The user name used to recognize your account.  Taken from the First name of your linked account.  
-* Email - Email address received from your authentication provider.  
-* Contributor ID - A hashed key used to identify your account.  
-* Verified Email - A flag indicating if your email is verified or not.  
-* Generate API Key - A link to randomly generate a hash key.  The current hash key is displayed.  
+* Submission Ref -  This hash ID means acceptance ID before a registration.
+* Accession Number - GlyTouCan accession number of a glycan structure.
+* Sequence - Acceptance from a user's sequence
+* Registration Date - Submitted date from user
+* Validation - Glycosequence validation results by GlycanFormatConverter
 
 
 
