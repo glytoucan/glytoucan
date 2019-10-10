@@ -4,13 +4,13 @@ layout: default
 ---
 
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
-
-- [Frequently Asked Questions](#frequently-asked-questions)
+- Frequently Asked Questions
 	- [GlyTouCan Tips](#glytoucan-tips)
 	- [GlyTouCan Site](#glytoucan-site)
 	- [About Glycan Image](#about-glycan-image)
-
+	- [GlyTouCan Partner](#glytoucan-partner)
 <!-- /TOC -->
+
 # Frequently Asked Questions
 
 
