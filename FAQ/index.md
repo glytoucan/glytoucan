@@ -3,15 +3,15 @@ title: FAQ
 layout: default
 ---
 
+# Frequently Asked Questions
+
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
-- Frequently Asked Questions
-	- [GlyTouCan Tips](#glytoucan-tips)
-	- [GlyTouCan Site](#glytoucan-site)
-	- [About Glycan Image](#about-glycan-image)
-	- [GlyTouCan Partner](#glytoucan-partner)
+- [GlyTouCan Tips](#glytoucan-tips)
+- [GlyTouCan Site](#glytoucan-site)
+- [Glycan Image](#glycan-image)
+- [GlyTouCan Partner](#glytoucan-partner)
 <!-- /TOC -->
 
-# Frequently Asked Questions
 
 
 
@@ -87,7 +87,7 @@ In addition, please inform us of link(s) to your work [Contact Us]( mailto:suppo
 **A.** Yes, currently this is supported on the [Glycan List](https://glytoucan.org/Structures) by clicking on the box to the left.<br><br>
 
 
-## About Glycan Image
+## Glycan Image
 
 ---------------
 **Q.** Why does the image for a glycan entry not match the IUPAC string? <br>
