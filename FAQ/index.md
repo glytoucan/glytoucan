@@ -92,3 +92,33 @@ In addition, please inform us of link(s) to your work [Contact Us]( mailto:suppo
 ---------------
 **Q.** Why does the image for a glycan entry not match the IUPAC string? <br>
 **A.** The image generation software is currently not multi-threaded, causing the same image to appear for multiple entries due to a caching problem.  This can be resolved by right-clicking on the image, opening it in a new browser window or tab and refreshing it.  Refreshing may require holding down the control key while refreshing.<br><br>
+
+
+## GlyTouCan Partner
+
+---------------
+**Q.** Want to become a GlyTouCan Partner and link your glycan structure data with us? <br>
+**A.**
+<br><br>
+
+**Q.** What is a GlyTouCan partner?
+**A.** The GlyTouCan partner is a partner program that enables cross-reference between GlyTouCan entry and glycan related databases id.
+<br><br>
+
+Details on GlyTouCan partner program can be found on the page
+* [GlyTouCan Partner Program](http://code.glytoucan.org/partner/)
+<br><br>
+
+**Q.** Want to become a GlyTouCan Partner and link your glycan structure data with us?
+**A.** You can register as a GlyTouCan partner using this google form. Cl
+- For the English version.
+  - [GlyTouCan Partner Registration Request (en)](http://code.glytoucan.org/partner/registration/)
+- For the Japanese version.
+  - [GlyTouCan Partner Registration Request (jp)](http://code.glytoucan.org/partner/registration_ja/)
+<br>
+
+ Once you have registered as the GlyTouCan partner, you can register your glycan structure data by the partner account that is registered as the partner by email.
+<br>
+
+If you register soume glycan structures with your parnte ID (glycan ID in you database),  it is necessary that you use the Command Line Interface (CLI) . The detail is describles in following page.
+* [GlyTouCan Command Line Interface to API](http://code.glytoucan.org/system/cli/)
