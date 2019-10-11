@@ -8,6 +8,7 @@ layout: default
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 - [GlyTouCan Tips](#glytoucan-tips)
 - [GlyTouCan Site](#glytoucan-site)
+- [Registration](#registration)
 - [Glycan Image](#glycan-image)
 - [GlyTouCan Partner](#glytoucan-partner)
 <!-- /TOC -->
@@ -87,6 +88,21 @@ In addition, please inform us of link(s) to your work [Contact Us]( mailto:suppo
 **A.** Yes, currently this is supported on the [Glycan List](https://glytoucan.org/Structures) by clicking on the box to the left.<br><br>
 
 
+## Registration
+
+---------------
+
+**Q.** When I signin to GlyTouCan and submission with a WURCS sequence for the first time, but I got error code.<br>
+
+> status:500 Internal Server Error "401 null"
+
+**A.** Please check if you have an API key in your Profile page (https://glytoucan.org/Users/profile)
+after logging in.  It is possible that this variable is empty.  You first need to click on “Generate API Key” in the Profile page. <br><br>
+
+
+**Q.** When I register a publication for the GlyTouCan accession that I registered, it was not able to register.
+
+
 ## Glycan Image
 
 ---------------
@@ -97,29 +113,26 @@ In addition, please inform us of link(s) to your work [Contact Us]( mailto:suppo
 ## GlyTouCan Partner
 
 ---------------
-**Q.** What is a GlyTouCan partner?
-<br>
+**Q.** What is a GlyTouCan partner? <br>
 
-**A.** The GlyTouCan partner is a partner program that enables cross-reference between GlyTouCan entry and glycan related databases id.
-<br><br>
+**A.** The GlyTouCan partner is a partner program that enables cross-reference between GlyTouCan entry and glycan related databases id. <br><br>
 
 Details on GlyTouCan partner program can be found on the page
 * [GlyTouCan Partner Program](http://code.glytoucan.org/partner/)
-<br><br>
 
-**Q.** Want to become a GlyTouCan Partner and link your glycan structure data with us?
-<br>
 
-**A.** You can register as a GlyTouCan partner using this google form. Cl
+**Q.** Want to become a GlyTouCan Partner and link your glycan structure data with us? <br>
+
+**A.** You can register as a GlyTouCan partner using this google form.
+
 - For the English version.
   - [GlyTouCan Partner Registration Request (en)](http://code.glytoucan.org/partner/registration/)
 - For the Japanese version.
   - [GlyTouCan Partner Registration Request (jp)](http://code.glytoucan.org/partner/registration_ja/)
-<br>
 
 
  Once you have registered as the GlyTouCan partner, you can register your glycan structure data by the partner account that is registered as the partner by email.
-<br>
+
 
 If you register soume glycan structures with your parnte ID (glycan ID in you database),  it is necessary that you use the Command Line Interface (CLI) . The detail is describles in following page.
 * [GlyTouCan Command Line Interface to API](http://code.glytoucan.org/system/cli/)
