@@ -100,8 +100,8 @@ In addition, please inform us of link(s) to your work [Contact Us]( mailto:suppo
 after logging in.  It is possible that this variable is empty.  You first need to click on “Generate API Key” in the Profile page. <br><br>
 
 
-**Q.** When I register a publication for the GlyTouCan accession that I registered, it was not able to register.
-
+**Q.** When I register a publication for the GlyTouCan accession that I registered, it was not able to register.   
+**A.** Sorry, this is known issue. We are considering measures, currently.  
 
 ## Glycan Image
 
