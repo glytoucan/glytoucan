@@ -97,10 +97,6 @@ In addition, please inform us of link(s) to your work [Contact Us]( mailto:suppo
 ## GlyTouCan Partner
 
 ---------------
-**Q.** Want to become a GlyTouCan Partner and link your glycan structure data with us? <br>
-**A.**
-<br><br>
-
 **Q.** What is a GlyTouCan partner?
 **A.** The GlyTouCan partner is a partner program that enables cross-reference between GlyTouCan entry and glycan related databases id.
 <br><br>
