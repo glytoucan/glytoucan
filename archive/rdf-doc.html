@@ -1,0 +1,479 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Document about GlyTouCan RDF</title>
+<link href="../css/bootstrap.min.css" rel="stylesheet" />
+<link href="../css/github.css" rel="stylesheet" />
+<script type="text/javascript" src="../js/highlight.pack.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<style>h1,h2,h3,h4,h5,h6{padding-top: 10px;}hr{margin: 40px 0};</style>
+<style>ul.exe {font-size: 120%;}</style>
+</head>
+<body>
+<div class="container">
+	<div class="row">
+	<div class="col-md-8" role="main">
+	<h1 class="text-primary" id="top">GlyTouCan RDF data model</h1>
+	<hr />
+	<section>
+		<h2 id="ontology">Ontology</h2>
+		<table class="table">
+			<tr><th>Prefix</th><th>Namespace</th><th>Vocabularies</th></tr>
+			<tr><td>rdf</td><td>http://www.w3.org/1999/02/22-rdf-syntax-ns#</td><td>RDF</td></tr>
+			<tr><td>rdfs</td><td>http://www.w3.org/2000/01/rdf-schema#</td><td>RDF Schema</td></tr>
+			<tr><td>owl</td><td>http://www.w3.org/2002/07/owl#</td><td>OWL</td></tr>
+			<tr><td>xsd</td><td>http://www.w3.org/2001/XMLSchema#</td><td>XML Schema</td></tr>
+			<tr><td>foaf</td><td>http://xmlns.com/foaf/0.1/</td><td>FOAF Vocabulary</td></tr>
+			<tr><td>glycan</td><td>http://purl.jp/bio/12/glyco/glycan#</td><td>GlycoRDF ontology</td></tr>
+			<tr><td>glytoucan</td><td>http://www.glytoucan.org/glyco/owl/glytoucan#</td><td>Glytoucan ontology</td></tr>
+		</table>
+
+		<h4 id="terms">Terms of Glytoucan ontology</h4>
+		<h4 id="classea">Classes</h4>
+		<table class="table">
+			<tr><th>Class</th></tr>
+			<tr><td>glytoucan:derivatized_mass</td></tr>
+			<tr><td>glytoucan:derivatization_type</td></tr>
+		</table>
+
+		<h4 id="object-properties">Object Properties</h4>
+		<table class="table">
+			<tr><th>Property</th><th>Domain</th><th>Range</th></tr>
+			<tr><td>glytoucan:contributor</td><td>glycan:resource_entry</td><td>foaf:person</td></tr>
+			<tr><td>glytoucan:has_derivatization_type</td><td>glycan:derivatized_mass</td><td>glytoucan:derivatization_type</td></tr>
+			<tr><td>glytoucan:has_derivatized_mass</td><td>glycan:saccharide</td><td>glytoucan:derivatized_mass</td></tr>
+			<!-- <tr><td>glytoucan:has_substructure</td><td>glycan:saccharide</td><td>glycan:saccharide</td></tr> -->
+			<!-- <tr><td>glytoucan:has_superstructure</td><td>glycan:saccharide</td><td>glycan:saccharide</td></tr> -->
+			<!-- <tr><td>glytoucan:has_subsume</td><td>glycan:saccharide</td><td>glycan:saccharide</td></tr> -->
+			<!-- <tr><td>glytoucan:is_carbohydrate_residue</td><td></td><td></td></tr> -->
+			<!-- <tr><td>glytoucan:is_glycosequence_of</td><td>glycan:sequence</td><td>glycan:saccharide</td></tr> -->
+			<!-- <tr><td>glytoucan:is_linkage_isomer</td><td>glycan:saccharide</td><td>glycan:saccharide</td></tr> -->
+			<!-- <tr><td>glytoucan:is_subsumed_by</td><td>glycan:saccharide</td><td>glycan:saccharide</td></tr> -->
+		</table>
+
+		<h4 id="datatype-properties">Datatype Properties</h4>
+		<table class="table">
+			<tr><th>Property</th><th>Domain</th><th>Range</th></tr>
+			<tr><td>glytoucan:date_registered</td><td></td><td>xsd:dateTimeStamp</td></tr>
+			<tr><td>glytoucan:has_mass</td><td>glytoucan:derivatized_mass</td><td>xsd:double</td></tr>
+			<tr><td>glytoucan:has_primary_id</td><td>glycan:saccharide</td><td>xsd:string</td></tr>
+		</table>
+		<hr />
+
+		<h2 id="semantic-relation">Repository RDF semantic relationship</h2>
+		<h4>Node and edge</h4>
+		<table class="table">
+			<tr>
+				<td align="center"><img src="../images/rdf_doc/pic01.png" class="img-responsive" align="middle"></td>
+				<td>Class</td>
+			</tr>
+			<tr>
+				<td align="center"><img src="../images/rdf_doc/pic04.png" class="img-responsive" align="middle"></td>
+				<td>Data (literal, string, integer, double)</td>
+			</tr>
+			<tr>
+				<td align="center"><img src="../images/rdf_doc/pic02.png" class="img-responsive" align="middle"></td>
+				<td>Object property</td>
+			</tr>
+			<tr>
+				<td align="center"><img src="../images/rdf_doc/pic03.png" class="img-responsive" align="middle"></td>
+				<td>Data property</td>
+			</tr>
+		</table>
+		<!-- <img src="../images/rdf_doc/repoSchema01.png" alt="..." class="img-responsive"> -->
+		<a href="../images/rdf_doc/repoSchema01.png"><img src="../images/rdf_doc/repoSchema01.png" alt="..." class="img-responsive" width="960" height="720"></a>
+		<hr />
+		<a href="../images/rdf_doc/repoSchema02.png"><img src="../images/rdf_doc/repoSchema02.png" alt="..." class="img-responsive" width="960" height="720"></a>
+		<hr />
+	</section>
+	<ht />
+
+	<section>
+		<h2 id="uri-construction">URI Construction</h2>
+
+		<h4 id="uri-saccharide">Saccharide</h4>
+		<p><a href="#saccharide">Example triple</a></p>
+			<div class="well">
+			<p>URI pattern : http://rdf.glycoinfo.org/glycan/{AccessionNumber}</p>
+			<p>ex：http://rdf.glycoinfo.org/glycan/G00021MO</p>
+			</div>
+
+		<h4 id="uri-derivatized-mass">Derivatized Mass</h4>
+		<p><a href="#mass">Example triple</a></p>
+			<div class="well">
+			<p>URI pattern : http://rdf.glycoinfo.org/{derivatization type}/{value of the mass}</p>
+			<p>ex：http://rdf.glycoinfo.org/derivatization_type_none/1176.0175585040001</p>
+			</div>
+
+		<h4 id="uri-derivatization-type">Derivatization Type</h4>
+		<p><a href="#mass">Example triple</a></p>
+			<div class="well">
+			<p>None:</p>
+			<p>http://www.glytoucan.org/glyco/owl/glytoucan#derivatization_type_none</p>
+<!-- 			<p>Peracethylated:</p>
+			<p>http://www.glytoucan.org/glyco/owl/glytoucan#derivatization_type_peracethylated</p>
+			<p>Permethylated:</p>
+			<p>http://www.glytoucan.org/glyco/owl/glytoucan#derivatization_type_permethylated</p>
+ -->			</div>
+
+		<h4 id="uri-glycosequence">Glycosquence</h4>
+			<h5 id="uri-glycoct">GlycoCT</h5>
+			<p><a href="#glycoct">Example triple</a></p>
+			<div class="well">
+			<p>URI pattern : http://rdf.glycoinfo.org/glycan/{ Accession Number }/glycoct</p>
+			<p>ex：http://rdf.glycoinfo.org/glycan/G00021MO/glycoct</p>
+			</div>
+
+			<!-- WURCS -->
+<!-- 			<h5 id="uri-wurcs">WURCS</h5>
+			<p><a href="#wurcs">Example triple</a></p>
+			<div class="well">
+			<p>URI pattern : http://rdf.glycoinfo.org/glycan/{ Accession Number }/wurcs</p>
+			<p>ex：http://rdf.glycoinfo.org/glycan/G00021MO/wurcs</p>
+			<br />
+			<p>URI pattern : http://rdf.glycoinfo.org/glycan/wurcs/{encoded wurcs code}</p>
+			<p>ex : http://rdf.glycoinfo.org/glycan/wurcs/WURCS%3d2.0%2f1%2c0%2f%5bo2h%5d></p>
+			</div>
+ -->
+		<h4 id="uri-component">Component</h4>
+		<p><a href="#component">Example triple</a></p>
+			<div class="well">
+			<p>URI pattern : http://rdf.glycoinfo.org/component/{ number of monosaccharide }_{ monosaccharide }</p>
+			<p>ex：http://rdf.glycoinfo.org/component/1_a-dido-HEX-1%3A5%7C6%3Aa</p>
+			<ul>
+				<li>The monosaccharide name is encoded such as "a-dido-HEX-1:5|6:a".</li>
+			</ul>
+			</div>
+
+		<h4 id="uri-monosaccharide">Monosaccharide (Monosaccharide DB RDF web service)</h4>
+		<p><a href="#monosaccharide">Example triple</a></p>
+			<div class="well">
+			<p>URL pattern : http://www.monosaccharidedb.org/rdf/monosaccharide.action?name={monosaccharide name}</p>
+			<p>ex : http://www.monosaccharidedb.org/rdf/monosaccharide.action?name=a-dido-HEX-1%3A5%7C6%3Aa</p>
+			</div>
+
+		<h4 id="uri-image">Image (glySpace web service)</h4>
+		<p>The structure image previewing with the glySpace web service.</p>
+		<p><a href="#image">Example triple</a></p>
+			<div class="well">
+			<p>URI pattern : http://www.glytoucan.org/glyspace/service/glycans/{ Accession Number }/image?style=extended&amp;format=png&amp;notation={ notation name }</p>
+			<ul>
+				<li id="uri-image-cfg">CFG</li>
+					<p>http://www..glytoucan.org/glyspace/service/glycans/G00021MO/image?style=extended&amp;format=png&amp;notation=cfg</p>	
+				<li id="uri-image-cfgbw">CFG grey scale</li>
+					<p>http://www.glytoucan.org/glyspace/service/glycans/G00021MO/image?style=extended&amp;format=png&amp;notation=cfgbw</p>	
+				<li id="uri-image-uoxf">Oxford</li>
+					<p>http://www.glytoucan.org/glyspace/service/glycans/G00021MO/image?style=extended&amp;format=png&amp;notation=uoxf</p>	
+				<li id="uri-image-uoxf-color">Oxford color scale</li>
+					<p>http://www.glytoucan.org/glyspace/service/glycans/G00021MO/image?style=extended&amp;format=png&amp;notation=uoxf-color</p>	
+				<li id="uri-image-cfg-uoxf">CFG and Oxford</li>
+					<p>http://www.glytoucan.org/glyspace/service/glycans/G00021MO/image?style=extended&amp;format=png&amp;notation=cfg-uoxf</p>	
+				<li id="uri-image-iupac">IUPAC</li>
+					<p>http://www.glytoucan.org/glyspace/service/glycans/G00021MO/image?style=extended&amp;format=png&amp;notation=iupac</p>	
+			</ul>
+			</div>
+
+		<h4 id="uri-contributor">Contributor</h4>
+		<p><a href="#contributor">Example triple</a></p>
+			<div class="well">
+			<p>URI pattern : http://rdf.glycoinfo.org/glytoucan/contributor/userId/{User ID}</p>
+			<p>ex：http://rdf.glycoinfo.org/glytoucan/contributor/userId/105</p>
+			</div>
+
+		<h4 id="uri-motif">Motif (Saccharide)</h4>
+		<p>The motif URI is the same saccharide URI</p>
+		<p><a href="#motif">Example triple</a></p>
+			<div class="well">
+			<p>URI pattern : http://rdf.glycoinfo.org/glycan/{AccessionNumber}</p>
+			<p>ex：http://rdf.glycoinfo.org/glycan/G00021MO</p>
+			</div>
+
+		<h4 id="uri-resource-entry">Resource entry (Home page)</h4>
+		<p><a href="#resource-entry">Example triple</a></p>
+		<p>The resource entry URI is a URL of the Glycan entry at the Glytoucan.</p>
+			<div class="well">
+			<p>URI pattern : http://www.glytoucan.org/Structures/Glycans/{ Accession Number }</p>
+			<p>ex：http://www.glytoucan.org/Structures/Glycans/G00021MO</p>
+			</div>
+
+	</section>
+	<ht />
+	
+	<section>
+		<h2 id="example-rdf">Example RDF Triple</h2>
+		<h4 id="saccharide">Saccharide</h4>
+		<p><a href="#uri-saccharide">URI pattern</a></p>
+		<pre>
+@PREFIX glycan: &lt;http://purl.jp/bio/12/glyco/glycan#&gt; .
+
+&lt;http://rdf.glycoinfo.org/glycan/G00054MO&gt;
+	a	glycan:saccharide .
+		</pre>
+
+		<h4 id="accession-number">Glytoucan Accession Number</h4>
+		<pre>
+@PREFIX glycan: &lt;http://purl.jp/bio/12/glyco/glycan#&gt; .
+
+&lt;http://rdf.glycoinfo.org/glycan/G00054MO&gt;
+	a	glycan:saccharide ;
+	glytoucan:has_primary_id	"G00054MO" .
+		</pre>
+
+		<h4 id="sequence">Squence</h4>
+		<h5 id="glycoct">GlycoCT</h5>
+		<p><a href="#uri-glycoct">URI pattern</a></p>
+		<pre>
+@PREFIX glycan: &lt;http://purl.jp/bio/12/glyco/glycan#&gt; .
+
+&lt;http://rdf.glycoinfo.org/glycan/G00054MO&gt;
+	a	glycan:saccharide ;
+	glycan:has_glycosequence
+		&lt;http://rdf.glycoinfo.org/glycan/G00054MO/glycoct&gt; .
+		</pre>
+		<pre>
+&lt;http://rdf.glycoinfo.org/glycan/G00054MO/glycoct&gt;
+	a	glycan:glycosequence ;
+	glycan:in_carbohydrate_format  glycan:carbohydrate_format_glycoct ;
+	glycan:has_sequence	
+		"RES 1b:b-dglc-HEX-1:5 2s:n-acetyl 3b:a-lgal-HEX-1:5|6:d 4b:b-dgal-HEX-1:5 5b:a-dgro-dgal-NON-2:6|1:a|2:keto|3:d 6s:n-acetyl LIN 1:1d(2+1)2n 2:1o(3+1)3d 3:1o(4+1)4d 4:4o(3+2)5d 5:5d(5+1)6n"^^xsd:string .
+		</pre>
+
+<!-- WURCS -->
+<!-- 		<h5 id="wurcs">WURCS</h5>
+		<p><a href="#uri-wurcs">URI pattern</a></p>
+		<pre>
+@PREFIX glycan: &lt;http://purl.jp/bio/12/glyco/glycan#&gt; .
+
+&lt;http://rdf.glycoinfo.org/glycan/G00054MO&gt;
+	a	glycan:saccharide ;
+	glycan:has_glycosequence
+		&lt;http://rdf.glycoinfo.org/glycan/G00054MO/wurcs&gt; .
+		</pre>
+		<pre>
+&lt;http://rdf.glycoinfo.org/glycan/G00054MO/wurcs&gt; 
+	a	glycan:glycosequence ;
+	glycan:in_carbohydrate_format  glycan:carbohydrate_format_wurcs ;
+	glycan:has_sequence
+		"WURCS%3D2.0%2F4%2C3%2F%5B12122h%2B1%3Ab%7C1%2C5%7C2*NCC%2F3%3DO%5D%5B11221m%2B1%3Aa%7C1%2C5%5D%5B12112h%2B1%3Ab%7C1%2C5%5D%5Ba2d21122h%2B2%3Aa%7C2%2C6%7C5*NCC%2F3%3DO%5D1%2B3%2C2%2B1%7C1%2B4%2C3%2B1%7C3%2B3%2C4%2B2"^^xsd:string .
+	owl:sameAs
+		&lt;http://rdf.glycoinfo.org/glycan/wurcs/WURCS%3D2.0%2F4%2C3%2F%5B12122h%2B1%3Ab%7C1%2C5%7C2*NCC%2F3%3DO%5D%5B11221m%2B1%3Aa%7C1%2C5%5D%5B12112h%2B1%3Ab%7C1%2C5%5D%5Ba2d21122h%2B2%3Aa%7C2%2C6%7C5*NCC%2F3%3DO%5D1%2B3%2C2%2B1%7C1%2B4%2C3%2B1%7C3%2B3%2C4%2B2&gt;
+		</pre>
+ -->
+		<h4 id="mass">Mass</h4>
+		<p>Derivatized Mass: <a href="#uri-derivatized-mass">URI pattern</a></p>
+		<p>Derivatization type: <a href="#uri-derivatization-type">URI pattern</a></p>	
+		<pre>
+@PREFIX xsd: &lt;http://www.w3.org/2001/XMLSchema#&gt;
+@PREFIX glycan: &lt;http://purl.jp/bio/12/glyco/glycan#&gt; .
+@PREFIX glytoucan: &lt;http://www.glytoucan.org/glyco/owl/glytoucan#&gt; .
+
+&lt;http://rdf.glycoinfo.org/glycan/G00054MO&gt;
+	a	glycan:saccharide ;
+	glytoucan:has_derivatized_mass  
+		&lt;http://rdf.glycoinfo.org/derivatization_type_none/820.2960859799999&gt; .
+		</pre>
+		<pre>
+&lt;http://rdf.glycoinfo.org/derivatization_type_none/820.2960859799999&gt; 
+	a	glytoucan:derivatized_mass ;
+	glytoucan:has_derivatization_type	glytoucan:derivatization_type_none ;
+	glytoucan:has_mass	
+		"820.2960859799999"^^xsd:double .
+		</pre>
+
+		<h4 id="component">Component</h4>
+		<p><a href="#uri-component">URI pattern</a></p>
+		<pre>
+@PREFIX glycan: &lt;http://purl.jp/bio/12/glyco/glycan#&gt; .
+
+&lt;http://rdf.glycoinfo.org/glycan/G00054MO&gt;
+	a	glycan:saccharide ;
+	glycan:has_component
+		&lt;http://rdf.glycoinfo.org/component/1_b-dglc-HEX-1%3A5%7C%7C%282d%3A1%29n-acetyl&gt; , 
+		&lt;http://rdf.glycoinfo.org/component/1_a-lgal-HEX-1%3A5%7C6%3Ad&gt; , 
+		&lt;http://rdf.glycoinfo.org/component/1_a-dgro-dgal-NON-2%3A6%7C1%3Aa%7C2%3Aketo%7C3%3Ad%7C%7C%285d%3A1%29n-acetyl&gt; , 
+		&lt;http://rdf.glycoinfo.org/component/1_b-dgal-HEX-1%3A5&gt; .
+		</pre>
+		<pre>
+&lt;http://rdf.glycoinfo.org/component/1_b-dglc-HEX-1%3A5%7C%7C%282d%3A1%29n-acetyl&gt; 
+	a	glycan:component ;
+	glycan:has_cardinality     1 ;
+	glycan:has_monosaccharide  
+		&lt;http://www.monosaccharidedb.org/rdf/monosaccharide.action?name=b-dglc-HEX-1%3A5%7C%7C%282d%3A1%29n-acetyl&gt; .
+		</pre>
+
+		<h4 id="monosaccharide">Monosaccharide</h4>
+		<p><a href="#uri-monosaccharide">URI pattern</a></p>
+		<pre>
+@PREFIX glycan: &lt;http://purl.jp/bio/12/glyco/glycan#&gt; .
+
+&lt;http://www.monosaccharidedb.org/rdf/monosaccharide.action?name=b-dglc-HEX-1%3A5%7C%7C%282d%3A1%29n-acetyl&gt; 
+	a	glycan:monosaccharide .
+		</pre>	
+
+		<h4 id="image">Image</h4>
+		<p><a href="#uri-image">URI pattern</a></p>
+		<pre>
+@PREFIX glycan: &lt;http://purl.jp/bio/12/glyco/glycan#&gt; .
+
+&lt;http://rdf.glycoinfo.org/glycan/G00054MO&gt;
+	a	glycan:saccharide ;
+	glycan:has_image  
+		&lt;http://www.glytoucan.org/glyspace/service/glycans/G00054MO/image?style=extended&amp;format=png&amp;notation=uoxf-color&gt; ,
+		&lt;http://www.glytoucan.org/glyspace/service/glycans/G00054MO/image?style=extended&amp;format=png&amp;notation=iupac&gt; , 
+		&lt;http://www.glytoucan.org/glyspace/service/glycans/G00054MO/image?style=extended&amp;format=png&amp;notation=cfgbw&gt; , 
+		&lt;http://www.glytoucan.org/glyspace/service/glycans/G00054MO/image?style=extended&amp;format=png&amp;notation=cfg-uoxf&gt; ,
+		&lt;http://www.glytoucan.org/glyspace/service/glycans/G00054MO/image?style=extended&amp;format=png&amp;notation=cfg&gt; ,
+		&lt;http://www.glytoucan.org/glyspace/service/glycans/G00054MO/image?style=extended&amp;format=png&amp;notation=uoxf&gt; .
+		</pre>
+		<pre>
+&lt;http://www.glytoucan.org/glyspace/service/glycans/G00054MO/image?style=extended&amp;format=png&amp;notation=cfg&gt;
+	a	glycan:image ;
+	glycan:has_symbol_format	glycan:symbol_format_cfg ;
+	dc:format	"image/png"^^xsd:string .
+		</pre>
+		<ul class="exe">
+			<li>Notation schema
+				<ul>
+					<li>glycan:symbol_format_cfg : CFG</li>
+					<li>glycan:symbol_format_cfg_bw : CFG grey scale</li>
+					<li>glycan:symbol_format_uoxf : Oxford</li>
+					<li>glycan:symbol_format_text : IUPAC</li>
+					<li>glycan:symbol_format_uoxf_color : Oxford color scale</li>
+					<li>glycan:symbol_format_cfg_uoxf : CFG and Oxford</li>
+				</ul>
+			</li>
+		</ul>
+
+		<h4 id="resource-entry">Resource entry ( Home page, Contributor &amp; Contribution Time )</h4>
+		<p><a href="#uri-resource-entry">URI pattern</a></p>
+		<pre>
+@PREFIX glycan: &lt;http://purl.jp/bio/12/glyco/glycan#&gt; .
+@PREFIX glytoucan: &lt;http://www.glytoucan.org/glyco/owl/glytoucan#&gt; .
+@PREFIX xsd:   &lt;http://www.w3.org/2001/XMLSchema#&gt; .
+
+&lt;http://rdf.glycoinfo.org/glycan/G00054MO&gt;
+	a	glycan:saccharide ;
+	glycan:has_resource_entry
+		&lt;http://www.glytoucan.org/Structures/Glycans/G00054MO&gt; .
+		</pre>
+		<pre>
+&lt;http://www.glytoucan.org/Structures/Glycans/G00054MO&gt;
+        a                          glycan:resource_entry ;
+        glycan:in_glycan_database  glytoucan:database_glytoucan ;
+        glytoucan:contributor      &lt;http://rdf.glytoucan/contributor/userId/1&gt; ;
+        glytoucan:date_registered  "2014-10-20 06:47:31.204"^^xsd:dateTimeStamp .
+
+		</pre>
+
+		<h4 id="contributor">Contributor</h4>
+		<p><a href="#uri-contributor">URI pattern</a></p>
+		<pre>
+@PREFIX foaf:  &lt;http://xmlns.com/foaf/0.1/&gt; .
+
+&lt;http://rdf.glycoinfo.org/glytoucan/contributor/userId/1&gt;
+        a          foaf:Person ;
+        foaf:name  "Administrator" .
+		</pre>
+		<h4 id="motif">Motif</h4>
+		<p><a href="#uri-motif">URI pattern</a></p>
+		<pre>
+@PREFIX glycan: &lt;http://purl.jp/bio/12/glyco/glycan#&gt; .
+@PREFIX foaf:  &lt;http://xmlns.com/foaf/0.1/&gt; .
+
+&lt;http://rdf.glycoinfo.org/glycan/G00054MO&gt;
+	a	glycan:saccharide ;
+	glycan:has_motif	&lt;http://rdf.glycoinfo.org/glycan/G00054MO&gt; .
+
+&lt;http://rdf.glycoinfo.org/glycan/G00054MO&gt;
+	a	glycan:glycan_motif ;
+	rdfs:label	"Sialyl Lewis X"@en .
+	</pre>
+	<pre>
+// Abbreviated 
+&lt;http://rdf.glycoinfo.org/glycan/G00054MO&gt;
+	a	glycan:saccharide, glycan:glycan_motif ;
+	rdfs:label	"Sialyl Lewis X"@en .
+	glycan:has_motif	&lt;http://rdf.glycoinfo.org/glycan/G00054MO&gt; .
+		</pre>
+	</section>
+	<hr />
+	<!-- /#col-md-9 -->
+	</div>
+
+	<!-- Sidebar -->
+	<div class="col-md-4">
+		<!-- <div class="bs-docs-sidebar hidden-print hidden-xs hidden-sm affix" role="complementary"> -->
+		<div class="bs-docs-sidebar hidden-print hidden-xs hidden-sm" role="complementary">
+			<ul class="nav bs-docs-sidenav">
+				<li><a href="#top">Top</a></li>
+				<li><a href="#ontology">Ontology</a>
+					<ul>
+						<li><a href="#terms">Terms of Glytoucan ontology</a>
+							<ul>
+								<li><a href="#classes">Classes</a></li>
+								<li><a href="#object-properties">Object Properties</a></li>
+								<li><a href="#datatype-properties">Datatype Properties</a></li>
+							</ul>
+						</li>
+					</ul>
+				</li>
+				<li><a href="#semantic-relation">Repository RDF semantic relationship</a></li>
+				<li><a href="#uri-construction">URI Construction</a>
+					<ul>
+						<li><a href="#uri-saccharide">Saccharide</a></li>
+						<li><a href="#uri-derivatized-mass">Derivatized Mass</a></li>
+						<li><a href="#uri-derivatization-type">Derivatization Type</a></li>
+						<li><a href="#uri-glycosequence">Glycosequence</a>
+							<ul>
+								<li><a href="#uri-glycoct">GlycoCT</a></li>
+								<!-- <li><a href="#uri-wurcs">WURCS</a></li> -->
+							</ul>
+						</li>
+						<li><a href="#uri-component">Component</a></li>
+						<li><a href="#uri-monosaccharide">Monosaccharide</a></li>
+						<li><a href="#uri-image">Image</a>
+							<ul>
+								<li><a href="#uri-image-cfg">CFG</a></li>
+								<li><a href="#uri-image-cfgbw">CFG grey scale</a></li>
+								<li><a href="#uri-image-uoxf">Oxford</a></li>
+								<li><a href="#uri-image-uoxf-color">Oxford color scale</a></li>
+								<li><a href="#uri-image-cfg-uoxf">CFG and Oxford</a></li>
+								<li><a href="#uri-image-iupac">IUPAC</a></li>
+							</ul>
+						</li>
+						<li><a href="#uri-contributor">Contributor</a></li>
+						<li><a href="#uri-motif">Motif</a></li>
+						<li><a href="#uri-resource-entry">Resource entry</a></li>
+					</ul>
+				</li>
+				<li><a href="#example-rdf">Example RDF Triple</a>
+					<ul>
+						<li><a href="#saccharide">Saccharide</a></li>
+						<li><a href="#accession-number">Glytoucan Accession Number</a></li>
+						<li><a href="#sequence">Sequence</a>
+							<ul>
+								<li><a href="#glycoct">GlycoCT</a></li>
+								<!-- <li><a href="#wurcs">WURCS</a></li> -->
+							</ul>
+						</li>
+						<li><a href="#mass">Mass</a></li>
+						<li><a href="#component">Component</a></li>
+						<li><a href="#monosaccharide">Monosaccharide</a></li>
+						<li><a href="#image">Image</a></li>
+						<li><a href="#resource-entry">Resource entry</a></li>
+						<li><a href="#contributor">Contributor</a></li>
+						<li><a href="#motif">Motif</a></li>
+					</ul>
+				</li>
+			</ul>
+		</div>
+	<!-- /#col-md-3 -->
+	</div>
+	<!-- /#row -->
+	</div>
+<!-- /#container -->
+</div>
+</body>	
+</html>	
