@@ -1,5 +1,5 @@
 ---
-title: FAQ
+title: Troubleshooting
 layout: default
 ---
 
