@@ -18,33 +18,35 @@ layout: default
 - [ROCS](https://github.com/glytoucan/rocs) : Relation Ontology Carbohydrate Structure
 
 ```
-<Saccharide A>
+<LinkageDefinedSaccharide>
 	a glycan:Saccharide, rocs:Linkage_defined_saccharide ;
-	rocs:subsumes_by <Saccharide B> ;
-	rocs:has_topology <Saccharide B> .
+	rocs:subsumes_by <GlycosidicTopology> ;
+	rocs:has_topology <GlycosidicTopology> .
 
-<Saccharide B>
+<GlycosidicTopology>
 	a glycan:Saccharide, rocs:Glycosidic_topology ;
-	rocs:subsumed_by <Saccharide C> ;
-	rocs:has_composition_with_linkage <Saccharide C> .
+	rocs:subsumed_by <MonosaccharideCompositionWithLinkage> ;
+	rocs:has_composition_with_linkage <MonosaccharideCompositionWithLinkage> ;
+	rocs:subsumed_by <MonosaccharideCompositionWithoutLinkage> ;
+	rocs:has_composition_without_linkage <MonosaccharideCompositionWithoutLinkage> .
 
-<Saccharide C>
+<MonosaccharideCompositionWithLinkage>
 	a glycan:Saccharide, rocs:Monosaccharide_composition_with_linkage ;
-	rocs:subsumed_by <Saccharide D-1> ;
-	rocs:same_components <Saccharide D-1> .
-	rocs:subsumed_by <Saccharide D-2> ;
-	rocs:has_base_composition_with_linkage <Saccharide D-2> .
+	rocs:subsumed_by <MonosaccharideCompositionWithoutLinkage> ;
+	rocs:same_components <MonosaccharideCompositionWithoutLinkage> .
+	rocs:subsumed_by <BaseCompositionWithLinkage> ;
+	rocs:has_base_composition_with_linkage <BaseCompositionWithLinkage> .
 
-<Saccharide D-1>
+<MonosaccharideCompositionWithoutLinkage>
 	a glycan:Saccharide, rocs:Monosaccharide_composition_without_linkage ;
-	rocs:subsumed_by <Saccharide E> ;
-	rocs:has_base_composition_without_linkage <Saccharide E> .
+	rocs:subsumed_by <BaseCompositionWithoutLinkage> ;
+	rocs:has_base_composition_without_linkage <BaseCompositionWithoutLinkage> .
 
-<Saccharide D-2>
+<BaseCompositionWithLinkage>
 	a glycan:Saccharide, rocs:Base_composition_with_linkage ;
-	rocs:subsumed_by <Saccharide E> ;
-	rocs:same_components <Saccharide E> .
+	rocs:subsumed_by <BaseCompositionWithoutLinkage> ;
+	rocs:same_components <BaseCompositionWithoutLinkage> .
 
-<Saccharide E>
+<BaseCompositionWithoutLinkage>
 	a glycan:Saccharide, rocs:Base_composition_without_linkage ;
 ```
