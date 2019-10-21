@@ -8,6 +8,5 @@ layout: paging
 
 
 * [GlyTouCan RDF](rdf-doc)
-* [Subsumption](/system/rdf/subsumption)
 * [Sample SPARQL Queries](sparql-queries)
 * [GlyTouCan Endpoint](https://ts.glytoucan.org/sparql)
