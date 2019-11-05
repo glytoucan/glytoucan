@@ -9,6 +9,7 @@ layout: paging
 categories: [registration, graphical]
 previous: profile
 next: registration-text
+last_modified_at: 2019-08-06
 ---
 
 Graphical Interface
@@ -28,7 +29,7 @@ It is possible to create or extend embedded default structures from this interfa
 
 <br>
 
-  Once the structure is complete, a sequence is generated from the input and sent to the database to check if it was previously registered.  If the structure is found in the database, a link and accession number indicating the structure ID will be displayed; otherwise, a final confirmation screen will be shown. If the submit button is entered to indicate confirmation, the newly registered accession number and graphical representation will be displayed.
+  Once the structure is complete, a sequence is generated from the input and sent to the database to check if it was previously registered.  If the structure is found in the database, a link and accession number indicating the structure ID will be displayed; otherwise, a final confirmation screen will be shown. If the submit button is entered to indicate confirmation, the newly "submission ref" and graphical representation will be displayed.
 
 <br>
 
