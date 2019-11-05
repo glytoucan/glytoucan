@@ -27,6 +27,7 @@ The following are the field names and where they are originated from.
 * Sequence - Acceptance from a user's sequence
 * Registration Date - Submitted date from user
 * Validation - Glycosequence validation results by GlycanFormatConverter
+* Normalized WURCS - A WURCS sequence that is normalized by WURCS validator
 
 
 
