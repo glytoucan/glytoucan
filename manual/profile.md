@@ -8,7 +8,7 @@ reviewers:
 layout: paging
 categories: [preferences, image format, language]
 previous: preferences
-next: registration-graphical
+next: submissions
 last_modified_at: 2017-01-26
 ---
 
@@ -23,7 +23,7 @@ Profile
 <br>
 
 The following are the field names and where they are originated from.
-  
+
 **Field - Description**
 
 * Username - The user name used to recognize your account.  Taken from the First name of your linked account.  
@@ -31,11 +31,11 @@ The following are the field names and where they are originated from.
 * Contributor ID - A hashed key used to identify your account.  
 * Verified Email - A flag indicating if your email is verified or not.  
 * Generate API Key - A link to randomly generate a hash key.  The current hash key is displayed.  
-  
+
 <br>
 
 As described in the bottom half, a link to Sign out is possible.  However to complete this process, it is necessary to access your authentication provider.  
-  
+
 For Google, this will be at [accounts.google.com](http://accounts.google.com).
 
 <br>
