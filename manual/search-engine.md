@@ -8,7 +8,8 @@ reviewers:
 layout: paging
 categories: [search engine, image search]
 previous: search-id
-next: browse-motif
+next: browse-glycan
+last_modified_at: 2019-08-06
 ---
 
 Search Engine
