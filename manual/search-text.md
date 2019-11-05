@@ -8,15 +8,19 @@ reviewers:
 layout: paging
 categories: [query, graphical]
 previous: search-graphical
-next: search-motif
-last_modified_at: 2018-01-12  
+next: search-id
+last_modified_at: 2018-11-05  
 ---
 
 Text Interface
 ------------
-  Another method to query structures is via the text interface.  If the glycan structure sequence string is known, and the format is one of the following:
+  Another method to query structures is via the text interface (using GlyCosmso text search).  If the glycan structure sequence string is known, and the format is one of the following:
 
   * GlycoCT condensed
+  * IUPAC condensed
+  * IUPAC extended
+  * Linear Code &reg;
+  * KCF
   * WURCS
 
 
@@ -30,11 +34,11 @@ The sequence can be typed or pasted into the text area input screen.
 
 <br>
 
-Once entered, any related super-structures will be displayed.  If the input structure is not registered, it will indicate so as it will not have an Accession Number.
+Click the search button to perform a complete match search. As a result, the image of the matched glycan structure and the accession number are displayed.
 
 <br>
 
-![Glytoucan Graphical Interface](/images/manual/search-result.png)
+![Glytoucan Graphical Interface](/images/manual/search-result.v2.png)
 
 _Please note that the sequence is converted to WURCS, and the WURCS sequence is used to search for the structure_
 
