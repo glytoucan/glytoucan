@@ -1,10 +1,10 @@
 ---
 title: User Manual
 layout: default
-last_modified_at: 2018-01-12  
+last_modified_at: 2019-08-06
 ---
 
-This page will be updated with documentation on new functionality as it is added.  If there is something missing, please [let us know](/team)!
+This page will be updated with documentation on new functionality as it is added.  If there is something missing, please [let us know](support@glytoucan.org)!
 
 User Preferences
 -----------------------------------------
@@ -21,8 +21,14 @@ The user preferences page is usable by all users of the repository.  This can be
   </li>
   <li>
     <a href="../manual/profile">
-      <img src="../images/manual/profile.png">
+      <img src="../images/manual/gtc-profile.png">
       <h3 style="text-align: center;">Profile</h3>
+    </a>
+  </li>
+  <li>
+    <a href="../manual/submissions">
+      <img src="../images/manual/gtc-submissions.png">
+      <h3 style="text-align: center;">Submissions</h3>
     </a>
   </li>
 </ul>
@@ -62,12 +68,13 @@ Registration is the main functionality of GlyTouCan.  Below are the currently av
       <h3 style="text-align: center;">Registration Results</h3>
     </a>
   </li>
-  <li>
+<!--  <li>
     <a href="../manual/publication-registration">
       <img src="../images/manual/literature-registration.png">
       <h3 style="text-align: center;">Publication Registration</h3>
     </a>
   </li>
+-->
 </ul>
 
 Search
@@ -91,15 +98,9 @@ The search functionality displays the wealth of information that was gathered fr
     </a>
   </li>
   <li>
-    <a href="../manual/search-motif">
-      <img src="../images/manual/search-motif.png">
-      <h3 style="text-align: center;">By Motif</h3>
-    </a>
-  </li>
-  <li>
     <a href="../manual/search-id">
       <img src="../images/manual/search-id.png">
-      <h3 style="text-align: center;">By ID</h3>
+      <h3 style="text-align: center;">By Accession number</h3>
     </a>
   </li>
   <li>
@@ -118,12 +119,6 @@ The View All functionality provides a quick way to browse all of the specific da
 <br>
 
 <ul class="lesson-images">
-  <li>
-    <a href="../manual/browse-motif">
-      <img src="../images/manual/browse-motif.png">
-      <h3 style="text-align: center;">View all Motifs</h3>
-    </a>
-  </li>
   <li>
     <a href="../manual/browse-glycan">
       <img src="../images/manual/browse-glycan.png">
