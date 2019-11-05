@@ -9,6 +9,7 @@ layout: paging
 categories: [query, graphical]
 previous: publication-registration
 next: search-text
+last_modified_at: 2019-11-05
 ---
 
 Graphical Interface
@@ -24,19 +25,27 @@ It is possible to create or extend from existing structures within this interfac
 
 <br>
 
-![Glytoucan Graphical Interface](/images/manual/search-graphical.png)
+![Glytoucan Graphical Interface](/images/manual/search-graphical.v2.png)
 
 _Note: User registration is not required to query for a structure._
 
 <br>
 
-Once the structure is complete, a sequence is generated from the input and used to search the database for a valid id.  If the sequence is found, the structure format and any related super structures will be displayed.
+Once the structure is complete, a sequence is generated from the input  and send to GlyCosmos text search interface.
 
 <br>
 
-![Glytoucan Graphical Interface Results](/images/manual/search-result.png)
+![Glycosmos Text Search Interface](/images/manual/search-graphical-text.png)
 
-_Result page of the search.  Other glycans containing the input structure will also be displayed._
+<br>
+
+Click the search button to peform a complete match search. As a result, the image of the matched glycan structure and the accession number are displayed.
+
+<br>
+
+![Glytoucan Graphical Interface Results](/images/manual/search-result.v2.png)
+
+_Note: The search result can be download as a CSV file._
 
 <br>
 
