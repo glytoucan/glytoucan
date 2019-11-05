@@ -9,7 +9,7 @@ layout: paging
 categories: [query]
 previous: search-motif
 next: search-engine
-last_modified_at: 2017-02-22
+last_modified_at: 2019-11-05
 ---
 
 Accession number search
