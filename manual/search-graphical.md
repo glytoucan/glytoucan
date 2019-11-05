@@ -39,7 +39,7 @@ Once the structure is complete, a sequence is generated from the input  and send
 
 <br>
 
-Click the search button to peform a complete match search. As a result, the image of the matched glycan structure and the accession number are displayed.
+Click the search button to perform a complete match search. As a result, the image of the matched glycan structure and the accession number are displayed.
 
 <br>
 
