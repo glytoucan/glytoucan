@@ -9,38 +9,40 @@ layout: paging
 categories: [registration, results, glycan]
 previous: registration-upload
 next: publication-registration
+last_modified_at: 2019-08-06
 ---
 
 Registration Processing
 ------------
 
-  Once the registration is complete, several batch processes are run on a timely basis in order to extract, enrich, and link the data with currently available information.  
+  Once the submission is complete, several batch processes are run on a timely basis in order to extract and link the data with currently available information.  
 
-* mass calculation
+### Detect format batch
 
-<br>
-
-For every structure submitted, the components and linkage information will have a known mass.  Using this information the calculation of the entire structure is a simple process and will be recorded for all newly registered sequences.
-
-* conversion to RDF
+For every structure submitted, the sequence string depend on several format (GlycoCT, WURCS etc...). Using this sequence characteristic, determine the format of the sequence string.
 
 <br>
 
-The information from the sequence will be converted into RDF format and accessible from the GlyTouCan [endpoint](http://ts.glytoucan.org/sparql).  As the data will be in [glycoRDF](http://glycoinfo.org/glycoRDF) and [GlyTouCanRDF](http://glycoinfo.org/rdf) ontologies, it is possible to extract information about the sequence and any other linked data using standard SPARQL.
+### WURCS validator batch
 
-* conversion to WURCS
-
-<br>
-
-In order to enrich data using the logic available in the wurcs libraries, conversion from glycoCT was required.  A batch process to convert the glycoCT and insert the WURCS into RDF was created to enable this.
-
-* motif relationship search
+If the sequence format is a WURCS, this validator batch verifies that the WURCS string is correct. If there is a problem as a result of WURCS validation, Error and Warning are saved as record(s).
 
 <br>
 
-Using the wurcs formats it was possible to search through the structural data to find substructure relationships of the specifically-defined [motif structures](http://www.glytoucan.org/Motifs/listAll).  The batch process then inserts these relationships back into RDF.
+### Accession batch
+
+In this batch, only that there is no error in the verification of WURCS, to generate the accession number, assignment it.
+
 
 <br>
+
+### WURCS to image batch
+
+Generate an image of the glycan structure from WURCS. The format is png only, and  as notation that are IUPAC, SNFG, and Oxford-color images are generated.
+
+<br>
+
+
 
 <div id='discourse-comments'></div>
 
