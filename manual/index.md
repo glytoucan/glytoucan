@@ -121,7 +121,7 @@ The View All functionality provides a quick way to browse all of the specific da
 <ul class="lesson-images">
   <li>
     <a href="../manual/browse-glycan">
-      <img src="../images/manual/browse-glycan.png">
+      <img src="../images/manual/browse-glycanlist.v2.png">
       <h3 style="text-align: center;">View all Glycans</h3>
     </a>
   </li>
