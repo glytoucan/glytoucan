@@ -10,7 +10,7 @@ categories: posts
 ## GlyTouCan v3.1.0 (December 12, 2019)
 
 * Registration system updated.
-  - Glycans can now be registered using GlycoCT format.
+  - Glycans can be registered using GlycoCT format.
   - The GlycoCT conversion to WURCS batch process is running.
   - Update text input form for registration and the confirmation page when registering has been abolished.
 
