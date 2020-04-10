@@ -98,6 +98,8 @@ You can add a header in output data by using '-m' option.
 
 `groovy gtc -u [contributor id] -a [API key] -c [csvFile] -o tsv -m uafh`
 
+`groovy gtc -u [contributor id] -a [API key] -c [csvFile] -o tsv -m uafh > outputdata.tsv`
+
 u: contributorId, a: apiKey, f: csvFileName or tsvFileName, h: header
 ```
 User ID: your user id
@@ -129,6 +131,9 @@ Register a WURCS sequence.
 After registration and confirmation from [GLIC](http://glic.glycoinfo.org) that your Contributor ID is registered to your Organization, it will be possible to link the IDs of your website so that it will appear on the Glycan Entry page under the "External Ids" section.
 
 This will require [registration](http://code.glytoucan.org/partner/registration/) and then confirmation.
+
+* [Partner Registration](http://code.glytoucan.org/partner/registration/) 
+* [Partner Registration in Japanese](http://code.glytoucan.org/partner/registration_ja/)
 
 To register a single sequence with your id:
 
