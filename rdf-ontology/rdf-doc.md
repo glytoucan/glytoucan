@@ -12,30 +12,30 @@ layout: default
 - [Ontology](#ontology)
 - [Overview diagram](#overview-diagram)
 - [GRAPH](#graph)
-	- [Core graph](#core-graph)
-	- [Mass graph](#mass-graph)
-	- [Motif graph](#motif-graph)
-	- [Monosaccharide graph (MsDB CarbBank schema)](#monosaccharide-graph-msdb-carbbank-schema)
-	- [Sequence graph](#sequence-graph)
-		- [WURCS graph](#wurcs-graph)
-		- [GlycoCT graph](#glycoct-graph)
-		- [IUPAC Condensed graph](#iupac-condensed-graph)
-		- [IUPAC Extended graph](#iupac-extended-graph)
-	- [Partner graph](#partner-graph)
-		- [Bacterial Carbohydrate Structure Database (BCSDB) graph](#bacterial-carbohydrate-structure-database-bcsdb-graph)
-		- [GlycoChemExplorer AIST graph](#glycochemexplorer-aist-graph)
-		- [GlycoEpitope garph](#glycoepitope-garph)
-		- [GlycomeDB graph](#glycomedb-graph)
-		- [GlycoNAVI graph](#glyconavi-graph)
-			- [PubChem](#pubchem)
-			- [PDBj CC](#pdbj-cc)
-			- [PDBe CC](#pdbe-cc)
-			- [RCSB PDB CC](#rcsb-pdb-cc)
-		- [JCGGDB AIST graph](#jcggdb-aist-graph)
-		- [JMSDB AIST graph](#jmsdb-aist-graph)
-		- [UniCarb-DB graph](#unicarb-db-graph)
-		- [UniCarbKB graph](#unicarbkb-graph)
-		- [SugarBindDB graph](#sugarbinddb-graph)
+  - [Core graph](#core-graph)
+  - [Mass graph](#mass-graph)
+  - [Motif graph](#motif-graph)
+  - [Monosaccharide graph (MsDB CarbBank schema)](#monosaccharide-graph-msdb-carbbank-schema)
+  - [Sequence graph](#sequence-graph)
+    - [WURCS graph](#wurcs-graph)
+    - [GlycoCT graph](#glycoct-graph)
+    - [IUPAC Condensed graph](#iupac-condensed-graph)
+    - [IUPAC Extended graph](#iupac-extended-graph)
+  - [Partner graph](#partner-graph)
+    - [Bacterial Carbohydrate Structure Database (BCSDB) graph](#bacterial-carbohydrate-structure-database-bcsdb-graph)
+    - [GlycoChemExplorer AIST graph](#glycochemexplorer-aist-graph)
+    - [GlycoEpitope garph](#glycoepitope-garph)
+    - [GlycomeDB graph](#glycomedb-graph)
+    - [GlycoNAVI graph](#glyconavi-graph)
+      - [PubChem](#pubchem)
+      - [PDBj CC](#pdbj-cc)
+      - [PDBe CC](#pdbe-cc)
+      - [RCSB PDB CC](#rcsb-pdb-cc)
+    - [JCGGDB AIST graph](#jcggdb-aist-graph)
+    - [JMSDB AIST graph](#jmsdb-aist-graph)
+    - [UniCarb-DB graph](#unicarb-db-graph)
+    - [UniCarbKB graph](#unicarbkb-graph)
+    - [SugarBindDB graph](#sugarbinddb-graph)
 
 <!-- /TOC -->
 
@@ -52,7 +52,7 @@ xsd  | `http://www.w3.org/2001/XMLSchema#`  |  XML Schema
 foaf  | `http://xmlns.com/foaf/0.1/`  |  FOAF Vocabulary
 bibo  | `http://purl.org/ontology/bibo/`  |  Bibliographic Ontology
 glycan  | `http://purl.jp/bio/12/glyco/glycan#`  |  GlycoRDF Ontology
-glytoucan  | `>http://www.glytoucan.org/glyco/owl/glytoucan#`  |  GlyTouCan Ontology
+glytoucan  | `http://www.glytoucan.org/glyco/owl/glytoucan#`  |  GlyTouCan Ontology
 wurcs  | `http://www.glycoinfo.org/glyco/owl/wurcs#`  |  WURCS OWL
 
 
