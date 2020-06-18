@@ -832,6 +832,12 @@ table tfoot {
     margin-right:auto;
   }
 
+  div[role="rdfdocs"] {
+    max-width: auto;
+    margin-left:auto;
+    margin-right:auto;
+  }
+
 }
 
 @media screen and (min-width: 1000px) and (min-height: 500px) {
