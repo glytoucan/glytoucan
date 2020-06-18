@@ -3,7 +3,8 @@ title: GlyTouCan RDF
 authors:
 - Daisuke Shinmachi
 date: 2018-01-25
-layout: default
+layout: rdf-docs
+last_modified_at: 2020-06-16
 ---
 
 
