@@ -67,34 +67,34 @@ wurcs  | `http://www.glycoinfo.org/glyco/owl/wurcs#`  |  WURCS OWL
 The GlyTouCan RDF consists of multiple Named GRAPHs.
 
 ## Graph list 
-| graphs | named graph | Data |
-|-|-|-|
-| Core graph | http://rdf.glytoucan.org/core | GlyTouCan accession number and a submitted date |
-| Mass graph | http://rdf.glytoucan.org/mass | Mass value of glycan |
-| Motif graph | http://rdf.glytoucan.org/motif |  |
-| Monosaccharide graph (MsDB CarbBank schema) | http://rdf.glytoucan.org/ms/carbbank | Monosaccharide label that is from MsDB |
-| WURCS sequence graph | http://rdf.glytoucan.org/sequence/wurcs | WURCS sequence data |
-| GlycoCT sequence graph | http://rdf.glytoucan.org/sequence/glycoct | GlycoCT sequence data |
-| IUPAC Condensed graph | http://rdf.glytoucan.org/sequence/iupac_condensed |  |
-| IUPAC Extended graph | http://rdf.glytoucan.org/sequence/iupac_extended |  |
-| Bacterial Carbohydrate Structure Database (BCSDB) graph | http://rdf.glytoucan.org/partner/bcsdb | Asociated with BCSDB ID to accession number |
-| GlycoChemExplorer AIST graph | http://rdf.glytoucan.org/partner/glycochemexplorer_jcggdb_aist | Asociated with GlycoChemExplorer ID to accession number |
-| GlycoEpitope garph | http://rdf.glytoucan.org/partner/glycoepitope | Asociated with Epitope ID to accession number, inclued spcies and PubMed ID |
-| GlycomeDB graph | http://rdf.glytoucan.org/partner/glycome-db | Asociated with GlycomeDB ID to accession number, inclued spcies and external DB ID that is related GlycomeDB |
-| GlycoNAVI graph |  |  |
-| GlycoNAVI graph (PubChem) | http://rdf.glytoucan.org/partner/glyconavi | Asociated with SID, CID in PubChem to accession number |
-| GlycoNAVI graph (PDBj) | http://rdf.glytoucan.org/partner/glyconavi | Asociated with Chemical Compound ID in PDBj to accession number |
-| GlycoNAVI graph (PDBe) | http://rdf.glytoucan.org/partner/glyconavi | Asociated with Chemical Compound ID in PDBe to accession number |
-| GlycoNAVI graph (RCSB PDB) | http://rdf.glytoucan.org/partner/glyconavi | Asociated with Chemical Compound ID in RCSB PDB to accession number |
-| JCGGDB AIST graph | http://rdf.glytoucan.org/partner/jcggdb_aist | Asociated with JCGGDB ID to accession number |
-| JMSDB AIST graph | http://rdf.glytoucan.org/partner/jmsdb_jcggdb_aist | Asociated with JMSDB ID to accession number |
-| UniCarb-DB graph | http://rdf.glytoucan.org/partner/unicarb-db | Asociated with UniCarb-DB ID to accession number |
-| UniCarbKB graph | http://rdf.glytoucan.org/partner/unicarbkb | Asociated with UniCarbKB ID to accession number |
-| SugarBindDB graph | http://rdf.glytoucan.org/partner/swiss_institute_of_bioinformatics | Asociated with SugarBindDB ID to accession number |
-| GlycoStore graph | http://rdf.glytoucan.org/partner/glycostore | Asociated with Glycan ID in GlycoStore to accession number |
-| GlyConnect graph | http://rdf.glytoucan.org/partner/glyconnect | Asociated with GlyConnect ID to accession number |
-| GlyConnect (composition) graph | http://rdf.glytoucan.org/partner/glyconnect-comp | Asociated with GlyConnect ID (composition specific) to accession number |
-| MatrixDB graph | http://rdf.glytoucan.org/partner/matrixdb | Asociated with MatrixDB ID to accession number |
+ graphs | named graph | Data 
+-|-|-
+Core graph | http://rdf.glytoucan.org/core | GlyTouCan accession number and a submitted date 
+Mass graph | http://rdf.glytoucan.org/mass | Mass value of glycan 
+Motif graph | http://rdf.glytoucan.org/motif |  
+Monosaccharide graph (MsDB CarbBank schema) | http://rdf.glytoucan.org/ms/carbbank | Monosaccharide label that is from MsDB 
+WURCS sequence graph | http://rdf.glytoucan.org/sequence/wurcs | WURCS sequence data 
+GlycoCT sequence graph | http://rdf.glytoucan.org/sequence/glycoct | GlycoCT sequence data 
+IUPAC Condensed graph | http://rdf.glytoucan.org/sequence/iupac_condensed |  
+IUPAC Extended graph | http://rdf.glytoucan.org/sequence/iupac_extended |  
+Bacterial Carbohydrate Structure Database (BCSDB) graph | http://rdf.glytoucan.org/partner/bcsdb | Asociated with BCSDB ID to accession number 
+GlycoChemExplorer AIST graph | http://rdf.glytoucan.org/partner/glycochemexplorer_jcggdb_aist | Asociated with GlycoChemExplorer ID to accession number 
+GlycoEpitope garph | http://rdf.glytoucan.org/partner/glycoepitope | Asociated with Epitope ID to accession number, inclued spcies and PubMed ID 
+GlycomeDB graph | http://rdf.glytoucan.org/partner/glycome-db | Asociated with GlycomeDB ID to accession number, inclued spcies and external DB ID that is related GlycomeDB 
+GlycoNAVI graph |  |  
+GlycoNAVI graph (PubChem) | http://rdf.glytoucan.org/partner/glyconavi | Asociated with SID, CID in PubChem to accession number 
+GlycoNAVI graph (PDBj) | http://rdf.glytoucan.org/partner/glyconavi | Asociated with Chemical Compound ID in PDBj to accession number 
+GlycoNAVI graph (PDBe) | http://rdf.glytoucan.org/partner/glyconavi | Asociated with Chemical Compound ID in PDBe to accession number 
+GlycoNAVI graph (RCSB PDB) | http://rdf.glytoucan.org/partner/glyconavi | Asociated with Chemical Compound ID in RCSB PDB to accession number 
+JCGGDB AIST graph | http://rdf.glytoucan.org/partner/jcggdb_aist | Asociated with JCGGDB ID to accession number 
+JMSDB AIST graph | http://rdf.glytoucan.org/partner/jmsdb_jcggdb_aist | Asociated with JMSDB ID to accession number 
+UniCarb-DB graph | http://rdf.glytoucan.org/partner/unicarb-db | Asociated with UniCarb-DB ID to accession number 
+UniCarbKB graph | http://rdf.glytoucan.org/partner/unicarbkb | Asociated with UniCarbKB ID to accession number 
+SugarBindDB graph | http://rdf.glytoucan.org/partner/swiss_institute_of_bioinformatics | Asociated with SugarBindDB ID to accession number 
+GlycoStore graph | http://rdf.glytoucan.org/partner/glycostore | Asociated with Glycan ID in GlycoStore to accession number 
+GlyConnect graph | http://rdf.glytoucan.org/partner/glyconnect | Asociated with GlyConnect ID to accession number 
+GlyConnect (composition) graph | http://rdf.glytoucan.org/partner/glyconnect-comp | Asociated with GlyConnect ID (composition specific) to accession number 
+MatrixDB graph | http://rdf.glytoucan.org/partner/matrixdb | Asociated with MatrixDB ID to accession number 
 
 ## Core graph
 
