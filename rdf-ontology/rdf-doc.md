@@ -67,6 +67,7 @@ wurcs  | `http://www.glycoinfo.org/glyco/owl/wurcs#`  |  WURCS OWL
 The GlyTouCan RDF consists of multiple Named GRAPHs.
 
 ## Graph list 
+
 Graphs | Named graph | Data
 --|---|--
 Core graph | http://rdf.glytoucan.org/core | GlyTouCan accession number and a submitted date
