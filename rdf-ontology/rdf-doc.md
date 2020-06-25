@@ -72,12 +72,9 @@ Graphs | Named graph | Data
 --|---|--
 Core graph | http://rdf.glytoucan.org/core | GlyTouCan accession number and a submitted date
 Mass graph | http://rdf.glytoucan.org/mass | Mass value of glycan
-Motif graph | http://rdf.glytoucan.org/motif |  pending...
 Monosaccharide graph (MsDB CarbBank schema) | http://rdf.glytoucan.org/ms/carbbank | Monosaccharide label that is from MsDB
 WURCS sequence graph | http://rdf.glytoucan.org/sequence/wurcs | WURCS sequence data
 GlycoCT sequence graph | http://rdf.glytoucan.org/sequence/glycoct | GlycoCT sequence data
-IUPAC Condensed graph | http://rdf.glytoucan.org/sequence/iupac_condensed | pending... 
-IUPAC Extended graph | http://rdf.glytoucan.org/sequence/iupac_extended | pending... 
 Bacterial Carbohydrate Structure Database (BCSDB) graph | http://rdf.glytoucan.org/partner/bcsdb | Asociated with BCSDB ID to accession number
 GlycoChemExplorer AIST graph | http://rdf.glytoucan.org/partner/glycochemexplorer_jcggdb_aist | Asociated with GlycoChemExplorer ID to accession number 
 GlycoEpitope garph | http://rdf.glytoucan.org/partner/glycoepitope | Asociated with Epitope ID to accession number, inclued spcies and PubMed ID
