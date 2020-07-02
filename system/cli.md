@@ -9,6 +9,8 @@ layout: default
 
 The GTCC is a command line interface to the GlyTouCan Repository API.
 
+*** Please Note *** The [basic method](http://code.glytoucan.org/system/basic/) is a better method of implementing the same command lines as this client.  Simplified bash scripts have been added to the same git repository.  Remove Partner functionality is not working.  Please check the [readme](https://github.com/glytoucan/databaseSync) of this repository.
+
 ## Features
 
 * A simple command line script to register structures into GlyTouCan.

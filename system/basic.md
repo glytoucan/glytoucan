@@ -14,11 +14,14 @@ The GlyTouCan Repository offers an API server to register glycan sequences as we
 * Full web-based documentation
 * Authentication method to register structures
 * Various formats such as XML or JSON
-* SOAP or REST request methods available
+* Sample scripts provided
 
 ## Documentation
 
 All documentation is generated and available directly over a browser from [api.glytoucan.org](https://api.glytoucan.org).
+
+## Installation
+`git clone https://github.com/glytoucan/databaseSync.git`
 
 ## Registering Structures
 
@@ -45,6 +48,24 @@ If all went well, the result will return a message in the following format:
 ```
 
 In order to save some time for users, the API executes an exact string match search of the sequence sent, and if it already has an Accession Number, it is returned in the "message" field.  In all other cases, a reference tag is returned.  This tag can be used to  confirm the status of the submission on the [Entries](https://glytoucan.org/Users/structure) page.
+
+### Remove Partner ID script
+
+The installation method above explains the location of scripts provided by the GTC team.  The following is a sample command to remove a partner ID:
+
+```
+aoki@bluegold:~/workspace/databaseSync$ ./curlRemove.sh test0 G51902CJ userID apiKEY 
+```
+
+The following is a sample result return:
+
+```
+{"timestamp":"2020-07-02T05:47:11.996+0000","status":"202","error":"","message":"test0 for WURCS=2.0/3,3,2/[a1122h-1x_1-5][Aad21122h-2x_2-6_5*NCC/3=O][Aad21122h-2x_2-6_5*NCCO/3=O]/1-2-3/a?-b2_b?-c2 deletion submitted.  Please check https://glytoucan.org/Users/structure for status.","path":"/glycan/register"}
+```
+
+Note that it searches for the sequence and inserts the user submission data based upon the sequence.
+
+The next time the batch process for this submission is run, (currently running once an hour) the data will be processed and visible on the G51902CJ entry page.
 
 ### Technical Documentation
 
