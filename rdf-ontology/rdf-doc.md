@@ -305,7 +305,7 @@ Named graph: `http://rdf.glytoucan.org/sequence/wurcs`
     glycan:in_carbohydrate_format	glycan:carbohydrate_format_wurcs ;
     wurcs:LIN_count	6 ;
     wurcs:RES_count	7 ;
-    wurcs:has_LIN	<http://rdf.glycoinfo.org/glycan/G95616YE/wurcs/2.0/LIN/c4-f1 ,
+    wurcs:has_LIN	<http://rdf.glycoinfo.org/glycan/G95616YE/wurcs/2.0/LIN/c4-f1> ,
       <http://rdf.glycoinfo.org/glycan/G95616YE/wurcs/2.0/LIN/d4-e1> ,
       <http://rdf.glycoinfo.org/glycan/G95616YE/wurcs/2.0/LIN/b3-c1> ,
       <http://rdf.glycoinfo.org/glycan/G95616YE/wurcs/2.0/LIN/c2-d1> ,
@@ -319,7 +319,7 @@ Named graph: `http://rdf.glytoucan.org/sequence/wurcs`
       <http://rdf.glycoinfo.org/glycan/wurcs/2.0/Monosaccharide/a1122h-1b_1-5> ,
       <http://rdf.glycoinfo.org/glycan/wurcs/2.0/Monosaccharide/a2122h-1b_1-5_2%2ANCC%2F3%3DO> ,
       <http://rdf.glycoinfo.org/glycan/wurcs/2.0/Monosaccharide/u2122h_2%2ANCC%2F3%3DO> ;
-    wurcs:has_root_RES	<http://rdf.glycoinfo.org/glycan/G95616YE/wurcs/2.0/RES/a ;
+    wurcs:has_root_RES	<http://rdf.glycoinfo.org/glycan/G95616YE/wurcs/2.0/RES/a> ;
     wurcs:has_uniqueRES	<http://rdf.glycoinfo.org/glycan/G95616YE/wurcs/2.0/UniqueRES/1> ,
       <http://rdf.glycoinfo.org/glycan/G95616YE/wurcs/2.0/UniqueRES/5> ,
       <http://rdf.glycoinfo.org/glycan/G95616YE/wurcs/2.0/UniqueRES/2> ,
