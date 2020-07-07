@@ -312,7 +312,7 @@ Named graph: `http://rdf.glytoucan.org/sequence/wurcs`
       <http://rdf.glycoinfo.org/glycan/G95616YE/wurcs/2.0/LIN/f4-g1> ,
       <http://rdf.glycoinfo.org/glycan/G95616YE/wurcs/2.0/LIN/a4-b1> ;
     wurcs:has_basetype	<http://rdf.glycoinfo.org/glycan/wurcs/2.0/Basetype/u2112h> ,
-      <http://rdf.glycoinfo.org/glycan/wurcs/2.0/Basetype/u1122h ,
+      <http://rdf.glycoinfo.org/glycan/wurcs/2.0/Basetype/u1122h> ,
       <http://rdf.glycoinfo.org/glycan/wurcs/2.0/Basetype/u2122h_2%2ANCC%2F3%3DO> ;
     wurcs:has_monosaccharide	<http://rdf.glycoinfo.org/glycan/wurcs/2.0/Monosaccharide/a2112h-1b_1-5> ,
       <http://rdf.glycoinfo.org/glycan/wurcs/2.0/Monosaccharide/a1122h-1a_1-5> ,
