@@ -187,19 +187,10 @@ partnerId	Accession Number	sequence
 
 ## Removing Linked Partner ID
 
-The ```--remove``` or ```-r``` parameter removes the linkage from glytoucan:
+Remove Partner ID script:
 
-example of single 'your glycan id'
+http://code.glytoucan.org/system/basic/
 
-`groovy gtc -u [contributor id] -a [API key] -s  '[sequence]' -r [your glycan id]`
-
-example of file (tsv)
-
-`groovy gtc -u [contributor id] -a [API key] -t '[ｔsvFile]' -r "file"`
-
-example of file (csv)
-
-`groovy gtc -u [contributor id] -a [API key] -c '[csvFile]' -r "file"`
 
 # Production Environment
 
