@@ -20,8 +20,8 @@ layout: default
 
 ---------------
 
-* [How do I find all glycan structures in human that are registered in GlyTouCan?](/rdf-ontology/sparql-queries/#find-glycan-structures-iupac-condensed-related-to-homo-sapiens)
-* [How do I find all glycan structures in mouse that are registered in GlyTouCan?](/rdf-ontology/sparql-queries/#find-glycan-structures-iupac-condensed-related-to-mus-musculus)
+* [How do I find all glycan structures in human that are registered in GlyTouCan?](http://code.glytoucan.org/rdf-ontology/sparql-queries/#find-glycan-structures-iupac-condensed-related-to-homo-sapiens)
+* [How do I find all glycan structures in mouse that are registered in GlyTouCan?](http://code.glytoucan.org/rdf-ontology/sparql-queries/#find-glycan-structures-iupac-condensed-related-to-mus-musculus)
 
 
 ## GlyTouCan Site
