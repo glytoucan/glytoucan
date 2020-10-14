@@ -20,9 +20,6 @@ The GlyTouCan Repository offers an API server to register glycan sequences as we
 
 All documentation is generated and available directly over a browser from [api.glytoucan.org](https://api.glytoucan.org).
 
-## Installation
-`git clone https://github.com/glytoucan/databaseSync.git`
-
 ## Registering Structures
 
 In order to store user-submitted data into the GlyTouCan RDF, authorization is required to authenticate the registrant.  Instead of using a username and password, GlyTouCan generates a specific User ID and API key.  The ID and key can be obtained via the [profile](https://glytoucan.org/Users/profile) page.
@@ -50,6 +47,10 @@ If all went well, the result will return a message in the following format:
 In order to save some time for users, the API executes an exact string match search of the sequence sent, and if it already has an Accession Number, it is returned in the "message" field.  In all other cases, a reference tag is returned.  This tag can be used to  confirm the status of the submission on the [Entries](https://glytoucan.org/Users/structure) page.
 
 ### Remove Partner ID script
+
+#### Installation
+`git clone https://github.com/glytoucan/databaseSync.git`
+
 
 The installation method above explains the location of scripts provided by the GTC team.  The following is a sample command to remove a partner ID:
 
