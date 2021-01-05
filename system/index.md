@@ -22,10 +22,8 @@ All data stored in the repository is added as Linked-data into a triplestore.  T
 
 The [api server](http://api.glytoucan.org) interacts directly with the triplestore and is used as a form of a gateway to the data.  It provides a RESTful web service interface allowing to access, insert and update the information stored in RDF (triplestore data).  Third party applications (API Programmers) can freely use the web services directly to access the data content and to modify or extend it.  For Java programmers there is a [java client](http://github.com/glytoucan/client) which can be used to interact with the API server without having to deal with the complexities of the REST protocol.
 
-* [API Server Documentation](https://github.com/glytoucan/api)
-* [Java Client Library Documentation](https://github.com/glytoucan/client)
-* [Java Client CLI Documentation](/system/cli)
-* [Basic Tool CLI Documentation](/system/basic)
+* [REST API Server Documentation](https://api.glytoucan.org)
+* [REST API CLI Documentation](/system/basic)
 
 ### Web Server and Internationalization
 

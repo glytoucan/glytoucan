@@ -2,14 +2,19 @@
 title: GlyTouCan Command Line Interface to API
 layout: default
 ---
+
+# DEPRECATED
+
+Please use direct [REST access](http://code.glytoucan.org/system/basic/) from the command line.  This was using a groovy-specific method of downloading java libraries, which is unneccessary for interfacing with a REST API.
+
 * auto-gen TOC:
 {:toc}
 
 # GlyTouCan Client CLI
 
-The GTCC is a command line interface to the GlyTouCan Repository API.
+The GTCC was a command line interface to the GlyTouCan Repository API.
 
-*** Please Note *** The [basic method](http://code.glytoucan.org/system/basic/) is a better method of implementing the same command lines as this client.  Simplified bash scripts have been added to the same git repository.  Remove Partner functionality is not working.  Please check the [readme](https://github.com/glytoucan/databaseSync) of this repository.
+*** Please Note *** This library is now deprecated.  Please use the simplified [REST method](http://code.glytoucan.org/system/basic/) to interface with the GTC API.  Simplified bash scripts have been added to the same git repository.  Please check the [readme](https://github.com/glytoucan/databaseSync) of this repository.
 
 ## Features
 

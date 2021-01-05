@@ -1,24 +1,29 @@
 ---
-title: Direct API Authentication
+title: REST API Client Authentication
 layout: default
 ---
 * auto-gen TOC:
 {:toc}
 
-# Registering Structures Directly to API Server
+# API server
 
-The GlyTouCan Repository offers an API server to register glycan sequences as well as structured queries to the RDF data.  This document describes in detail how to access the server using common command line tools.  There is also a Java Client and a command line script.  All tool information is available at the [system](http://code.glytoucan.org/system//) documentation.
+The GTC API has an automatically generated [documentation](htts://api.glytoucan.org) site.  Registering data requires user authentication.  This document will provide more detail regarding how to encode the authentication information securely.
 
-## Features
+## Quick Start
 
-* Full web-based documentation
-* Authentication method to register structures
-* Various formats such as XML or JSON
-* Sample scripts provided
+`git clone https://github.com/glytoucan/databaseSync.git`
 
-## Documentation
+```
+./curlRegister.sh <GTC User ID> <GTC API Key> <sequence data>
+```
 
-All documentation is generated and available directly over a browser from [api.glytoucan.org](https://api.glytoucan.org).
+## Regarding multiple database to one user
+
+Please note that while GlyTouCan can support multiple users as a maintainer of one database, it cannot handle one user email acting as a maintainer of multiple databases.  Due to this restriction, it is advisable to create a "service account" for your database in the case you need to register for multiple websites.
+
+## New Submissions page (Aug 2019)
+
+If you login to the GlyTouCan [Entries](https://glytoucan.org/Users/structure) page, the data sent over command line can be confirmed.
 
 ## Registering Structures
 
@@ -26,7 +31,7 @@ In order to store user-submitted data into the GlyTouCan RDF, authorization is r
 
 ### Authentication Method
 
-Basic Authentication over HTTPS is used to transfer the user authentication information.  This is not clear from the automatically generated documentation, as it is over a browser it prompts for a username and password.  How basic authentication is handled depends upon the tool being used, for curl, the --user parameter is required.  The documentation shows the format of the input variables, the following is a json example.
+Basic Authentication over HTTPS is used to transfer the user authentication information.  This is not clear from the automatically generated documentation, as it is over a browser it prompts for a username and password.  How basic authentication is handled depends upon the tool being used, for curl, the --user parameter is required.  The following is a json example.
 
 ### Example
 
@@ -46,13 +51,50 @@ If all went well, the result will return a message in the following format:
 
 In order to save some time for users, the API executes an exact string match search of the sequence sent, and if it already has an Accession Number, it is returned in the "message" field.  In all other cases, a reference tag is returned.  This tag can be used to  confirm the status of the submission on the [Entries](https://glytoucan.org/Users/structure) page.
 
-### Remove Partner ID script
+### Samples
+
+We've provided sample scripts to access the API.
 
 #### Installation
+
 `git clone https://github.com/glytoucan/databaseSync.git`
 
+#### Register an entry
 
-The installation method above explains the location of scripts provided by the GTC team.  The following is a sample command to remove a partner ID:
+The above curl command is in the curlRegister.sh script.
+
+```
+aoki@bluegold:~/workspace/databaseSync$ ./curlRegisterTest.sh  <GTC User ID> <GTC API Key> CLITest
+{"timestamp":"2021-01-05T10:10:16.972+0000","status":"202 ACCEPTED","error":"","message":"bdb497c8f2b103451a6320f765853e2c6c6c5c6dc64aec7ca5b48c96b0658675","path":"/glycan/register"}
+```
+
+#### Partner API
+
+If you have registered as a partner, the API offers partner-specific functionality.
+
+##### Important Note Regarding Contributor ID
+
+It is highly recommended to create a "service account" email address in order to maintain the linkage data between glytoucan and your organization.  This way it will be possible to share this account with other trusted maintainers of your database, without giving away any private passwords.
+
+To create a service account, all that is necessary is to create an account such as "myDatabaseSupport@gmail.com", confirm the email once registered, and then login to GlyTouCan with this account.  Please be sure to confirm the email is verified as GlyTouCan does not accept submissions from users without a confirmed email address.
+
+As GlyTouCan can handle multiple users to a database, the service account can be added later once you are ready.  Please use the contributor id and api key for this account.  This information is available on the profile screen once you have logged in.
+
+##### Partner Page
+
+First be sure to login to the GTC site with the email address registered as a partner.
+
+Each entry page will recognize if you are a partner, and will offer a link to the partner page.  Here is a direct link to the [G46677TE Partner page](https://glytoucan.org/Partner/Glycans/G46677TE).
+
+##### Add Partner ID
+
+```
+aoki@bluegold:~/workspace/databaseSync$ ./curlAdd.sh test0 G51902CJ userID apiKEY 
+```
+
+##### Edit Partner ID
+
+##### Remove Partner ID
 
 ```
 aoki@bluegold:~/workspace/databaseSync$ ./curlRemove.sh test0 G51902CJ userID apiKEY 
