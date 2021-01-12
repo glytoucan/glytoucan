@@ -68,9 +68,11 @@ aoki@bluegold:~/workspace/databaseSync$ ./curlRegisterTest.sh  <GTC User ID> <GT
 {"timestamp":"2021-01-05T10:10:16.972+0000","status":"202 ACCEPTED","error":"","message":"bdb497c8f2b103451a6320f765853e2c6c6c5c6dc64aec7ca5b48c96b0658675","path":"/glycan/register"}
 ```
 
+The scripts ending with Test.sh are hard-coded to access the test environment using the test domain name.  To submit to the main site, use the scripts without "Test".
+
 #### Partner API
 
-If you have registered as a partner, the API offers partner-specific functionality.
+If you have registered as a [partner](http://code.glytoucan.org/partner/), the API offers partner-specific functionality.
 
 ##### Important Note Regarding Contributor ID
 
@@ -89,7 +91,7 @@ Each entry page will recognize if you are a partner, and will offer a link to th
 ##### Add Partner ID
 
 ```
-aoki@bluegold:~/workspace/databaseSync$ ./curlAdd.sh test0 G51902CJ userID apiKEY 
+aoki@bluegold:~/workspace/databaseSync$ ./curlPartnerAdd.sh test0 G51902CJ userID apiKEY 
 ```
 
 ##### Edit Partner ID
