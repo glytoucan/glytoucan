@@ -7,9 +7,11 @@ layout: default
 
 # API server
 
-The GTC API has an automatically generated [documentation](htts://api.glytoucan.org) site.  Registering data requires user authentication.  This document will provide more detail regarding how to encode the authentication information securely.
+The GTC REST API has an automatically generated [documentation](htts://api.glytoucan.org) site.  Registering data requires user authentication.  This document will provide more detail regarding how to encode the authentication information securely.
 
 ## Quick Start
+
+An open-source collection of scripts used to interface with the API is available.  These utilize common unix command line software such as curl.
 
 `git clone https://github.com/glytoucan/databaseSync.git`
 
@@ -17,23 +19,19 @@ The GTC API has an automatically generated [documentation](htts://api.glytoucan.
 ./curlRegister.sh <GTC User ID> <GTC API Key> <sequence data>
 ```
 
-## Regarding multiple database to one user
-
-Please note that while GlyTouCan can support multiple users as a maintainer of one database, it cannot handle one user email acting as a maintainer of multiple databases.  Due to this restriction, it is advisable to create a "service account" for your database in the case you need to register for multiple websites.
-
 ## New Submissions page (Aug 2019)
 
 If you login to the GlyTouCan [Entries](https://glytoucan.org/Users/structure) page, the data sent over command line can be confirmed.
 
 ## Registering Structures
 
-In order to store user-submitted data into the GlyTouCan RDF, authorization is required to authenticate the registrant.  Instead of using a username and password, GlyTouCan generates a specific User ID and API key.  The ID and key can be obtained via the [profile](https://glytoucan.org/Users/profile) page.
+In order to store user-submitted data into the GlyTouCan RDF, an authorization check is required to authenticate the registrant.  Instead of using a username and password, GlyTouCan generates a specific User ID and API key.  The ID and key can be obtained via the [profile](https://glytoucan.org/Users/profile) page.
 
 ### Authentication Method
 
-Basic Authentication over HTTPS is used to transfer the user authentication information.  This is not clear from the automatically generated documentation, as it is over a browser it prompts for a username and password.  How basic authentication is handled depends upon the tool being used, for curl, the --user parameter is required.  The following is a json example.
+Basic Authentication over HTTPS is used to transfer the user authentication information.  This is not clear from [documentation](https://api.glytoucan.org) (as it does not support basic authentication).  If accessed directly over browser it will prompt for a username and password, if the user id and api key is supplied, the request will be processed.  How basic authentication is handled depends upon the tool being used, for curl, it is the `--user` parameter.  The following is a json example.
 
-### Example
+#### Example
 
 ```
 curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --user <GTC User ID>:<GTC API Key> -d '{ "sequence": "<sequence data>" }' 'https://api.glytoucan.org/glycan/register'
@@ -49,7 +47,7 @@ If all went well, the result will return a message in the following format:
 {"timestamp":"2019-08-20T05:58:13.394+0000","status":"202","error":"","message":"532eaabd9574880dbf76b9b8cc00832c20a6ec113d682299550d7a6e0f345e25","path":"/glycan/register"}
 ```
 
-In order to save some time for users, the API executes an exact string match search of the sequence sent, and if it already has an Accession Number, it is returned in the "message" field.  In all other cases, a reference tag is returned.  This tag can be used to  confirm the status of the submission on the [Entries](https://glytoucan.org/Users/structure) page.
+The message field indicates a reference tag to the submission.  This tag can be used to confirm the status of the submission on the [Submissions](https://glytoucan.org/Users/structure) page.
 
 ### Samples
 
@@ -68,6 +66,7 @@ aoki@bluegold:~/workspace/databaseSync$ ./curlRegisterTest.sh  <GTC User ID> <GT
 {"timestamp":"2021-01-05T10:10:16.972+0000","status":"202 ACCEPTED","error":"","message":"bdb497c8f2b103451a6320f765853e2c6c6c5c6dc64aec7ca5b48c96b0658675","path":"/glycan/register"}
 ```
 
+*Please Note*
 The scripts ending with Test.sh are hard-coded to access the test environment using the test domain name.  To submit to the main site, use the scripts without "Test".
 
 #### Partner API
@@ -90,16 +89,26 @@ Each entry page will recognize if you are a partner, and will offer a link to th
 
 ##### Add Partner ID
 
+Add a new partner id `test0`.
+
 ```
-aoki@bluegold:~/workspace/databaseSync$ ./curlPartnerAdd.sh test0 G51902CJ userID apiKEY 
+aoki@bluegold:~/workspace/databaseSync$ ./curlPartnerAdd.sh userID apiKEY G51902CJ test0
 ```
 
 ##### Edit Partner ID
 
-##### Remove Partner ID
+Modify the `test0` id to `test1`.
 
 ```
-aoki@bluegold:~/workspace/databaseSync$ ./curlRemove.sh test0 G51902CJ userID apiKEY 
+aoki@bluegold:~/workspace/databaseSync$ ./curlPartnerEdit.sh userID apiKEY G51902CJ test1 test0
+```
+
+##### Remove Partner ID
+
+Delete the `test1` id.
+
+```
+aoki@bluegold:~/workspace/databaseSync$ ./curlPartnerDelete.sh userID apiKEY G51902CJ test1
 ```
 
 The following is a sample result return:
@@ -108,9 +117,7 @@ The following is a sample result return:
 {"timestamp":"2020-07-02T05:47:11.996+0000","status":"202","error":"","message":"test0 for WURCS=2.0/3,3,2/[a1122h-1x_1-5][Aad21122h-2x_2-6_5*NCC/3=O][Aad21122h-2x_2-6_5*NCCO/3=O]/1-2-3/a?-b2_b?-c2 deletion submitted.  Please check https://glytoucan.org/Users/structure for status.","path":"/glycan/register"}
 ```
 
-Note that it searches for the sequence and inserts the user submission data based upon the sequence.
-
-The next time the batch process for this submission is run, (currently running once an hour) the data will be processed and visible on the G51902CJ entry page.
+Note that it searches for the sequence and updates ResourceEntry class directly.
 
 ### Technical Documentation
 

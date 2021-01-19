@@ -24,8 +24,6 @@ Profile
 
 The following are the field names and where they are originated from.
 
-**Field - Description**
-
 * Username - The user name used to recognize your account.  Taken from the First name of your linked account.  
 * Email - Email address received from your authentication provider.  
 * Contributor ID - A hashed key used to identify your account.  
@@ -34,11 +32,23 @@ The following are the field names and where they are originated from.
 
 <br>
 
+## Partner Profile
+
+If you have registered as a [partner](http://code.glytoucan.org/partner/), the registered information will be displayed.
+
+![Partner Profile](/images/manual/partnerinfo.png)
+
+This information will be used when registering structures such as the url template for the external id link on entry pages.
+
+## Signout
+
 As described in the bottom half, a link to Sign out is possible.  However to complete this process, it is necessary to access your authentication provider.  
 
 For Google, this will be at [accounts.google.com](http://accounts.google.com).
 
 <br>
+
+
 
 <div id='discourse-comments'></div>
 
