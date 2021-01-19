@@ -111,7 +111,7 @@ The search functionality displays the wealth of information that was gathered fr
   </li>
 </ul>
 
-View
+Browse
 ---------------
 
 The View All functionality provides a quick way to browse all of the specific data type.  All data in the glycan repository can be analyzed from these interfaces.
@@ -126,3 +126,21 @@ The View All functionality provides a quick way to browse all of the specific da
     </a>
   </li>
 </ul>
+
+Partner
+---------------
+
+If you have registered as a [partner](http://code.glytoucan.org/partner/), you will have access to partner-specific pages.
+
+<br>
+
+<ul class="lesson-images">
+  <li>
+    <a href="../manual/partner-entry">
+      <img src="../images/manual/partner-entry.png">
+      <h3 style="text-align: center;">Partner Entry</h3>
+    </a>
+  </li>
+</ul>
+
+
