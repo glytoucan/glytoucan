@@ -137,7 +137,7 @@ If you have registered as a [partner](http://code.glytoucan.org/partner/), you w
 <ul class="lesson-images">
   <li>
     <a href="../manual/partner-entry">
-      <img src="../images/manual/partner-entry.png">
+      <img src="../images/manual/partnerinfo.png">
       <h3 style="text-align: center;">Partner Entry</h3>
     </a>
   </li>
