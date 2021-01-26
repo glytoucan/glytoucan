@@ -32,7 +32,7 @@ This is a link to the partner-specific version of an entry.  It has the same sum
 
 If you have already associated your identifiers to this entry, they will be editable as in the figure.  The Add input field is to specify a new identifier to link.  In this case, the `test0` id will be used.  Once submitted, the backend will generate the link based upon the template url of your partner registration data.
 
-*Please note* your partner information is viewable through the [User Profile](http://code.glytoucan.org/manual/profile/)).
+*Please note* your partner information is viewable through the [User Profile](http://code.glytoucan.org/manual/profile/).
 
 ![PartnerEntryInput](/images/manual/gtc-partner-entry-input.png)
 
