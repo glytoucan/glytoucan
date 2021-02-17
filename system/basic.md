@@ -16,7 +16,7 @@ An open-source collection of scripts used to interface with the API is available
 `git clone https://github.com/glytoucan/databaseSync.git`
 
 ```
-./curlRegister.sh <GTC User ID> <GTC API Key> <sequence data>
+./curlRegister.sh <GTC Contributor ID> <GTC API Key> <sequence data>
 ```
 
 ## New Submissions page (Aug 2019)
@@ -25,7 +25,7 @@ If you login to the GlyTouCan [Entries](https://glytoucan.org/Users/structure) p
 
 ## Registering Structures
 
-In order to store user-submitted data into the GlyTouCan RDF, an authorization check is required to authenticate the registrant.  Instead of using a username and password, GlyTouCan generates a specific User ID and API key.  The ID and key can be obtained via the [profile](https://glytoucan.org/Users/profile) page.
+In order to store user-submitted data into the GlyTouCan RDF, an authorization check is required to authenticate the registrant.  Instead of using a username and password, GlyTouCan generates a specific Contributor ID and API key.  The ID and key can be obtained via the [profile](https://glytoucan.org/Users/profile) page.
 
 ### Authentication Method
 
@@ -34,10 +34,10 @@ Basic Authentication over HTTPS is used to transfer the user authentication info
 #### Example
 
 ```
-curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --user <GTC User ID>:<GTC API Key> -d '{ "sequence": "<sequence data>" }' 'https://api.glytoucan.org/glycan/register'
+curl -X POST --header 'Content-Type: application/json' --header 'Accept: application/json' --user <GTC Contributor ID>:<GTC API Key> -d '{ "sequence": "<sequence data>" }' 'https://api.glytoucan.org/glycan/register'
 ```
 
-Note how the GlyTouCan User Id and API Key are passed in the basic authentication parameter.  The sequence data should be supplied in JSON format with the "sequence" key.
+Note how the GlyTouCan Contributor Id and API Key are passed in the basic authentication parameter.  The sequence data should be supplied in JSON format with the "sequence" key.
 
 ### Return Message
 
@@ -62,7 +62,7 @@ We've provided sample scripts to access the API.
 The above curl command is in the curlRegister.sh script.
 
 ```
-aoki@bluegold:~/workspace/databaseSync$ ./curlRegisterTest.sh  <GTC User ID> <GTC API Key> CLITest
+aoki@bluegold:~/workspace/databaseSync$ ./curlRegisterTest.sh  <GTC Contributor ID> <GTC API Key> CLITest
 {"timestamp":"2021-01-05T10:10:16.972+0000","status":"202 ACCEPTED","error":"","message":"bdb497c8f2b103451a6320f765853e2c6c6c5c6dc64aec7ca5b48c96b0658675","path":"/glycan/register"}
 ```
 
