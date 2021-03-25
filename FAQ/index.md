@@ -125,10 +125,9 @@ Details on GlyTouCan partner program can be found on the page
 
 **A.** You can register as a GlyTouCan partner using this google form.
 
-- For the English version.
-  - [GlyTouCan Partner Registration Request (en)](http://code.glytoucan.org/partner/registration/)
-- For the Japanese version.
-  - [GlyTouCan Partner Registration Request (jp)](http://code.glytoucan.org/partner/registration_ja/)
+
+  - [GlyTouCan Partner Registration Request](http://code.glytoucan.org/partner/registration/)
+
 
 
  Once you have registered as the GlyTouCan partner, you can register your glycan structure data by the partner account that is registered as the partner by email.
