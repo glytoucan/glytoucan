@@ -140,7 +140,7 @@ After registration and confirmation from [GLIC](http://glic.glycoinfo.org) that 
 This will require [registration](http://code.glytoucan.org/partner/registration/) and then confirmation.
 
 * [Partner Registration](http://code.glytoucan.org/partner/registration/) 
-* [Partner Registration in Japanese](http://code.glytoucan.org/partner/registration_ja/)
+
 
 To register a single sequence with your id:
 
