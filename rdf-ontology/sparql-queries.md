@@ -63,8 +63,8 @@ limit 100
 
 *This result shows 100 items by "limit" opiton*
 
-[=> run (limit 100)](https://ts.glytoucan.org/sparql?default-graph-uri=&query=PREFIX+glycan%3A+%3Chttp%3A%2F%2Fpurl.jp%2Fbio%2F12%2Fglyco%2Fglycan%23%3E%0D%0APREFIX+glytoucan%3A++%3Chttp%3A%2F%2Fwww.glytoucan.org%2Fglyco%2Fowl%2Fglytoucan%23%3E%0D%0A%0D%0ASELECT+DISTINCT+%3FSaccharide+%3FPrimaryId+%3FSequence%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fcore%3E%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fsequence%2Fglycoct%3E%0D%0AWHERE+%7B%0D%0A++++%3FSaccharide+glytoucan%3Ahas_primary_id+%3FPrimaryId+.%0D%0A++++%3FSaccharide+glycan%3Ahas_glycosequence+%3FGlycoSequence+.%0D%0A++++%3FGlycoSequence+glycan%3Ahas_sequence+%3FSequence+.%0D%0A++++%3FGlycoSequence+glycan%3Ain_carbohydrate_format+glycan%3Acarbohydrate_format_glycoct.%0D%0A%7D%0D%0AORDER+BY+%3FPrimaryId%0D%0Alimit+100&format=text%2Fhtml&timeout=0&debug=on)<br>
-[=> endpoint](https://ts.glytoucan.org/sparql)
+[=> run (limit 100)](https://ts.glycosmos.org/sparql?query=PREFIX+dcterms%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0APREFIX+glycan%3A+%3Chttp%3A%2F%2Fpurl.jp%2Fbio%2F12%2Fglyco%2Fglycan%23%3E%0D%0APREFIX+glytoucan%3A+%3Chttp%3A%2F%2Fwww.glytoucan.org%2Fglyco%2Fowl%2Fglytoucan%23%3E%0D%0A%0D%0ASELECT+DISTINCT+%3FaccNum++%3Fexternal_id%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fcore%3E%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fpartner%2Fglycome-db%3E%0D%0AWHERE%7B%0D%0A++%3Fsaccharide+glytoucan%3Ahas_primary_id+%3FaccNum+.%0D%0A++%3Fsaccharide+glycan%3Ahas_resource_entry+%3Fentry+.%0D%0A++%3Fentry+a+glycan%3AResource_entry+.%0D%0A++%3Fentry+glycan%3Ain_glycan_database+glycan%3ADatabase_glycomedb+.%0D%0A%0D%0A++VALUES+%3Fexternal_id+%7B%2210923%22%7D%0D%0A++%3Fentry+dcterms%3Aidentifier+%3Fexternal_id+.%0D%0A%7D&render=HTML&limit=25&offset=0#loadstar-results-section)<br>
+[=> endpoint](https://ts.glycosmos.org/sparql)
 
 
 # Find A GlyTouCan Accession from GlycomeDB ID
