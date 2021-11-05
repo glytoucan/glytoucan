@@ -119,6 +119,36 @@ The following is a sample result return:
 
 Note that it searches for the sequence and updates ResourceEntry class directly.
 
+
+#### Partner Test
+
+* Test GlytouCan site: https://gtc.beta.glycosmos.org
+
+##### Add Partner ID Test with csv file
+
+```
+$ php PartnerAddNaviTest.php {Contributor ID} {API Key} {csv file path}
+```
+
+##### Remove Partner ID Test with csv file
+
+```
+$ php PartnerDeleteNaviTest.php {Contributor ID} {API Key} {csv file path}
+```
+
+##### Test CSV file
+
+```
+G42666HT,5T89
+G81067MN,5TA0
+G84576DT,5TA5
+G42666HT,5XRT
+G42666HT,5XWS
+G42666HT,5XWU
+...
+```
+
+
 ### Technical Documentation
 
 For more details on other requests, please refer to the [generated documentation](https://api.glytoucan.org).  Please contact us if there are any other structured queries that should be added, updated.
