@@ -76,7 +76,7 @@ Archive graph          | http://rdf.glytoucan.org/archive          | Archived gl
     glytoucan:date_registered  2014-10-31 16:00:57.41;
 ```
 ## Archive Graph
-Archived resources are also included in the archive graph.  
+Archived entries are included in the archive graph.  
 ### URI : `http://rdf.glytoucan.org/archive`
 ### Scheme diagram
 ![](/images/rdf_doc/archive.png)
@@ -98,9 +98,9 @@ Archived resources are also included in the archive graph.
 
 ## WURCS graph
 ### URI : `http://rdf.glytoucan.org/sequence/wurcs`
-### Scheme diagram
+### RDF Schema
 ![](/images/rdf_doc/core-w.png)
-### Triple
+### RDF (turtle format)
 ```turtle
 @prefix rdf:	<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
 @prefix glycan:	<http://purl.jp/bio/12/glyco/glycan#> .
@@ -116,9 +116,9 @@ Archived resources are also included in the archive graph.
 
 ## GlycoCT graph
 ### URI : `http://rdf.glytoucan.org/sequence/glycoct`
-### Scheme diagram
+### RDF Schema
 ![](/images/rdf_doc/core-ct.png)
-### Triple
+### RDF (turtle format)
 
 ```turtle
 @prefix rdf:	<http://www.w3.org/1999/02/22-rdf-syntax-ns#> .
@@ -132,7 +132,7 @@ Archived resources are also included in the archive graph.
 		glycan:carbohydrate_format_glycoct .
 ```
 
-## Sparql listing valid informations
+## Example of SPARQL query for listing valid data in GlyTouCan
 ```
 
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
@@ -179,7 +179,7 @@ WHERE {
 [=> Run query](https://ts.glytoucan.org/sparql?query=PREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0D%0APREFIX+dcterms%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0APREFIX+glycan%3A+%3Chttp%3A%2F%2Fpurl.jp%2Fbio%2F12%2Fglyco%2Fglycan%23%3E%0D%0APREFIX+glytoucan%3A++%3Chttp%3A%2F%2Fwww.glytoucan.org%2Fglyco%2Fowl%2Fglytoucan%23%3E%0D%0A%0D%0ASELECT+DISTINCT+*%0D%0AWHERE+%7B%0D%0A++GRAPH+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fcore%3E+%7B%0D%0A++++%3FSaccharide+a+%3FSaClass+.%0D%0A++++%3FSaccharide+glytoucan%3Ahas_primary_id+%3FAccNum+.%0D%0A++++%3FSaccharide+glycan%3Ahas_resource_entry+%3FResEntry+.%0D%0A%0D%0A++++%3FResEntry+a+%3FResEntryClass+.%0D%0A++++%3FResEntry+glytoucan%3Adate_registered+%3FDate+.%0D%0A++++%3FResEntry+glycan%3Ain_glycan_database+%3FDB+.%0D%0A++++%3FResEntry+rdfs%3AseeAlso+%3FGlyTouCanURL+.%0D%0A++%7D%0D%0A++GRAPH+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fsequence%2Fwurcs%3E+%7B%0D%0A++++optional+%7B%0D%0A++++++%3FSaccharide+glycan%3Ahas_glycosequence+%3FGSeq+.%0D%0A++++++%3FGSeq+a+%3FGSClass.%0D%0A++++++%3FGSeq+glycan%3Ahas_sequence+%3FWurcsSeq.%0D%0A++++++%3FGSeq+glycan%3Ain_carbohydrate_format+%3FformatW+.%0D%0A++++%7D%0D%0A++%7D%0D%0A++graph+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fsequence%2Fglycoct%3E+%7B%0D%0A++++optional+%7B%0D%0A++++++%3FSaccharide+glycan%3Ahas_glycosequence+%3FGSeqCt+.%0D%0A++++++%3FGSeqCt+glycan%3Ahas_sequence+%3FCtSeq+.%0D%0A++++++%3FGSeqCt+glycan%3Ain_carbohydrate_format+%3FFormatCT+.%0D%0A++++%7D%0D%0A++%7D%0D%0A%0D%0A%7D%0D%0A%0D%0A&render=HTML&limit=25&offset=0#loadstar-results-section)
 
 ## Partner Graph
-Please check the latest list as the number of partners will increase gradually.
+SPARQL query for listing all the GlyTouCan Partner graphs.
 
 ```
 SELECT DISTINCT(?g) 
