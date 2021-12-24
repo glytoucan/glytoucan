@@ -1,8 +1,6 @@
 ---
 title: GlyTouCan RDF/Ontology
-authors:
-- GlyTouCan Support
-layout: paging
+layout: default
 ---
 
 
