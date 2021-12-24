@@ -3,7 +3,7 @@ title: GlyTouCan RDF
 authors:
 - Akihiro Fujita
 - Daisuke Shinmachi
-- Kiyoko Kinoshita
+- Kiyoko Aoki-Kinoshita
 - Issaku Yamada
 date: 2018-01-25
 layout: rdf-docs
@@ -133,8 +133,8 @@ Archived resources are also included in the archive graph.
 ```
 
 ## Sparql listing valid informations
-```
-
+```Sparql
+PREFIX rdf: <http://www.w3.org/1999/02/22-rdf-syntax-ns#>
 PREFIX rdfs: <http://www.w3.org/2000/01/rdf-schema#>
 PREFIX dcterms: <http://purl.org/dc/terms/>
 PREFIX glycan: <http://purl.jp/bio/12/glyco/glycan#>
@@ -172,16 +172,14 @@ WHERE {
      ?Saccharide rdf:type ?ArchiveSaccharide
    }
  }
-
 }
-
 ```
-[=> Run query](https://ts.glytoucan.org/sparql?query=PREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0D%0APREFIX+dcterms%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0APREFIX+glycan%3A+%3Chttp%3A%2F%2Fpurl.jp%2Fbio%2F12%2Fglyco%2Fglycan%23%3E%0D%0APREFIX+glytoucan%3A++%3Chttp%3A%2F%2Fwww.glytoucan.org%2Fglyco%2Fowl%2Fglytoucan%23%3E%0D%0A%0D%0ASELECT+DISTINCT+*%0D%0AWHERE+%7B%0D%0A++GRAPH+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fcore%3E+%7B%0D%0A++++%3FSaccharide+a+%3FSaClass+.%0D%0A++++%3FSaccharide+glytoucan%3Ahas_primary_id+%3FAccNum+.%0D%0A++++%3FSaccharide+glycan%3Ahas_resource_entry+%3FResEntry+.%0D%0A%0D%0A++++%3FResEntry+a+%3FResEntryClass+.%0D%0A++++%3FResEntry+glytoucan%3Adate_registered+%3FDate+.%0D%0A++++%3FResEntry+glycan%3Ain_glycan_database+%3FDB+.%0D%0A++++%3FResEntry+rdfs%3AseeAlso+%3FGlyTouCanURL+.%0D%0A++%7D%0D%0A++GRAPH+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fsequence%2Fwurcs%3E+%7B%0D%0A++++optional+%7B%0D%0A++++++%3FSaccharide+glycan%3Ahas_glycosequence+%3FGSeq+.%0D%0A++++++%3FGSeq+a+%3FGSClass.%0D%0A++++++%3FGSeq+glycan%3Ahas_sequence+%3FWurcsSeq.%0D%0A++++++%3FGSeq+glycan%3Ain_carbohydrate_format+%3FformatW+.%0D%0A++++%7D%0D%0A++%7D%0D%0A++graph+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fsequence%2Fglycoct%3E+%7B%0D%0A++++optional+%7B%0D%0A++++++%3FSaccharide+glycan%3Ahas_glycosequence+%3FGSeqCt+.%0D%0A++++++%3FGSeqCt+glycan%3Ahas_sequence+%3FCtSeq+.%0D%0A++++++%3FGSeqCt+glycan%3Ain_carbohydrate_format+%3FFormatCT+.%0D%0A++++%7D%0D%0A++%7D%0D%0A%0D%0A%7D%0D%0A%0D%0A&render=HTML&limit=25&offset=0#loadstar-results-section)
+[=> Run query](https://ts.glytoucan.org/sparql?query=PREFIX+rdf%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F1999%2F02%2F22-rdf-syntax-ns%23%3E%0D%0APREFIX+rdfs%3A+%3Chttp%3A%2F%2Fwww.w3.org%2F2000%2F01%2Frdf-schema%23%3E%0D%0APREFIX+dcterms%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0APREFIX+glycan%3A+%3Chttp%3A%2F%2Fpurl.jp%2Fbio%2F12%2Fglyco%2Fglycan%23%3E%0D%0APREFIX+glytoucan%3A++%3Chttp%3A%2F%2Fwww.glytoucan.org%2Fglyco%2Fowl%2Fglytoucan%23%3E%0D%0A%0D%0ASELECT+DISTINCT+*%0D%0AWHERE+%7B%0D%0A++GRAPH+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fcore%3E+%7B%0D%0A++++%3FSaccharide+a+%3FSaClass+.%0D%0A++++%3FSaccharide+glytoucan%3Ahas_primary_id+%3FAccNum+.%0D%0A++++%3FSaccharide+glycan%3Ahas_resource_entry+%3FResEntry+.%0D%0A%0D%0A++++%3FResEntry+a+%3FResEntryClass+.%0D%0A++++%3FResEntry+glytoucan%3Adate_registered+%3FDate+.%0D%0A++++%3FResEntry+glycan%3Ain_glycan_database+%3FDB+.%0D%0A++++%3FResEntry+rdfs%3AseeAlso+%3FGlyTouCanURL+.%0D%0A++%7D%0D%0A++GRAPH+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fsequence%2Fwurcs%3E+%7B%0D%0A++++optional+%7B%0D%0A++++++%3FSaccharide+glycan%3Ahas_glycosequence+%3FGSeq+.%0D%0A++++++%3FGSeq+a+%3FGSClass.%0D%0A++++++%3FGSeq+glycan%3Ahas_sequence+%3FWurcsSeq.%0D%0A++++++%3FGSeq+glycan%3Ain_carbohydrate_format+%3FformatW+.%0D%0A++++%7D%0D%0A++%7D%0D%0A++GRAPH+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fsequence%2Fglycoct%3E+%7B%0D%0A++++optional+%7B%0D%0A++++++%3FSaccharide+glycan%3Ahas_glycosequence+%3FGSeqCt+.%0D%0A++++++%3FGSeqCt+glycan%3Ahas_sequence+%3FCtSeq+.%0D%0A++++++%3FGSeqCt+glycan%3Ain_carbohydrate_format+%3FFormatCT+.%0D%0A++++%7D%0D%0A++%7D%0D%0A++FILTER+NOT+EXISTS+%7B%0D%0A+++GRAPH+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Farchive%3E+%7B%0D%0A+++++%3FSaccharide+rdf%3Atype+%3FArchiveSaccharide%0D%0A+++%7D%0D%0A+%7D%0D%0A%7D%0D%0A&render=HTML&limit=25&offset=0#loadstar-results-section)
 
 ## Partner Graph
 Please check the latest list as the number of partners will increase gradually.
 
-```
+```Sparql
 SELECT DISTINCT(?g) 
 WHERE {
     GRAPH ?g {
@@ -191,3 +189,4 @@ WHERE {
 }
 ORDER BY ?g
 ```
+[=> Run query](https://ts.glytoucan.org/sparql?query=SELECT+DISTINCT%28%3Fg%29+%0D%0AWHERE+%7B%0D%0A++++GRAPH+%3Fg+%7B%0D%0A++++++++%3Fs+%3Fp+%3Fo%0D%0A++++%7D%0D%0A++++FILTER+regex%28str%28%3Fg%29%2C+%22%5Ehttp%3A%2F%2Frdf.glytoucan.org%2Fpartner%2F%22%29+%0D%0A%7D%0D%0AORDER+BY+%3Fg&render=HTML&limit=25&offset=0#loadstar-results-section)
