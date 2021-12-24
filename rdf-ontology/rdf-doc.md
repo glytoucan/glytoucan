@@ -55,7 +55,7 @@ Archive graph          | http://rdf.glytoucan.org/archive          | Archived gl
 
 ## Core graph
 ### URI : `http://rdf.glytoucan.org/core`
-### Scheme diagram
+### RDF Schema
 ![](/images/rdf_doc/core-w.png)
 ### Triple
 
@@ -78,7 +78,7 @@ Archive graph          | http://rdf.glytoucan.org/archive          | Archived gl
 ## Archive Graph
 Archived entries are included in the archive graph.  
 ### URI : `http://rdf.glytoucan.org/archive`
-### Scheme diagram
+### RDF Schema
 ![](/images/rdf_doc/archive.png)
 ### Triple
 
