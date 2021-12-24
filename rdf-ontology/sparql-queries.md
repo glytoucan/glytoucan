@@ -3,8 +3,9 @@ title: Sample SPARQL Queries
 authors:
 - Daisuke Shinmachi
 - Issaku Yamada
+- Kiyoko F. Aoki-Kinoshita
 date: 2018-02-06
-modify data: 2021-10-14
+modify data: 2021-12-24
 layout: default
 ---
 # Sample SPARQL queries
