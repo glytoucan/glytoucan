@@ -7,13 +7,18 @@ date: 2018-02-06
 modify data: 2021-10-14
 layout: default
 ---
+# Sample SPARQL queries
+This page lists some common SPARQL queries that can be made for searching glycans.
+
+Note that the endpoint is different depending on the type of query.  Glycan structures are primarily stored in GlyTouCan,
+while metadata such as species information can be queried from GlyCosmos.
 
 <!-- TOC depthFrom:1 depthTo:6 withLinks:1 updateOnSave:1 orderedList:0 -->
 
 - [Find all Glycan structures (WURCS)](#find-all-glycan-structures-wurcs)
 - [Find all Glycan structures (GlycoCT)](#find-all-glycan-structures-glycoct)
-- [Find A GlyTouCan Accession from GlycomeDB ID](#find-a-glytoucan-accession-from-glycomedb-id)
-- [Find Glycan structures (IUPAC Condensed) related to Homo sapines](#find-glycan-structures-iupac-condensed-related-to-homo-sapiens)
+- [Find the GlyTouCan Accession from GlycomeDB ID](#find-a-glytoucan-accession-from-glycomedb-id)
+- [Find Glycan structures (IUPAC Condensed) related to Homo sapiens](#find-glycan-structures-iupac-condensed-related-to-homo-sapiens)
 - [Find Glycan structures (IUPAC Condensed) related to Mus musculus](#find-glycan-structures-iupac-condensed-related-to-mus-musculus)
 
 <!-- /TOC -->
@@ -66,10 +71,10 @@ limit 100
 *This result shows 100 items by "limit" opiton*
 
 [=> run (limit 100)](https://ts.glycosmos.org/sparql?query=PREFIX+dcterms%3A+%3Chttp%3A%2F%2Fpurl.org%2Fdc%2Fterms%2F%3E%0D%0APREFIX+glycan%3A+%3Chttp%3A%2F%2Fpurl.jp%2Fbio%2F12%2Fglyco%2Fglycan%23%3E%0D%0APREFIX+glytoucan%3A+%3Chttp%3A%2F%2Fwww.glytoucan.org%2Fglyco%2Fowl%2Fglytoucan%23%3E%0D%0A%0D%0ASELECT+DISTINCT+%3FaccNum++%3Fexternal_id%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fcore%3E%0D%0AFROM+%3Chttp%3A%2F%2Frdf.glytoucan.org%2Fpartner%2Fglycome-db%3E%0D%0AWHERE%7B%0D%0A++%3Fsaccharide+glytoucan%3Ahas_primary_id+%3FaccNum+.%0D%0A++%3Fsaccharide+glycan%3Ahas_resource_entry+%3Fentry+.%0D%0A++%3Fentry+a+glycan%3AResource_entry+.%0D%0A++%3Fentry+glycan%3Ain_glycan_database+glycan%3ADatabase_glycomedb+.%0D%0A%0D%0A++VALUES+%3Fexternal_id+%7B%2210923%22%7D%0D%0A++%3Fentry+dcterms%3Aidentifier+%3Fexternal_id+.%0D%0A%7D&render=HTML&limit=25&offset=0#loadstar-results-section)<br>
-[=> endpoint (https://ts.glycosmos.org/sparql)](https://ts.glycosmos.org/sparql)
+[=> endpoint (https://ts.glytoucan.org/sparql)](https://ts.glytoucan.org/sparql)
 
 
-# Find A GlyTouCan Accession from GlycomeDB ID
+# Find the GlyTouCan Accession from GlycomeDB ID
 
 ```
 PREFIX dcterms: <http://purl.org/dc/terms/>
