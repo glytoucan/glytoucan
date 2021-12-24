@@ -27,17 +27,17 @@ last_modified_at: 2021-12-24
 
 # Ontology 
 
-Prefix     |  Namespace 
---|---
-rdf        | `http://www.w3.org/1999/02/22-rdf-syntax-ns#`
-rdfs       | `http://www.w3.org/2000/01/rdf-schema#`  
-owl        | `http://www.w3.org/2002/07/owl#`  
-xsd        | `http://www.w3.org/2001/XMLSchema#`  
-foaf       | `http://xmlns.com/foaf/0.1/`  
-bibo       | `http://purl.org/ontology/bibo/`  
-glycan     | `http://purl.jp/bio/12/glyco/glycan#`  
-glytoucan  | `http://www.glytoucan.org/glyco/owl/glytoucan#`  
-wurcs      | `http://www.glycoinfo.org/glyco/owl/wurcs#`  
+| Prefix    | Namespace                                      |
+| --        | --                                             |
+|rdf        | `http://www.w3.org/1999/02/22-rdf-syntax-ns#`  |
+|rdfs       | `http://www.w3.org/2000/01/rdf-schema#`        |
+|owl        | `http://www.w3.org/2002/07/owl#`               |
+|xsd        | `http://www.w3.org/2001/XMLSchema#`            |  
+|foaf       | `http://xmlns.com/foaf/0.1/`                   |
+|bibo       | `http://purl.org/ontology/bibo/`               |  
+|glycan     | `http://purl.jp/bio/12/glyco/glycan#`          |  
+|glytoucan  | `http://www.glytoucan.org/glyco/owl/glytoucan#`|  
+|wurcs      | `http://www.glycoinfo.org/glyco/owl/wurcs#`    |
 
 
 # GRAPHs
