@@ -95,7 +95,6 @@ Archived resources are also included in the archive graph.
     <http://www.glytoucan.org/glyco/owl/glytoucan#has_primary_id>	G68622UR
 ```
 
-
 ## WURCS graph
 ### URI : `http://rdf.glytoucan.org/sequence/wurcs`
 ### Scheme diagram
