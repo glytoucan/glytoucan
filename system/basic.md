@@ -79,7 +79,7 @@ The above curl command is in the curlRegisterFile.sh script.
  % ./curlRegisterFile.sh <GTC Contributor ID> <GTC API Key> <WURCS File Path>
 ```
 
-* WURCS File Sample
+* WURCS File Sample (curlWURCSfileSample.txt)
 
 ```
 WURCS=2.0/4,4,3/[a2122h-1b_1-5][a2112h-1b_1-5][a2112h-1a_1-5][a2112h-1b_1-5_2*NCC/3=O]/1-2-3-4/a4-b1_b4-c1_c3-d1
