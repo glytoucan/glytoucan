@@ -79,6 +79,16 @@ The above curl command is in the curlRegisterFile.sh script.
  % ./curlRegisterFile.sh <GTC Contributor ID> <GTC API Key> <WURCS File Path>
 ```
 
+* WURCS File Sample
+
+```
+WURCS=2.0/4,4,3/[a2122h-1b_1-5][a2112h-1b_1-5][a2112h-1a_1-5][a2112h-1b_1-5_2*NCC/3=O]/1-2-3-4/a4-b1_b4-c1_c3-d1
+WURCS=2.0/3,3,2/[a2122h-1b_1-5][a2112h-1b_1-5][a2112h-1a_1-5]/1-2-3/a4-b1_b3-c1
+WURCS=2.0/2,2,1/[a2122h-1b_1-5_2*NCC/3=O][a2112h-1b_1-5]/1-2/a3-b1
+WURCS=2.0/3,3,2/[a2122h-1b_1-5_2*NCC/3=O][a2112h-1b_1-5][a1221m-1a_1-5]/1-2-3/a4-b1_b2-c1
+WURCS=2.0/3,3,2/[a2122h-1b_1-5_2*NCC/3=O][a2112h-1b_1-5][a2112h-1a_1-5]/1-2-3/a3-b1_b3-c1
+```
+
 * result
 ```
 {"timestamp":"2022-01-24T07:54:46.215+0000","status":"202 ACCEPTED","error":"","message":"4cb90c263974f9b4c538bcaf438d8ba3bebbd1b0694fa81d6b1532606e6022c7","path":"/glycan/register"}
