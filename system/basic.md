@@ -69,6 +69,26 @@ aoki@bluegold:~/workspace/databaseSync$ ./curlRegisterTest.sh  <GTC Contributor 
 *Please Note*
 The scripts ending with Test.sh are hard-coded to access the test environment using the test domain name.  To submit to the main site, use the scripts without "Test".
 
+
+#### Register entries
+
+
+The above curl command is in the curlRegisterFile.sh script.
+
+```
+ % ./curlRegisterFile.sh <GTC Contributor ID> <GTC API Key> <WURCS File Path>
+```
+
+* result
+```
+{"timestamp":"2022-01-24T07:54:46.215+0000","status":"202 ACCEPTED","error":"","message":"4cb90c263974f9b4c538bcaf438d8ba3bebbd1b0694fa81d6b1532606e6022c7","path":"/glycan/register"}
+{"timestamp":"2022-01-24T07:54:46.376+0000","status":"202 ACCEPTED","error":"","message":"1c784fa0e83738c63bb050b7008d1c21bb5a0bf8bafae172c5309fe41dabdd4a","path":"/glycan/register"}
+{"timestamp":"2022-01-24T07:54:46.524+0000","status":"202 
+```
+
+*Please Note*
+The scripts ending with Test.sh are hard-coded to access the test environment using the test domain name.  To submit to the main site, use the scripts without "Test".
+
 #### Partner API
 
 If you have registered as a [partner](http://code.glytoucan.org/partner/), the API offers partner-specific functionality.
