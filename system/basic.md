@@ -90,6 +90,7 @@ WURCS=2.0/3,3,2/[a2122h-1b_1-5_2*NCC/3=O][a2112h-1b_1-5][a2112h-1a_1-5]/1-2-3/a3
 ```
 
 * result
+
 ```
 
 {"timestamp":"2022-01-24T07:54:46.215+0000","status":"202 ACCEPTED","error":"","message":"4cb90c263974f9b4c538bcaf438d8ba3bebbd1b0694fa81d6b1532606e6022c7","path":"/glycan/register"}
