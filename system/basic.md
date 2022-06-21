@@ -19,6 +19,9 @@ An open-source collection of scripts used to interface with the API is available
 ./curlRegister.sh <GTC Contributor ID> <GTC API Key> <sequence data>
 ```
 
+*Please Note*
+Please be carefully to escape some characters such as ‘$’ that may be contained within some sequence data when using the command line scripts.
+
 ## New Submissions page (Aug 2019)
 
 If you login to the GlyTouCan [Entries](https://glytoucan.org/Users/structure) page, the data sent over command line can be confirmed.
@@ -66,7 +69,7 @@ aoki@bluegold:~/workspace/databaseSync$ ./curlRegisterTest.sh  <GTC Contributor 
 {"timestamp":"2021-01-05T10:10:16.972+0000","status":"202 ACCEPTED","error":"","message":"bdb497c8f2b103451a6320f765853e2c6c6c5c6dc64aec7ca5b48c96b0658675","path":"/glycan/register"}
 ```
 
-*Please Note*
+*Please Note:*
 The scripts ending with Test.sh are hard-coded to access the test environment using the test domain name.  To submit to the main site, use the scripts without "Test".
 
 
